@@ -2,7 +2,7 @@
 name: yb-master
 
 templates:
-  ctl.erb: bin/ctl
+  ctl.erb.sh: bin/ctl
 
 packages: []
 

@@ -1,0 +1,5 @@
+check process yb-master
+  with pidfile /var/vcap/sys/run/yb-master/yb-master.pid
+  start program "/var/vcap/jobs/yb-master/bin/ctl start"
+  stop program "/var/vcap/jobs/yb-master/bin/ctl stop"
+  group vcap
