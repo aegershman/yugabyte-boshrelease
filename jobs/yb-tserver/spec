@@ -1,0 +1,8 @@
+---
+name: yb-tserver
+
+templates: {}
+
+packages: []
+
+properties: {}
