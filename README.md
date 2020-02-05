@@ -4,6 +4,9 @@ todo:
 
 - errands for status, ctl, cleanup, etc
 - yb-ctl for a single local cluster as a job
+- syslog operators
+- web operators
+- certificates in a certs dir, maybe steal from rmq or other releases
 
 reference links:
 
