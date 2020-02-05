@@ -1,7 +1,8 @@
 ---
 name: yb-master
 
-templates: {}
+templates:
+  ctl.erb: bin/ctl
 
 packages: []
 
