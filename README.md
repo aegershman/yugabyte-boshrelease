@@ -8,6 +8,7 @@ todo:
 - web operators
 - certificates in a certs dir, maybe steal from rmq or other releases
 - licensing...?
+- bpm
 
 reference links:
 
