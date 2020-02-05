@@ -9,6 +9,7 @@ links:
 - https://docs.yugabyte.com/latest/deploy/manual-deployment/start-masters/
 - https://docs.yugabyte.com/latest/deploy/public-clouds/aws/#manual-deployment
 - https://docs.yugabyte.com/latest/quick-start/create-local-cluster/
+- https://github.com/cloudfoundry/exemplar-release
 
 inspiration:
 
