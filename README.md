@@ -12,6 +12,7 @@ todo:
 
 reference links:
 
+- https://ultimateguidetobosh.com/instances/#persistent-volumes
 - https://ultimateguidetobosh.com/disks/
 - https://github.com/yugabyte/charts/blob/master/stable/yugabyte/templates/service.yaml#L228
 - https://docs.yugabyte.com/latest/reference/configuration/yb-master/
