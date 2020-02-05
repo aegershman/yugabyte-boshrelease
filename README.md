@@ -8,7 +8,7 @@ todo:
 - web operators
 - certificates in a certs dir, maybe steal from rmq or other releases
 - licensing...?
-- bpm
+- bpm... maybe just templatize the entire bpm yml as an erb?: https://bosh.io/docs/bpm/config/#example
 
 reference links:
 
