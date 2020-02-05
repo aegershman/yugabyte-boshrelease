@@ -1,0 +1,8 @@
+---
+version: "2"
+
+tasks:
+  git:
+    cmds:
+      - git add -A
+      - git commit -m "autocommit"
