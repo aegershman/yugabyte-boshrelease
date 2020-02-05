@@ -16,6 +16,11 @@ start)
     --master_addresses=${link} \
     --replication_factor=${link} \
     --enable_ysql=${true} \
+    --metric_node_name=$(HOSTNAME) \
+    --memory_limit_hard_bytes={{ template "yugabyte.memory_hard_limit" $root.Values.resource.master }} \
+    --stderrthreshold=0 \
+    --num_cpus={{ ceil $root.Values.resource.master.requests.cpu }} \
+    --undefok=num_cpus,enable_ysql \
     x
   ;;
 

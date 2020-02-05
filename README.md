@@ -1,5 +1,10 @@
 # yugabyte-boshrelease
 
+todo:
+
+- errands for status, ctl, cleanup, etc
+- yb-ctl for a single local cluster as a job
+
 reference links:
 
 - https://github.com/yugabyte/charts/blob/master/stable/yugabyte/templates/service.yaml#L228
