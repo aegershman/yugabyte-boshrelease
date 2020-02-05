@@ -6,4 +6,10 @@ templates:
 
 packages: []
 
+consumes:
+  - name: yb-master???
+
+provides:
+  - name: yb-master???
+
 properties: {}
