@@ -14,10 +14,11 @@ todo:
 
 reference links:
 
+- https://github.com/yugabyte/charts/blob/master/stable/yugabyte/templates/service.yaml#L228
+- https://github.com/yugabyte/yugabyte-db/blob/b68b84bfd46b6a771d828c66477a477aa0f71844/src/yb/tserver/tablet_server_main.cc#L91-L97
+- https://docs.yugabyte.com/latest/reference/configuration/yb-master/
 - https://ultimateguidetobosh.com/instances/#persistent-volumes
 - https://ultimateguidetobosh.com/disks/
-- https://github.com/yugabyte/charts/blob/master/stable/yugabyte/templates/service.yaml#L228
-- https://docs.yugabyte.com/latest/reference/configuration/yb-master/
 - https://docs.yugabyte.com/latest/deploy/manual-deployment/
 - https://docs.yugabyte.com/latest/deploy/manual-deployment/start-masters/
 - https://docs.yugabyte.com/latest/deploy/public-clouds/aws/#manual-deployment
