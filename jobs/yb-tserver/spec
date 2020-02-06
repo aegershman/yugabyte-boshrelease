@@ -1,8 +1,25 @@
 ---
 name: yb-tserver
 
-templates: {}
+description: https://docs.yugabyte.com/latest/reference/configuration/yb-tserver/
+
+templates:
+  ctl.erb.sh: bin/ctl
 
 packages: []
 
-properties: {}
+consumes:
+  - name: yb-tserver
+  - name: yb-master
+
+provides:
+  - name: yb-tserver
+
+properties:
+  enable_ysql:
+    default: true
+  stderrthreshold:
+    default: 0
+    description: |
+      Log messages at, or above, this level are copied to stderr in addition to log files.
+      Values are: 0 (INFO), 1 (WARN), 2 (ERROR), 3 (FATAL).

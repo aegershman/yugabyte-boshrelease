@@ -2,9 +2,9 @@
 
 set -eu
 
-RUN_DIR=/var/vcap/sys/run/yb-master
-LOG_DIR=/var/vcap/sys/log/yb-master
-DATA_DIR=/var/vcap/store/yb-master
+RUN_DIR=/var/vcap/sys/run/yb-tserver
+LOG_DIR=/var/vcap/sys/log/yb-tserver
+DATA_DIR=/var/vcap/store/yb-tserver
 PIDFILE=${RUN_DIR}/pid
 
 mkdir -p ${RUN_DIR} ${LOG_DIR} ${DATA_DIR}
@@ -15,12 +15,11 @@ case $1 in
 start)
   echo $$ >${PIDFILE}
 
-  exec yb-master \
+  exec yb-tserver \
     --fs_data_dirs=${DATA_DIR} \
-    --rpc_bind_addresses={{ '<%= spec.address %>' }} \
-    --server_broadcast_addresses={{ '<%= spec.address %>' }}:7100 \
-    --master_addresses={{ 'link("yb-master").instances.map { |instance| "#{instance.address}" }.join(",")' }} \
-    --replication_factor={{ 'link("yb-master").instances.length' }} \
+    --rpc_bind_addresses={{ '<%= spec.address %>' }}:9100 \
+    --server_broadcast_addresses={{ '<%= spec.address %>' }}:9100 \
+    --tserver_master_addrs={{ 'link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",")' }} \
     --enable_ysql={{ '<%= p("enable_ysql") %>' }} \
     --stderrthreshold={{ '<%= p("stderrthreshold") %>' }} \
     --log_dir=${LOG_DIR}
