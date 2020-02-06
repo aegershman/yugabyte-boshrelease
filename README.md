@@ -42,3 +42,13 @@ inspiration:
 - https://github.com/bosh-prometheus/prometheus-boshrelease/blob/master/jobs/prometheus2/templates/bin/prometheus_ctl
 - https://github.com/concourse/concourse-bosh-release/blob/master/manifests/single-vm.yml
 - https://github.com/jhunt/containers-boshrelease/tree/master/jobs/docker/templates
+
+## scratchpad
+
+https://docs.yugabyte.com/latest/deploy/multi-dc/3dc-deployment/
+
+```sh
+  --placement_cloud aws \
+  --placement_region us-west \
+  --placement_zone {{ '<%= spec.az %>' }} \
+```
