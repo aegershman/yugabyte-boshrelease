@@ -15,15 +15,16 @@ start)
     --fs_data_dirs=${DATA_DIR} \
     --rpc_bind_addresses={{ spec.address }} \
     --server_broadcast_addresses={{ spec.address }}:7100 \
-    --master_addresses={{ 'link("yb-master").instances.length' }} \
+    --master_addresses=--{{ 'link("yb-master").instances.map { |instance| "#{instance.address}" }.join(",")' }} \
     --replication_factor={{ 'link("yb-master").instances.length' }} \
-    --enable_ysql={{ true }} \
+    --enable_ysql={{ '<%= p("enable_ysql") %>' }} \
     --metric_node_name={{ HOSTNAME }} \
     --memory_limit_hard_bytes={{ template "yugabyte.memory_hard_limit" $root.Values.resource.master }} \
-    --stderrthreshold=0 \
+    --stderrthreshold={{ '<%= p("stderrthreshold") %>' }} \
     --num_cpus={{ ceil $root.Values.resource.master.requests.cpu }} \
     --undefok=num_cpus,enable_ysql \
-    x
+    --log_dir=${LOG_DIR}
+  x
   ;;
 
 stop)
