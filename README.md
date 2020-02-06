@@ -64,6 +64,7 @@ bosh-links and goodies:
 - https://ultimateguidetobosh.com/instances/#persistent-volumes
 - https://ultimateguidetobosh.com/disks/
 - https://docs.pivotal.io/svc-sdk/odb/0-37/adapter-reference.html
+- bosh bpm capabilities http://man7.org/linux/man-pages/man7/capabilities.7.html
 
 inspiration:
 
@@ -86,3 +87,30 @@ https://docs.yugabyte.com/latest/deploy/multi-dc/3dc-deployment/
 ```
 
 looks like performance testing numbers are here? https://docs.yugabyte.com/latest/deploy/checklist/#amazon-web-services-aws
+
+```yml
+# bpm example
+---
+processes:
+  - name: yb-master
+    executable: /var/vcap/data/packages/yb-master/yb-master
+    args: []
+    ephemeral_disk: true
+
+  - name: worker
+    executable: /var/vcap/data/packages/worker/work.sh
+    limits:
+      processes: 10
+    args:
+      - --queues
+      - 4
+    env:
+      FOO: BAR
+    additional_volumes:
+      - path: /var/vcap/data/sockets
+        writable: true
+    hooks:
+      pre_start: /var/vcap/jobs/server/bin/worker-setup
+      capabilities:
+        - NET_BIND_SERVICE
+```

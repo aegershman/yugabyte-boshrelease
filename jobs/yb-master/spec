@@ -7,7 +7,8 @@ description: |
   https://docs.yugabyte.com/latest/deploy/checklist/
 
 templates:
-  ctl.erb.sh: bin/ctl
+  bpm.yml: config/bpm.yml # bpm.yml.erb: config/bpm.yml
+  master.conf.erb: master.conf
 
 packages: []
 

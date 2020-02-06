@@ -1,0 +1,7 @@
+---
+processes:
+  - name: yb-master
+    executable: /var/vcap/data/packages/yb-master/yb-master
+    persistent_disk: true
+    args:
+      - --flagfile=/var/vcap/jobs/yb-master/master.conf
