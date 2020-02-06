@@ -1,12 +1,20 @@
 ---
 name: yugabyte
 
+releases: []
+
+stemcells:
+  - alias: default
+    os: ubuntu-xenial
+    version: latest
+
 instance_groups:
   - name: xyz
     azs:
       - z1
     instances: 1
-    vm_type: default
+    vm_type: c5.2xlarge
+    persistent_disk_type: 250GB_gp2
     stemcell: default
     networks:
       - name: default
@@ -20,10 +28,3 @@ update:
   canary_watch_time: 1000-100000
   update_watch_time: 1000-100000
   serial: true
-
-stemcells:
-  - alias: default
-    os: ubuntu-xenial
-    version: latest
-
-releases: []

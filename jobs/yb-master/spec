@@ -1,7 +1,10 @@
 ---
 name: yb-master
 
-description: https://docs.yugabyte.com/latest/reference/configuration/yb-master/
+description: |
+  total instances of master nodes should be odd, because replication factor should be odd
+  https://docs.yugabyte.com/latest/reference/configuration/yb-master/
+  https://docs.yugabyte.com/latest/deploy/checklist/
 
 templates:
   ctl.erb.sh: bin/ctl

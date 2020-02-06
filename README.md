@@ -32,6 +32,18 @@ reference links:
 - https://docs.yugabyte.com/latest/quick-start/create-local-cluster/
 - https://docs.yugabyte.com/latest/deploy/docker/docker-compose/
 - https://docs.yugabyte.com/latest/deploy/manual-deployment/start-tservers/#run-yb-tserver-with-configuration-file
+- upgrade guide https://docs.yugabyte.com/latest/manage/upgrade-deployment/ and here https://docs.yugabyte.com/latest/manage/change-cluster-config/
+- data migration here, looks like a cli which shows percentage of stuff done https://docs.yugabyte.com/latest/manage/change-cluster-config/#4-perform-data-move
+- diagnostic reporting config https://docs.yugabyte.com/latest/manage/diagnostics-reporting/#configuration-options
+- build local and tests https://docs.yugabyte.com/latest/contribute/core-database/build-from-src/#ubuntu18
+- advanced auth https://docs.yugabyte.com/latest/secure/authentication/client-authentication/
+- https://docs.yugabyte.com/latest/deploy/kubernetes/oss/yugabyte-operator/
+- https://docs.yugabyte.com/latest/deploy/kubernetes/best-practices/
+- https://docs.yugabyte.com/latest/deploy/manual-deployment/start-tservers/ wait maybe the total replication factor should always for sure be the same as the number of nodes?
+- https://docs.yugabyte.com/latest/deploy/manual-deployment/verify-deployment/#connect-clients
+- https://docs.yugabyte.com/latest/troubleshoot/overview/
+- logs https://docs.yugabyte.com/latest/troubleshoot/nodes/check-logs/
+- https://docs.yugabyte.com/latest/manage/upgrade-deployment/#upgrade-yb-tservers
 
 bosh-links and goodies:
 
@@ -69,3 +81,5 @@ https://docs.yugabyte.com/latest/deploy/multi-dc/3dc-deployment/
   --placement_region us-west \
   --placement_zone {{ '<%= spec.az %>' }} \
 ```
+
+looks like performance testing numbers are here? https://docs.yugabyte.com/latest/deploy/checklist/#amazon-web-services-aws
