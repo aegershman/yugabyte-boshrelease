@@ -14,6 +14,9 @@ todo:
 - prometheus?
 - creds?
 - activating yedis, ysql, etc?
+- better pkill options, similar to zookeeper release, or maybe just bpm?
+- instead of monit or bpm, put flags options in a specific file and use --flagfile
+- preload users similar to postgres release?
 
 reference links:
 
