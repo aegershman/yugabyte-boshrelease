@@ -2,15 +2,19 @@
 
 set -eu
 
+RUN_DIR=/var/vcap/sys/run/yb-master
 LOG_DIR=/var/vcap/sys/log/yb-master
 DATA_DIR=/var/vcap/store/yb-master
+PIDFILE=${RUN_DIR}/pid
 
-mkdir -p $LOG_DIR $DATA_DIR
+mkdir -p ${RUN_DIR} ${LOG_DIR} ${DATA_DIR}
 exec 1>>"${LOG_DIR}/ctl.stdout.log"
 exec 2>>"${LOG_DIR}/ctl.stderr.log"
 
 case $1 in
 start)
+  echo $$ >${PIDFILE}
+
   exec yb-master \
     --fs_data_dirs=${DATA_DIR} \
     --rpc_bind_addresses={{ '<%= spec.address %>' }} \
@@ -23,7 +27,8 @@ start)
   ;;
 
 stop)
-  :
+  kill -9 $(cat ${PIDFILE})
+  rm -f ${PIDFILE}
   ;;
 
 *)
