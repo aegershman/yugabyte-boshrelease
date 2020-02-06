@@ -1,6 +1,8 @@
 ---
 name: yb-master
 
+description: https://docs.yugabyte.com/latest/reference/configuration/yb-master/
+
 templates:
   ctl.erb.sh: bin/ctl
 
