@@ -10,6 +10,7 @@ todo:
 - licensing...?
 - bpm... maybe just templatize the entire bpm yml as an erb?: https://bosh.io/docs/bpm/config/#example
 - https://docs.yugabyte.com/latest/reference/configuration/yb-master/#security-options more security options
+- logtostderr might be helpful
 
 reference links:
 
