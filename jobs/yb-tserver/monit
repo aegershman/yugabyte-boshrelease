@@ -1,0 +1,5 @@
+check process yb-tserver
+  with pidfile /var/vcap/sys/run/yb-tserver/yb-tserver.pid
+  start program "/var/vcap/jobs/yb-tserver/bin/ctl start"
+  stop program "/var/vcap/jobs/yb-tserver/bin/ctl stop"
+  group vcap

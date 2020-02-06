@@ -1,0 +1,28 @@
+---
+name: yb-master
+
+description: |
+  total instances of master nodes should be odd, because replication factor should be odd
+  https://docs.yugabyte.com/latest/reference/configuration/yb-master/
+  https://docs.yugabyte.com/latest/deploy/checklist/
+
+templates:
+  bpm.yml: config/bpm.yml # bpm.yml.erb: config/bpm.yml
+  master.conf.erb: master.conf
+
+packages: []
+
+consumes:
+  - name: yb-master
+
+provides:
+  - name: yb-master
+
+properties:
+  enable_ysql:
+    default: true
+  stderrthreshold:
+    default: 0
+    description: |
+      Log messages at, or above, this level are copied to stderr in addition to log files.
+      Values are: 0 (INFO), 1 (WARN), 2 (ERROR), 3 (FATAL).

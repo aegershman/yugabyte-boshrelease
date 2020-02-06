@@ -1,0 +1,44 @@
+---
+tags: {}
+
+name: yugabyte
+
+releases:
+  - name: yugabyte
+    version: latest
+  - name: bpm
+    version: latest
+
+stemcells:
+  - alias: default
+    os: ubuntu-xenial
+    version: latest
+
+update:
+  canaries: 1
+  max_in_flight: 1
+  canary_watch_time: 1000-100000
+  update_watch_time: 1000-100000
+  serial: true
+
+instance_groups:
+  - name: yugabyte
+    azs:
+      - us-west-2a
+      - us-west-2b
+      - us-west-2c
+    instances: 3
+    vm_type: c5.2xlarge
+    persistent_disk_type: 250GB_gp2
+    stemcell: default
+    networks:
+      - name: default
+    jobs:
+      - name: bpm
+        release: bpm
+      - name: yb-master
+        release: yugabyte
+      - name: yb-tserver
+        release: yugabyte
+
+variables: []

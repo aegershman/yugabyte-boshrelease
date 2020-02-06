@@ -1,0 +1,9 @@
+--fs_data_dirs=/var/vcap/store/yb-master
+<%# --log_dir==/var/vcap/sys/log/yb-master %>
+--logtostderr=true <%# ? %>
+--stderrthreshold=<%= p("stderrthreshold") %>
+--rpc_bind_addresses=<%= spec.address %>
+--server_broadcast_addresses=<%= spec.address %>:7100
+--master_addresses=<%= link("yb-master").instances.map { |instance| "#{instance.address}" }.join(",") %>
+--replication_factor=<%= link("yb-master").instances.length %>
+--enable_ysql=<%= p("enable_ysql") %>

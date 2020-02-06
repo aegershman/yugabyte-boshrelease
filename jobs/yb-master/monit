@@ -1,0 +1,5 @@
+check process yb-master
+  with pidfile /var/vcap/sys/run/bpm/yb-master/yb-master.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start yb-master"
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop yb-master"
+  group vcap
