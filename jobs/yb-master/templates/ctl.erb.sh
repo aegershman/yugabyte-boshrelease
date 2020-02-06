@@ -18,14 +18,15 @@ start)
     --master_addresses=--{{ 'link("yb-master").instances.map { |instance| "#{instance.address}" }.join(",")' }} \
     --replication_factor={{ 'link("yb-master").instances.length' }} \
     --enable_ysql={{ '<%= p("enable_ysql") %>' }} \
-    --metric_node_name={{ HOSTNAME }} \
-    --memory_limit_hard_bytes={{ template "yugabyte.memory_hard_limit" $root.Values.resource.master }} \
     --stderrthreshold={{ '<%= p("stderrthreshold") %>' }} \
-    --num_cpus={{ ceil $root.Values.resource.master.requests.cpu }} \
-    --undefok=num_cpus,enable_ysql \
     --log_dir=${LOG_DIR}
   x
   ;;
+  # logtostderr might be helpful?
+  # --undefok=num_cpus,enable_ysql \
+  # --num_cpus={{ ceil $root.Values.resource.master.requests.cpu }} \
+  # --metric_node_name={{ HOSTNAME }} \
+  # --memory_limit_hard_bytes={{ template "yugabyte.memory_hard_limit" $root.Values.resource.master }} \
 
 stop)
   :
