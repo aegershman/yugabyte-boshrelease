@@ -180,5 +180,20 @@ stop)
   exit 1
   ;;
 esac
+```
 
+```log
+cat /var/vcap/store/yb-master/yb-data/master/logs
+
+F20200207 20:03:35 ../../../../../src/yb/master/catalog_manager.cc:620] Failed to load sys catalog: IO error (yb/util/env_posix.cc:1461): /var/vcap/data/packages/yugabyte/09671344d97ee046781adc20ac253fe86782e1ac/share/initial_sys_catalog_snapshot/exported_tablet_metadata_changes: Permission denied (system error 13)
+    @     0x7f8f5490c56c  yb::LogFatalHandlerSink::send()
+    @     0x7f8f53b00d16  google::LogMessage::SendToLog()
+    @     0x7f8f53afe79a  google::LogMessage::Flush()
+    @     0x7f8f53b01869  google::LogMessageFatal::~LogMessageFatal()
+    @     0x7f8f5da79f27  yb::master::CatalogManager::LoadSysCatalogDataTask()
+    @     0x7f8f5499d704  yb::ThreadPool::DispatchThread()
+    @     0x7f8f54999e0f  yb::Thread::SuperviseThread()
+    @     0x7f8f50361694  start_thread
+    @     0x7f8f4fa9e41d  __clone
+    @              (nil)  (unknown)
 ```
