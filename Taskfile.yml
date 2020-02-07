@@ -6,3 +6,7 @@ tasks:
     cmds:
       - git add -A
       - git commit -m "autocommit"
+
+  dev-release:
+    cmds:
+      - bosh create-release --force
