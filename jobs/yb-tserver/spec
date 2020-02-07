@@ -13,10 +13,13 @@ packages:
 
 consumes:
   - name: yb-tserver
+    type: conn
   - name: yb-master
+    type: conn
 
 provides:
   - name: yb-tserver
+    type: conn
 
 properties:
   enable_ysql:

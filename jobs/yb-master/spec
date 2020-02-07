@@ -15,9 +15,11 @@ packages:
 
 consumes:
   - name: yb-master
+    type: conn
 
 provides:
   - name: yb-master
+    type: conn
 
 properties:
   enable_ysql:

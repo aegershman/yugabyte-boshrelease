@@ -7,12 +7,13 @@ tasks:
       - git add -A
       - git commit -m "autocommit"
 
-  cr:
-    cmds:
-      - bosh create-release --force
-
   yb-blobs:
     cmds:
       # - bosh generate-package yugabyte
       - curl -o /tmp/yugabyte-2.0.11.0.tar.gz https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
       - bosh add-blob /tmp/yugabyte-2.0.11.0.tar.gz yugabyte/yugabyte-2.0.11.0-linux.tar.gz
+
+  cr:
+    cmds:
+      - bosh create-release --force
+      - bosh upload-release
