@@ -2,6 +2,8 @@
 
 todo:
 
+- cleanup blobstore and packaging logic, use more astericks and such
+- test
 - errand script similar to minio https://github.com/minio/minio-boshrelease/blob/master/manifests/manifest-fs-example.yml#L61
 - errands for status, ctl, cleanup, etc
 - yb-ctl for a single local cluster as a job
@@ -21,6 +23,7 @@ todo:
 
 reference links:
 
+- https://download.yugabyte.com/#linux
 - https://docs.yugabyte.com/latest/secure/authentication/ysql-authentication/
 - https://docs.yugabyte.com/latest/secure/security-checklist/#rpc-bind-interfaces
 - https://docs.yugabyte.com/latest/reference/configuration/default-ports/
@@ -51,6 +54,7 @@ reference links:
 
 bosh-links and goodies:
 
+- https://www.cloudfoundry.org/blog/create-lean-bosh-release/
 - https://bosh.io/docs/errands/
 - https://bosh.io/docs/bpm/config/#example
 - https://gist.github.com/Amit-PivotalLabs/c39528248b8cdc4ba8e347f8aa68abb6#about-that-link-object-and-its-instances0-and-the-address-accessor
@@ -66,6 +70,7 @@ bosh-links and goodies:
 - https://ultimateguidetobosh.com/disks/
 - https://docs.pivotal.io/svc-sdk/odb/0-37/adapter-reference.html
 - bosh bpm capabilities http://man7.org/linux/man-pages/man7/capabilities.7.html
+- https://www.gnu.org/software/tar/manual/html_node/Option-Summary.html#SEC42
 
 inspiration:
 
@@ -76,6 +81,8 @@ inspiration:
 - https://github.com/bosh-prometheus/prometheus-boshrelease/blob/master/jobs/prometheus2/templates/bin/prometheus_ctl
 - https://github.com/concourse/concourse-bosh-release/blob/master/manifests/single-vm.yml
 - https://github.com/jhunt/containers-boshrelease/tree/master/jobs/docker/templates
+- https://github.com/pivotal-cf/cf-rabbitmq-multitenant-broker-release/
+- https://github.com/pivotal-cf/cf-rabbitmq-release
 
 ## scratchpad
 
@@ -114,4 +121,57 @@ processes:
       pre_start: /var/vcap/jobs/server/bin/worker-setup
       capabilities:
         - NET_BIND_SERVICE
+```
+
+old `tserver` monit when it's using ctl:
+
+```txt
+check process yb-tserver
+  with pidfile /var/vcap/sys/run/yb-tserver/yb-tserver.pid
+  start program "/var/vcap/jobs/yb-tserver/bin/ctl start"
+  stop program "/var/vcap/jobs/yb-tserver/bin/ctl stop"
+  group vcap
+```
+
+and old `tserver` ctl.erb.sh:
+
+```sh
+#!/bin/bash
+
+set -eu
+
+RUN_DIR=/var/vcap/sys/run/yb-tserver
+LOG_DIR=/var/vcap/sys/log/yb-tserver
+DATA_DIR=/var/vcap/store/yb-tserver
+PIDFILE=${RUN_DIR}/pid
+
+mkdir -p ${RUN_DIR} ${LOG_DIR} ${DATA_DIR}
+exec 1>>"${LOG_DIR}/ctl.stdout.log"
+exec 2>>"${LOG_DIR}/ctl.stderr.log"
+
+case $1 in
+start)
+  echo $$ >${PIDFILE}
+
+  exec yb-tserver \
+    --fs_data_dirs=${DATA_DIR} \
+    --rpc_bind_addresses={{ '<%= spec.address %>' }}:9100 \
+    --server_broadcast_addresses={{ '<%= spec.address %>' }}:9100 \
+    --tserver_master_addrs={{ 'link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",")' }} \
+    --enable_ysql={{ '<%= p("enable_ysql") %>' }} \
+    --stderrthreshold={{ '<%= p("stderrthreshold") %>' }} \
+    --log_dir=${LOG_DIR}
+  ;;
+
+stop)
+  kill -9 $(cat ${PIDFILE})
+  rm -f ${PIDFILE}
+  ;;
+
+*)
+  echo "Usage: ${0} {start|stop}"
+  exit 1
+  ;;
+esac
+
 ```

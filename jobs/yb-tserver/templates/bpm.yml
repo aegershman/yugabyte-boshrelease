@@ -1,0 +1,7 @@
+---
+processes:
+  - name: yb-tserver
+    executable: /var/vcap/data/packages/yugabyte/bin/yb-tserver
+    persistent_disk: true
+    args:
+      - --flagfile=/var/vcap/jobs/yb-tserver/tserver.conf
