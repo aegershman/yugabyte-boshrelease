@@ -2,6 +2,7 @@
 
 todo:
 
+- cleanup blobstore and packaging logic, use more astericks and such
 - test
 - errand script similar to minio https://github.com/minio/minio-boshrelease/blob/master/manifests/manifest-fs-example.yml#L61
 - errands for status, ctl, cleanup, etc
