@@ -1,12 +1,15 @@
 ---
 name: yb-tserver
 
-description: https://docs.yugabyte.com/latest/reference/configuration/yb-tserver/
+description: |
+  https://docs.yugabyte.com/latest/reference/configuration/yb-tserver/
 
 templates:
-  ctl.erb.sh: bin/ctl
+  bpm.yml: config/bpm.yml # bpm.yml.erb: config/bpm.yml
+  tserver.conf.erb: tserver.conf
 
-packages: []
+packages:
+  - yugabyte
 
 consumes:
   - name: yb-tserver
