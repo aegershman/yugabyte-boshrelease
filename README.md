@@ -2,6 +2,8 @@
 
 todo:
 
+- create a compiled release? https://bosh.io/docs/compiled-releases/
+- schedule cleanups or whatever the helm chart was doing? https://bosh.io/docs/scheduled-procs/ https://github.com/yugabyte/charts/blob/master/stable/yugabyte/templates/service.yaml#L228
 - check cluster-config as an errand? https://docs.yugabyte.com/latest/deploy/manual-deployment/start-tservers/#set-replica-placement-policy
 - cleanup blobstore and packaging logic, use more astericks and such
 - test

@@ -4,4 +4,4 @@ set -e -x
 
 tar zxf yugabyte/yugabyte-2.0.11.0-linux.tar.gz
 cp -a yugabyte-2.0.11.0/* ${BOSH_INSTALL_TARGET}
-./${BOSH_INSTALL_TARGET}/bin/post_install.sh
+${BOSH_INSTALL_TARGET}/bin/post_install.sh

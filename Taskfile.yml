@@ -1,6 +1,9 @@
 ---
 version: "2"
 
+env:
+  YB_VERSION: 2.0.11.0
+
 tasks:
   git:
     cmds:
@@ -9,18 +12,22 @@ tasks:
 
   dl-blobs:
     status:
-      - test -f /tmp/yugabyte-2.0.11.0-linux.tar.gz
+      - test -f /tmp/yugabyte-${YB_VERSION}-linux.tar.gz
     cmds:
-      - curl -o /tmp/yugabyte-2.0.11.0-linux.tar.gz https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
+      - curl -o /tmp/yugabyte-${YB_VERSION}-linux.tar.gz https://downloads.yugabyte.com/yugabyte-${YB_VERSION}-linux.tar.gz
 
   add-blobs:
     cmds:
       - task: dl-blobs
-      - bosh add-blob /tmp/yugabyte-2.0.11.0-linux.tar.gz yugabyte/yugabyte-2.0.11.0-linux.tar.gz
+      - bosh add-blob /tmp/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
 
   deploy:
     cmds:
-      - bosh -d yugabyte deploy manifests/yugabyte.yml -o manifests/operators/scaling.yml -l manifests/vars.yml --non-interactive
+      - |
+        bosh -d yugabyte deploy manifests/yugabyte.yml \
+          -o manifests/operators/scaling.yml \
+          -l manifests/vars.yml \
+          --non-interactive
 
   test:
     cmds:
