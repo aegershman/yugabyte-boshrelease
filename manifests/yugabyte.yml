@@ -39,6 +39,10 @@ instance_groups:
     jobs:
       - name: yb-master
         release: yugabyte
+        provides:
+          yb-master: { as: yb-master-provider }
+        consumes:
+          yb-master: { from: yb-master-provider }
 
   - name: tserver
     azs: [z1]
@@ -51,5 +55,7 @@ instance_groups:
     jobs:
       - name: yb-tserver
         release: yugabyte
+        consumes:
+          yb-master: { from: yb-master-provider }
 
 variables: []
