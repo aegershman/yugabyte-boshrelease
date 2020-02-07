@@ -1,0 +1,7 @@
+---
+name: yugabyte
+
+dependencies: []
+
+files:
+  - yugabyte-2.0.11.0-linux.tar.gz # https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz

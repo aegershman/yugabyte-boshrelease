@@ -69,6 +69,7 @@ bosh-links and goodies:
 - https://ultimateguidetobosh.com/disks/
 - https://docs.pivotal.io/svc-sdk/odb/0-37/adapter-reference.html
 - bosh bpm capabilities http://man7.org/linux/man-pages/man7/capabilities.7.html
+- https://www.gnu.org/software/tar/manual/html_node/Option-Summary.html#SEC42
 
 inspiration:
 
@@ -79,6 +80,8 @@ inspiration:
 - https://github.com/bosh-prometheus/prometheus-boshrelease/blob/master/jobs/prometheus2/templates/bin/prometheus_ctl
 - https://github.com/concourse/concourse-bosh-release/blob/master/manifests/single-vm.yml
 - https://github.com/jhunt/containers-boshrelease/tree/master/jobs/docker/templates
+- https://github.com/pivotal-cf/cf-rabbitmq-multitenant-broker-release/
+- https://github.com/pivotal-cf/cf-rabbitmq-release
 
 ## scratchpad
 

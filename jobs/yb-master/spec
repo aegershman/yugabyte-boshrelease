@@ -10,7 +10,8 @@ templates:
   bpm.yml: config/bpm.yml # bpm.yml.erb: config/bpm.yml
   master.conf.erb: master.conf
 
-packages: []
+packages:
+  - yugabyte
 
 consumes:
   - name: yb-master
