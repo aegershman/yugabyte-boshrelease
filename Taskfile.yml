@@ -10,3 +10,8 @@ tasks:
   dev-release:
     cmds:
       - bosh create-release --force
+
+  dl-yb:
+    dir: scratchpad
+    cmds:
+      - wget https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
