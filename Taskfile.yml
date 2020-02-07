@@ -7,7 +7,7 @@ tasks:
       - git add -A
       - git commit -m "autocommit"
 
-  dev-release:
+  cr:
     cmds:
       - bosh create-release --force
 
