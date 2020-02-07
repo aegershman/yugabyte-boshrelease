@@ -1,0 +1,29 @@
+---
+- type: replace
+  path: /releases/-
+  value:
+    name: syslog
+    version: latest
+
+- type: replace
+  path: /addons?/-
+  value:
+    name: syslog_forwarder
+    jobs:
+      - name: syslog_forwarder
+        release: syslog
+        properties:
+          syslog:
+            address: ((syslog_address))
+            port: ((syslog_port))
+            transport: tcp
+            tls_enabled: ((syslog_tls_enabled))
+            filter_legacy_vcap_messages: true
+
+            # audispd rule: remove audispd log event flooding if queue overflows
+            # auditd rule: filter all logs to avoid "log file is larger than max size"
+            custom_rule: |
+              if ($programname contains "audispd") then stop
+              if ($programname contains "auditd") then stop
+          blackbox:
+            log_filename: true
