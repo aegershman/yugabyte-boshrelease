@@ -9,10 +9,10 @@ tasks:
 
   yb-blobs:
     status:
-      - test -f /tmp/yugabyte-2.0.11.0.tar.gz
+      - test -f /tmp/yugabyte-2.0.11.0-linux.tar.gz
     cmds:
-      - curl -o /tmp/yugabyte-2.0.11.0.tar.gz https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
-      - bosh add-blob /tmp/yugabyte-2.0.11.0.tar.gz yugabyte/yugabyte-2.0.11.0-linux.tar.gz
+      - curl -o /tmp/yugabyte-2.0.11.0-linux.tar.gz https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
+      - bosh add-blob /tmp/yugabyte-2.0.11.0-linux.tar.gz yugabyte/yugabyte-2.0.11.0-linux.tar.gz
 
   deploy:
     cmds:
