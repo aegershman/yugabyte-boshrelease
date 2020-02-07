@@ -2,6 +2,7 @@
 
 todo:
 
+- check cluster-config as an errand? https://docs.yugabyte.com/latest/deploy/manual-deployment/start-tservers/#set-replica-placement-policy
 - cleanup blobstore and packaging logic, use more astericks and such
 - test
 - errand script similar to minio https://github.com/minio/minio-boshrelease/blob/master/manifests/manifest-fs-example.yml#L61
