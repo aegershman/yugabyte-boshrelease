@@ -5,3 +5,9 @@ processes:
     persistent_disk: true
     args:
       - --flagfile=/var/vcap/jobs/yb-tserver/tserver.conf
+
+    capabilities:
+      - NET_BIND_SERVICE
+
+    hooks:
+      pre_start: /var/vcap/packages/yugabyte/bin/post_install.sh
