@@ -7,11 +7,15 @@ tasks:
       - git add -A
       - git commit -m "autocommit"
 
-  yb-blobs:
+  dl-blobs:
     status:
       - test -f /tmp/yugabyte-2.0.11.0-linux.tar.gz
     cmds:
       - curl -o /tmp/yugabyte-2.0.11.0-linux.tar.gz https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
+
+  add-blobs:
+    cmds:
+      - task: dl-blobs
       - bosh add-blob /tmp/yugabyte-2.0.11.0-linux.tar.gz yugabyte/yugabyte-2.0.11.0-linux.tar.gz
 
   deploy:
@@ -20,7 +24,7 @@ tasks:
 
   test:
     cmds:
-      - task: yb-blobs
+      - task: add-blobs
       - bosh create-release --force
       - bosh upload-release
       - task: deploy
