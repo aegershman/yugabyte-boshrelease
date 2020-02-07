@@ -17,7 +17,8 @@
 
 - type: replace
   path: /instance_groups/name=master/networks
-  value: ((master_networks))
+  value:
+    - name: ((master_network))
 
 ############
 
@@ -39,4 +40,5 @@
 
 - type: replace
   path: /instance_groups/name=tserver/networks
-  value: ((tserver_networks))
+  value:
+    - name: ((tserver_network))
