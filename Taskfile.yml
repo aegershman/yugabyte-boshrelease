@@ -14,12 +14,13 @@ tasks:
       - curl -o /tmp/yugabyte-2.0.11.0.tar.gz https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
       - bosh add-blob /tmp/yugabyte-2.0.11.0.tar.gz yugabyte/yugabyte-2.0.11.0-linux.tar.gz
 
-  test:
-    cmds:
-      - task yb-blobs
-      - bosh create-release --force
-      - bosh upload-release
-
   deploy:
     cmds:
       - bosh -d yugabyte deploy manifests/yugabyte.yml -o manifests/operators/scaling.yml -l manifests/vars.yml
+
+  test:
+    cmds:
+      - task: yb-blobs
+      - bosh create-release --force
+      - bosh upload-release
+      - task: deploy

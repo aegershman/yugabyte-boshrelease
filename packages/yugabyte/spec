@@ -4,4 +4,4 @@ name: yugabyte
 dependencies: []
 
 files:
-  - yugabyte/yugabyte-*-linux.tar.gz # https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
+  - yugabyte/yugabyte-2.0.11.0-linux.tar.gz # https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
