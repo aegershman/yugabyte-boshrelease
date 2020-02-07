@@ -1,0 +1,17 @@
+---
+master_instances: 3
+master_persistent_disk_type: "307200"
+master_vm_type: c5.2xlarge
+master_azs:
+  - us-west-2a
+  - us-west-2b
+  - us-west-2c
+master_networks: [{ name: default }]
+tserver_vm_type: c5.2xlarge
+tserver_persistent_disk_type: "307200"
+tserver_instances: 3
+tserver_azs:
+  - us-west-2a
+  - us-west-2b
+  - us-west-2c
+tserver_networks: [{ name: default }]

@@ -8,12 +8,18 @@ tasks:
       - git commit -m "autocommit"
 
   yb-blobs:
+    status:
+      - test -f /tmp/yugabyte-2.0.11.0.tar.gz
     cmds:
-      # - bosh generate-package yugabyte
       - curl -o /tmp/yugabyte-2.0.11.0.tar.gz https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
       - bosh add-blob /tmp/yugabyte-2.0.11.0.tar.gz yugabyte/yugabyte-2.0.11.0-linux.tar.gz
 
-  cr:
+  test:
     cmds:
+      - task yb-blobs
       - bosh create-release --force
       - bosh upload-release
+
+  deploy:
+    cmds:
+      - bosh -d yugabyte deploy manifests/yugabyte.yml -o manifests/operators/scaling.yml
