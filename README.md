@@ -55,6 +55,9 @@ reference links:
 
 bosh-links and goodies:
 
+- https://bosh.io/docs/drain/
+- https://bosh.io/docs/pre-start/
+- https://bosh.io/docs/job-lifecycle/
 - https://www.cloudfoundry.org/blog/create-lean-bosh-release/
 - https://bosh.io/docs/errands/
 - https://bosh.io/docs/bpm/config/#example
@@ -75,6 +78,7 @@ bosh-links and goodies:
 
 inspiration:
 
+- https://github.com/bosh-prometheus/prometheus-boshrelease/blob/master/packages/firehose_exporter/packaging
 - https://docs.yugabyte.com/latest/deploy/public-clouds/aws/#manual-deployment
 - https://github.com/cloudfoundry/exemplar-release
 - https://github.com/cppforlife/zookeeper-release/blob/master/jobs/zookeeper/spec
