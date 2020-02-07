@@ -22,6 +22,7 @@ todo:
 
 reference links:
 
+- https://download.yugabyte.com/#linux
 - https://docs.yugabyte.com/latest/secure/authentication/ysql-authentication/
 - https://docs.yugabyte.com/latest/secure/security-checklist/#rpc-bind-interfaces
 - https://docs.yugabyte.com/latest/reference/configuration/default-ports/
@@ -52,6 +53,7 @@ reference links:
 
 bosh-links and goodies:
 
+- https://www.cloudfoundry.org/blog/create-lean-bosh-release/
 - https://bosh.io/docs/errands/
 - https://bosh.io/docs/bpm/config/#example
 - https://gist.github.com/Amit-PivotalLabs/c39528248b8cdc4ba8e347f8aa68abb6#about-that-link-object-and-its-instances0-and-the-address-accessor

@@ -15,3 +15,9 @@ tasks:
     dir: scratchpad
     cmds:
       - wget https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
+      # - curl https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz | tar xz -C src -
+      # - tar xvfz yugabyte-2.0.11.0-linux.tar.gz && cd yugabyte-2.0.11.0/
+
+  generate-package:
+    cmds:
+      - bosh generate-package
