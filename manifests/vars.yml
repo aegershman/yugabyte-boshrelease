@@ -1,6 +1,5 @@
 ---
 master_azs: [us-west-2a]
-master_enable_ysql: false
 master_instances: 3
 master_network: services-network
 master_persistent_disk_type: "30720"
@@ -8,12 +7,11 @@ master_placement_cloud: aws
 master_placement_region: us-west-2
 master_vm_type: t3.micro
 tserver_azs: [us-west-2a]
-tserver_enable_ysql: false
 tserver_instances: 3
 tserver_network: services-network
 tserver_persistent_disk_type: "30720"
 tserver_placement_cloud: aws
 tserver_placement_region: us-west-2
 tserver_vm_type: t3.small
-update_max_in_flight: 6
+update_max_in_flight: 1
 update_serial: false

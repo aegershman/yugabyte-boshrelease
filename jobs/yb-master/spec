@@ -22,31 +22,6 @@ provides:
     type: conn
 
 properties:
-  rpc_bind_addresses:
-    description: |
-      Specifies the comma-separated list of the network interface addresses to bind to for RPC connections.
-      Typically, the value is set to the private IP address of the host on which the server is running.
-      When using the default, or explicitly setting the value to 0.0.0.0:7100, the server will listen on all available network interfaces.
-      In cases where rpc_bind_addresses is set to 0.0.0.0 (or not explicitly set, and uses the default)
-      or in cases involving public IP addresses, make sure that server_broadcast_addresses is correctly set.
-
-      TODO currently only a single a address override is supported... so it's not
-      really addresses, and more like address
-
-      Default is the auto-assigned private IP from BOSH
-    example: "0.0.0.0"
-  server_broadcast_addresses:
-    description: |
-      Specifies the public IP or DNS hostname of the server (with an optional port).
-      This value is used by servers to communicate with one another, depending on the connection policy parameter.
-
-      TODO currently only a single a address override is supported... so it's not
-      really addresses, and more like address
-
-      Default is the auto-assigned private IP from BOSH
-    example: "0.0.0.0"
-  enable_ysql:
-    default: true
   stderrthreshold:
     default: 0
     description: |
@@ -62,13 +37,3 @@ properties:
   placement_cloud:
     default: cloud1
     description: Name of the cloud where this instance is deployed.
-  use_private_ip:
-    default: never
-    description: |
-      Determines when to use private IP addresses.
-      Based on the values of the placement_* configuration options.
-      Possible values are never (default),zone,cloud and region.
-      Valid values for the policy are:
-      never — Always use the --server_broadcast_addresses.
-      zone — Use the private IP inside a zone; use the --server_broadcast_addresses outside the zone.
-      region — Use the private IP address across all zone in a region; use --server_broadcast_addresses outside the region.
