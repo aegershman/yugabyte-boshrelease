@@ -23,3 +23,13 @@ properties:
     description: |
       Log messages at, or above, this level are copied to stderr in addition to log files.
       Values are: 0 (INFO), 1 (WARN), 2 (ERROR), 3 (FATAL).
+  placement_zone:
+    description: |
+      The name of the availability zone (AZ), or rack, where this instance is deployed.
+      Default is auto-assigned from the bosh-deployment
+  placement_region:
+    default: datacenter1
+    description: Name of the region or data center where this instance is deployed.
+  placement_cloud:
+    default: cloud1
+    description: Name of the cloud where this instance is deployed.
