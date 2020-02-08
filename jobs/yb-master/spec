@@ -32,10 +32,17 @@ properties:
   placement_zone:
     description: |
       The name of the availability zone (AZ), or rack, where this instance is deployed.
-      Default is auto-assigned from the bosh-deployment
+      Default is auto-assigned from bosh
   placement_region:
     default: datacenter1
     description: Name of the region or data center where this instance is deployed.
   placement_cloud:
     default: cloud1
     description: Name of the cloud where this instance is deployed.
+  use_private_ip:
+    default: never
+    description: |
+      Determines when to use private IP addresses.
+      Based on the values of the placement_* configuration options.
+      Possible values are never (default),zone,cloud and region.
+      See: https://docs.yugabyte.com/latest/reference/configuration/yb-master/#geo-distribution-options
