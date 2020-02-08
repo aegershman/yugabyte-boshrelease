@@ -14,5 +14,5 @@
   value: ((tserver_rpc_bind_addresses))
 
 - type: replace
-  path: /instance_groups/name=master/properties?/server_broadcast_addresses
+  path: /instance_groups/name=tserver/properties?/server_broadcast_addresses
   value: ((tserver_server_broadcast_addresses))
