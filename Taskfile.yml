@@ -30,8 +30,8 @@ tasks:
           -o manifests/operators/override-host-bindings.yml \
           -o manifests/operators/scaling.yml \
           -l manifests/vars.yml \
-          --no-redact \
-          --non-interactive
+          --no-redact
+          # --non-interactive
 
   test:
     cmds:
