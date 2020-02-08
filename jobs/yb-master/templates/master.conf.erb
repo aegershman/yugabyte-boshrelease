@@ -2,7 +2,7 @@
 --log_dir=/var/vcap/sys/log/yb-master
 --logtostderr=true
 --stderrthreshold=<%= p("stderrthreshold") %>
---rpc_bind_addresses=<%= spec.address %>:7100
+--rpc_bind_addresses=<%= spec.address %>
 --server_broadcast_addresses=<%= spec.address %>:7100
 --master_addresses=<%= link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",") %>
 --replication_factor=<%= link("yb-master").instances.length %>

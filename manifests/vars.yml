@@ -14,4 +14,4 @@ tserver_placement_cloud: aws
 tserver_placement_region: us-west-2
 tserver_vm_type: t3.small
 update_max_in_flight: 1
-update_serial: false
+update_serial: true
