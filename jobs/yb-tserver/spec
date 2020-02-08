@@ -56,3 +56,13 @@ properties:
   placement_cloud:
     default: cloud1
     description: Name of the cloud where this instance is deployed.
+  use_private_ip:
+    default: never
+    description: |
+      Determines when to use private IP addresses.
+      Based on the values of the placement_* configuration options.
+      Possible values are never (default),zone,cloud and region.
+      Valid values for the policy are:
+      never — Always use the --server_broadcast_addresses.
+      zone — Use the private IP inside a zone; use the --server_broadcast_addresses outside the zone.
+      region — Use the private IP address across all zone in a region; use --server_broadcast_addresses outside the region.

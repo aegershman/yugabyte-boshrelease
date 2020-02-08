@@ -68,4 +68,7 @@ properties:
       Determines when to use private IP addresses.
       Based on the values of the placement_* configuration options.
       Possible values are never (default),zone,cloud and region.
-      See: https://docs.yugabyte.com/latest/reference/configuration/yb-master/#geo-distribution-options
+      Valid values for the policy are:
+      never — Always use the --server_broadcast_addresses.
+      zone — Use the private IP inside a zone; use the --server_broadcast_addresses outside the zone.
+      region — Use the private IP address across all zone in a region; use --server_broadcast_addresses outside the region.
