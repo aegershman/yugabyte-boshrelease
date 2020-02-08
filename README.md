@@ -26,6 +26,7 @@ todo:
 
 reference links:
 
+- can also see all the flags configured or available on a given master or tserver by going to `host:port/varz`
 - https://download.yugabyte.com/#linux
 - https://docs.yugabyte.com/latest/secure/authentication/ysql-authentication/
 - https://docs.yugabyte.com/latest/secure/security-checklist/#rpc-bind-interfaces

@@ -3,8 +3,16 @@
   path: /instance_groups/name=master/properties?/rpc_bind_addresses
   value: ((master_rpc_bind_addresses))
 
+- type: replace
+  path: /instance_groups/name=master/properties?/server_broadcast_addresses
+  value: ((master_server_broadcast_addresses))
+
 ############
 
 - type: replace
   path: /instance_groups/name=tserver/properties?/rpc_bind_addresses
   value: ((tserver_rpc_bind_addresses))
+
+- type: replace
+  path: /instance_groups/name=master/properties?/server_broadcast_addresses
+  value: ((tserver_server_broadcast_addresses))

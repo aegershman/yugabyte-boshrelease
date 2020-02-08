@@ -35,6 +35,16 @@ properties:
 
       Default is the auto-assigned private IP from BOSH
     example: "0.0.0.0"
+  server_broadcast_addresses:
+    description: |
+      Specifies the public IP or DNS hostname of the server (with an optional port).
+      This value is used by servers to communicate with one another, depending on the connection policy parameter.
+
+      TODO currently only a single a address override is supported... so it's not
+      really addresses, and more like address
+
+      Default is the auto-assigned private IP from BOSH
+    example: "0.0.0.0"
   enable_ysql:
     default: true
   stderrthreshold:
