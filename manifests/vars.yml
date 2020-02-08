@@ -9,9 +9,6 @@ master_placement_region: us-west-2
 master_rpc_bind_addresses: "0.0.0.0"
 master_server_broadcast_addresses: "0.0.0.0"
 master_vm_type: t3.micro
-syslog_address: q-s0.docker.services-network.splunk.bosh
-syslog_port: 5514
-syslog_tls_enabled: false
 tserver_azs: [us-west-2a, us-west-2b, us-west-2c]
 tserver_enable_ysql: false
 tserver_instances: 3
