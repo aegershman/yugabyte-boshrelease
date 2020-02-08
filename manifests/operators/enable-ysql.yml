@@ -1,0 +1,10 @@
+---
+- type: replace
+  path: /instance_groups/name=master/properties?/enable_ysql
+  value: ((master_enable_ysql))
+
+############
+
+- type: replace
+  path: /instance_groups/name=tserver/properties?/enable_ysql
+  value: ((tserver_enable_ysql))
