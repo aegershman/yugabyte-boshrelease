@@ -7,3 +7,6 @@
 --master_addresses=<%= link("yb-master").instances.map { |instance| "#{instance.address}" }.join(",") %>
 --replication_factor=<%= link("yb-master").instances.length %>
 --enable_ysql=<%= p("enable_ysql") %>
+--placement_zone<%= p("placement_zone", spec.az) %>
+--placement_region=<%= p("placement_region") %>
+--placement_cloud=<%= p("placement_cloud") %>

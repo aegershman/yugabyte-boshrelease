@@ -81,6 +81,8 @@ bosh-links and goodies:
 
 inspiration:
 
+- https://github.com/alphagov/paas-collectd-boshrelease/blob/master/jobs/collectd/templates/data/properties.sh.erb
+- https://github.com/cloudfoundry-incubator/kubo-release/blob/master/jobs/kubelet/templates/bin/kubelet_ctl.erb
 - https://github.com/bosh-prometheus/prometheus-boshrelease/blob/master/packages/firehose_exporter/packaging
 - https://docs.yugabyte.com/latest/deploy/public-clouds/aws/#manual-deployment
 - https://github.com/cloudfoundry/exemplar-release
