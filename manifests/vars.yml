@@ -6,8 +6,6 @@ master_network: services-network
 master_persistent_disk_type: "30720"
 master_placement_cloud: aws
 master_placement_region: us-west-2
-master_rpc_bind_addresses: "0.0.0.0"
-master_server_broadcast_addresses: "0.0.0.0"
 master_vm_type: t3.micro
 tserver_azs: [us-west-2a]
 tserver_enable_ysql: false
@@ -16,6 +14,6 @@ tserver_network: services-network
 tserver_persistent_disk_type: "30720"
 tserver_placement_cloud: aws
 tserver_placement_region: us-west-2
-tserver_rpc_bind_addresses: "0.0.0.0"
-tserver_server_broadcast_addresses: "0.0.0.0"
 tserver_vm_type: t3.small
+update_max_in_flight: 6
+update_serial: false
