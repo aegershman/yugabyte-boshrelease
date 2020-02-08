@@ -1,6 +1,5 @@
 --fs_data_dirs=/var/vcap/store/yb-tserver
 --log_dir==/var/vcap/sys/log/yb-tserver
---logtostderr=true
 --stderrthreshold=<%= p("stderrthreshold") %>
 --rpc_bind_addresses=<%= spec.address %>
 --server_broadcast_addresses=<%= spec.address %>:9100
