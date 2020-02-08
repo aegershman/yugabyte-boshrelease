@@ -1,11 +1,18 @@
 ---
-master_instances: 3
-master_persistent_disk_type: "30720"
-master_vm_type: m5.large
-master_azs: [us-west-2a, us-west-2b, us-west-2c]
+master_azs: [us-west-2a]
+master_instances: 1
 master_network: services-network
-tserver_azs: [us-west-2a, us-west-2b, us-west-2c]
-tserver_instances: 3
+master_persistent_disk_type: "30720"
+master_placement_cloud: aws
+master_placement_region: us-west-2
+master_vm_type: m5.large
+syslog_address: q-s0.docker.services-network.splunk.bosh
+syslog_port: 5514
+syslog_tls_enabled: false
+tserver_azs: [us-west-2a]
+tserver_instances: 0
 tserver_network: services-network
 tserver_persistent_disk_type: "30720"
+tserver_placement_cloud: aws
+tserver_placement_region: us-west-2
 tserver_vm_type: m5.large

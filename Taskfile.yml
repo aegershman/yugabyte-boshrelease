@@ -25,7 +25,9 @@ tasks:
     cmds:
       - |
         bosh -d yugabyte deploy manifests/yugabyte.yml \
+          -o manifests/operators/geo-distribution-flags.yml \
           -o manifests/operators/scaling.yml \
+          -o manifests/operators/syslog-forwarder.yml \
           -l manifests/vars.yml \
           --non-interactive
 

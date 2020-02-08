@@ -54,6 +54,7 @@ reference links:
 - https://docs.yugabyte.com/latest/troubleshoot/overview/
 - logs https://docs.yugabyte.com/latest/troubleshoot/nodes/check-logs/
 - https://docs.yugabyte.com/latest/manage/upgrade-deployment/#upgrade-yb-tservers
+- https://docs.yugabyte.com/latest/reference/configuration/default-ports/
 
 bosh-links and goodies:
 
