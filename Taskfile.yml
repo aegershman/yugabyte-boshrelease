@@ -29,7 +29,6 @@ tasks:
           -o manifests/operators/geo-distribution-flags.yml \
           -o manifests/operators/override-host-bindings.yml \
           -o manifests/operators/scaling.yml \
-          -o manifests/operators/syslog-forwarder.yml \
           -l manifests/vars.yml \
           --no-redact \
           --non-interactive
