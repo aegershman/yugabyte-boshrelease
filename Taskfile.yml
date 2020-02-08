@@ -1,18 +1,37 @@
 ---
 version: "2"
 
+env:
+  YB_VERSION: 2.0.11.0
+
 tasks:
   git:
     cmds:
       - git add -A
       - git commit -m "autocommit"
 
-  cr:
+  dl-blobs:
+    status:
+      - test -f /tmp/yugabyte-${YB_VERSION}-linux.tar.gz
     cmds:
-      - bosh create-release --force
+      - curl -o /tmp/yugabyte-${YB_VERSION}-linux.tar.gz https://downloads.yugabyte.com/yugabyte-${YB_VERSION}-linux.tar.gz
 
-  yb-blobs:
+  add-blobs:
     cmds:
-      # - bosh generate-package yugabyte
-      - curl -o /tmp/yugabyte-2.0.11.0.tar.gz https://downloads.yugabyte.com/yugabyte-2.0.11.0-linux.tar.gz
-      - bosh add-blob /tmp/yugabyte-2.0.11.0.tar.gz yugabyte/yugabyte-2.0.11.0-linux.tar.gz
+      - task: dl-blobs
+      - bosh add-blob /tmp/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
+
+  deploy:
+    cmds:
+      - |
+        bosh -d yugabyte deploy manifests/yugabyte.yml \
+          -o manifests/operators/scaling.yml \
+          -l manifests/vars.yml \
+          --non-interactive
+
+  test:
+    cmds:
+      - task: add-blobs
+      - bosh create-release --force
+      - bosh upload-release
+      - task: deploy

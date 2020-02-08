@@ -1,0 +1,11 @@
+---
+master_instances: 3
+master_persistent_disk_type: "30720"
+master_vm_type: m5.large
+master_azs: [us-west-2a, us-west-2b, us-west-2c]
+master_network: services-network
+tserver_azs: [us-west-2a, us-west-2b, us-west-2c]
+tserver_instances: 3
+tserver_network: services-network
+tserver_persistent_disk_type: "30720"
+tserver_vm_type: m5.large

@@ -7,7 +7,7 @@ description: |
   https://docs.yugabyte.com/latest/deploy/checklist/
 
 templates:
-  bpm.yml: config/bpm.yml # bpm.yml.erb: config/bpm.yml
+  bpm.yml: config/bpm.yml
   master.conf.erb: master.conf
 
 packages:
@@ -15,9 +15,11 @@ packages:
 
 consumes:
   - name: yb-master
+    type: conn
 
 provides:
   - name: yb-master
+    type: conn
 
 properties:
   enable_ysql:

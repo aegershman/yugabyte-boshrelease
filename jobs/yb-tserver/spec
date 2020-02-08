@@ -5,18 +5,15 @@ description: |
   https://docs.yugabyte.com/latest/reference/configuration/yb-tserver/
 
 templates:
-  bpm.yml: config/bpm.yml # bpm.yml.erb: config/bpm.yml
+  bpm.yml: config/bpm.yml
   tserver.conf.erb: tserver.conf
 
 packages:
   - yugabyte
 
 consumes:
-  - name: yb-tserver
   - name: yb-master
-
-provides:
-  - name: yb-tserver
+    type: conn
 
 properties:
   enable_ysql:

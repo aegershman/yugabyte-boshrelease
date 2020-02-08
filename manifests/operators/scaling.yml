@@ -1,50 +1,44 @@
 ---
 - type: replace
   path: /instance_groups/name=master/vm_type
-  value: c5.2xlarge
+  value: ((master_vm_type))
 
 - type: replace
   path: /instance_groups/name=master/persistent_disk_type
-  value: 250GB_gp2
+  value: ((master_persistent_disk_type))
 
 - type: replace
   path: /instance_groups/name=master/instances
-  value: 3
+  value: ((master_instances))
 
 - type: replace
   path: /instance_groups/name=master/azs
-  value:
-    - us-west-2a
-    - us-west-2b
-    - us-west-2c
+  value: ((master_azs))
 
 - type: replace
   path: /instance_groups/name=master/networks
   value:
-    - name: default
+    - name: ((master_network))
 
 ############
 
 - type: replace
   path: /instance_groups/name=tserver/vm_type
-  value: c5.2xlarge
+  value: ((tserver_vm_type))
 
 - type: replace
   path: /instance_groups/name=tserver/persistent_disk_type
-  value: 250GB_gp2
+  value: ((tserver_persistent_disk_type))
 
 - type: replace
   path: /instance_groups/name=tserver/instances
-  value: 3
+  value: ((tserver_instances))
 
 - type: replace
   path: /instance_groups/name=tserver/azs
-  value:
-    - us-west-2a
-    - us-west-2b
-    - us-west-2c
+  value: ((tserver_azs))
 
 - type: replace
   path: /instance_groups/name=tserver/networks
   value:
-    - name: default
+    - name: ((tserver_network))

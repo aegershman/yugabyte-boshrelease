@@ -2,4 +2,5 @@
 
 set -e -x
 
-tar zxfv yugabyte/yugabyte-2.0.11.0-linux.tar.gz -C ${BOSH_INSTALL_TARGET}
+tar zxf yugabyte/yugabyte-2.0.11.0-linux.tar.gz
+cp -a yugabyte-2.0.11.0/* ${BOSH_INSTALL_TARGET}
