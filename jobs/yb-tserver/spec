@@ -16,6 +16,19 @@ consumes:
     type: conn
 
 properties:
+  rpc_bind_addresses:
+    description: |
+      Specifies the comma-separated list of the network interface addresses to bind to for RPC connections.
+      Typically, the value is set to the private IP address of the host on which the server is running.
+      When using the default, or explicitly setting the value to 0.0.0.0:7100, the server will listen on all available network interfaces.
+      In cases where rpc_bind_addresses is set to 0.0.0.0 (or not explicitly set, and uses the default)
+      or in cases involving public IP addresses, make sure that server_broadcast_addresses is correctly set.
+
+      TODO currently only a single a address override is supported... so it's not
+      really addresses, and more like address
+
+      Default is the auto-assigned private IP from BOSH
+    example: "0.0.0.0"
   enable_ysql:
     default: true
   stderrthreshold:
@@ -26,7 +39,7 @@ properties:
   placement_zone:
     description: |
       The name of the availability zone (AZ), or rack, where this instance is deployed.
-      Default is auto-assigned from the bosh-deployment
+      Default is auto-assigned from BOSH
   placement_region:
     default: datacenter1
     description: Name of the region or data center where this instance is deployed.

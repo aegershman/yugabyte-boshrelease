@@ -5,6 +5,7 @@ master_network: services-network
 master_persistent_disk_type: "30720"
 master_placement_cloud: aws
 master_placement_region: us-west-2
+master_rpc_bind_addresses: "0.0.0.0"
 master_vm_type: m5.large
 syslog_address: q-s0.docker.services-network.splunk.bosh
 syslog_port: 5514
@@ -15,4 +16,5 @@ tserver_network: services-network
 tserver_persistent_disk_type: "30720"
 tserver_placement_cloud: aws
 tserver_placement_region: us-west-2
+tserver_rpc_bind_addresses: "0.0.0.0"
 tserver_vm_type: m5.large
