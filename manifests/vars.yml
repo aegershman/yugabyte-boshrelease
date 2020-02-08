@@ -14,7 +14,7 @@ syslog_port: 5514
 syslog_tls_enabled: false
 tserver_azs: [us-west-2a]
 tserver_enable_ysql: false
-tserver_instances: 0
+tserver_instances: 1
 tserver_network: services-network
 tserver_persistent_disk_type: "30720"
 tserver_placement_cloud: aws
