@@ -1,5 +1,6 @@
 ---
 master_azs: [us-west-2a]
+master_gflags: {default_memory_limit_to_ram_ratio: 0.85}
 master_instances: 3
 master_network: services-network
 master_persistent_disk_type: "30720"
@@ -7,6 +8,7 @@ master_placement_cloud: aws
 master_placement_region: us-west-2
 master_vm_type: m5.large
 tserver_azs: [us-west-2a]
+tserver_gflags: {default_memory_limit_to_ram_ratio: 0.85}
 tserver_instances: 3
 tserver_network: services-network
 tserver_persistent_disk_type: "30720"
