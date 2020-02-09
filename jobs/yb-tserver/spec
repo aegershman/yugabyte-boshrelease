@@ -31,3 +31,8 @@ properties:
   placement_cloud:
     default: cloud1
     description: Name of the cloud where this instance is deployed.
+  gflags:
+    description: extra "--key=value" properties to pass to the conf file
+    example: |
+      gflags:
+        default_memory_limit_to_ram_ratio: 0.85

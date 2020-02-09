@@ -87,6 +87,7 @@ bosh-links and goodies:
 
 inspiration:
 
+- https://github.com/cppforlife/zookeeper-release/blob/master/jobs/zookeeper/templates/zoo.cfg.erb
 - https://github.com/alphagov/paas-collectd-boshrelease/blob/master/jobs/collectd/templates/data/properties.sh.erb
 - https://github.com/cloudfoundry-incubator/kubo-release/blob/master/jobs/kubelet/templates/bin/kubelet_ctl.erb
 - https://github.com/bosh-prometheus/prometheus-boshrelease/blob/master/packages/firehose_exporter/packaging
