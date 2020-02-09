@@ -1,4 +1,5 @@
 ---
+deployment_name: yugabyte
 master_azs: [us-west-2a]
 master_gflags: {default_memory_limit_to_ram_ratio: 0.85}
 master_instances: 3

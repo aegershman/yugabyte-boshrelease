@@ -21,15 +21,23 @@ tasks:
       - task: dl-blobs
       - bosh add-blob /tmp/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
 
-  deploy:
+  deploy-production:
     cmds:
       - |
-        bosh -d yugabyte deploy manifests/yugabyte.yml \
-          -o manifests/operators/geo-distribution-flags.yml \
-          -o manifests/operators/gflags.yml \
-          -o manifests/operators/scaling.yml \
-          -o manifests/operators/update-strategy.yml \
-          -l manifests/vars.yml \
+        bosh -d yugabyte deploy manifests/production/yugabyte.yml \
+          -o manifests/production/operators/geo-distribution-flags.yml \
+          -o manifests/production/operators/gflags.yml \
+          -o manifests/production/operators/scaling.yml \
+          -o manifests/production/operators/update-strategy.yml \
+          -l manifests/production/vars.yml \
+          --no-redact \
+          --non-interactive
+
+  deploy-yb-ctl:
+    cmds:
+      - |
+        bosh -d yb-ctl deploy manifests/yb-ctl/yb-ctl.yml \
+          -l manifests/yb-ctl/vars.yml \
           --no-redact \
           --non-interactive
 
@@ -38,4 +46,4 @@ tasks:
       - task: add-blobs
       - bosh create-release --force
       - bosh upload-release
-      - task: deploy
+      - task: deploy-yb-ctl
