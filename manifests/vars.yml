@@ -7,7 +7,7 @@ master_placement_cloud: aws
 master_placement_region: us-west-2
 master_vm_type: t3.micro
 tserver_azs: [us-west-2a]
-tserver_instances: 3
+tserver_instances: 5
 tserver_network: services-network
 tserver_persistent_disk_type: "30720"
 tserver_placement_cloud: aws
