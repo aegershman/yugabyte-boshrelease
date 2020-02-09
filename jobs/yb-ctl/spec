@@ -1,0 +1,16 @@
+---
+name: yb-ctl
+
+description: |
+  https://docs.yugabyte.com/latest/admin/yb-ctl/
+  https://docs.yugabyte.com/latest/quick-start/create-local-cluster/
+
+templates:
+  bpm.yml: config/bpm.yml
+  post-start.sh: bin/post-start
+  pre-stop.sh: bin/pre-stop
+
+packages:
+  - yugabyte
+
+properties: {}
