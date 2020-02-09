@@ -10,6 +10,7 @@ templates:
   yugabyted.conf.erb: yugabyted.conf
 
 packages:
+  - python-3.8
   - yugabyte
 
 properties: {}

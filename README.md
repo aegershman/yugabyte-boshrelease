@@ -28,6 +28,10 @@ todo:
 
 reference links:
 
+- https://github.com/cloudfoundry-community/sample-python-flask-app-boshrelease/blob/master/packages/python/packaging
+- https://github.com/bosh-packages/python-release/blob/master/packages/python-2.7/packaging
+- https://linuxize.com/post/how-to-install-python-3-7-on-ubuntu-18-04/
+- https://github.com/yugabyte/yugabyte-installation/blob/master/test/yb-ctl-test.sh
 - https://github.com/yugabyte/yugabyte-db/tree/master/src/yb/tserver
 - can also see all the flags configured or available on a given master or tserver by going to `host:port/varz`
 - https://download.yugabyte.com/#linux

@@ -3,6 +3,7 @@ version: "2"
 
 env:
   YB_VERSION: 2.0.11.0
+  PYTHON_3_VERSION: 3.8.1
 
 tasks:
   git:
@@ -10,7 +11,13 @@ tasks:
       - git add -A
       - git commit -m "autocommit"
 
-  dl-blobs:
+  dl-python-3:
+    status:
+      - test -f /tmp/Python-${PYTHON_3_VERSION}.tgz
+    cmds:
+      - curl -o /tmp/Python-${PYTHON_3_VERSION}.tgz https://www.python.org/ftp/python/${PYTHON_3_VERSION}/Python-${PYTHON_3_VERSION}.tgz
+
+  dl-yb:
     status:
       - test -f /tmp/yugabyte-${YB_VERSION}-linux.tar.gz
     cmds:
@@ -18,8 +25,10 @@ tasks:
 
   add-blobs:
     cmds:
-      - task: dl-blobs
+      - task: dl-yb
       - bosh add-blob /tmp/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
+      - task: dl-python-3
+      - bosh add-blob /tmp/Python-${PYTHON_3_VERSION}.tgz python/Python-${PYTHON_3_VERSION}.tgz
 
   deploy-production:
     cmds:

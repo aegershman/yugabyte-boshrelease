@@ -1,0 +1,7 @@
+---
+name: python-3.8
+
+dependencies: []
+
+files:
+  - python/Python-3.8.1.tgz # https://www.python.org/downloads/release/python-381/
