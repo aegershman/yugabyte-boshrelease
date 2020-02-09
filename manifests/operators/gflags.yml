@@ -1,0 +1,10 @@
+---
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/gflags
+  value: ((master_gflags))
+
+############
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/gflags
+  value: ((tserver_gflags))

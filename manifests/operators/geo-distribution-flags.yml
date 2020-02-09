@@ -1,18 +1,18 @@
 ---
 - type: replace
-  path: /instance_groups/name=master/properties?/placement_region
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/placement_region
   value: ((master_placement_region))
 
 - type: replace
-  path: /instance_groups/name=master/properties?/placement_cloud
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/placement_cloud
   value: ((master_placement_cloud))
 
 ############
 
 - type: replace
-  path: /instance_groups/name=tserver/properties?/placement_region
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/placement_region
   value: ((tserver_placement_region))
 
 - type: replace
-  path: /instance_groups/name=tserver/properties?/placement_cloud
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/placement_cloud
   value: ((tserver_placement_cloud))

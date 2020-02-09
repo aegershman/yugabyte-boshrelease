@@ -1,21 +1,19 @@
 ---
-master_azs: [us-west-2a, us-west-2b, us-west-2c]
-master_enable_ysql: false
-master_instances: 1
+master_azs: [us-west-2a]
+master_gflags: {default_memory_limit_to_ram_ratio: 0.85}
+master_instances: 3
 master_network: services-network
 master_persistent_disk_type: "30720"
 master_placement_cloud: aws
 master_placement_region: us-west-2
-master_rpc_bind_addresses: "0.0.0.0"
-master_server_broadcast_addresses: "0.0.0.0"
-master_vm_type: t3.micro
-tserver_azs: [us-west-2a, us-west-2b, us-west-2c]
-tserver_enable_ysql: false
+master_vm_type: m5.large
+tserver_azs: [us-west-2a]
+tserver_gflags: {default_memory_limit_to_ram_ratio: 0.85}
 tserver_instances: 3
 tserver_network: services-network
 tserver_persistent_disk_type: "30720"
 tserver_placement_cloud: aws
 tserver_placement_region: us-west-2
-tserver_rpc_bind_addresses: "0.0.0.0"
-tserver_server_broadcast_addresses: "0.0.0.0"
-tserver_vm_type: t3.small
+tserver_vm_type: m5.large
+update_max_in_flight: 1
+update_serial: true

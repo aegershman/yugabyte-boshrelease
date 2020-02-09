@@ -1,0 +1,11 @@
+---
+- type: replace
+  path: /instance_groups/name=master/jobs/-
+  value:
+    name: yb-tserver
+    release: yugabyte
+    consumes:
+      yb-master: { from: yb-master-provider }
+    properties:
+      placement_region: ((master_placement_region))
+      placement_cloud: ((master_placement_cloud))
