@@ -11,6 +11,7 @@ templates:
   pre-stop.sh: bin/pre-stop
 
 packages:
+  - python-3.8
   - yugabyte
 
 properties: {}
