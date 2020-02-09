@@ -17,6 +17,3 @@ pushd Python-3.8.1
 make -j ${CPUS}
 make install
 popd
-
-for dir in $(ls -d /var/vcap/packages/*/bin); do export PATH=$dir:$PATH; done
-for dir in $(ls -d /var/vcap/packages/*/lib); do export LD_LIBRARY_PATH=$dir:${LD_LIBRARY_PATH:-}; done
