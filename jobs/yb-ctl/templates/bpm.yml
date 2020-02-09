@@ -5,8 +5,8 @@ processes:
     persistent_disk: true
     args:
       - start
-      - --binary_dir /var/vcap/packages/yugabyte/bin/
-      - --data_dir /var/vcap/store/yugabyte/
+      - --binary_dir=/var/vcap/packages/yugabyte/bin/
+      - --data_dir=/var/vcap/store/yugabyte/
       - --verbose
 
     capabilities:

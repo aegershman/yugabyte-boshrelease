@@ -1,0 +1,14 @@
+---
+processes:
+  - name: yugabyted
+    executable: /var/vcap/packages/yugabyte/bin/yugabyted
+    persistent_disk: true
+    args:
+      - start
+      - --config=/var/vcap/jobs/yugabyted/yugabyted.conf
+
+    capabilities:
+      - NET_BIND_SERVICE
+
+    hooks:
+      pre_start: /var/vcap/packages/yugabyte/bin/post_install.sh
