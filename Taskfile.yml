@@ -41,9 +41,17 @@ tasks:
           --no-redact \
           --non-interactive
 
+  deploy-yugabyted:
+    cmds:
+      - |
+        bosh -d yb-ctl deploy manifests/yugabyted/yugabyted.yml \
+          -l manifests/yugabyted/vars.yml \
+          --no-redact \
+          --non-interactive
+
   test:
     cmds:
       - task: add-blobs
       - bosh create-release --force
       - bosh upload-release
-      - task: deploy-yb-ctl
+      - task: deploy-yugabyted

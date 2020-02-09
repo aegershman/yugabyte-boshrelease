@@ -1,0 +1,6 @@
+---
+deployment_name: yugabyted
+yugabyted_azs: [us-west-2a]
+yugabyted_network: services-network
+yugabyted_persistent_disk_type: "30720"
+yugabyted_vm_type: m5.large
