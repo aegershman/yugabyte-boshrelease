@@ -4,6 +4,7 @@ name: yugabyted
 description: https://docs.yugabyte.com/latest/reference/configuration/yugabyted/
 
 templates:
+  bpm.erb.yml: config/bpm.yml
   post-start.sh: bin/post-start
   pre-start.sh: bin/pre-start
   yugabyted_ctl.erb.sh: bin/yugabyted_ctl
@@ -11,4 +12,7 @@ templates:
 packages:
   - yugabyte
 
-properties: {}
+properties:
+  bpm.enabled:
+    description: "Enable Bosh Process Manager"
+    default: false
