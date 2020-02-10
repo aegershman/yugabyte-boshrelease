@@ -3,19 +3,12 @@ version: "2"
 
 env:
   YB_VERSION: 2.0.11.0
-  # PYTHON_3_VERSION: 3.8.1
 
 tasks:
   git:
     cmds:
       - git add -A
       - git commit -m "autocommit"
-
-  # dl-python-3:
-  #   status:
-  #     - test -f /tmp/Python-${PYTHON_3_VERSION}.tgz
-  #   cmds:
-  #     - curl -o /tmp/Python-${PYTHON_3_VERSION}.tgz https://www.python.org/ftp/python/${PYTHON_3_VERSION}/Python-${PYTHON_3_VERSION}.tgz
 
   dl-yb:
     status:
@@ -27,14 +20,11 @@ tasks:
     cmds:
       - task: dl-yb
       - bosh add-blob /tmp/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
-      # - task: dl-python-3
-      # - bosh add-blob /tmp/Python-${PYTHON_3_VERSION}.tgz python/Python-${PYTHON_3_VERSION}.tgz
 
   deploy-production:
     cmds:
       - |
         bosh -d yugabyte deploy manifests/production/yugabyte.yml \
-          -o manifests/production/operators/geo-distribution-flags.yml \
           -o manifests/production/operators/gflags.yml \
           -o manifests/production/operators/scaling.yml \
           -o manifests/production/operators/update-strategy.yml \
@@ -50,18 +40,9 @@ tasks:
           --no-redact \
           --non-interactive
 
-  deploy-yugabyted:
-    # note: if it starts acting up, use --skip-drain=yugabyted
-    cmds:
-      - |
-        bosh -d yugabyted deploy manifests/yugabyted/yugabyted.yml \
-          -l manifests/yugabyted/vars.yml \
-          --no-redact \
-          --non-interactive
-
   test:
     cmds:
       - task: add-blobs
       - bosh create-release --force
       - bosh upload-release
-      - task: deploy-yb-ctl
+      - task: deploy-production

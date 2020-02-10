@@ -14,4 +14,7 @@ templates:
 packages:
   - yugabyte
 
-properties: {}
+properties:
+  v_level:
+    default: 3
+    description: verbosity level of the server noise, 0 (least) to 4 (loudest)

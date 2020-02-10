@@ -1,16 +1,10 @@
 --fs_data_dirs=/var/vcap/store/yb-master
 --log_dir=/var/vcap/sys/log/yb-master
---stderrthreshold=<%= p("stderrthreshold") %>
---stop_logging_if_full_disk=true
---max_log_size=256
---minloglevel=0
+--master_addresses=<%= link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",") %>
+--placement_zone=<%= spec.az %>
+--replication_factor=<%= link("yb-master").instances.length %>
 --rpc_bind_addresses=<%= spec.address %>
 --server_broadcast_addresses=<%= spec.address %>:7100
---master_addresses=<%= link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",") %>
---replication_factor=<%= link("yb-master").instances.length %>
---placement_zone=<%= p("placement_zone", spec.az) %>
---placement_region=<%= p("placement_region") %>
---placement_cloud=<%= p("placement_cloud") %>
 
 <% p('gflags', {}).each do |key, value| %>
 --<%= key %>=<%= value %>

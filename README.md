@@ -122,29 +122,3 @@ scratchpad
 goes
 here
 ```
-
-```log
-yugabyted keeps trying to write to
-/var/vcap/data/packages/yugabyte/8794e053a0449c6423cff56922e1671a55201ee6/conf/yugabyted.conf
-```
-
-```json
-{
-  "tserver_webserver_port": 9000,
-  "master_rpc_port": 7100,
-  "data_dir": "/var/vcap/data/packages/yugabyte/8794e053a0449c6423cff56922e1671a55201ee6/yugabyte-data",
-  "callhome": true,
-  "universe_uuid": "26b79f9c-5971-4a7c-9ed1-fb7ffd4c4195",
-  "webserver_port": 7200,
-  "ysql_port": 5433,
-  "tserver_flags": "",
-  "master_webserver_port": 7000,
-  "node_uuid": "dfa8719b-f6a9-453b-9886-4e910b9ae74c",
-  "bind_ip": "0.0.0.0",
-  "log_dir": "/var/vcap/data/packages/yugabyte/8794e053a0449c6423cff56922e1671a55201ee6/yugabyte-logs",
-  "polling_interval": "5",
-  "ycql_port": 9042,
-  "master_flags": "",
-  "tserver_rpc_port": 9100
-}
-```

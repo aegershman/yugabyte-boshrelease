@@ -5,13 +5,10 @@ processes:
     persistent_disk: true
     args:
       - start
-      - --binary_dir=/var/vcap/packages/yugabyte/bin/
-      - --data_dir=/var/vcap/store/yugabyte/
-      - --v=3
+      - --binary_dir=packages/yugabyte/bin/
+      - --data_dir=/var/vcap/store/yb-ctl/yugabyte-data/
       - --verbose
+      - --v=<%= p("v_level") %>
 
     capabilities:
       - NET_BIND_SERVICE
-
-    # unsafe:
-    #   priviledged: true
