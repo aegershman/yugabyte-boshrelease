@@ -1,0 +1,6 @@
+---
+deployment_name: yb-ctl
+yb_ctl_azs: [us-west-2a]
+yb_ctl_network: services-network
+yb_ctl_persistent_disk_type: "30720"
+yb_ctl_vm_type: m5.large

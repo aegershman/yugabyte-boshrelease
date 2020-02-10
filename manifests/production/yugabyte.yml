@@ -1,7 +1,7 @@
 ---
 tags: {}
 
-name: yugabyte
+name: ((deployment_name))
 
 releases:
   - name: yugabyte

@@ -2,6 +2,10 @@
 
 todo:
 
+- how can python be better managed? I don't want it brought in through apt-get, I want it specific and managed as a package. Won't be included in the actual OS either, but might be able to hack it for the moment (https://github.com/cloudfoundry/bosh-linux-stemcell-builder/blob/6599ec27e4d048303983d02cd96dc46740603c21/bosh-stemcell/spec/assets/dpkg-list-ubuntu-xenial.txt)
+  - https://askubuntu.com/questions/817255/default-to-python3-for-usr-bin-env-python
+  - https://unix.stackexchange.com/questions/12736/how-does-usr-bin-env-know-which-program-to-use
+  - https://unix.stackexchange.com/questions/410579/change-the-python3-default-version-in-ubuntu
 - placement uuid override? nah
 - is the reference doc accurate in reference to csql proxies and such...?
 - create a compiled release? https://bosh.io/docs/compiled-releases/
@@ -28,6 +32,13 @@ todo:
 
 reference links:
 
+- https://github.com/yugabyte/yugabyte-db-thirdparty/blob/master/azure-pipelines.yml
+- https://github.com/yugabyte/yugabyte-db-thirdparty/blob/master/yb_build_thirdparty_main.py
+- https://linuxize.com/post/how-to-create-python-virtual-environments-on-ubuntu-18-04/
+- https://github.com/cloudfoundry-community/sample-python-flask-app-boshrelease/blob/master/packages/python/packaging
+- https://github.com/bosh-packages/python-release/blob/master/packages/python-2.7/packaging
+- https://linuxize.com/post/how-to-install-python-3-7-on-ubuntu-18-04/
+- https://github.com/yugabyte/yugabyte-installation/blob/master/test/yb-ctl-test.sh
 - https://github.com/yugabyte/yugabyte-db/tree/master/src/yb/tserver
 - can also see all the flags configured or available on a given master or tserver by going to `host:port/varz`
 - https://download.yugabyte.com/#linux
@@ -63,6 +74,7 @@ reference links:
 
 bosh-links and goodies:
 
+- https://bosh.io/docs/bpm/config/#example
 - https://content.pivotal.io/blog/troubleshooting-bosh-releases-deployments
 - https://bosh.io/docs/drain/
 - https://bosh.io/docs/pre-start/
@@ -87,6 +99,8 @@ bosh-links and goodies:
 
 inspiration:
 
+- https://github.com/cloudfoundry-incubator/pxc-release
+- https://github.com/pivotal/credhub-release/tree/master/scripts
 - https://github.com/cppforlife/zookeeper-release/blob/master/jobs/zookeeper/templates/zoo.cfg.erb
 - https://github.com/alphagov/paas-collectd-boshrelease/blob/master/jobs/collectd/templates/data/properties.sh.erb
 - https://github.com/cloudfoundry-incubator/kubo-release/blob/master/jobs/kubelet/templates/bin/kubelet_ctl.erb

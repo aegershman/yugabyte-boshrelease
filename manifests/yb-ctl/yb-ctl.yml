@@ -1,0 +1,43 @@
+---
+tags: {}
+
+name: ((deployment_name))
+
+releases:
+  - name: yugabyte
+    version: latest
+  - name: bpm
+    version: latest
+
+stemcells:
+  - alias: default
+    os: ubuntu-xenial
+    version: latest
+
+update:
+  canaries: 0
+  max_in_flight: 1
+  serial: true
+  canary_watch_time: 10000-20000
+  update_watch_time: 10000-20000
+
+addons:
+  - name: bpm
+    jobs:
+      - name: bpm
+        release: bpm
+
+instance_groups:
+  - name: yb-ctl
+    azs: ((yb_ctl_azs))
+    instances: 1
+    vm_type: ((yb_ctl_vm_type))
+    persistent_disk_type: ((yb_ctl_persistent_disk_type))
+    stemcell: default
+    networks:
+      - name: ((yb_ctl_network))
+    jobs:
+      - name: yb-ctl
+        release: yugabyte
+
+variables: []
