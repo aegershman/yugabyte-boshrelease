@@ -51,11 +51,11 @@ tasks:
           --non-interactive
 
   deploy-yugabyted:
+    # note: if it starts acting up, use --skip-drain=yugabyted
     cmds:
       - |
         bosh -d yugabyted deploy manifests/yugabyted/yugabyted.yml \
           -l manifests/yugabyted/vars.yml \
-          --skip-drain=yugabyted \
           --no-redact \
           --non-interactive
 
