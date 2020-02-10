@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -e -u
+
+RUN_DIR=/var/vcap/sys/run/yugabyted
+LOG_DIR=/var/vcap/sys/log/yugabyted
+DATA_DIR=/var/vcap/store/yugabyted
+PIDFILE=${RUN_DIR}/pid
+
+mkdir -p ${RUN_DIR} ${LOG_DIR} ${DATA_DIR}
+
+exec 1>>"${LOG_DIR}/ctl.stdout.log"
+exec 2>>"${LOG_DIR}/ctl.stderr.log"
+
+export PATH=/var/vcap/packages/yugabyte/bin:$PATH
+
+case $1 in
+start)
+
+  echo $$ >${PIDFILE}
+
+  exec yugabyted start \
+    --data_dir ${DATA_DIR} \
+    --log_dir ${LOG_DIR} \
+    --bind_ip <%= spec.address %>
+  ;;
+
+stop)
+  kill -9 $(cat ${PIDFILE})
+  rm -f ${PIDFILE}
+  ;;
+
+*)
+  echo "Usage: ${0} {start|stop}"
+  exit 1
+  ;;
+esac

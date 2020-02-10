@@ -3,21 +3,11 @@ processes:
   - name: yugabyted
     executable: /var/vcap/packages/yugabyte/bin/yugabyted
     persistent_disk: true
-    ephemeral_disk: true
     args:
     - start
-    - --data_dir
-    - /var/vcap/store/yugabyted
-    - --log_dir
-    - /var/vcap/sys/log/yugabyted
-    - --bind_ip
-    - <%= spec.address %>
-    - --config
-    - /var/vcap/jobs/yugabyted/yugabyted.conf.json
-
-    # turns out this probably won't matter
-    unsafe:
-      privileged: true
+    - --data_dir /var/vcap/store/yugabyted
+    - --log_dir /var/vcap/sys/log/yugabyted
+    - --bind_ip <%= spec.address %>
 
     capabilities:
       - NET_BIND_SERVICE
