@@ -25,7 +25,6 @@ tasks:
     cmds:
       - |
         bosh -d yugabyte deploy manifests/production/yugabyte.yml \
-          -o manifests/production/operators/colocate-tservers-on-masters.yml \
           -o manifests/production/operators/gflags.yml \
           -o manifests/production/operators/master-replication-factor.yml \
           -o manifests/production/operators/scaling.yml \
