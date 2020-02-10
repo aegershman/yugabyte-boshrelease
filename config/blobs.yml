@@ -1,6 +1,3 @@
-python/Python-3.8.1.tgz:
-  size: 23978360
-  sha: sha256:c7cfa39a43b994621b245e029769e9126caa2a93571cee2e743b213cceac35fb
 yugabyte/yugabyte-2.0.11.0-linux.tar.gz:
   size: 447734499
   sha: sha256:65e83105902c82148159619be3a1c1c66c72c199372bce9e67eef4f1322559e2
