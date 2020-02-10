@@ -6,7 +6,7 @@ description: https://docs.yugabyte.com/latest/reference/configuration/yugabyted/
 templates:
   post-start.sh: bin/post-start
   pre-start.sh: bin/pre-start
-  yugabyted_ctl.erb.sh: bin/ctl
+  yugabyted_ctl.erb.sh: bin/yugabyted_ctl
 
 packages:
   - yugabyte
