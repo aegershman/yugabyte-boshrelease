@@ -26,7 +26,6 @@ tasks:
       - |
         bosh -d yugabyte deploy manifests/production/yugabyte.yml \
           -o manifests/production/operators/gflags.yml \
-          -o manifests/production/operators/master-replication-factor.yml \
           -o manifests/production/operators/scaling.yml \
           -o manifests/production/operators/update-strategy.yml \
           -l manifests/production/vars.yml \
