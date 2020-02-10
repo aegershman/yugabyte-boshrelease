@@ -12,6 +12,7 @@ master_gflags:
 master_instances: 3
 master_network: services-network
 master_persistent_disk_type: "30720"
+master_replication_factor: 1
 master_vm_type: m5.large
 tserver_azs: [us-west-2a]
 tserver_gflags:
