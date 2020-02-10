@@ -12,6 +12,9 @@ processes:
     - --bind_ip
     - <%= spec.address %>
 
+    unsafe:
+      privileged: true
+
     capabilities:
       - NET_BIND_SERVICE
 

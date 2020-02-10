@@ -32,6 +32,8 @@ todo:
 
 reference links:
 
+- https://github.com/yugabyte/yugabyte-db-thirdparty/blob/master/azure-pipelines.yml
+- https://github.com/yugabyte/yugabyte-db-thirdparty/blob/master/yb_build_thirdparty_main.py
 - https://linuxize.com/post/how-to-create-python-virtual-environments-on-ubuntu-18-04/
 - https://github.com/cloudfoundry-community/sample-python-flask-app-boshrelease/blob/master/packages/python/packaging
 - https://github.com/bosh-packages/python-release/blob/master/packages/python-2.7/packaging
