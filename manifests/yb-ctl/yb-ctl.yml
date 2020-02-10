@@ -8,6 +8,8 @@ releases:
     version: latest
   - name: bpm
     version: latest
+  - name: os-conf
+    version: latest
 
 stemcells:
   - alias: default
@@ -37,6 +39,12 @@ instance_groups:
     networks:
       - name: ((yb_ctl_network))
     jobs:
+      - name: pre-start-script
+        release: os-conf
+        properties:
+          script: |-
+            #!/bin/bash
+            apt-get update && apt-get -y install python
       - name: yb-ctl
         release: yugabyte
 

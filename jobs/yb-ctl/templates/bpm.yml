@@ -7,10 +7,11 @@ processes:
       - start
       - --binary_dir=/var/vcap/packages/yugabyte/bin/
       - --data_dir=/var/vcap/store/yugabyte/
+      - --v=3
       - --verbose
 
     capabilities:
       - NET_BIND_SERVICE
 
-    hooks:
-      pre_start: /var/vcap/packages/yugabyte/bin/post_install.sh
+    # unsafe:
+    #   priviledged: true

@@ -64,4 +64,4 @@ tasks:
       - task: add-blobs
       - bosh create-release --force
       - bosh upload-release
-      - task: deploy-yugabyted
+      - task: deploy-yb-ctl
