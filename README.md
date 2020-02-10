@@ -72,6 +72,7 @@ reference links:
 
 bosh-links and goodies:
 
+- https://bosh.io/docs/bpm/config/#example
 - https://content.pivotal.io/blog/troubleshooting-bosh-releases-deployments
 - https://bosh.io/docs/drain/
 - https://bosh.io/docs/pre-start/

@@ -4,10 +4,13 @@ processes:
     executable: /var/vcap/packages/yugabyte/bin/yugabyted
     persistent_disk: true
     args:
-      - start
-      - --data_dir=/var/vcap/store/yugabyted
-      - --log_dir=/var/vcap/sys/log/yugabyted
-      - --bind_ip=<%= spec.address %>
+    - start
+    - --data_dir
+    - /var/vcap/store/yugabyted
+    - --log_dir
+    - /var/vcap/sys/log/yugabyted
+    - --bind_ip
+    - <%= spec.address %>
 
     capabilities:
       - NET_BIND_SERVICE
