@@ -6,6 +6,7 @@ description: https://docs.yugabyte.com/latest/reference/configuration/yugabyted/
 templates:
   bpm.yml.erb: config/bpm.yml
   post-start.sh: bin/post-start
+  pre-start.sh: bin/pre-start
   pre-stop.sh: bin/pre-stop
 
 packages:
