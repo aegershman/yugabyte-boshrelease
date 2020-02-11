@@ -6,7 +6,7 @@ description: |
   https://github.com/yugabyte/yb-sample-apps/releases
 
 templates:
-  bpm.erb.yml: config/bpm
+  bpm.erb.yml: config/bpm.yml
   yb-sample-apps.sh: yb-sample-apps
 
 consumes:
