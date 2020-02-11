@@ -21,6 +21,10 @@ provides:
     type: conn
 
 properties:
+  server_broadcast_addresses_port:
+    default: 9100
+  rpc_bind_addresses_port:
+    default: 9100
   gflags:
     description: extra "--key=value" properties to pass to the conf file
     example: |
