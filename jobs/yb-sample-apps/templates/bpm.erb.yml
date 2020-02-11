@@ -1,7 +1,7 @@
 ---
 processes:
   - name: yb-sample-apps
-    executable: /var/vcap/jobs/yb-sample-apps/yb-sample-apps
+    executable: /var/vcap/jobs/yb-sample-apps/yb-sample-apps.sh
     env:
       JAVA_HOME: /var/vcap/packages/openjdk8/jre
       MASTER_ENDPOINTS: <%= link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",") %>

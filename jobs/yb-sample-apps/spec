@@ -7,7 +7,7 @@ description: |
 
 templates:
   bpm.erb.yml: config/bpm.yml
-  yb-sample-apps.sh: yb-sample-apps
+  yb-sample-apps.sh: yb-sample-apps.sh
 
 consumes:
   - name: yb-master
