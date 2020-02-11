@@ -5,4 +5,5 @@ common_gflags:
   minloglevel: 0
   placement_cloud: aws
   placement_region: us-west-2
+  start_pgsql_proxy: false # TODO probably can be removed if enable ysql is false too
   stop_logging_if_full_disk: true
