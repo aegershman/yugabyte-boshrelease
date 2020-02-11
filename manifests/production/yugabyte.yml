@@ -55,6 +55,8 @@ instance_groups:
     jobs:
       - name: yb-tserver
         release: yugabyte
+        provides:
+          yb-tserver: { as: yb-tserver-provider }
         consumes:
           yb-master: { from: yb-master-provider }
 

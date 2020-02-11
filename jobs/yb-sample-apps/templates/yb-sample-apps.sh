@@ -4,12 +4,12 @@ set -e -u -o pipefail
 
 cd /var/vcap/packages/yb-sample-apps
 
-export PATH=$JAVA_HOME/bin:$PATH
+export PATH=${JAVA_HOME}/bin:${PATH}
 
 java -Xmx${MAX_HEAP_SIZE}m -Djava.security.egd=file:/dev/urandom \
   -jar *.jar \
   --workload CassandraKeyValue \
-  --nodes ${ENDPOINTS} \
+  --nodes ${MASTER_ENDPOINTS} \
   --nouuid \
   --value_size 256 \
   --num_threads_read 0 \

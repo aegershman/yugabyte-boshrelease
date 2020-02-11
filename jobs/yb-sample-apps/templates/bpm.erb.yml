@@ -4,7 +4,7 @@ processes:
     executable: /var/vcap/jobs/yb-sample-apps/bin/yb-sample-apps
     env:
       JAVA_HOME: /var/vcap/packages/openjdk8/jre
+      MASTER_ENDPOINTS: <%= link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",") %>
       MAX_HEAP_SIZE: p('yb-sample-apps.max_heap_size')
-      ENDPOINTS: <%= link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",") %>
 
     capabilities: []
