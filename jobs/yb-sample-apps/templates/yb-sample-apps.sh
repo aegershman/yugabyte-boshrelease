@@ -9,7 +9,7 @@ export PATH=${JAVA_HOME}/bin:${PATH}
 java -Xmx${MAX_HEAP_SIZE}m -Djava.security.egd=file:/dev/urandom \
   -jar *.jar \
   --workload CassandraKeyValue \
-  --nodes ${MASTER_ENDPOINTS} \
+  --nodes ${YCQL_ENDPOINTS} \
   --nouuid \
   --value_size 256 \
   --num_threads_read 0 \
