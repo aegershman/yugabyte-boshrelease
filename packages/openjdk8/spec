@@ -1,0 +1,11 @@
+---
+name: openjdk8
+
+description: |
+  https://github.com/pivotal/credhub-release/tree/master/packages/openjdk_1.8.0
+  https://api.adoptopenjdk.net/
+
+dependencies: []
+
+files:
+  - openjdk/OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz

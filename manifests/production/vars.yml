@@ -1,6 +1,4 @@
 ---
-deployment_name: yugabyte
-master_azs: [us-west-2a, us-west-2b, us-west-2c]
 master_gflags:
   default_memory_limit_to_ram_ratio: 0.85
   max_log_size: 256
@@ -8,11 +6,6 @@ master_gflags:
   placement_cloud: aws
   placement_region: us-west-2
   stop_logging_if_full_disk: true
-master_instances: 1
-master_network: services-network
-master_persistent_disk_type: "30720"
-master_vm_type: m5.large
-tserver_azs: [us-west-2a, us-west-2b, us-west-2c]
 tserver_gflags:
   default_memory_limit_to_ram_ratio: 0.85
   max_log_size: 256
@@ -20,9 +13,3 @@ tserver_gflags:
   placement_cloud: aws
   placement_region: us-west-2
   stop_logging_if_full_disk: true
-tserver_instances: 3
-tserver_network: services-network
-tserver_persistent_disk_type: "30720"
-tserver_vm_type: m5.large
-update_max_in_flight: 1
-update_serial: true

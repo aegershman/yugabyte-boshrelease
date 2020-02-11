@@ -1,0 +1,5 @@
+check process yb-sample-apps
+  with pidfile /var/vcap/sys/run/bpm/yb-sample-apps/yb-sample-apps.pid
+  start program "/var/vcap/jobs/bpm/bin/bpm start yb-sample-apps"
+  stop program "/var/vcap/jobs/bpm/bin/bpm stop yb-sample-apps"
+  group vcap

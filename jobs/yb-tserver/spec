@@ -16,6 +16,10 @@ consumes:
   - name: yb-master
     type: conn
 
+provides:
+  - name: yb-tserver
+    type: conn
+
 properties:
   gflags:
     description: extra "--key=value" properties to pass to the conf file

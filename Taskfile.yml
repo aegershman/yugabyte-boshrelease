@@ -2,13 +2,30 @@
 version: "2"
 
 env:
+  YB_SAMPLE_APPS_VERSION: 1.2.1
   YB_VERSION: 2.0.11.0
+  OPENJDK8_VERSION_NAME: jdk8u242-b08 # can also put down 'latest'
 
 tasks:
   git:
     cmds:
       - git add -A
       - git commit -m "autocommit"
+
+  dl-openjdk:
+    dir: /tmp
+    status:
+      - test -f OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz
+    cmds:
+      # - curl -L 'https://api.adoptopenjdk.net/v2/info/releases/openjdk8?openjdk_impl=hotspot&os=linux&arch=x64&type=jre&release=latest' # info on latest release
+      # - curl -JLO 'https://api.adoptopenjdk.net/v2/binary/releases/openjdk8?openjdk_impl=hotspot&os=linux&arch=x64&release=latest&type=jre' # download latest release keeping original binary name
+      - curl -JLO "https://api.adoptopenjdk.net/v2/binary/releases/openjdk8?openjdk_impl=hotspot&os=linux&arch=x64&type=jre&release=${OPENJDK8_VERSION_NAME}"
+
+  dl-yb-sample-apps:
+    status:
+      - test -f /tmp/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar
+    cmds:
+      - curl -o /tmp/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar https://github.com/yugabyte/yb-sample-apps/releases/download/v${YB_SAMPLE_APPS_VERSION}/yb-sample-apps.jar?raw=true
 
   dl-yb:
     status:
@@ -20,22 +37,22 @@ tasks:
     cmds:
       - task: dl-yb
       - bosh add-blob /tmp/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
+      - task: dl-openjdk
+      - bosh add-blob /tmp/OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz openjdk/OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz
+      - task: dl-yb-sample-apps
+      - bosh add-blob /tmp/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar yugabyte/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar
 
   deploy-production:
     cmds:
       - |
         bosh -d yugabyte deploy manifests/production/yugabyte.yml \
-          -o manifests/production/operators/gflags.yml \
-          -o manifests/production/operators/scaling.yml \
-          -o manifests/production/operators/update-strategy.yml \
           -l manifests/production/vars.yml \
           --no-redact \
           --non-interactive
 
   deploy-yugabyted:
-    # note: if it starts acting up, use --skip-drain=yugabyted
     cmds:
-      - |
+      - | # note: if it starts acting up, use --skip-drain=yugabyted
         bosh -d yugabyted deploy manifests/yugabyted/yugabyted.yml \
           -l manifests/yugabyted/vars.yml \
           --no-redact \

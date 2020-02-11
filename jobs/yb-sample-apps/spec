@@ -1,0 +1,29 @@
+---
+name: yb-sample-apps
+
+description: |
+  https://docs.yugabyte.com/latest/benchmark/performance/
+  https://github.com/yugabyte/yb-sample-apps/releases
+
+templates:
+  bpm.erb.yml: config/bpm.yml
+  pre-start.sh: bin/pre-start
+  yb-sample-apps.sh: yb-sample-apps.sh
+
+consumes:
+  - name: yb-master
+    type: conn
+    optional: true
+
+  - name: yb-tserver
+    type: conn
+    optional: true
+
+packages:
+  - openjdk8
+  - yb-sample-apps
+
+properties:
+  yb-sample-apps.max_heap_size:
+    description: "Maximum memory heap size in MB for yb-sample-apps JVM"
+    default: 1024

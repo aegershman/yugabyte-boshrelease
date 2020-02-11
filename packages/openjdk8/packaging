@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e -x
+
+cd ${BOSH_INSTALL_TARGET}
+mkdir jre && tar zxvf ${BOSH_COMPILE_TARGET}/openjdk/OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz -C jre
+if [[ $? != 0 ]]; then
+  echo "Cannot unpack JRE"
+  exit 1
+fi
+
+# latest JRE release didn't have correct permissions
+chmod -R a+r jre
