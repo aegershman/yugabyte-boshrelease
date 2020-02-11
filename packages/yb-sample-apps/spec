@@ -7,4 +7,4 @@ dependencies:
   - openjdk8
 
 files:
-  - yugabyte/yb-sample-apps-*.jar
+  - yugabyte/yb-sample-apps-1.2.1.jar
