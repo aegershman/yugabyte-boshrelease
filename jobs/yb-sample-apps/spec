@@ -1,0 +1,16 @@
+---
+name: yb-sample-apps
+
+description: |
+  https://docs.yugabyte.com/latest/benchmark/performance/
+  https://github.com/yugabyte/yb-sample-apps/releases
+
+templates:
+  bpm.erb.yml: config/bpm
+  run.sh: run
+
+packages:
+  - openjdk_1.8.0
+  - yb-sample-apps
+
+properties: {}

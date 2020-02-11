@@ -1,0 +1,11 @@
+---
+processes:
+  - name: yb-sample-apps
+    executable: /var/vcap/packages/yb-sample-apps/
+    args:
+    - start
+    - --data_dir=/var/vcap/store/yugabyted/yugabyte-data/
+    - --log_dir=/var/vcap/sys/log/yugabyted
+    - --bind_ip=<%= spec.address %>
+
+    capabilities: []
