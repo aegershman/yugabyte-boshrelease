@@ -2,14 +2,6 @@
 
 set -e -x
 
-echo "compile target is" ${BOSH_COMPILE_TARGET}
-echo "ls on bosh compile target is..."
-ls -lR ${BOSH_COMPILE_TARGET}
-
-echo "install target" ${BOSH_INSTALL_TARGET}
-echo "ls on bosh install target is..."
-ls -lR ${BOSH_INSTALL_TARGET}
-
 cd ${BOSH_INSTALL_TARGET}
 mkdir jre && tar zxvf ${BOSH_COMPILE_TARGET}/openjdk/OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz -C jre
 if [[ $? != 0 ]]; then

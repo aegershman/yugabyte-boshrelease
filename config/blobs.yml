@@ -1,3 +1,6 @@
+openjdk/OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz:
+  size: 40987250
+  sha: sha256:5edfaefdbb0469d8b24d61c8aef80c076611053b1738029c0232b9a632fe2708
 yugabyte/yb-sample-apps-1.2.1.jar:
   size: 9
   sha: sha256:0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5
