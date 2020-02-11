@@ -9,18 +9,6 @@ releases:
   - name: bpm
     version: latest
 
-stemcells:
-  - alias: default
-    os: ubuntu-xenial
-    version: latest
-
-update:
-  canaries: 0
-  max_in_flight: 1
-  serial: true
-  canary_watch_time: 10000-20000
-  update_watch_time: 10000-20000
-
 addons:
   - name: bpm
     jobs:
@@ -33,7 +21,7 @@ instance_groups:
     instances: 1
     vm_type: m5.large
     persistent_disk_type: "30720"
-    stemcell: default
+    stemcell: xenial
     networks: [name: services-network]
     jobs:
       - name: yb-master
@@ -41,14 +29,14 @@ instance_groups:
         consumes: { yb-master: { from: yb-master-provider } }
         provides: { yb-master: { as: yb-master-provider } }
         properties:
-          gflags: ((master_gflags))
+          gflags: ((common_gflags))
 
   - name: tserver
     azs: [us-west-2a, us-west-2b, us-west-2c]
-    instances: 1
+    instances: 3
     vm_type: m5.large
     persistent_disk_type: "30720"
-    stemcell: default
+    stemcell: xenial
     networks: [name: services-network]
     jobs:
       - name: yb-tserver
@@ -56,7 +44,7 @@ instance_groups:
         consumes: { yb-master: { from: yb-master-provider } }
         provides: { yb-tserver: { as: yb-tserver-provider } }
         properties:
-          gflags: ((tserver_gflags))
+          gflags: ((common_gflags))
           server_broadcast_addresses_port: 9101
           rpc_bind_addresses_port: 9101
 
@@ -65,7 +53,7 @@ instance_groups:
     instances: 0
     vm_type: t3.micro
     persistent_disk_type: "30720"
-    stemcell: default
+    stemcell: xenial
     networks: [name: services-network]
     jobs:
       - name: yb-sample-apps
@@ -75,3 +63,15 @@ instance_groups:
           yb-tserver: { from: yb-tserver-provider }
 
 variables: []
+
+stemcells:
+  - alias: xenial
+    os: ubuntu-xenial
+    version: latest
+
+update:
+  canaries: 1
+  max_in_flight: 1
+  serial: false
+  canary_watch_time: 1000-120000
+  update_watch_time: 1000-120000
