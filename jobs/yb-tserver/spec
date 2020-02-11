@@ -25,8 +25,6 @@ properties:
     default: 9100
   server_broadcast_addresses_port:
     default: 9100
-  tserver_master_addrs_port:
-    default: 7100
   gflags:
     description: extra "--key=value" properties to pass to the conf file
     example: |

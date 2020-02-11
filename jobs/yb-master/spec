@@ -23,12 +23,6 @@ provides:
     type: conn
 
 properties:
-  master_addresses_port:
-    default: 7100
-  rpc_bind_addresses_port:
-    default: 7100
-  server_broadcast_addresses_port:
-    default: 7100
   replication_factor:
     description: |
       override of the replication_factor passed to the master servers;

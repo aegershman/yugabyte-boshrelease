@@ -1,10 +1,10 @@
 --fs_data_dirs=/var/vcap/store/yb-master
 --log_dir=/var/vcap/sys/log/yb-master
---master_addresses=<%= link('yb-master').instances.map { |instance| "#{instance.address}:<%= p('master_addresses_port') %>" }.join('',') %>
+--master_addresses=<%= link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",") %>
 --placement_zone=<%= spec.az %>
---replication_factor=<%= p('replication_factor', link('yb-master').instances.length) %>
---rpc_bind_addresses=<%= spec.address %>:<%= p('rpc_bind_addresses_port') %>
---server_broadcast_addresses=<%= spec.address %>:<%= p('server_broadcast_addresses_port') %>
+--replication_factor=<%= p("replication_factor", link("yb-master").instances.length) %>
+--rpc_bind_addresses=<%= spec.address %>
+--server_broadcast_addresses=<%= spec.address %>:7100
 
 <% p('gflags', {}).each do |key, value| %>
 --<%= key %>=<%= value %>
