@@ -1,0 +1,4 @@
+---
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/replication_factor
+  value: ((master_replication_factor))

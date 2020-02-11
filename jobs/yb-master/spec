@@ -7,8 +7,9 @@ description: |
   https://docs.yugabyte.com/latest/deploy/checklist/
 
 templates:
-  bpm.yml: config/bpm.yml
+  bpm.erb.yml: config/bpm.yml
   master.conf.erb: master.conf
+  pre-start.sh: bin/pre-start
 
 packages:
   - yugabyte
@@ -22,23 +23,19 @@ provides:
     type: conn
 
 properties:
-  stderrthreshold:
-    default: 2
+  replication_factor:
     description: |
-      Log messages at, or above, this level are copied to stderr in addition to log files.
-      Values are: 0 (INFO), 1 (WARN), 2 (ERROR), 3 (FATAL).
-  placement_zone:
-    description: |
-      The name of the availability zone (AZ), or rack, where this instance is deployed.
-      Default is auto-assigned from BOSH
-  placement_region:
-    default: datacenter1
-    description: Name of the region or data center where this instance is deployed.
-  placement_cloud:
-    default: cloud1
-    description: Name of the cloud where this instance is deployed.
+      override of the replication_factor passed to the master servers;
+      by default it's the number of yb-master instances
+
   gflags:
     description: extra "--key=value" properties to pass to the conf file
     example: |
       gflags:
         default_memory_limit_to_ram_ratio: 0.85
+        max_log_size: 256
+        minloglevel: 0
+        placement_cloud: aws
+        placement_region: us-west-2
+        stderrthreshold: 2
+        stop_logging_if_full_disk: true

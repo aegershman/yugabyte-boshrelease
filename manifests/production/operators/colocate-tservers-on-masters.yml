@@ -7,5 +7,4 @@
     consumes:
       yb-master: { from: yb-master-provider }
     properties:
-      placement_region: ((master_placement_region))
-      placement_cloud: ((master_placement_cloud))
+      gflags: ((tserver_gflags))

@@ -6,11 +6,15 @@ description: |
   https://docs.yugabyte.com/latest/quick-start/create-local-cluster/
 
 templates:
-  bpm.yml: config/bpm.yml
+  bpm.erb.yml: config/bpm.yml
   post-start.sh: bin/post-start
+  pre-start.sh: bin/pre-start
   pre-stop.sh: bin/pre-stop
 
 packages:
   - yugabyte
 
-properties: {}
+properties:
+  v_level:
+    default: 3
+    description: verbosity level of the server noise, 0 (least) to 4 (loudest)
