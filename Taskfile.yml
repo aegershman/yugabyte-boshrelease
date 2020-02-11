@@ -4,7 +4,7 @@ version: "2"
 env:
   YB_SAMPLE_APPS_VERSION: 1.2.1
   YB_VERSION: 2.0.11.0
-  OPENJDK_JAVA_VERSION: x
+  OPENJDK8_VERSION_NAME: jdk8u242-b08 # can also put down 'latest'
 
 tasks:
   git:
@@ -14,10 +14,11 @@ tasks:
 
   dl-openjdk:
     status:
-      - test -f /tmp/openjdk_1.8.0
+      - test -f /tmp/openjdk8-${OPENJDK8_VERSION_NAME}.tar.gz
     cmds:
-      - openjdk_1.8.0
-      - curl -o /tmp/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar https://api.adoptopenjdk.net/v2/binary/releases/openjdk${OPENJDK_JAVA_VERSION}?openjdk_impl=hotspot&os=linux&arch=x64&release=latest&type=jre"
+      # - curl -L 'https://api.adoptopenjdk.net/v2/info/releases/openjdk8?openjdk_impl=hotspot&os=linux&arch=x64&type=jre&release=latest' # info on latest release
+      # - curl -JLO 'https://api.adoptopenjdk.net/v2/binary/releases/openjdk8?openjdk_impl=hotspot&os=linux&arch=x64&release=latest&type=jre' # download latest release keeping original binary name
+      - curl -o /tmp/openjdk8-${OPENJDK8_VERSION_NAME}.tar.gz -JL 'https://api.adoptopenjdk.net/v2/binary/releases/openjdk8?openjdk_impl=hotspot&os=linux&arch=x64&type=jre&release=${OPENJDK8_VERSION_NAME}'
 
   dl-yb-sample-apps:
     status:
@@ -35,6 +36,8 @@ tasks:
     cmds:
       - task: dl-yb
       - bosh add-blob /tmp/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
+      - task: dl-openjdk
+      - bosh add-blob /tmp/openjdk8-${OPENJDK8_VERSION_NAME}.tar.gz openjdk/openjdk8-${OPENJDK8_VERSION_NAME}.tar.gz
       - task: dl-yb-sample-apps
       - bosh add-blob /tmp/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar yugabyte/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar
 
