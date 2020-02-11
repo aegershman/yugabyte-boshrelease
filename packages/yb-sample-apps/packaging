@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e -x
+
+cp ${BOSH_COMPILE_TARGET}/yb-sample-apps/yb-sample-apps-*.jar ${BOSH_INSTALL_TARGET}/yb-sample-apps.jar

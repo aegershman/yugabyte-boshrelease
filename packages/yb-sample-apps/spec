@@ -1,0 +1,10 @@
+---
+name: yb-sample-apps
+
+description: https://github.com/yugabyte/yb-sample-apps
+
+dependencies:
+  - openjdk8
+
+files:
+  - yugabyte/yb-sample-apps-*.jar

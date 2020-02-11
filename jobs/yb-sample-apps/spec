@@ -7,10 +7,18 @@ description: |
 
 templates:
   bpm.erb.yml: config/bpm
-  run.sh: run
+  yb-sample-apps.sh: yb-sample-apps
+
+consumes:
+  - name: yb-master
+    type: conn
+    optional: true
 
 packages:
-  - openjdk_1.8.0
+  - openjdk8
   - yb-sample-apps
 
-properties: {}
+properties:
+  yb-sample-apps.max_heap_size:
+    description: "Maximum memory heap size in MB for yb-sample-apps JVM"
+    default: 1024

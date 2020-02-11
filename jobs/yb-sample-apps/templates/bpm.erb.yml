@@ -1,11 +1,10 @@
 ---
 processes:
   - name: yb-sample-apps
-    executable: /var/vcap/packages/yb-sample-apps/
-    args:
-    - start
-    - --data_dir=/var/vcap/store/yugabyted/yugabyte-data/
-    - --log_dir=/var/vcap/sys/log/yugabyted
-    - --bind_ip=<%= spec.address %>
+    executable: /var/vcap/jobs/yb-sample-apps/bin/yb-sample-apps
+    env:
+      JAVA_HOME: /var/vcap/packages/openjdk8/jre
+      MAX_HEAP_SIZE: p('yb-sample-apps.max_heap_size')
+      ENDPOINTS: <%= link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",") %>
 
     capabilities: []
