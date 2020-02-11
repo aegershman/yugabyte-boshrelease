@@ -29,7 +29,7 @@ instance_groups:
         consumes: { yb-master: { from: yb-master-provider } }
         provides: { yb-master: { as: yb-master-provider } }
         properties:
-          gflags: ((master_gflags))
+          gflags: ((common_gflags))
 
   - name: tserver
     azs: [us-west-2a, us-west-2b, us-west-2c]
@@ -44,7 +44,7 @@ instance_groups:
         consumes: { yb-master: { from: yb-master-provider } }
         provides: { yb-tserver: { as: yb-tserver-provider } }
         properties:
-          gflags: ((tserver_gflags))
+          gflags: ((common_gflags))
           server_broadcast_addresses_port: 9101
           rpc_bind_addresses_port: 9101
 
