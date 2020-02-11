@@ -45,7 +45,7 @@ instance_groups:
 
   - name: tserver
     azs: [us-west-2a, us-west-2b, us-west-2c]
-    instances: 1
+    instances: 3
     vm_type: m5.large
     persistent_disk_type: "30720"
     stemcell: default
