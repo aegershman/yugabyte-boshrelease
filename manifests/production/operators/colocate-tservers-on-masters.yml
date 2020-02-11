@@ -5,6 +5,7 @@
     name: yb-tserver
     release: yugabyte
     consumes: { yb-master: { from: yb-master-provider } }
-    provides: { yb-tserver: { as: yb-tserver-provider } }
     properties:
-      gflags: ((tserver_gflags))
+      gflags: ((common_gflags))
+      server_broadcast_addresses_port: 9101
+      rpc_bind_addresses_port: 9101

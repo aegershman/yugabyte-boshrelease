@@ -46,6 +46,7 @@ tasks:
     cmds:
       - |
         bosh -d yugabyte deploy manifests/production/yugabyte.yml \
+          -o manifests/production/operators/colocate-tservers-on-masters.yml \
           -l manifests/production/vars.yml \
           --no-redact \
           --non-interactive
