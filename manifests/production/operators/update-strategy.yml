@@ -1,8 +1,0 @@
----
-- type: replace
-  path: /update/max_in_flight
-  value: ((update_max_in_flight))
-
-- type: replace
-  path: /update/serial
-  value: ((update_serial))

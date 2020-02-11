@@ -1,8 +1,0 @@
----
-- type: replace
-  path: /instance_groups/name=master/jobs/-
-  value:
-    name: yb-sample-apps
-    release: yb-sample-apps
-    consumes:
-      yb-tserver: { from: yb-tserver-provider }

@@ -4,7 +4,7 @@
   value:
     name: yb-tserver
     release: yugabyte
-    consumes:
-      yb-master: { from: yb-master-provider }
+    consumes: { yb-master: { from: yb-master-provider } }
+    provides: { yb-tserver: { as: yb-tserver-provider } }
     properties:
       gflags: ((tserver_gflags))
