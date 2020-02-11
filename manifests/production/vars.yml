@@ -6,6 +6,8 @@ master_gflags:
   placement_cloud: aws
   placement_region: us-west-2
   stop_logging_if_full_disk: true
+  #
+  enable_ysql: false
 tserver_gflags:
   default_memory_limit_to_ram_ratio: 0.85
   max_log_size: 256
@@ -13,3 +15,6 @@ tserver_gflags:
   placement_cloud: aws
   placement_region: us-west-2
   stop_logging_if_full_disk: true
+  #
+  enable_ysql: false
+  start_pgsql_proxy: false
