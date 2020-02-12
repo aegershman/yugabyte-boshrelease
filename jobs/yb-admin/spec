@@ -1,8 +1,29 @@
 ---
 name: yb-admin
 
-templates: {}
+description: |
+  https://docs.yugabyte.com/latest/admin/yb-admin/
+  https://docs.yugabyte.com/latest/deploy/manual-deployment/verify-deployment/#optional-setup-yedis-api
 
-packages: []
+templates:
+  bpm.erb.yml: config/bpm.yml
+  pre-start.sh: bin/pre-start
 
-properties: {}
+packages:
+  - yugabyte
+
+consumes:
+  - name: yb-master
+    type: conn
+
+properties:
+  master_addresses_port:
+    default: 7100
+  command:
+    default: get_universe_config
+    description: |
+      command sequence to pass to `yb-admin -m masteraddresses <your_command_string_here>`
+    example: |
+      command: create_snapshot ydb test_tb
+      or
+      command: all_masters_have_universe_key_in_memory somekeyid

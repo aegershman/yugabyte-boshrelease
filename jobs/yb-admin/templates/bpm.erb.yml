@@ -1,0 +1,7 @@
+---
+processes:
+  - name: yb-admin
+    executable: /var/vcap/packages/yugabyte/bin/yb-admin
+    args:
+      - -m <%= link("yb-master").instances.map { |instance| "#{instance.address}:#{p('master_addresses_port')}" }.join(",") %>
+      - <%= p("command") %>
