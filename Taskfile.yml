@@ -42,15 +42,6 @@ tasks:
       - task: dl-yb-sample-apps
       - bosh add-blob /tmp/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar yugabyte/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar
 
-  deploy-production:
-    cmds:
-      - |
-        bosh -d yugabyte deploy manifests/production/yugabyte.yml \
-          -o manifests/production/operators/colocate-tservers-on-masters.yml \
-          -l manifests/production/vars.yml \
-          --no-redact \
-          --non-interactive
-
   deploy-yugabyted:
     cmds:
       - | # note: if it starts acting up, use --skip-drain=yugabyted
@@ -64,6 +55,14 @@ tasks:
       - |
         bosh -d yb-ctl deploy manifests/yb-ctl/yb-ctl.yml \
           -l manifests/yb-ctl/vars.yml \
+          --no-redact \
+          --non-interactive
+
+  deploy-production:
+    cmds:
+      - |
+        bosh -d yugabyte deploy manifests/production/yugabyte.yml \
+          -l manifests/production/vars.yml \
           --no-redact \
           --non-interactive
 
