@@ -1,0 +1,37 @@
+---
+name: yb-admin
+
+description: |
+  https://docs.yugabyte.com/latest/admin/yb-admin/
+  https://docs.yugabyte.com/latest/deploy/manual-deployment/verify-deployment/#optional-setup-yedis-api
+
+templates:
+  bpm.yml: config/bpm.yml
+  pre-start.sh: bin/pre-start
+  run.sh: bin/run
+  yb-admin.sh.erb: yb-admin.sh
+
+packages:
+  - yugabyte
+
+consumes:
+  - name: yb-master
+    type: conn
+
+properties:
+  master_addresses_port:
+    default: 7100
+  timeout_ms:
+    description: The RPC timeout, in milliseconds. A value of 0 means don’t wait; -1 means wait indefinitely.
+    default: 60000
+  commands:
+    description: |
+      list of command sequences to loop over and pass individually to `yb-admin -master_addresses masteraddresses <your_command_string_here>`
+      e.g., each string in "commands" will be executed as it's own individual call to `yb-admin`
+    default: []
+    example: |
+      commands:
+        - get_universe_config
+        - setup_redis_table
+        - create_snapshot ydb test_tb
+        - all_masters_have_universe_key_in_memory somekeyid

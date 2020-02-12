@@ -51,8 +51,8 @@ instance_groups:
   - name: sample-cassandrakeyvalue
     azs: [us-west-2a, us-west-2b, us-west-2c]
     instances: ((sample_cassandrakeyvalue_instances))
-    vm_type: t3.micro
-    persistent_disk_type: "10240"
+    vm_type: t3.small
+    persistent_disk_type: "1024"
     stemcell: xenial
     networks: [name: services-network]
     jobs:
@@ -64,20 +64,19 @@ instance_groups:
           workload:
             type: CassandraKeyValue
             args:
-              nouuid: ""
               num_unique_keys: 1000000000
               num_reads: -1
               num_writes: -1
               value_size: 256
-              num_threads_read: 24
-              num_threads_write: 22
+              num_threads_read: 2
+              num_threads_write: 2
               table_ttl_seconds: -1
 
   - name: sample-rediskeyvalue
     azs: [us-west-2a, us-west-2b, us-west-2c]
     instances: ((sample_rediskeyvalue_instances))
-    vm_type: t3.micro
-    persistent_disk_type: "10240"
+    vm_type: t3.small
+    persistent_disk_type: "1024"
     stemcell: xenial
     networks: [name: services-network]
     jobs:
@@ -92,8 +91,24 @@ instance_groups:
               num_unique_keys: 1000000000
               num_reads: -1
               num_writes: -1
-              num_threads_read: 32
+              num_threads_read: 2
               num_threads_write: 2
+
+  - name: setup_redis_table
+    azs: [us-west-2a, us-west-2b, us-west-2c]
+    lifecycle: errand
+    instances: 1
+    vm_type: t3.micro
+    persistent_disk_type: "1024"
+    stemcell: xenial
+    networks: [name: services-network]
+    jobs:
+      - name: yb-admin
+        release: yugabyte
+        consumes: { yb-master: { from: yb-master-provider } }
+        properties:
+          commands:
+            - setup_redis_table
 
 variables: []
 

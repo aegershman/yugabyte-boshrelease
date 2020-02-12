@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+<% master_addresses = link("yb-master").instances.map { |i| "#{i.address}:#{p('master_addresses_port')}" }.join(",") %>
+
+<% p("commands", []).each do |command| %>
+echo "executing command: <%= command %>"
+/var/vcap/packages/yugabyte/bin/yb-admin \
+  -master_addresses <%= master_addresses %> \
+  -timeout_ms <%= p('timeout_ms') %> \
+  <%= command %>
+<% end %>
