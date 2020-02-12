@@ -35,5 +35,6 @@ properties:
     default: [get_universe_config]
     example: |
       commands:
-        command: create_snapshot ydb test_tb
-        command: all_masters_have_universe_key_in_memory somekeyid
+        - create_snapshot ydb test_tb
+        - setup_redis_table
+        - all_masters_have_universe_key_in_memory somekeyid

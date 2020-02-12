@@ -30,6 +30,14 @@ instance_groups:
         provides: { yb-master: { as: yb-master-provider } }
         properties:
           gflags: ((common_gflags))
+      - name: yb-admin
+        release: yugabyte
+        consumes: { yb-master: { from: yb-master-provider } }
+        properties:
+          commands:
+            - get_universe_config
+            - setup_redis_table
+            - get_universe_config
 
   - name: tserver
     azs: [us-west-2a, us-west-2b, us-west-2c]
@@ -47,22 +55,6 @@ instance_groups:
           gflags: ((common_gflags))
           server_broadcast_addresses_port: 9101
           rpc_bind_addresses_port: 9101
-
-  - name: yb-admin
-    azs: [us-west-2a, us-west-2b, us-west-2c]
-    lifecycle: errand
-    instances: 1
-    vm_type: t3.micro
-    persistent_disk_type: "1024"
-    stemcell: xenial
-    networks: [name: services-network]
-    jobs:
-      - name: yb-admin
-        release: yugabyte
-        consumes: { yb-master: { from: yb-master-provider } }
-        properties:
-          commands:
-            - get_universe_config
 
   - name: sample-cassandrakeyvalue
     azs: [us-west-2a, us-west-2b, us-west-2c]
