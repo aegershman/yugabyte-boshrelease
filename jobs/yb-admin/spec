@@ -22,14 +22,16 @@ properties:
   master_addresses_port:
     default: 7100
   timeout_ms:
-    description: The RPC timeout, in milliseconds. Default value is 60000. A value of 0 means don’t wait; -1 means wait indefinitely.
+    description: The RPC timeout, in milliseconds. A value of 0 means don’t wait; -1 means wait indefinitely.
     default: 60000
   commands:
-    description: list of command sequences to individually pass to `yb-admin -master_addresses masteraddresses <your_command_string_here>`
-    default:
-      - get_universe_config
+    description: |
+      list of command sequences to loop over and pass individually to `yb-admin -master_addresses masteraddresses <your_command_string_here>`
+      e.g., each string in "commands" will be executed as it's own individual call to `yb-admin`
+    default: []
     example: |
       commands:
-        - create_snapshot ydb test_tb
+        - get_universe_config
         - setup_redis_table
+        - create_snapshot ydb test_tb
         - all_masters_have_universe_key_in_memory somekeyid
