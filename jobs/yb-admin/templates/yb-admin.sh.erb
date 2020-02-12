@@ -2,8 +2,12 @@
 
 set -euo pipefail
 
+<% master_addresses = link("yb-master").instances.map { |i| "#{i.address}:#{p('master_addresses_port')}" }.join(",") %>
+
 <% p("commands", []).each do |command| %>
 /var/vcap/packages/yugabyte/bin/yb-admin \
-  -master_addresses <%= link("yb-master").instances.map { |instance| "#{instance.address}:#{p('master_addresses_port')}" }.join(",") %> \
+  -master_addresses <%= master_addresses %> \
+  -timeout_ms <%= p('timeout_ms') %> \
+  -certs_dir_name <%= p('certs_dir_name') %> \
   <%= command %>
 <% end %>
