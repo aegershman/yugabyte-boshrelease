@@ -18,9 +18,8 @@ addons:
 instance_groups:
   - name: master
     azs: [us-west-2a, us-west-2b, us-west-2c]
-    instances: 3
-    vm_type: m5.large
-    persistent_disk_type: "30720"
+    instances: 1
+    vm_type: t3.micro
     stemcell: xenial
     networks: [name: services-network]
     jobs:

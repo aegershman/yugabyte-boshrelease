@@ -1,3 +1,4 @@
+# WARNING: this doesn't work very well, if at all
 ---
 - type: replace
   path: /instance_groups/name=master/jobs/-
