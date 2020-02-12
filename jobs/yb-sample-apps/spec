@@ -11,13 +11,8 @@ templates:
   yb-sample-apps.sh: yb-sample-apps.sh
 
 consumes:
-  - name: yb-master
-    type: conn
-    optional: true
-
   - name: yb-tserver
     type: conn
-    optional: true
 
 packages:
   - openjdk8
