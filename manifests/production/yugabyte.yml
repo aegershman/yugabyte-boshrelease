@@ -98,7 +98,7 @@ instance_groups:
     azs: [us-west-2a, us-west-2b, us-west-2c]
     lifecycle: errand
     instances: 1
-    vm_type: t3.small
+    vm_type: t3.micro
     persistent_disk_type: "1024"
     stemcell: xenial
     networks: [name: services-network]
