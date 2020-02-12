@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+<% p("commands", []).each do |command| %>
+/var/vcap/packages/yugabyte/bin/yb-admin \
+  -master_addresses <%= link("yb-master").instances.map { |instance| "#{instance.address}:#{p('master_addresses_port')}" }.join(",") %> \
+  <%= command %>
+<% end %>
