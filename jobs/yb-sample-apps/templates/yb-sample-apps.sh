@@ -15,3 +15,6 @@ case "$1" in
     $@
   ;;
 esac
+
+# TODO should we exit failure here if this finishes to force a failure/restart?
+exit 1
