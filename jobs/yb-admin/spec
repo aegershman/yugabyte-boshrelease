@@ -24,15 +24,10 @@ properties:
   timeout_ms:
     description: The RPC timeout, in milliseconds. Default value is 60000. A value of 0 means don’t wait; -1 means wait indefinitely.
     default: 60000
-  certs_dir_name:
-    description: |
-      This is a TODO, should be contingent on whether TLS is enabled...
-      The directory with certificates to use for secure server connections.
-      To connect to a cluster with TLS enabled, you must include the -certs_dir_name option with the directory location where the root certificate is located.
-    default: ""
   commands:
     description: list of command sequences to individually pass to `yb-admin -master_addresses masteraddresses <your_command_string_here>`
-    default: [get_universe_config]
+    default:
+      - get_universe_config
     example: |
       commands:
         - create_snapshot ydb test_tb

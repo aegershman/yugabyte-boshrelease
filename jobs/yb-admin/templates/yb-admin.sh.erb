@@ -9,6 +9,5 @@ echo "executing command: <%= command %>"
 /var/vcap/packages/yugabyte/bin/yb-admin \
   -master_addresses <%= master_addresses %> \
   -timeout_ms <%= p('timeout_ms') %> \
-  -certs_dir_name <%= p('certs_dir_name') %> \
   <%= command %>
 <% end %>
