@@ -21,8 +21,7 @@ properties:
     default: 7100
   command:
     default: get_universe_config
-    description: |
-      command sequence to pass to `yb-admin -m masteraddresses <your_command_string_here>`
+    description: command sequence to pass to `yb-admin -m masteraddresses <your_command_string_here>`
     example: |
       command: create_snapshot ydb test_tb
       or
