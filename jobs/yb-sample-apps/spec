@@ -22,8 +22,12 @@ properties:
   tserver_port_target:
     description: port to target on tserver hosts, e.g. 9042 ycql, 6379 yedis, 5433 ysql
     default: 9042
-  workload:
-    description: xx
+  workload.type:
+    description: supported workloads described here https://github.com/yugabyte/yb-sample-apps#supported-workloads
+    default: CassandraKeyValue
+  workload.args:
+    description: set of '--key value' argument pairs
+    default: {}
   max_heap_size:
-    description: "Maximum memory heap size in MB for yb-sample-apps JVM"
+    description: max memory heap size in MB for yb-sample-apps JVM
     default: 1024

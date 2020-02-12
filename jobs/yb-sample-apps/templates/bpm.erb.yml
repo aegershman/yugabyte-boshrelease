@@ -6,6 +6,6 @@ processes:
       JAVA_HOME: /var/vcap/packages/openjdk8/jre
       MAX_HEAP_SIZE: p("max_heap_size")
       TSERVER_ENDPOINTS: <%= link("yb-tserver").instances.map { |instance| "#{instance.address}:p("tserver_port_target")" }.join(",") %>
-      WORKLOAD: p("workload")
+      WORKLOAD_TYPE: p("workload.type")
 
-    capabilities: []
+    args: [ <%= p("workload.args").each { |k, v| "--#{k} #{v}" }.join(",") %> ]
