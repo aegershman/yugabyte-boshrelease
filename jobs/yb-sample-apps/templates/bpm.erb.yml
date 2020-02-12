@@ -5,9 +5,8 @@ processes:
     env:
       JAVA_HOME: /var/vcap/packages/openjdk8/jre
       MASTER_ENDPOINTS: <%= link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",") %>
-      MAX_HEAP_SIZE: p('yb-sample-apps.max_heap_size')
-      YCQL_ENDPOINTS: <%= link("yb-tserver").instances.map { |instance| "#{instance.address}:9042" }.join(",") %>
-      YEDIS_ENDPOINTS: <%= link("yb-tserver").instances.map { |instance| "#{instance.address}:6379" }.join(",") %>
-      YSQL_ENDPOINTS: <%= link("yb-tserver").instances.map { |instance| "#{instance.address}:5433" }.join(",") %>
+      MAX_HEAP_SIZE: p("max_heap_size")
+      TSERVER_ENDPOINTS: <%= link("yb-tserver").instances.map { |instance| "#{instance.address}:p("tserver_port_target")" }.join(",") %>
+      WORKLOAD: p("workload")
 
     capabilities: []

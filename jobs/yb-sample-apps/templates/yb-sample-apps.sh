@@ -1,15 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e -u -o pipefail
+set -euo pipefail
 
 cd /var/vcap/packages/yb-sample-apps
 
 export PATH=${JAVA_HOME}/bin:${PATH}
 
 java -Xmx${MAX_HEAP_SIZE}m -Djava.security.egd=file:/dev/urandom \
-  -jar *.jar \
-  --workload CassandraKeyValue \
-  --nodes ${YCQL_ENDPOINTS} \
+  -jar yb-sample-apps.jar \
+  --workload ${WORKLOAD} \
+  --nodes ${TSERVER_ENDPOINTS} \
   --nouuid \
   --value_size 256 \
   --num_threads_read 0 \

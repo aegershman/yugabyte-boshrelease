@@ -24,6 +24,11 @@ packages:
   - yb-sample-apps
 
 properties:
-  yb-sample-apps.max_heap_size:
+  tserver_port_target:
+    description: port to target on tserver hosts, e.g. 9042 ycql, 6379 yedis, 5433 ysql
+    default: 9042
+  workload:
+    description: xx
+  max_heap_size:
     description: "Maximum memory heap size in MB for yb-sample-apps JVM"
     default: 1024
