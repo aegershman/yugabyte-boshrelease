@@ -1,0 +1,7 @@
+---
+- type: replace
+  path: /features?
+  value:
+    randomize_az_placement: true
+    use_dns_addresses: true
+    use_short_dns_addresses: true
