@@ -8,3 +8,7 @@ common_gflags:
   placement_region: us-west-2
   start_pgsql_proxy: false # TODO probably can be removed if enable ysql is false too
   stop_logging_if_full_disk: true
+master_instances: 3
+tserver_instances: 3
+sample_cassandrakeyvalue_instances: 1
+sample_rediskeyvalue_instances: 1

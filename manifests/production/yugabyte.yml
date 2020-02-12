@@ -18,7 +18,7 @@ addons:
 instance_groups:
   - name: master
     azs: [us-west-2a, us-west-2b, us-west-2c]
-    instances: 3
+    instances: ((master_instances))
     vm_type: t3.micro
     persistent_disk_type: "10240"
     stemcell: xenial
@@ -33,7 +33,7 @@ instance_groups:
 
   - name: tserver
     azs: [us-west-2a, us-west-2b, us-west-2c]
-    instances: 3
+    instances: ((tserver_instances))
     vm_type: m5.large
     persistent_disk_type: "30720"
     stemcell: xenial
@@ -50,7 +50,7 @@ instance_groups:
 
   - name: sample-cassandrakeyvalue
     azs: [us-west-2a, us-west-2b, us-west-2c]
-    instances: 0
+    instances: ((sample_cassandrakeyvalue_instances))
     vm_type: t3.micro
     persistent_disk_type: "10240"
     stemcell: xenial
@@ -75,7 +75,7 @@ instance_groups:
 
   - name: sample-rediskeyvalue
     azs: [us-west-2a, us-west-2b, us-west-2c]
-    instances: 0
+    instances: ((sample_rediskeyvalue_instances))
     vm_type: t3.micro
     persistent_disk_type: "10240"
     stemcell: xenial
