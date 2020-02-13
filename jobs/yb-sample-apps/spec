@@ -15,7 +15,7 @@ consumes:
     type: conn
 
 packages:
-  - openjdk8
+  - openjdk
   - yb-sample-apps
 
 properties:

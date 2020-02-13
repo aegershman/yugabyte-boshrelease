@@ -1,0 +1,13 @@
+---
+name: openjdk
+
+description: |
+  https://api.adoptopenjdk.net/
+  https://github.com/cloudfoundry/java-buildpack/blob/master/docs/jre-open_jdk_jre.md
+  https://github.com/pivotal/credhub-release/tree/master/packages/openjdk_1.8.0
+  https://java-buildpack.cloudfoundry.org/openjdk/bionic/x86_64/index.yml
+
+dependencies: []
+
+files:
+  - openjdk/openjdk-*.tar.gz
