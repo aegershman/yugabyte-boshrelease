@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e -x
+set -eux
 
 cp ${BOSH_COMPILE_TARGET}/yugabyte/yb-sample-apps-1.2.1.jar ${BOSH_INSTALL_TARGET}/yb-sample-apps.jar

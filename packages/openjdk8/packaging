@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e -x
+set -eux
 
 cd ${BOSH_INSTALL_TARGET}
 mkdir jre && tar zxvf ${BOSH_COMPILE_TARGET}/openjdk/OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz -C jre
