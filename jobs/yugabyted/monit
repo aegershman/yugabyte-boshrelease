@@ -1,5 +1,0 @@
-check process yugabyted
-  with pidfile /var/vcap/sys/run/bpm/yugabyted/yugabyted.pid
-  start program "/var/vcap/jobs/bpm/bin/bpm start yugabyted"
-  stop program "/var/vcap/jobs/bpm/bin/bpm stop yugabyted"
-  group vcap

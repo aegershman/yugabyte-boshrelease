@@ -1,5 +1,0 @@
-check process yb-ctl
-  with pidfile /var/vcap/sys/run/bpm/yb-ctl/yb-ctl.pid
-  start program "/var/vcap/jobs/bpm/bin/bpm start yb-ctl"
-  stop program "/var/vcap/jobs/bpm/bin/bpm stop yb-ctl"
-  group vcap
