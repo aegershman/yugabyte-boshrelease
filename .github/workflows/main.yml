@@ -8,11 +8,27 @@ jobs:
       - name: checkout-code
         uses: actions/checkout@v2
 
-      - name: upload-blobs
+      - name: get-dependencies
         uses: todo
 
+      - name: add-and-upload-blobs
+        run: |
+          for blob in $(all-demo-blobs)
+            bosh remove-blob
+          for blob in $(all-dependency-inputs)
+            bosh add-blob
+
+          get the private.yml
+          bosh upload-blobs
+          git commit -m "what's up blob?"
+
       - name: create-bosh-release
-        uses: todo
+        run: |
+          bosh create-release --final --version ${version}
+          bosh create-release releases/${name}/${name}-${version}.yml --tarball releases/${name}/${name}-${version}.tgz
+          # we'll also want to calculate the release asset and such
+          shasum -a 1 releases/${name}/${name}-${version}.tgz
+          git commit -m "created"
 
       - name: tag-and-create-github-release
         uses: actions/create-release@v1
@@ -24,7 +40,6 @@ jobs:
           draft: false
           prerelease: false
 
-        # we'll also want to calculate the release asset and such
       - name: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
@@ -34,7 +49,7 @@ jobs:
           asset_path: ./my-artifact.zip
           asset_name: my-artifact.zip
           asset_content_type: application/zip
-        # and update a versions.yml for consumption purposes?
 
+        # and update a versions.yml for consumption purposes?
       - name: increment-version
         uses: todo
