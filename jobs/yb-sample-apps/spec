@@ -6,9 +6,9 @@ description: |
   https://github.com/yugabyte/yb-sample-apps/releases
 
 templates:
-  bpm.erb.yml: config/bpm.yml
-  pre-start.sh: bin/pre-start
-  yb-sample-apps.sh: yb-sample-apps.sh
+  bin/pre-start.sh: bin/pre-start
+  bin/yb-sample-apps.sh: bin/yb-sample-apps.sh
+  config/bpm.erb.yml: config/bpm.yml
 
 consumes:
   - name: yb-tserver

@@ -7,9 +7,9 @@ description: |
   https://docs.yugabyte.com/latest/deploy/checklist/
 
 templates:
-  bpm.erb.yml: config/bpm.yml
-  master.conf.erb: master.conf
-  pre-start.sh: bin/pre-start
+  bin/pre-start.sh: bin/pre-start
+  config/bpm.erb.yml: config/bpm.yml
+  config/master.conf.erb: config/master.conf
 
 packages:
   - yugabyte
