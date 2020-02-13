@@ -36,3 +36,9 @@ properties:
         placement_region: us-west-2
         stderrthreshold: 2
         stop_logging_if_full_disk: true
+  database.roles:
+    example: |
+      database.roles:
+        name: hank
+        password: propane_bwaaa
+        permissions: perm1 perm2 perm3

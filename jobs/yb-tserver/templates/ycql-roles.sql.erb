@@ -8,6 +8,6 @@ ALTER ROLE "<%= role["name"] %>" WITH PASSWORD = '<%= role["password"] %>';
 
 <% if role["permissions"] %>
 ALTER ROLE "<%= role["name"] %>" WITH <%= role["permissions"].join(' ') %>;
-<% end %>
+<% end %
 
 <% end %>
