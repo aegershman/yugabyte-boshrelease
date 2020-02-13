@@ -1,7 +1,6 @@
+---
 name: yugabyte
 blobstore:
-  provider: s3
+  provider: local
   options:
-    # using a weird uuidgen snippet here as a prefix because we don't want to
-    # hijack any global s3 bucket naming like "yugabyte-boshrelease" quite yet
-    bucket_name: 8f5378ca-yugabyte-boshrelease
+    blobstore_path: /tmp/test-blobs
