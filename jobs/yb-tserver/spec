@@ -5,9 +5,9 @@ description: |
   https://docs.yugabyte.com/latest/reference/configuration/yb-tserver/
 
 templates:
-  bpm.erb.yml: config/bpm.yml
-  pre-start.sh: bin/pre-start
-  tserver.conf.erb: tserver.conf
+  bin/pre-start.sh: bin/pre-start
+  config/bpm.erb.yml: config/bpm.yml
+  config/tserver.conf.erb: config/tserver.conf
 
 packages:
   - yugabyte

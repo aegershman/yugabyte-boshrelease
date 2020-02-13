@@ -1,0 +1,4 @@
+---
+processes:
+  - name: yb-admin
+    executable: /var/vcap/jobs/yb-admin/bin/yb-admin.sh

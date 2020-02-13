@@ -6,10 +6,10 @@ description: |
   https://docs.yugabyte.com/latest/deploy/manual-deployment/verify-deployment/#optional-setup-yedis-api
 
 templates:
-  bpm.yml: config/bpm.yml
-  pre-start.sh: bin/pre-start
-  run.sh: bin/run
-  yb-admin.sh.erb: yb-admin.sh
+  bin/pre-start.sh: bin/pre-start
+  bin/run.sh: bin/run
+  bin/yb-admin.sh.erb: bin/yb-admin.sh
+  config/bpm.yml: config/bpm.yml
 
 packages:
   - yugabyte
