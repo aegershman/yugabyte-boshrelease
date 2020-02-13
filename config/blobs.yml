@@ -1,0 +1,9 @@
+openjdk/openjdk-1.8.0_242.tar.gz:
+  size: 40565395
+  sha: sha256:baebb2246ec503c8cae333510894d9dd6496ea72ff663f47faa85e789b58b45a
+yugabyte/yb-sample-apps-1.2.1.jar:
+  size: 12026031
+  sha: sha256:414d29070b82db7dd31584e5b29715c618d44905e2840e4a98cc7f6b3f37e42d
+yugabyte/yugabyte-2.0.11.0-linux.tar.gz:
+  size: 447734499
+  sha: sha256:65e83105902c82148159619be3a1c1c66c72c199372bce9e67eef4f1322559e2

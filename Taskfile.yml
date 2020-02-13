@@ -2,9 +2,9 @@
 version: "2"
 
 env:
+  OPENJDK_VERSION: 1.8.0_242
   YB_SAMPLE_APPS_VERSION: 1.2.1
   YB_VERSION: 2.0.11.0
-  OPENJDK_VERSION: 1.8.0_242
 
 tasks:
   dl-openjdk:
@@ -24,12 +24,12 @@ tasks:
 
   add-blobs:
     cmds:
-      - task: dl-yb
-      - bosh add-blob /tmp/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
       - task: dl-openjdk
       - bosh add-blob /tmp/openjdk-${OPENJDK_VERSION}.tar.gz openjdk/openjdk-${OPENJDK_VERSION}.tar.gz
       - task: dl-yb-sample-apps
       - bosh add-blob /tmp/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar yugabyte/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar
+      - task: dl-yb
+      - bosh add-blob /tmp/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
 
   deploy:
     cmds:
