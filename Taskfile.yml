@@ -36,7 +36,7 @@ tasks:
       - task: dl-yb
       - bosh add-blob /tmp/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
       - task: dl-openjdk
-      - bosh add-blob /tmp/OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz openjdk/OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz
+      - bosh add-blob /tmp/OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz openjdk8/OpenJDK8U-jre_x64_linux_hotspot_8u242b08.tar.gz
       - task: dl-yb-sample-apps
       - bosh add-blob /tmp/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar yugabyte/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar
 
