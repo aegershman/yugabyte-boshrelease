@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e -u
+set -eu
 
 /var/vcap/packages/yugabyte/bin/yb-ctl stop
 /var/vcap/packages/yugabyte/bin/yb-ctl status

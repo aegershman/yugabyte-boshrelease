@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -euo pipefail
+set -eu
 
 chmod +x /var/vcap/jobs/yb-sample-apps/yb-sample-apps.sh

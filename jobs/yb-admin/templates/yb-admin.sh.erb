@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -eu
 
 <% master_addresses = link("yb-master").instances.map { |i| "#{i.address}:#{p('master_addresses_port')}" }.join(",") %>
 

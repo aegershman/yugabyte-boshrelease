@@ -60,6 +60,7 @@ tasks:
     cmds:
       - |
         bosh -d yugabyte deploy manifests/production/yugabyte.yml \
+          -o manifests/operators/release-create-from-local.yml \
           -l manifests/production/vars.yml \
           --no-redact \
           --non-interactive
@@ -67,6 +68,4 @@ tasks:
   test:
     cmds:
       - task: add-blobs
-      - bosh create-release --force
-      - bosh upload-release
       - task: deploy-production
