@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -eux
+set -eu
 
 /var/vcap/jobs/bpm/bin/bpm run yb-admin -p yb-admin
