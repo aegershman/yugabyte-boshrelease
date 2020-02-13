@@ -7,7 +7,8 @@ ALTER ROLE "<%= role["name"] %>" WITH PASSWORD = '<%= role["password"] %>';
 <% end %>
 
 <% if role["permissions"] %>
-ALTER ROLE "<%= role["name"] %>" WITH <%= role["permissions"].join(' ') %>;
+<%# https://docs.yugabyte.com/latest/api/ycql/ddl_alter_role/ %>
+ALTER ROLE "<%= role["name"] %>" WITH <%= role["permissions"].join(' AND ') %>;
 <% end %
 
 <% end %>

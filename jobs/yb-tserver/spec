@@ -8,6 +8,7 @@ templates:
   bpm.erb.yml: config/bpm.yml
   pre-start.sh: bin/pre-start
   tserver.conf.erb: tserver.conf
+  ycql-roles.sql.erb: ycql-roles.sql
 
 packages:
   - yugabyte
@@ -41,4 +42,4 @@ properties:
       database.roles:
         name: hank
         password: propane_bwaaa
-        permissions: perm1 perm2 perm3
+        permissions: TODO
