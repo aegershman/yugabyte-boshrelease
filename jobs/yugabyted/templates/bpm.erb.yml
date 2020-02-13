@@ -3,7 +3,6 @@ processes:
   - name: yugabyted
     executable: /var/vcap/packages/yugabyte/bin/yugabyted
     persistent_disk: true
-    ephemeral_disk: false
     args:
     - start
     - --data_dir=/var/vcap/store/yugabyted/yugabyte-data/
