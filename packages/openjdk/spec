@@ -1,5 +1,5 @@
 ---
-name: openjdk8
+name: openjdk
 
 description: |
   https://github.com/pivotal/credhub-release/tree/master/packages/openjdk_1.8.0
@@ -8,4 +8,4 @@ description: |
 dependencies: []
 
 files:
-  - openjdk8/*.tar.gz
+  - openjdk/openjdk-*.tar.gz

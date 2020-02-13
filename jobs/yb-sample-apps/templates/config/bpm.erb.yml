@@ -3,7 +3,7 @@ processes:
   - name: yb-sample-apps
     executable: /var/vcap/jobs/yb-sample-apps/bin/yb-sample-apps.sh
     env:
-      JAVA_HOME: /var/vcap/packages/openjdk8/jre/jdk8u242-b08-jre # TODO fix this... also apparently JAVA_HOME traditionally doesn't have the "/bin" on it, so I guess we'll follow that convention
+      JAVA_HOME: /var/vcap/packages/openjdk/jre/jdk8u242-b08-jre # TODO fix this... also apparently JAVA_HOME traditionally doesn't have the "/bin" on it, so I guess we'll follow that convention
       MAX_HEAP_SIZE: <%= p("max_heap_size") %>
       TSERVER_ENDPOINTS: <%= link("yb-tserver").instances.map { |instance| "#{instance.address}:#{p("tserver_port_target")}" }.join(",") %>
       WORKLOAD_TYPE: <%= p("workload.type") %>
