@@ -9,6 +9,3 @@ processes:
       - --data_dir=/var/vcap/store/yb-ctl/yugabyte-data/
       - --verbose
       - --v=<%= p("v_level") %>
-
-    capabilities:
-      - NET_BIND_SERVICE

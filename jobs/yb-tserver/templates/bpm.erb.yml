@@ -6,6 +6,3 @@ processes:
     ephemeral_disk: false
     args:
       - --flagfile=/var/vcap/jobs/yb-tserver/tserver.conf
-
-    capabilities:
-      - NET_BIND_SERVICE

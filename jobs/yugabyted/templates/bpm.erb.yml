@@ -9,6 +9,3 @@ processes:
     - --data_dir=/var/vcap/store/yugabyted/yugabyte-data/
     - --log_dir=/var/vcap/sys/log/yugabyted
     - --bind_ip=<%= spec.address %>
-
-    capabilities:
-      - NET_BIND_SERVICE
