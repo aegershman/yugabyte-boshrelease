@@ -8,8 +8,8 @@ common_gflags:
   placement_region: us-west-2
   start_pgsql_proxy: false # TODO probably can be removed if enable ysql is false too
   stop_logging_if_full_disk: true
-  use_cassandra_authentication: true # TODO this is a valid flag for tserver but not for masters, but since we're passing as flagfile, it doesn't fail validation... which is a blessing and a curse, really
+  use_cassandra_authentication: false # TODO this is a valid flag for tserver but not for masters, but since we're passing as flagfile, it doesn't fail validation... which is a blessing and a curse, really
 master_instances: 3
 tserver_instances: 3
-sample_cassandrakeyvalue_instances: 0 # can't have test apps running against cluster until https://github.com/yugabyte/yb-sample-apps/pull/2 supports auth
-sample_rediskeyvalue_instances: 0
+sample_cassandrakeyvalue_instances: 1 # can't have test apps running against cluster until https://github.com/yugabyte/yb-sample-apps/pull/2 supports auth
+sample_rediskeyvalue_instances: 1

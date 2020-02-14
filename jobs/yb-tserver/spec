@@ -42,8 +42,10 @@ properties:
   ycql.databases.roles:
     description: https://docs.yugabyte.com/latest/api/ycql/ddl_alter_role/
     example: |
-      ycql.databases.roles:
-        name: hank
-        password: propane_bwaaa
-        permissions:
-          - LOGIN = true
+      ycql:
+        databases:
+          roles:
+            - name: hank_hill
+              password: propane_bwaaah
+              permissions:
+                - LOGIN = true
