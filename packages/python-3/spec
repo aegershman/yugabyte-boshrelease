@@ -1,0 +1,21 @@
+---
+name: python-3
+
+description: |
+  https://files.pythonhosted.org/packages/68/75/d1d7b7340b9eb6e0388bf95729e63c410b381eb71fe8875cdfd949d8f9ce/setuptools-45.2.0.zip
+  https://files.pythonhosted.org/packages/8e/76/66066b7bc71817238924c7e4b448abdb17eb0c92d645769c223f9ace478f/pip-20.0.2.tar.gz
+  https://github.com/bosh-packages/python-release
+  https://github.com/cloudfoundry-community/sample-python-flask-app-boshrelease
+  https://github.com/starkandwayne/service-fabric-boshrelease/blob/master/packages/python-3.6/spec
+  https://pypi.org/project/pip/#files
+  https://pypi.org/project/setuptools/#files
+  https://www.python.org/downloads/
+
+dependencies: []
+
+files:
+  - python-pkg/compile.env
+  - python-pkg/runtime.env
+  - python/pip*.tar.gz
+  - python/Python-3*.tgz
+  - python/setuptools*.zip
