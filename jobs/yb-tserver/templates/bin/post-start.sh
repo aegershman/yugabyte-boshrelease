@@ -2,7 +2,7 @@
 
 set -eu
 
-source /var/vcap/packages/yugabyte/bosh/runtime.env
+source /var/vcap/packages/python-*/bosh/runtime.env
 
 # as you might expect, TODO
 /var/vcap/packages/yugabyte/bin/cqlsh \

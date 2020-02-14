@@ -4,51 +4,51 @@ version: "2"
 env:
   OPENJDK_VERSION: 1.8.0_242
   PYTHON_PIP_URL: "https://files.pythonhosted.org/packages/ae/e8/2340d46ecadb1692a1e455f13f75e596d4eab3d11a57446f08259dee8f02/pip-${PYTHON_PIP_VERSION}.tar.gz"
-  PYTHON_PIP_VERSION: 10.0.1
+  PYTHON_PIP_VERSION: 1.5.2
   PYTHON_SETUPTOOLS_URL: "https://files.pythonhosted.org/packages/a6/5b/f399fcffb9128d642387133dc3aa9bb81f127b949cd4d9f63e5602ad1d71/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip"
-  PYTHON_SETUPTOOLS_VERSION: 39.1.0
-  PYTHON_VERSION: 3.6.5
+  PYTHON_SETUPTOOLS_VERSION: 2.2
+  PYTHON_VERSION: 2.7.6
   YB_SAMPLE_APPS_VERSION: 1.2.1
   YB_VERSION: 2.0.11.0
 
 tasks:
   dl-openjdk:
-    status: ["test -f /tmp/openjdk-${OPENJDK_VERSION}.tar.gz"]
+    status: ["test -f /tmp/yugablob/openjdk-${OPENJDK_VERSION}.tar.gz"]
     cmds:
-      - curl -o /tmp/openjdk-${OPENJDK_VERSION}.tar.gz -L "https://java-buildpack.cloudfoundry.org/openjdk/bionic/x86_64/openjdk-jre-${OPENJDK_VERSION}-bionic.tar.gz"
+      - curl -o /tmp/yugablob/openjdk-${OPENJDK_VERSION}.tar.gz -L "https://java-buildpack.cloudfoundry.org/openjdk/bionic/x86_64/openjdk-jre-${OPENJDK_VERSION}-bionic.tar.gz"
 
   dl-python:
     status:
-      - "test -f /tmp/Python-${PYTHON_VERSION}.tgz"
-      - "test -f /tmp/pip-${PYTHON_PIP_VERSION}.tar.gz"
-      - "test -f /tmp/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip"
+      - "test -f /tmp/yugablob/Python-${PYTHON_VERSION}.tgz"
+      - "test -f /tmp/yugablob/pip-${PYTHON_PIP_VERSION}.tar.gz"
+      - "test -f /tmp/yugablob/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip"
     cmds:
-      - curl -o /tmp/pip-${PYTHON_PIP_VERSION}.tar.gz -L "${PYTHON_PIP_URL}"
-      - curl -o /tmp/Python-${PYTHON_VERSION}.tgz -L "https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz"
-      - curl -o /tmp/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip -L "${PYTHON_SETUPTOOLS_URL}"
+      - curl -o /tmp/yugablob/pip-${PYTHON_PIP_VERSION}.tar.gz -L "${PYTHON_PIP_URL}"
+      - curl -o /tmp/yugablob/Python-${PYTHON_VERSION}.tgz -L "https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz"
+      - curl -o /tmp/yugablob/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip -L "${PYTHON_SETUPTOOLS_URL}"
 
   dl-yb-sample-apps:
-    status: ["test -f /tmp/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar"]
+    status: ["test -f /tmp/yugablob/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar"]
     cmds:
-      - wget -O /tmp/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar https://github.com/yugabyte/yb-sample-apps/releases/download/${YB_SAMPLE_APPS_VERSION}/yb-sample-apps.jar
+      - wget -O /tmp/yugablob/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar https://github.com/yugabyte/yb-sample-apps/releases/download/${YB_SAMPLE_APPS_VERSION}/yb-sample-apps.jar
 
   dl-yb:
-    status: ["test -f /tmp/yugabyte-${YB_VERSION}-linux.tar.gz"]
+    status: ["test -f /tmp/yugablob/yugabyte-${YB_VERSION}-linux.tar.gz"]
     cmds:
-      - curl -o /tmp/yugabyte-${YB_VERSION}-linux.tar.gz https://downloads.yugabyte.com/yugabyte-${YB_VERSION}-linux.tar.gz
+      - curl -o /tmp/yugablob/yugabyte-${YB_VERSION}-linux.tar.gz https://downloads.yugabyte.com/yugabyte-${YB_VERSION}-linux.tar.gz
 
   add-blobs:
     cmds:
       - task: dl-openjdk
-      - bosh add-blob /tmp/openjdk-${OPENJDK_VERSION}.tar.gz openjdk/openjdk-${OPENJDK_VERSION}.tar.gz
+      - bosh add-blob /tmp/yugablob/openjdk-${OPENJDK_VERSION}.tar.gz openjdk/openjdk-${OPENJDK_VERSION}.tar.gz
       - task: dl-python
-      - bosh add-blob /tmp/Python-${PYTHON_VERSION}.tgz python/Python-${PYTHON_VERSION}.tgz
-      - bosh add-blob /tmp/pip-${PYTHON_PIP_VERSION}.tar.gz python/pip-${PYTHON_PIP_VERSION}.tar.gz
-      - bosh add-blob /tmp/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip python/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip
+      - bosh add-blob /tmp/yugablob/Python-${PYTHON_VERSION}.tgz python/Python-${PYTHON_VERSION}.tgz
+      - bosh add-blob /tmp/yugablob/pip-${PYTHON_PIP_VERSION}.tar.gz python/pip-${PYTHON_PIP_VERSION}.tar.gz
+      - bosh add-blob /tmp/yugablob/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip python/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip
       - task: dl-yb-sample-apps
-      - bosh add-blob /tmp/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar yugabyte/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar
+      - bosh add-blob /tmp/yugablob/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar yugabyte/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar
       - task: dl-yb
-      - bosh add-blob /tmp/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
+      - bosh add-blob /tmp/yugablob/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
 
   deploy:
     cmds:
