@@ -5,7 +5,7 @@ description: |
   https://docs.yugabyte.com/latest/reference/configuration/yb-tserver/
 
 templates:
-  bin/post-start.sh: bin/post-start
+  bin/post-deploy.sh: bin/post-deploy
   bin/pre-start.sh: bin/pre-start
   config/bpm.erb.yml: config/bpm.yml
   config/roles.cql.erb: config/roles.cql
