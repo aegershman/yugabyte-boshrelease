@@ -47,6 +47,13 @@ instance_groups:
           gflags: ((common_gflags))
           server_broadcast_addresses_port: 9101
           rpc_bind_addresses_port: 9101
+          # ycql:
+          #   databases:
+          #     roles:
+          #       - name: hank_hill
+          #         password: propane_bwaaah
+          #         permissions:
+          #           - LOGIN = true
 
   - name: sample-cassandrakeyvalue
     azs: [us-west-2a, us-west-2b, us-west-2c]
