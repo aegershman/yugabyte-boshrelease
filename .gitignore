@@ -1,5 +1,8 @@
 .DS_Store
 .project
+.terraform
+*.tfstate*
+
 scratchpad
 
 config/private.yml
