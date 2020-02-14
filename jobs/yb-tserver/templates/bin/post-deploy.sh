@@ -9,5 +9,5 @@ source /var/vcap/packages/python-*/bosh/runtime.env
   --user cassandra \
   --password cassandra \
   --debug \
-  --file /var/vcap/jobs/yb-tserver/config/roles.cql \
+  --file /var/vcap/jobs/yb-tserver/config/ycql.roles.cql \
   "<%= spec.address %>"

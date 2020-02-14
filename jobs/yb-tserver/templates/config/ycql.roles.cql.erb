@@ -1,4 +1,4 @@
-<% p("databases.roles", []).each do |role| %>
+<% p("ycql.databases.roles", []).each do |role| %>
 
 CREATE ROLE IF NOT EXISTS "<%= role["name"] %>" AND LOGIN = true;
 
