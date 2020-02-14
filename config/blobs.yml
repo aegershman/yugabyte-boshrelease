@@ -1,6 +1,15 @@
 openjdk/openjdk-1.8.0_242.tar.gz:
   size: 40565395
   sha: sha256:baebb2246ec503c8cae333510894d9dd6496ea72ff663f47faa85e789b58b45a
+python/Python-3.8.1.tgz:
+  size: 162
+  sha: sha256:f33c27745f2bd87344be790465ef984a972fd539dc83bd4f61d4242c607ef1ee
+python/pip-20.0.2.tar.gz:
+  size: 1433827
+  sha: sha256:7db0c8ea4c7ea51c8049640e8e6e7fde949de672bfa4949920675563a5a6967f
+python/setuptools-45.2.0.zip:
+  size: 859896
+  sha: sha256:89c6e6011ec2f6d57d43a3f9296c4ef022c2cbf49bab26b407fe67992ae3397f
 yugabyte/yb-sample-apps-1.2.1.jar:
   size: 12026031
   sha: sha256:414d29070b82db7dd31584e5b29715c618d44905e2840e4a98cc7f6b3f37e42d
