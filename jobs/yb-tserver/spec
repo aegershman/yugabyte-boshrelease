@@ -45,3 +45,5 @@ properties:
       ycql.databases.roles:
         name: hank
         password: propane_bwaaa
+        permissions:
+          - LOGIN = true
