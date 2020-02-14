@@ -19,7 +19,7 @@ tasks:
       - "test -f /tmp/pip-20.0.2.tar.gz"
       - "test -f /tmp/setuptools-45.2.0.zip"
     cmds:
-      - curl -o /tmp/Python-${PYTHON_VERSION}.tgz -L "https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-{PYTHON_VERSION}.tgz"
+      - curl -o /tmp/Python-${PYTHON_VERSION}.tgz -L "https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz"
       - curl -o /tmp/pip-20.0.2.tar.gz -L "https://files.pythonhosted.org/packages/8e/76/66066b7bc71817238924c7e4b448abdb17eb0c92d645769c223f9ace478f/pip-20.0.2.tar.gz"
       - curl -o /tmp/setuptools-45.2.0.zip -L "https://files.pythonhosted.org/packages/68/75/d1d7b7340b9eb6e0388bf95729e63c410b381eb71fe8875cdfd949d8f9ce/setuptools-45.2.0.zip"
 
