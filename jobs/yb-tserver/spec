@@ -5,11 +5,14 @@ description: |
   https://docs.yugabyte.com/latest/reference/configuration/yb-tserver/
 
 templates:
+  bin/post-start.sh: bin/post-start
   bin/pre-start.sh: bin/pre-start
   config/bpm.erb.yml: config/bpm.yml
+  config/roles.cql.erb: config/roles.cql
   config/tserver.conf.erb: config/tserver.conf
 
 packages:
+  - python-3
   - yugabyte
 
 consumes:
@@ -36,3 +39,9 @@ properties:
         placement_region: us-west-2
         stderrthreshold: 2
         stop_logging_if_full_disk: true
+  database.roles:
+    description: https://docs.yugabyte.com/latest/api/ycql/ddl_alter_role/
+    example: |
+      database.roles:
+        name: hank
+        password: propane_bwaaa
