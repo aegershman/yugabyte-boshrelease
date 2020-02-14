@@ -1,6 +1,6 @@
 <% p("ycql.databases.roles", []).each do |role| %>
 
-CREATE ROLE IF NOT EXISTS "<%= role["name"] %>" AND LOGIN = true;
+CREATE ROLE IF NOT EXISTS "<%= role["name"] %>";
 
 <% if role["password"] %>
 ALTER ROLE "<%= role["name"] %>" WITH PASSWORD = '<%= role["password"] %>';
