@@ -1,7 +1,8 @@
 ---
 name: yugabyte
 
-dependencies: []
+dependencies:
+  - python-2.7
 
 files:
   - yugabyte/yugabyte-*-linux.tar.gz

@@ -4,3 +4,6 @@ set -eux
 
 tar zxf yugabyte/yugabyte-*-linux.tar.gz
 cp -a yugabyte-*/* ${BOSH_INSTALL_TARGET}
+
+source /var/vcap/packages/python-*/bosh/compile.env
+bosh_generate_runtime_env
