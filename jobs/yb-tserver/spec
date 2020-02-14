@@ -12,7 +12,7 @@ templates:
   config/tserver.conf.erb: config/tserver.conf
 
 packages:
-  - python-3
+  - python-3.6
   - yugabyte
 
 consumes:
