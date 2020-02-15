@@ -28,7 +28,8 @@ tasks:
       - curl -o /tmp/yugablob/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip -L "${PYTHON_SETUPTOOLS_URL}"
 
   dl-yb-sample-apps:
-    status: ["test -f /tmp/yugablob/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar"]
+    status:
+      ["test -f /tmp/yugablob/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar"]
     cmds:
       - wget -O /tmp/yugablob/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar https://github.com/yugabyte/yb-sample-apps/releases/download/${YB_SAMPLE_APPS_VERSION}/yb-sample-apps.jar
 
