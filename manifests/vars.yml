@@ -6,7 +6,6 @@ common_gflags:
   minloglevel: 0
   placement_cloud: aws
   placement_region: us-west-2
-  start_pgsql_proxy: false # TODO probably can be removed if enable ysql is false too
   stop_logging_if_full_disk: true
   use_cassandra_authentication: true # TODO this is a valid flag for tserver but not for masters, but since we're passing as flagfile, it doesn't fail validation... which is a blessing and a curse, really
 master_instances: 3
