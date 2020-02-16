@@ -39,13 +39,14 @@ properties:
         placement_region: us-west-2
         stderrthreshold: 2
         stop_logging_if_full_disk: true
-  ycql.databases.roles:
-    description: https://docs.yugabyte.com/latest/api/ycql/ddl_alter_role/
+  ycql.databases.superusers:
+    description: |
+      until we get to putting a more fine-grained RBAC model in place
+      on startup, we'll just assume every created user is a superuser
+      https://docs.yugabyte.com/latest/api/ycql/ddl_alter_role/
     example: |
       ycql:
         databases:
-          roles:
+          superusers:
             - name: hank_hill
               password: propane_bwaaah
-              permissions:
-                - LOGIN = true

@@ -1,13 +1,11 @@
-<% p("ycql.databases.roles", []).each do |role| %>
+<% p("ycql.databases.superusers", []).each do |role| %>
 
 CREATE ROLE IF NOT EXISTS "<%= role["name"] %>";
 
-<% if role["password"] %>
-ALTER ROLE "<%= role["name"] %>" WITH PASSWORD = '<%= role["password"] %>';
-<% end %>
-
-<% if role["permissions"] %>
-ALTER ROLE "<%= role["name"] %>" WITH <%= role["permissions"].join(' AND ') %>;
-<% end %>
+ALTER ROLE "<%= role["name"] %>"
+  WITH PASSWORD = '<%= role["password"] %>'
+  AND SUPERUSER = true
+  AND LOGIN = true
+  ;
 
 <% end %>
