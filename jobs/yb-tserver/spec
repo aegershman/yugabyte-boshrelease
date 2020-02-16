@@ -8,8 +8,8 @@ templates:
   bin/post-deploy.sh: bin/post-deploy
   bin/pre-start.sh: bin/pre-start
   config/bpm.erb.yml: config/bpm.yml
-  config/superusers.cql.erb: config/superusers.roles.cql
   config/tserver.conf.erb: config/tserver.conf
+  config/ycql.roles.cql.erb: config/ycql.roles.cql
 
 packages:
   - python-2.7
