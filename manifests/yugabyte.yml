@@ -71,6 +71,8 @@ instance_groups:
           workload:
             type: CassandraKeyValue
             args:
+              username: cassandra
+              password: cassandra
               num_unique_keys: 1000000000
               num_reads: -1
               num_writes: -1
@@ -78,8 +80,6 @@ instance_groups:
               num_threads_read: 2
               num_threads_write: 2
               table_ttl_seconds: -1
-              username: hank_hill
-              password: propane_bwaaah
 
   - name: sample-rediskeyvalue
     azs: [us-west-2a, us-west-2b, us-west-2c]
