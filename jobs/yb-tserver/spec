@@ -9,8 +9,8 @@ templates:
   bin/pre-start.sh: bin/pre-start
   config/bpm.erb.yml: config/bpm.yml
   config/cqlshrc.erb: config/cqlshrc
+  config/roles.cql.erb: config/roles.cql
   config/tserver.conf.erb: config/tserver.conf
-  config/ycql.roles.cql.erb: config/ycql.roles.cql
 
 packages:
   - python-2.7
