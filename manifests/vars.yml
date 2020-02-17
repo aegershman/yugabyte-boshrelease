@@ -1,4 +1,15 @@
 ---
+deployment_name: yugabyte
+network_name: services-network
+master_azs: [us-west-2a, us-west-2b, us-west-2c]
+tserver_azs: [us-west-2a, us-west-2b, us-west-2c]
+master_instances: 3
+tserver_instances: 3
+master_vm_type: t3.micro
+tserver_vm_type: m5.large
+master_persistent_disk_type: "10240"
+tserver_persistent_disk_type: "30720"
+tserver_rpc_bind_addresses_port: 9101
 common_gflags:
   default_memory_limit_to_ram_ratio: 0.85
   enable_ysql: false # TODO should be true or not even here
@@ -8,7 +19,3 @@ common_gflags:
   placement_region: us-west-2
   stop_logging_if_full_disk: true
   use_cassandra_authentication: true # TODO this is a valid flag for tserver but not for masters, but since we're passing as flagfile, it doesn't fail validation... which is a blessing and a curse, really
-master_instances: 3
-tserver_instances: 3
-sample_cassandrakeyvalue_instances: 1
-sample_rediskeyvalue_instances: 1

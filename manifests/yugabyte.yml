@@ -1,7 +1,7 @@
 ---
 tags: {}
 
-name: yugabyte
+name: ((deployment_name))
 
 releases:
   - name: yugabyte
@@ -17,12 +17,12 @@ addons:
 
 instance_groups:
   - name: master
-    azs: [us-west-2a, us-west-2b, us-west-2c]
+    azs: ((master_azs))
     instances: ((master_instances))
-    vm_type: t3.micro
-    persistent_disk_type: "10240"
+    vm_type: ((master_vm_type))
+    persistent_disk_type: ((master_persistent_disk_type))
     stemcell: xenial
-    networks: [name: services-network]
+    networks: [name: ((network_name))]
     jobs:
       - name: yb-master
         release: yugabyte
@@ -32,12 +32,12 @@ instance_groups:
           gflags: ((common_gflags))
 
   - name: tserver
-    azs: [us-west-2a, us-west-2b, us-west-2c]
+    azs: ((tserver_azs))
     instances: ((tserver_instances))
-    vm_type: m5.large
-    persistent_disk_type: "30720"
+    vm_type: ((tserver_vm_type))
+    persistent_disk_type: ((tserver_persistent_disk_type))
     stemcell: xenial
-    networks: [name: services-network]
+    networks: [name: ((network_name))]
     jobs:
       - name: yb-tserver
         release: yugabyte
@@ -45,61 +45,11 @@ instance_groups:
         provides: { yb-tserver: { as: yb-tserver-provider } }
         properties:
           gflags: ((common_gflags))
-          server_broadcast_addresses_port: 9101
-          rpc_bind_addresses_port: 9101
           ycql:
             databases:
               superusers:
                 - name: hank_hill
                   password: propane_bwaaah
-
-  - name: sample-cassandrakeyvalue
-    azs: [us-west-2a, us-west-2b, us-west-2c]
-    instances: ((sample_cassandrakeyvalue_instances))
-    vm_type: t3.small
-    persistent_disk_type: "1024"
-    stemcell: xenial
-    networks: [name: services-network]
-    jobs:
-      - name: yb-sample-apps
-        release: yugabyte
-        consumes: { yb-tserver: { from: yb-tserver-provider } }
-        properties:
-          tserver_port_target: 9042
-          workload:
-            type: CassandraKeyValue
-            args:
-              username: hank_hill
-              password: propane_bwaaah
-              num_unique_keys: 1000000000
-              num_reads: -1
-              num_writes: -1
-              value_size: 256
-              num_threads_read: 2
-              num_threads_write: 2
-              table_ttl_seconds: -1
-
-  - name: sample-rediskeyvalue
-    azs: [us-west-2a, us-west-2b, us-west-2c]
-    instances: ((sample_rediskeyvalue_instances))
-    vm_type: t3.small
-    persistent_disk_type: "1024"
-    stemcell: xenial
-    networks: [name: services-network]
-    jobs:
-      - name: yb-sample-apps
-        release: yugabyte
-        consumes: { yb-tserver: { from: yb-tserver-provider } }
-        properties:
-          tserver_port_target: 6379
-          workload:
-            type: RedisKeyValue
-            args:
-              num_unique_keys: 1000000000
-              num_reads: -1
-              num_writes: -1
-              num_threads_read: 2
-              num_threads_write: 2
 
   - name: setup_redis_table
     azs: [us-west-2a, us-west-2b, us-west-2c]
@@ -108,7 +58,7 @@ instance_groups:
     vm_type: t3.micro
     persistent_disk_type: "1024"
     stemcell: xenial
-    networks: [name: services-network]
+    networks: [name: ((network_name))]
     jobs:
       - name: yb-admin
         release: yugabyte
