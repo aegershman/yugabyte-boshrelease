@@ -1,0 +1,9 @@
+---
+- type: remove
+  path: /features?/randomize_az_placement?
+
+- type: remove
+  path: /features?/use_dns_addresses?
+
+- type: remove
+  path: /features?/use_short_dns_addresses?
