@@ -39,3 +39,6 @@ properties:
         placement_region: us-west-2
         stderrthreshold: 2
         stop_logging_if_full_disk: true
+
+
+test

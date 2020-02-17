@@ -3,3 +3,5 @@ check process yb-tserver
   start program "/var/vcap/jobs/bpm/bin/bpm start yb-tserver"
   stop program "/var/vcap/jobs/bpm/bin/bpm stop yb-tserver"
   group vcap
+
+test
