@@ -130,3 +130,8 @@ update:
   serial: false
   canary_watch_time: 1000-200000
   update_watch_time: 1000-200000
+
+features:
+  use_dns_addresses: true
+  randomize_az_placement: true
+  use_short_dns_addresses: true
