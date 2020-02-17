@@ -1,0 +1,7 @@
+# https://github.com/crazy-max/ghaction-github-labeler
+---
+- name: yb-master
+  color: a22eef
+
+- name: yb-tserver
+  color: a22eef
