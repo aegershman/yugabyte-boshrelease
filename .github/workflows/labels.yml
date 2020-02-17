@@ -1,0 +1,23 @@
+---
+name: "configure-github-labels"
+
+on:
+  push:
+    paths:
+      - .github/**/*
+
+jobs:
+  labeler:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+      - name: run-labeler
+        if: success()
+        uses: crazy-max/ghaction-github-labeler@v1
+        with:
+          yaml_file: .github/labels.yml
+          skip_delete: true
+          dry_run: false
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

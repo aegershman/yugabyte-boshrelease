@@ -1,0 +1,7 @@
+# https://github.com/actions/labeler
+---
+yb-master:
+  - jobs/yb-master/**/*
+
+yb-tserver:
+  - jobs/yb-tserver/**/*
