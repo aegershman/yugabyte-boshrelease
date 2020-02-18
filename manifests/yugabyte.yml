@@ -45,8 +45,6 @@ instance_groups:
         provides: { yb-tserver: { as: yb-tserver-provider } }
         properties:
           gflags: ((common_gflags))
-          server_broadcast_addresses_port: 9101
-          rpc_bind_addresses_port: 9101
           ycql:
             databases:
               superusers:
