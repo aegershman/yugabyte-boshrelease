@@ -1,7 +1,16 @@
 # https://github.com/actions/labeler
 ---
-yb-master:
+documentation:
+  - docs/**/*
+  - README.md
+
+deployment-mgmt:
+  - .github/**/*
+  - ci/**/*
+  - manifests/**/*
+
+job/yb-master:
   - jobs/yb-master/**/*
 
-yb-tserver:
+job/yb-tserver:
   - jobs/yb-tserver/**/*
