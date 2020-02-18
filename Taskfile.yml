@@ -52,6 +52,10 @@ tasks:
       - task: dl-yb
       - bosh add-blob /tmp/yugablob/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
 
+  run-errand:
+    cmds:
+      - bosh -d yugabyte run-errand setup_redis_table
+
   deploy:
     cmds:
       - |
@@ -69,3 +73,4 @@ tasks:
     cmds:
       - task: add-blobs
       - task: deploy
+      # - task: run-errand
