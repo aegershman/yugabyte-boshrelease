@@ -72,6 +72,14 @@
   color: f9e25e
   description: highest priority
 
+- name: status/parking-lot
+  color: efc092
+  description: on hold or soon to be abandonded
+
+- name: status/probably-vaporware
+  color: efc092
+  description: just goofing around with something or other
+
 - name: wontfix
   color: cfd3d7
   description: this will not be worked on
