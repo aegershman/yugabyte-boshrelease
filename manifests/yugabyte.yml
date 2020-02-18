@@ -28,8 +28,6 @@ instance_groups:
         release: yugabyte
         consumes: { yb-master: { from: yb-master-provider } }
         provides: { yb-master: { as: yb-master-provider } }
-        properties:
-          gflags: ((common_gflags))
 
   - name: tserver
     azs: ((tserver_azs))
@@ -43,8 +41,6 @@ instance_groups:
         release: yugabyte
         consumes: { yb-master: { from: yb-master-provider } }
         provides: { yb-tserver: { as: yb-tserver-provider } }
-        properties:
-          gflags: ((common_gflags))
 
   - name: setup_redis_table
     azs: ((setup_redis_table_errand_azs))
@@ -66,7 +62,7 @@ variables: []
 stemcells:
   - alias: default
     os: ubuntu-xenial
-    version: latest
+    version: 456.latest
 
 update:
   canaries: 1
