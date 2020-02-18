@@ -1,5 +1,9 @@
 # https://github.com/crazy-max/ghaction-github-labeler
 ---
+- name: area/docs
+  color: 0075ca
+  description: improvements or additions to documentation
+
 - name: area/ycql
   color: 495fc1
   description: things involving YCQL API
@@ -12,28 +16,20 @@
   color: 495fc1
   description: things involving YSQL API
 
-- name: area/deployment-mgmt
+- name: deployment-mgmt
   color: a59ae0
   description: changes involving ci-cd, builds, release, deployment manifests, operator files, etc.
 
-- name: documentation
-  color: 0075ca
-  description: improvements or additions to documentation
-
-- name: duplicate
-  color: cfd3d7
-  description: this issue or pull request already exists
-
 - name: feedback/upstream-yb
-  color: ffffff
+  color: b3b6fc
   description: something probably best handled in upstream yugabyte
 
 - name: feedback/yugabyte-boshrelease
-  color: ffffff
+  color: b3b6fc
   description: general feedback for this project
 
 - name: good-enough-for-now
-  color: ffffff
+  color: cfd3d7
   description: it's not done, it just... well, it's good enough I guess
 
 - name: job/yb-master
@@ -45,33 +41,37 @@
   description: code changes affecting yb-tserver job
 
 - name: kind/bug
-  color: d73a4a
+  color: f1b0f2
   description: something isn't working
 
 - name: kind/enhancement
-  color: d73a4a
+  color: f1b0f2
   description: an enhancement of an existing feature
 
 - name: kind/new-feature
-  color: d73a4a
+  color: f1b0f2
   description: request for a completely new feature
 
 - name: kind/question
-  color: d73a4a
+  color: f1b0f2
   description: this is a general use question, etc.
 
-- name: priority/low-or-basically-none
+- name: priority/just-a-thought
   color: f9e25e
   description: what's lower than low? ice-low
+
+- name: priority/low
+  color: f9e25e
+  description: low priority
 
 - name: priority/medium
   color: f9e25e
   description: medium priority
 
-- name: priority/critical
+- name: priority/high
   color: f9e25e
   description: highest priority
 
 - name: wontfix
-  color: ffffff
+  color: cfd3d7
   description: this will not be worked on
