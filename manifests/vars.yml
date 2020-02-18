@@ -1,15 +1,18 @@
 ---
 deployment_name: yugabyte
-network: services-network
 master_azs: [us-west-2a, us-west-2b, us-west-2c]
-master_vm_type: t3.micro
-master_persistent_disk_type: "10240"
 master_instances: 3
-tserver_persistent_disk_type: "30720"
-tserver_instances: 3
+master_persistent_disk_type: "10240"
+master_vm_type: t3.micro
+network: services-network
+setup_redis_table_errand_azs: [us-west-2a, us-west-2b, us-west-2c]
+setup_redis_table_errand_persistent_disk_type: "1024"
+setup_redis_table_errand_vm_type: t3.micro
 tserver_azs: [us-west-2a, us-west-2b, us-west-2c]
-tserver_vm_type: m5.large
+tserver_instances: 3
+tserver_persistent_disk_type: "30720"
 tserver_rpc_bind_port: 9101
+tserver_vm_type: m5.large
 common_gflags:
   default_memory_limit_to_ram_ratio: 0.85
   enable_ysql: false # TODO should be true or not even here

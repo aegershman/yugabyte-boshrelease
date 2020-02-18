@@ -47,13 +47,13 @@ instance_groups:
           gflags: ((common_gflags))
 
   - name: setup_redis_table
-    azs: [us-west-2a, us-west-2b, us-west-2c]
+    azs: ((setup_redis_table_errand_azs))
     lifecycle: errand
     instances: 1
-    vm_type: t3.micro
-    persistent_disk_type: "1024"
+    vm_type: ((setup_redis_table_errand_vm_type))
+    persistent_disk_type: ((setup_redis_table_errand_persistent_disk_type))
     stemcell: xenial
-    networks: [name: services-network]
+    networks: [name: ((network))]
     jobs:
       - name: yb-admin
         release: yugabyte
