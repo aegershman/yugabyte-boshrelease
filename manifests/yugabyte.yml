@@ -59,8 +59,7 @@ instance_groups:
         release: yugabyte
         consumes: { yb-master: { from: yb-master-provider } }
         properties:
-          commands:
-            - setup_redis_table
+          commands: [setup_redis_table]
 
 variables: []
 
