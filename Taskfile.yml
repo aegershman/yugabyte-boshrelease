@@ -52,12 +52,21 @@ tasks:
       - task: dl-yb
       - bosh add-blob /tmp/yugablob/yugabyte-${YB_VERSION}-linux.tar.gz yugabyte/yugabyte-${YB_VERSION}-linux.tar.gz
 
+  run-errand:
+    cmds:
+      - bosh -d yugabyte run-errand setup_redis_table
+
   deploy:
     cmds:
       - |
         bosh -d yugabyte deploy manifests/yugabyte.yml \
-          -o manifests/operators/release-create-from-local.yml \
+          -o manifests/operators/create-release-from-local.yml \
+          -o manifests/operators/enable-sample-apps.yml \
+          -o manifests/operators/enable-syslog-forwarder.yml \
+          -o manifests/operators/gflags.yml \
+          -o manifests/operators/tserver-rpc-bind-port.yml \
           -l manifests/vars.yml \
+          -l manifests/versions.yml \
           --no-redact \
           --non-interactive
 
@@ -65,3 +74,4 @@ tasks:
     cmds:
       - task: add-blobs
       - task: deploy
+      # - task: run-errand

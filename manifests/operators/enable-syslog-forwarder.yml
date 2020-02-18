@@ -3,7 +3,7 @@
   path: /releases/-
   value:
     name: syslog
-    version: latest
+    version: ((syslog_release_version))
 
 - type: replace
   path: /addons?/-

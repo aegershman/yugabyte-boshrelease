@@ -1,0 +1,4 @@
+---
+bpm_version: latest
+syslog_release_version: latest
+yugabyte_boshrelease_version: latest
