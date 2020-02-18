@@ -6,6 +6,8 @@ name: ((deployment_name))
 releases:
   - name: yugabyte
     version: ((yugabyte_boshrelease_version))
+    url: https://github.com/aegershman/yugabyte-boshrelease/releases/download/((yugabyte_boshrelease_version))/yugabyte-((yugabyte_boshrelease_version)).tgz
+    sha1: ((yugabyte_boshrelease_sha1))
   - name: bpm
     version: ((bpm_version))
 
