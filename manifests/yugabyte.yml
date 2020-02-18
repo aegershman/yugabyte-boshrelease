@@ -45,11 +45,6 @@ instance_groups:
         provides: { yb-tserver: { as: yb-tserver-provider } }
         properties:
           gflags: ((common_gflags))
-          ycql:
-            databases:
-              superusers:
-                - name: hank_hill
-                  password: propane_bwaaah
 
   - name: setup_redis_table
     azs: [us-west-2a, us-west-2b, us-west-2c]

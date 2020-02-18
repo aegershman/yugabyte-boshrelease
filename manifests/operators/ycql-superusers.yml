@@ -1,0 +1,8 @@
+# for example:
+# ycql_superusers:
+#   - name: hank_hill
+#     password: propane_bwaaah
+---
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/ycql?/databases?/superusers?
+  value: ((ycql_superusers))
