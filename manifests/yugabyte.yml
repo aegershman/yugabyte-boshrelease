@@ -5,9 +5,9 @@ name: ((deployment_name))
 
 releases:
   - name: yugabyte
-    version: latest
+    version: ((yugabyte_boshrelease_version))
   - name: bpm
-    version: latest
+    version: ((bpm_version))
 
 addons:
   - name: bpm

@@ -60,6 +60,7 @@ tasks:
           -o manifests/operators/release-create-from-local.yml \
           -o manifests/operators/tserver-rpc-bind-port.yml \
           -l manifests/vars.yml \
+          -l manifests/versions.yml \
           --no-redact \
           --non-interactive
 
