@@ -13,12 +13,20 @@ tserver_instances: 3
 tserver_persistent_disk_type: "30720"
 tserver_rpc_bind_port: 9101
 tserver_vm_type: m5.large
-common_gflags:
+master_gflags:
   default_memory_limit_to_ram_ratio: 0.85
-  enable_ysql: false # TODO should be true or not even here
+  enable_ysql: false
   max_log_size: 256
   minloglevel: 0
   placement_cloud: aws
   placement_region: us-west-2
   stop_logging_if_full_disk: true
-  use_cassandra_authentication: true # TODO this is a valid flag for tserver but not for masters, but since we're passing as flagfile, it doesn't fail validation... which is a blessing and a curse, really
+tserver_gflags:
+  default_memory_limit_to_ram_ratio: 0.85
+  enable_ysql: false
+  max_log_size: 256
+  minloglevel: 0
+  placement_cloud: aws
+  placement_region: us-west-2
+  stop_logging_if_full_disk: true
+  use_cassandra_authentication: true
