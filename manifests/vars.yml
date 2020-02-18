@@ -1,4 +1,9 @@
 ---
+deployment_name: yugabyte
+master_azs: [us-west-2a, us-west-2b, us-west-2c]
+master_vm_type: t3.micro
+master_persistent_disk_type: "10240"
+master_network_name: services-network
 common_gflags:
   default_memory_limit_to_ram_ratio: 0.85
   enable_ysql: false # TODO should be true or not even here

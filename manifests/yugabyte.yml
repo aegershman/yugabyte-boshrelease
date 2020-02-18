@@ -1,7 +1,7 @@
 ---
 tags: {}
 
-name: yugabyte
+name: ((deployment_name))
 
 releases:
   - name: yugabyte
@@ -17,12 +17,12 @@ addons:
 
 instance_groups:
   - name: master
-    azs: [us-west-2a, us-west-2b, us-west-2c]
+    azs: ((master_azs))
     instances: ((master_instances))
-    vm_type: t3.micro
-    persistent_disk_type: "10240"
+    vm_type: ((master_vm_type))
+    persistent_disk_type: ((master_persistent_disk_type))
     stemcell: xenial
-    networks: [name: services-network]
+    networks: [name: ((master_network_name))]
     jobs:
       - name: yb-master
         release: yugabyte
