@@ -57,6 +57,7 @@ tasks:
       - |
         bosh -d yugabyte deploy manifests/yugabyte.yml \
           -o manifests/operators/release-create-from-local.yml \
+          -o manifests/operators/tserver-rpc-bind-port.yml \
           -l manifests/vars.yml \
           --no-redact \
           --non-interactive

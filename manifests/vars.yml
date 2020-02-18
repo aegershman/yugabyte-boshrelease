@@ -9,6 +9,7 @@ tserver_persistent_disk_type: "30720"
 tserver_instances: 3
 tserver_azs: [us-west-2a, us-west-2b, us-west-2c]
 tserver_vm_type: m5.large
+tserver_rpc_bind_port: 9101
 common_gflags:
   default_memory_limit_to_ram_ratio: 0.85
   enable_ysql: false # TODO should be true or not even here
