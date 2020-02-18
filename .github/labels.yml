@@ -1,7 +1,77 @@
 # https://github.com/crazy-max/ghaction-github-labeler
 ---
-- name: yb-master
-  color: a22eef
+- name: area/ycql
+  color: 495fc1
+  description: things involving YCQL API
 
-- name: yb-tserver
-  color: a22eef
+- name: area/yedis
+  color: 495fc1
+  description: things involving YEDIS API
+
+- name: area/ysql
+  color: 495fc1
+  description: things involving YSQL API
+
+- name: area/deployment-mgmt
+  color: a59ae0
+  description: changes involving ci-cd, builds, release, deployment manifests, operator files, etc.
+
+- name: documentation
+  color: 0075ca
+  description: improvements or additions to documentation
+
+- name: duplicate
+  color: cfd3d7
+  description: this issue or pull request already exists
+
+- name: feedback/upstream-yb
+  color: ffffff
+  description: something probably best handled in upstream yugabyte
+
+- name: feedback/yugabyte-boshrelease
+  color: ffffff
+  description: general feedback for this project
+
+- name: good-enough-for-now
+  color: ffffff
+  description: it's not done, it just... well, it's good enough I guess
+
+- name: job/yb-master
+  color: 1c778c
+  description: code changes affecting yb-master job
+
+- name: job/yb-tserver
+  color: 1c778c
+  description: code changes affecting yb-tserver job
+
+- name: kind/bug
+  color: d73a4a
+  description: something isn't working
+
+- name: kind/enhancement
+  color: d73a4a
+  description: an enhancement of an existing feature
+
+- name: kind/new-feature
+  color: d73a4a
+  description: request for a completely new feature
+
+- name: kind/question
+  color: d73a4a
+  description: this is a general use question, etc.
+
+- name: priority/low-or-basically-none
+  color: f9e25e
+  description: what's lower than low? ice-low
+
+- name: priority/medium
+  color: f9e25e
+  description: medium priority
+
+- name: priority/critical
+  color: f9e25e
+  description: highest priority
+
+- name: wontfix
+  color: ffffff
+  description: this will not be worked on

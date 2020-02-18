@@ -1,9 +1,9 @@
 ---
-name: "label-pull-requests"
+name: "label-prs"
 on: pull_request
 
 jobs:
-  triage:
+  label-prs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@v2

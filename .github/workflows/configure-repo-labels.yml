@@ -1,5 +1,5 @@
 ---
-name: "configure-github-labels"
+name: "configure-repo-labels"
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - .github/**/*
 
 jobs:
-  labeler:
+  configure-repo-labels:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -17,7 +17,7 @@ jobs:
         uses: crazy-max/ghaction-github-labeler@v1
         with:
           yaml_file: .github/labels.yml
-          skip_delete: true
+          skip_delete: false
           dry_run: false
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
