@@ -3,12 +3,12 @@
   path: /instance_groups/-
   value:
     name: sample-cassandrakeyvalue
-    azs: [us-west-2a, us-west-2b, us-west-2c]
+    azs: ((sample_cassandrakeyvalue_azs))
     instances: 1
-    vm_type: t3.small
-    persistent_disk_type: "1024"
+    vm_type: ((sample_cassandrakeyvalue_vm_type))
+    persistent_disk_type: ((sample_cassandrakeyvalue_persistent_disk_type))
     stemcell: default
-    networks: [name: services-network]
+    networks: [name: ((network))]
     jobs:
       - name: yb-sample-apps
         release: yugabyte
@@ -32,12 +32,12 @@
   path: /instance_groups/-
   value:
     name: sample-rediskeyvalue
-    azs: [us-west-2a, us-west-2b, us-west-2c]
+    azs: ((sample_rediskeyvalue_azs))
     instances: 1
-    vm_type: t3.small
-    persistent_disk_type: "1024"
+    vm_type: ((sample_rediskeyvalue_vm_type))
+    persistent_disk_type: ((sample_rediskeyvalue_persistent_disk_type))
     stemcell: default
-    networks: [name: services-network]
+    networks: [name: ((network))]
     jobs:
       - name: yb-sample-apps
         release: yugabyte
