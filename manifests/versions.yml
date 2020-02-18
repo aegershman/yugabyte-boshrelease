@@ -1,4 +1,5 @@
 ---
 bpm_version: latest
 syslog_release_version: latest
-yugabyte_boshrelease_version: latest
+yugabyte_boshrelease_sha1: 9fab3b1eb3bd60fa6df4638b97df38af490cd8ac
+yugabyte_boshrelease_version: 0.0.1
