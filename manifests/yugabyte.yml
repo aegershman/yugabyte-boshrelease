@@ -21,7 +21,7 @@ instance_groups:
     instances: ((master_instances))
     vm_type: ((master_vm_type))
     persistent_disk_type: ((master_persistent_disk_type))
-    stemcell: xenial
+    stemcell: default
     networks: [name: ((network))]
     jobs:
       - name: yb-master
@@ -36,7 +36,7 @@ instance_groups:
     instances: ((tserver_instances))
     vm_type: ((tserver_vm_type))
     persistent_disk_type: ((tserver_persistent_disk_type))
-    stemcell: xenial
+    stemcell: default
     networks: [name: ((network))]
     jobs:
       - name: yb-tserver
@@ -52,7 +52,7 @@ instance_groups:
     instances: 1
     vm_type: ((setup_redis_table_errand_vm_type))
     persistent_disk_type: ((setup_redis_table_errand_persistent_disk_type))
-    stemcell: xenial
+    stemcell: default
     networks: [name: ((network))]
     jobs:
       - name: yb-admin
@@ -64,7 +64,7 @@ instance_groups:
 variables: []
 
 stemcells:
-  - alias: xenial
+  - alias: default
     os: ubuntu-xenial
     version: latest
 

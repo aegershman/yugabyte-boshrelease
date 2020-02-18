@@ -7,7 +7,7 @@
     instances: 1
     vm_type: t3.small
     persistent_disk_type: "1024"
-    stemcell: xenial
+    stemcell: default
     networks: [name: services-network]
     jobs:
       - name: yb-sample-apps
@@ -36,7 +36,7 @@
     instances: 1
     vm_type: t3.small
     persistent_disk_type: "1024"
-    stemcell: xenial
+    stemcell: default
     networks: [name: services-network]
     jobs:
       - name: yb-sample-apps
