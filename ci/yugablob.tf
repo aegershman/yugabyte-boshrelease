@@ -89,6 +89,7 @@ resource "aws_iam_user_policy_attachment" "yugabyte" {
 
 resource "aws_iam_access_key" "yugabyte" {
   user = "${aws_iam_user.yugabyte.name}"
+  pgp_key = keybase:aegershman
 }
 
 output "yugabyte_access_key_id" {
