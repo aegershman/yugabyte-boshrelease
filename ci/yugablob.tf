@@ -1,3 +1,14 @@
+terraform {
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "aegershman"
+
+    workspaces {
+      name = "yugabyte-boshrelease"
+    }
+  }
+}
+
 provider "aws" {
   version = "~> 2.48"
   region  = "us-east-2"
