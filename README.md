@@ -11,14 +11,14 @@ This currently only supports `YEDIS` and `YCQL` compatibilities. Enabling the po
 This release values and intends to...
 
 - package and operationalize YugabyteDB for use in BOSH environments
-- prioritize bounded contexts on configuration to reduce errors and cognitive overhead
+- prioritize bounded contexts on functionality to reduce errors and cognitive overhead
 - prioritize security by default
 - prioritize simplicity, "reasonable" configuration, and practical deployment toplogies
 - prioritize the release-management values of BOSH, e.g. versioning, packaging, and deploying in a reproducible manner
 
 It is NOT intended, guaranteed, or prioritized to...
 
-- deviate from supported or ideal configuration, topologies, etc.
+- deviate from supported or ideal configurations, topologies, etc.
 - extend YB beyond it's core features
 
 ## contributing
