@@ -14,11 +14,9 @@ This release is intended to...
 
 It is NOT intended, guaranteed, or prioritized to...
 
-- "compete" with deployments to Kubernetes, manually, through YugaWare, etc.
-- "match" capabilities of deploying to k8s, manually, YugaWare, etc.
 - deviate from supported or ideal topologies
 - extend YB beyond it's core features
-- subvert the success of YugabyteDB
+- match capabilities of deploying to Kubernetes
 
 ## ysql caveats
 
