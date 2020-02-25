@@ -6,5 +6,5 @@ processes:
     args:
       - --flagfile=/var/vcap/jobs/yb-tserver/config/tserver.conf
     limits:
-      open_files: <%= bpm.limits.open_files %>
-      processes: <%= bpm.limits.processes %>
+      open_files: <%= p("bpm.limits.open_files") %>
+      processes: <%= p("bpm.limits.processes") %>
