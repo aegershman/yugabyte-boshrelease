@@ -1,5 +1,6 @@
 check process yb-tserver
   with pidfile /var/vcap/sys/run/bpm/yb-tserver/yb-tserver.pid
   start program "/var/vcap/jobs/bpm/bin/bpm start yb-tserver"
+    with timeout 3600 seconds
   stop program "/var/vcap/jobs/bpm/bin/bpm stop yb-tserver"
   group vcap
