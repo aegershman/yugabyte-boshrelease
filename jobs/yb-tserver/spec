@@ -25,6 +25,9 @@ provides:
     type: conn
 
 properties:
+  monit.timeout:
+    description: time in seconds of how long monit will wait on "start"
+    default: 3600
   bpm.limits.open_files:
     default: 64000
   bpm.limits.processes:
