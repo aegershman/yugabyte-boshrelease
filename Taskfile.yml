@@ -72,6 +72,6 @@ tasks:
 
   test:
     cmds:
-      - task: add-blobs
+      # - task: add-blobs
       - task: deploy
       # - task: run-errand
