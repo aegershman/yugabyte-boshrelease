@@ -1,0 +1,6 @@
+---
+- type: remove
+  path: /releases/name=yugabyte/url?
+
+- type: remove
+  path: /releases/name=yugabyte/sha1?
