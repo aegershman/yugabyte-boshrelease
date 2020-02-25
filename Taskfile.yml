@@ -61,7 +61,6 @@ tasks:
       - |
         bosh -d yugabyte deploy manifests/yugabyte.yml \
           -o manifests/operators/create-release-from-local.yml \
-          -o manifests/operators/enable-sample-apps.yml \
           -o manifests/operators/enable-syslog-forwarder.yml \
           -o manifests/operators/gflags.yml \
           -o manifests/operators/tserver-rpc-bind-port.yml \
