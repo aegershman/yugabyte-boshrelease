@@ -5,3 +5,6 @@ processes:
     persistent_disk: true
     args:
       - --flagfile=/var/vcap/jobs/yb-master/config/master.conf
+    limits:
+      open_files: 64000
+      processes: 64000
