@@ -1,24 +1,24 @@
 openjdk/openjdk-1.8.0_242.tar.gz:
   size: 40565395
-  object_id: 9314e29c-446a-44d3-5a7f-051afa83666f
+  object_id: 838368f8-1a5c-4c06-6803-72d5c3bf0f72
   sha: sha256:baebb2246ec503c8cae333510894d9dd6496ea72ff663f47faa85e789b58b45a
 python/Python-2.7.6.tgz:
   size: 14725931
-  object_id: 156e41cd-bbdc-4d90-6e72-e4e94cc1371d
+  object_id: e3fcfe84-e748-4313-5664-343e9336d389
   sha: sha256:99c6860b70977befa1590029fae092ddb18db1d69ae67e8b9385b66ed104ba58
 python/pip-1.5.2.tar.gz:
   size: 1079904
-  object_id: e41f3f14-89ac-4f26-6e19-c677a1217dab
+  object_id: f19e4d37-91f7-4575-6138-188bc0a54195
   sha: sha256:2a8a3e08e652d3a40edbb39264bf01f8ff3c32520a79113357cca1f30533f738
 python/setuptools-2.2.zip:
   size: 840134
-  object_id: 9f370aeb-151f-4817-5008-04f639b36972
+  object_id: affc0826-f9f4-48d8-6313-8b58c92d84d8
   sha: sha256:e899c58f9e3b482cfac2e9ed03c6d0243ccdd90a78e8231662ae245bdd922971
 yugabyte/yb-sample-apps-1.2.1.jar:
   size: 12026031
-  object_id: ac8cd972-63db-4642-446c-a7644e3fe516
+  object_id: 80fb1745-2263-4828-742a-ada6d2412d97
   sha: sha256:414d29070b82db7dd31584e5b29715c618d44905e2840e4a98cc7f6b3f37e42d
-yugabyte/yugabyte-2.0.11.0-linux.tar.gz:
-  size: 447734499
-  object_id: 46ce27ed-75c4-44dc-5c0a-336f37384c3b
-  sha: sha256:65e83105902c82148159619be3a1c1c66c72c199372bce9e67eef4f1322559e2
+yugabyte/yugabyte-2.1.0.0-linux.tar.gz:
+  size: 454083893
+  object_id: bfd2e943-c141-4049-7d23-1bd7a2e82289
+  sha: sha256:5faeda1661152291279ead2f76a4f3dc749ed2511cfcacca3892f891e56607ee
