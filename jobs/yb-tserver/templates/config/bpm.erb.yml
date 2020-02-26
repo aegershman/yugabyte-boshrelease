@@ -1,16 +1,17 @@
 ---
 processes:
   - name: yb-tserver
-    executable: /var/vcap/packages/yugabyte/bin/yb-tserver
+    workdir: /var/vcap/data/packages/yugabyte/2a0089f71899ee62de9d4b69e69af783745c0881
+    executable: bin/yb-tserver
     persistent_disk: true
     args:
       - --flagfile=/var/vcap/jobs/yb-tserver/config/tserver.conf
     limits:
       open_files: <%= p("bpm.limits.open_files") %>
       processes: <%= p("bpm.limits.processes") %>
-    env:
-      LANG: "en_US.UTF-8"
-      LANGUAGE: "en_US.UTF-8"
-      LC_ALL: "en_US.UTF-8"
-      PATH: /var/vcap/packages/yugabyte:/var/vcap/packages/yugabyte/postgres:/var/vcap/packages/yugabyte/postgres/bin:/home/vcap/bin:/home/vcap/.local/bin:/var/vcap/jobs/bpm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/var/vcap/bosh/bin
-      YB_HOME: "/var/vcap/packages/yugabyte"
+    # env:
+    #   LANG: "en_US.UTF-8"
+    #   LANGUAGE: "en_US.UTF-8"
+    #   LC_ALL: "en_US.UTF-8"
+    #   PATH: /var/vcap/packages/yugabyte:/var/vcap/packages/yugabyte/postgres:/var/vcap/packages/yugabyte/postgres/bin:/home/vcap/bin:/home/vcap/.local/bin:/var/vcap/jobs/bpm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/var/vcap/bosh/bin
+    #   YB_HOME: "/var/vcap/packages/yugabyte"

@@ -2,4 +2,5 @@
 
 set -eu
 
-/var/vcap/packages/yugabyte/bin/post_install.sh
+cd /var/vcap/packages/yugabyte/
+./bin/post_install.sh
