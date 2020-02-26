@@ -13,10 +13,6 @@ python/setuptools-2.2.zip:
 yugabyte/yb-sample-apps-1.2.1.jar:
   size: 12026031
   sha: sha256:414d29070b82db7dd31584e5b29715c618d44905e2840e4a98cc7f6b3f37e42d
-yugabyte/yugabyte-2.0.11.0-linux.tar.gz:
-  size: 447734499
-  object_id: 46ce27ed-75c4-44dc-5c0a-336f37384c3b
-  sha: sha256:65e83105902c82148159619be3a1c1c66c72c199372bce9e67eef4f1322559e2
 yugabyte/yugabyte-2.1.0.0-linux.tar.gz:
   size: 454083893
   sha: sha256:5faeda1661152291279ead2f76a4f3dc749ed2511cfcacca3892f891e56607ee
