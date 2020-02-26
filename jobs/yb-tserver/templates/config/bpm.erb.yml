@@ -13,3 +13,4 @@ processes:
       LANGUAGE: "en_US.UTF-8"
       LC_ALL: "en_US.UTF-8"
       PATH: /var/vcap/packages/yugabyte:/var/vcap/packages/yugabyte/postgres:/var/vcap/packages/yugabyte/postgres/bin:/home/vcap/bin:/home/vcap/.local/bin:/var/vcap/jobs/bpm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/var/vcap/bosh/bin
+      YB_HOME: "/var/vcap/packages/yugabyte"
