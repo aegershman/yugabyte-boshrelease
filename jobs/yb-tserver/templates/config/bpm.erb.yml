@@ -1,10 +1,10 @@
 ---
 processes:
   - name: yb-tserver
-    workdir: /var/vcap/data/packages/yugabyte/2a0089f71899ee62de9d4b69e69af783745c0881
-    # workdir: /var/vcap/packages/yugabyte
-    executable: bin/yb-tserver
-    # executable: /var/vcap/packages/yugabyte/bin/yb-tserver
+    # workdir: /var/vcap/data/packages/yugabyte/2a0089f71899ee62de9d4b69e69af783745c0881
+    # # workdir: /var/vcap/packages/yugabyte
+    # executable: bin/yb-tserver
+    executable: /var/vcap/packages/yugabyte/bin/yb-tserver
     persistent_disk: true
     args:
       - --flagfile=/var/vcap/jobs/yb-tserver/config/tserver.conf
@@ -13,12 +13,8 @@ processes:
       processes: <%= p("bpm.limits.processes") %>
     env:
       YB_PG_FALLBACK_SYSTEM_USER_NAME: vcap
-    # additional_volumes:
-    #   - path: /var/vcap/store/yb-tserver/pg_data
-    #     writable: true
-    #   - path: /var/vcap/store/yb-tserver/yb-data
-    #     writable: true
-    # wow I really hope this isn't it; if it does require unsafe, then
-    # we need to figure out if there are specific permissions that are the problem
+    # capabilities:
+    #   - SETUID
+    #   - SYS_ADMIN
     unsafe:
       privileged: true
