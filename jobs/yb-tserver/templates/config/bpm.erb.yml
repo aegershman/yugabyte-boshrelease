@@ -1,9 +1,9 @@
 ---
 processes:
   - name: yb-tserver
-    workdir: /var/vcap/data/packages/yugabyte/db77bbcc0b1b255adcfdda76698a1a7051e6b43b
-    executable: bin/yb-tserver
-    # executable: /var/vcap/packages/yugabyte/bin/yb-tserver
+    # workdir: /var/vcap/data/packages/yugabyte/db77bbcc0b1b255adcfdda76698a1a7051e6b43b
+    # executable: bin/yb-tserver
+    executable: /var/vcap/packages/yugabyte/bin/yb-tserver # this has a poor track record, trying again
     persistent_disk: true
     args:
       - --flagfile=/var/vcap/jobs/yb-tserver/config/tserver.conf
