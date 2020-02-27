@@ -3,12 +3,18 @@ processes:
   - name: yb-tserver
     workdir: /var/vcap/data/packages/yugabyte/db77bbcc0b1b255adcfdda76698a1a7051e6b43b
     executable: bin/yb-tserver
+    # executable: /var/vcap/packages/yugabyte/bin/yb-tserver
     persistent_disk: true
     args:
       - --flagfile=/var/vcap/jobs/yb-tserver/config/tserver.conf
     limits:
       open_files: <%= p("bpm.limits.open_files") %>
       processes: <%= p("bpm.limits.processes") %>
+    capabilities:
+      - CHOWN
+      - DAC_OVERRIDE
+      - DAC_READ_SEARCH
+      - SETUID
     env:
       YB_PG_FALLBACK_SYSTEM_USER_NAME: vcap
     unsafe:
