@@ -1,7 +1,7 @@
 ---
 processes:
   - name: yb-master
-    workdir: /var/vcap/data/packages/yugabyte/2a0089f71899ee62de9d4b69e69af783745c0881
+    workdir: /var/vcap/data/packages/yugabyte/db77bbcc0b1b255adcfdda76698a1a7051e6b43b
     executable: bin/yb-master
     persistent_disk: true
     args:
