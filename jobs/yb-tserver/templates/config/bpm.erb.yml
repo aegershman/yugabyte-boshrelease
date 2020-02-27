@@ -17,4 +17,4 @@ processes:
     #   - SETUID
     #   - SYS_ADMIN
     unsafe:
-      privileged: true
+      privileged: false
