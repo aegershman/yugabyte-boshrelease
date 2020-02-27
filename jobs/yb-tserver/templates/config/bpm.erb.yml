@@ -11,5 +11,8 @@ processes:
       processes: <%= p("bpm.limits.processes") %>
     env:
       YB_PG_FALLBACK_SYSTEM_USER_NAME: vcap
+    # additional_volumes:
+    #   - path: /var/vcap/store/yb-tserver/pg_data
+    #     writable: true
     unsafe:
-      privileged: true
+      privileged: false

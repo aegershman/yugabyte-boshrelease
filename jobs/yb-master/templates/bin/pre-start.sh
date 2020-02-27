@@ -2,4 +2,6 @@
 
 set -eu
 
-/var/vcap/packages/yugabyte/bin/post_install.sh
+cd /var/vcap/packages/yugabyte
+rm -f ".post_install.sh.completed"
+./bin/post_install.sh
