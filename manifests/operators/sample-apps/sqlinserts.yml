@@ -3,10 +3,10 @@
   path: /instance_groups/-
   value:
     name: sample-sqlinserts
-    azs: ((sample_sqlinserts_azs))
+    azs: ((sample_apps_azs))
     instances: 1
-    vm_type: ((sample_sqlinserts_vm_type))
-    persistent_disk_type: ((sample_sqlinserts_persistent_disk_type))
+    vm_type: ((sample_apps_vm_type))
+    persistent_disk_type: ((sample_apps_persistent_disk_type))
     stemcell: default
     networks: [name: ((network))]
     jobs:
