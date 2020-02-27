@@ -1,0 +1,25 @@
+---
+- type: replace
+  path: /instance_groups/-
+  value:
+    name: sample-sqlinserts
+    azs: ((sample_apps_azs))
+    instances: 1
+    vm_type: ((sample_apps_vm_type))
+    persistent_disk_type: ((sample_apps_persistent_disk_type))
+    stemcell: default
+    networks: [name: ((network))]
+    jobs:
+      - name: yb-sample-apps
+        release: yugabyte
+        consumes: { yb-tserver: { from: yb-tserver-provider } }
+        properties:
+          tserver_port_target: 5433
+          workload:
+            type: SqlInserts
+            args:
+              num_unique_keys: 1000000000
+              num_reads: -1
+              num_writes: -1
+              num_threads_read: 2
+              num_threads_write: 2

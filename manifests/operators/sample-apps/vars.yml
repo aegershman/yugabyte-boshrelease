@@ -1,0 +1,4 @@
+---
+sample_apps_azs: [us-west-2a, us-west-2b, us-west-2c]
+sample_apps_persistent_disk_type: "1024"
+sample_apps_vm_type: t3.small
