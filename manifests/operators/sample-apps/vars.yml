@@ -1,0 +1,13 @@
+# default values for sample-apps
+---
+sample_cassandrakeyvalue_azs: [us-west-2a, us-west-2b, us-west-2c]
+sample_cassandrakeyvalue_persistent_disk_type: "1024"
+sample_cassandrakeyvalue_vm_type: t3.small
+
+sample_rediskeyvalue_azs: [us-west-2a, us-west-2b, us-west-2c]
+sample_rediskeyvalue_persistent_disk_type: "1024"
+sample_rediskeyvalue_vm_type: t3.small
+
+sample_sqlinserts_azs: [us-west-2a, us-west-2b, us-west-2c]
+sample_sqlinserts_persistent_disk_type: "1024"
+sample_sqlinserts_vm_type: t3.small
