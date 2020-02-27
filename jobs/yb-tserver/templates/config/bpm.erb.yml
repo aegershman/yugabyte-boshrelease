@@ -9,5 +9,7 @@ processes:
     limits:
       open_files: <%= p("bpm.limits.open_files") %>
       processes: <%= p("bpm.limits.processes") %>
+    env:
+      YB_PG_FALLBACK_SYSTEM_USER_NAME: vcap
     unsafe:
       privileged: true
