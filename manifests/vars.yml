@@ -2,13 +2,6 @@
 deployment_name: yugabyte
 network: services-network
 
-sample_cassandrakeyvalue_azs: [us-west-2a, us-west-2b, us-west-2c]
-sample_cassandrakeyvalue_persistent_disk_type: "1024"
-sample_cassandrakeyvalue_vm_type: t3.small
-sample_rediskeyvalue_azs: [us-west-2a, us-west-2b, us-west-2c]
-sample_rediskeyvalue_persistent_disk_type: "1024"
-sample_rediskeyvalue_vm_type: t3.small
-
 setup_redis_table_errand_azs: [us-west-2a, us-west-2b, us-west-2c]
 setup_redis_table_errand_persistent_disk_type: "1024"
 setup_redis_table_errand_vm_type: t3.micro
