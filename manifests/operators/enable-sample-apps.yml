@@ -1,41 +1,66 @@
 ---
-- type: replace
-  path: /instance_groups/-
-  value:
-    name: sample-cassandrakeyvalue
-    azs: ((sample_cassandrakeyvalue_azs))
-    instances: 1
-    vm_type: ((sample_cassandrakeyvalue_vm_type))
-    persistent_disk_type: ((sample_cassandrakeyvalue_persistent_disk_type))
-    stemcell: default
-    networks: [name: ((network))]
-    jobs:
-      - name: yb-sample-apps
-        release: yugabyte
-        consumes: { yb-tserver: { from: yb-tserver-provider } }
-        properties:
-          tserver_port_target: 9042
-          workload:
-            type: CassandraKeyValue
-            args:
-              username: cassandra # TODO
-              password: cassandra
-              num_unique_keys: 1000000000
-              num_reads: -1
-              num_writes: -1
-              value_size: 256
-              num_threads_read: 2
-              num_threads_write: 2
-              table_ttl_seconds: -1
+# - type: replace
+#   path: /instance_groups/-
+#   value:
+#     name: sample-cassandrakeyvalue
+#     azs: ((sample_cassandrakeyvalue_azs))
+#     instances: 1
+#     vm_type: ((sample_cassandrakeyvalue_vm_type))
+#     persistent_disk_type: ((sample_cassandrakeyvalue_persistent_disk_type))
+#     stemcell: default
+#     networks: [name: ((network))]
+#     jobs:
+#       - name: yb-sample-apps
+#         release: yugabyte
+#         consumes: { yb-tserver: { from: yb-tserver-provider } }
+#         properties:
+#           tserver_port_target: 9042
+#           workload:
+#             type: CassandraKeyValue
+#             args:
+#               username: cassandra # TODO
+#               password: cassandra
+#               num_unique_keys: 1000000000
+#               num_reads: -1
+#               num_writes: -1
+#               value_size: 256
+#               num_threads_read: 2
+#               num_threads_write: 2
+#               table_ttl_seconds: -1
+
+# - type: replace
+#   path: /instance_groups/-
+#   value:
+#     name: sample-rediskeyvalue
+#     azs: ((sample_rediskeyvalue_azs))
+#     instances: 1
+#     vm_type: ((sample_rediskeyvalue_vm_type))
+#     persistent_disk_type: ((sample_rediskeyvalue_persistent_disk_type))
+#     stemcell: default
+#     networks: [name: ((network))]
+#     jobs:
+#       - name: yb-sample-apps
+#         release: yugabyte
+#         consumes: { yb-tserver: { from: yb-tserver-provider } }
+#         properties:
+#           tserver_port_target: 6379
+#           workload:
+#             type: RedisKeyValue
+#             args:
+#               num_unique_keys: 1000000000
+#               num_reads: -1
+#               num_writes: -1
+#               num_threads_read: 2
+#               num_threads_write: 2
 
 - type: replace
   path: /instance_groups/-
   value:
-    name: sample-rediskeyvalue
-    azs: ((sample_rediskeyvalue_azs))
+    name: sample-sqlinserts
+    azs: ((sample_sqlinserts_azs))
     instances: 1
-    vm_type: ((sample_rediskeyvalue_vm_type))
-    persistent_disk_type: ((sample_rediskeyvalue_persistent_disk_type))
+    vm_type: ((sample_sqlinserts_vm_type))
+    persistent_disk_type: ((sample_sqlinserts_persistent_disk_type))
     stemcell: default
     networks: [name: ((network))]
     jobs:
@@ -43,9 +68,9 @@
         release: yugabyte
         consumes: { yb-tserver: { from: yb-tserver-provider } }
         properties:
-          tserver_port_target: 6379
+          tserver_port_target: 5433
           workload:
-            type: RedisKeyValue
+            type: SqlInserts
             args:
               num_unique_keys: 1000000000
               num_reads: -1
