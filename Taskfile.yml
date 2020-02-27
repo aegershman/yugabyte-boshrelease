@@ -69,7 +69,6 @@ tasks:
           -l manifests/vars.yml \
           -l manifests/versions.yml \
           --no-redact \
-          --recreate \
           --non-interactive
 
   test:
