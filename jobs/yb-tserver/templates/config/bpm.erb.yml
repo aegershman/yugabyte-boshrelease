@@ -6,7 +6,7 @@ processes:
     persistent_disk: true
     args:
       - --flagfile=/var/vcap/jobs/yb-tserver/config/tserver.conf
-      - --initial_sys_catalog_snapshot_path=/var/vcap/store/yb-tserver
+      - --initial_sys_catalog_snapshot_path=/var/vcap/store/yb-tserver/yb-data/tserver/data/rocksdb
     limits:
       open_files: <%= p("bpm.limits.open_files") %>
       processes: <%= p("bpm.limits.processes") %>

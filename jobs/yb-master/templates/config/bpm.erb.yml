@@ -6,7 +6,7 @@ processes:
     persistent_disk: true
     args:
       - --flagfile=/var/vcap/jobs/yb-master/config/master.conf
-      - --initial_sys_catalog_snapshot_path=/var/vcap/store/yb-master
+      - --initial_sys_catalog_snapshot_path=/var/vcap/store/yb-master/yb-data/master/data/rocksdb
     limits:
       open_files: <%= p("bpm.limits.open_files") %>
       processes: <%= p("bpm.limits.processes") %>
