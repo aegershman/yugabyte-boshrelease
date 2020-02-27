@@ -6,7 +6,7 @@ processes:
     persistent_disk: true
     args:
       - --flagfile=/var/vcap/jobs/yb-master/config/master.conf
-      - --initial_sys_catalog_snapshot_path=/var/vcap/store/yb-master/yb-data/master/data
+      - --use_initial_sys_catalog_snapshot=false # https://github.com/yugabyte/yugabyte-db/commit/c3a62bb1d60864254f832d489d976bdd7c422145
     limits:
       open_files: <%= p("bpm.limits.open_files") %>
       processes: <%= p("bpm.limits.processes") %>
