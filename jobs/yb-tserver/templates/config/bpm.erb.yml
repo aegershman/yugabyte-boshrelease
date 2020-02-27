@@ -14,7 +14,11 @@ processes:
       - CHOWN
       - DAC_OVERRIDE
       - DAC_READ_SEARCH
+      - FOWNER
+      - SETPCAP
       - SETUID
+      - SETUID
+      - SYS_ADMIN
     env:
       YB_PG_FALLBACK_SYSTEM_USER_NAME: vcap
     unsafe:

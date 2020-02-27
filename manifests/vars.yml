@@ -19,7 +19,6 @@ master_gflags:
   placement_cloud: aws
   placement_region: us-west-2
   stderrthreshold: 0
-  v: 4
   memory_limit_termination_threshold_pct: 1000 # https://github.com/yugabyte/yugabyte-db/issues/3525#issuecomment-583179946
 
 tserver_azs: [us-west-2a, us-west-2b, us-west-2c]
@@ -33,5 +32,4 @@ tserver_gflags:
   placement_region: us-west-2
   use_cassandra_authentication: true
   stderrthreshold: 0
-  v: 4
   memory_limit_termination_threshold_pct: 1000 # https://github.com/yugabyte/yugabyte-db/issues/3525#issuecomment-583179946

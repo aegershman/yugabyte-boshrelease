@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu
+set -u
 
 rm -f /var/vcap/packages/yugabyte/.post_install.sh.completed
 /var/vcap/packages/yugabyte/bin/post_install.sh
@@ -8,7 +8,7 @@ rm -f /var/vcap/packages/yugabyte/.post_install.sh.completed
 # chmod 700 /var/vcap/packages/yugabyte/share/
 
 chmod -R 755 /var/vcap/packages/yugabyte
-chown vcap:vcap -R /var/vcap/data
+chown vcap:vcap -R -H -L /var/vcap/packages/yugabyte || true
 chown vcap:vcap -R /var/vcap/data/packages/yugabyte/db77bbcc0b1b255adcfdda76698a1a7051e6b43b
 chown vcap:vcap -R /var/vcap/data/packages/yugabyte/db77bbcc0b1b255adcfdda76698a1a7051e6b43b
 chown vcap:vcap -R /var/vcap/packages/yugabyte
