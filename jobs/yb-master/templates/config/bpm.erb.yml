@@ -11,5 +11,8 @@ processes:
       processes: <%= p("bpm.limits.processes") %>
     env:
       YB_PG_FALLBACK_SYSTEM_USER_NAME: vcap
+    # capabilities:
+    #   - SETUID
+    #   - SYS_ADMIN
     unsafe:
       privileged: false
