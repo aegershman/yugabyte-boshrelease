@@ -70,8 +70,8 @@ update:
   canaries: 1
   max_in_flight: 1
   serial: false
-  canary_watch_time: 1000-10000 # temp
-  update_watch_time: 1000-10000 # temp
+  canary_watch_time: 1000-200000 #10000 # temp
+  update_watch_time: 1000-200000 #10000 # temp
 
 features:
   randomize_az_placement: true
