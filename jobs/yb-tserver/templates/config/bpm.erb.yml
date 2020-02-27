@@ -8,17 +8,12 @@ processes:
     persistent_disk: true
     args:
       - --flagfile=/var/vcap/jobs/yb-tserver/config/tserver.conf
-      # - --initial_sys_catalog_snapshot_dest_path=/var/vcap/store/yb-tserver
       - --initial_sys_catalog_snapshot_path=/var/vcap/store/yb-tserver
     limits:
       open_files: <%= p("bpm.limits.open_files") %>
       processes: <%= p("bpm.limits.processes") %>
     env:
-      # YB_RECREATE_INITIAL_SYS_CATALOG_SNAPSHOT: true
+      YB_RECREATE_INITIAL_SYS_CATALOG_SNAPSHOT: true
       YB_PG_FALLBACK_SYSTEM_USER_NAME: vcap
-      # YB_CTEST_VERBOSE: '1'
-    # capabilities:
-    #   - SETUID
-    #   - SYS_ADMIN
     unsafe:
       privileged: false
