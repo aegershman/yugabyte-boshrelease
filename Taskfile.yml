@@ -56,7 +56,6 @@ tasks:
     cmds:
       - bosh -d yugabyte run-errand setup_redis_table
 
-          # -o manifests/operators/sample-apps/sqlinserts.yml \
   deploy:
     cmds:
       - |
@@ -64,6 +63,7 @@ tasks:
           -o manifests/operators/create-release-from-local.yml \
           -o manifests/operators/enable-syslog-forwarder.yml \
           -o manifests/operators/gflags.yml \
+          -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
           -o manifests/operators/tserver-rpc-bind-port.yml \
           -l manifests/operators/sample-apps/vars.yml \
           -l manifests/vars.yml \
