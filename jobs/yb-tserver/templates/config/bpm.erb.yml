@@ -3,7 +3,7 @@ processes:
   - name: yb-tserver
     # workdir: /var/vcap/data/packages/yugabyte/db77bbcc0b1b255adcfdda76698a1a7051e6b43b
     # executable: bin/yb-tserver
-    executable: /var/vcap/packages/yugabyte/bin/yb-tserver # this has a poor track record, trying again
+    executable: /var/vcap/packages/yugabyte/bin/yb-tserver
     persistent_disk: true
     args:
       - --flagfile=/var/vcap/jobs/yb-tserver/config/tserver.conf
@@ -20,6 +20,6 @@ processes:
     #   - SETUID
     #   - SYS_ADMIN
     env:
-      YB_PG_FALLBACK_SYSTEM_USER_NAME: vcap
+      YB_PG_FALLBACK_SYSTEM_USER_NAME: vcap # https://github.com/yugabyte/yugabyte-db/blob/2ae238be785b1b361fd3ac6ef38008dfe17d2d82/src/postgres/src/common/username.c#L72
     unsafe:
       privileged: false
