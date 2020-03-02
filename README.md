@@ -13,6 +13,10 @@ Having a fully automated release process is a goal. But we want to make sure it'
 ```sh
 cd yugabyte-boshrelease
 
+# first of all, your workspace needs to be up-to-date and clean of dirty commits,
+# or else you'll commit something inadvertently to this release
+git pull origin master
+
 # to pull all blobs from s3 to local directory, if necessary
 bosh sync-blobs
 
