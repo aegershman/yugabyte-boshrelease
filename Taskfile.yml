@@ -64,10 +64,13 @@ tasks:
           -o manifests/operators/enable-syslog-forwarder.yml \
           -o manifests/operators/gflags.yml \
           -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
+          -o manifests/operators/tls/enable-server-to-server-encryption.yml \
           -o manifests/operators/tserver-rpc-bind-port.yml \
           -l manifests/operators/sample-apps/vars.yml \
+          -l manifests/operators/tls/vars.yml \
           -l manifests/vars.yml \
           -l manifests/versions.yml \
+          -l manifests/operators/development/vars.yml \
           --no-redact \
           --non-interactive
 

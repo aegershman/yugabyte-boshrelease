@@ -6,6 +6,12 @@
 --rpc_bind_addresses=<%= spec.address %>
 --server_broadcast_addresses=<%= spec.address %>:7100
 
+<% if p("tls.use_node_to_node_encryption") -%>
+--allow_insecure_connections=<%= p("tls.allow_insecure_connections") %>
+--certs_dir=/var/vcap/jobs/yb-master/config/certs
+--use_node_to_node_encryption=<%= p("tls.use_node_to_node_encryption") %>
+<% end -%>
+
 <% p('gflags', {}).each do |key, value| %>
 --<%= key %>=<%= value %>
 <% end %>

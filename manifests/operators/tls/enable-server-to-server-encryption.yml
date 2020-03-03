@@ -1,0 +1,45 @@
+# WARNING
+#
+# WORK IN PROGRESS
+#
+---
+# this allows for certificates to be generated against the long-form bosh DNS address
+- type: replace
+  path: /features?/use_short_dns_addresses?
+  value: false
+
+- type: replace
+  path: /variables?/-
+  value:
+    name: yugabyte_server_tls
+    type: certificate
+    update_mode: ((yugabyte_server_tls_update_mode))
+    options:
+      ca: /services/tls_ca
+      common_name: yugabyte-boshrelease
+      # TODO this needs to be configured with bosh-links for best experience
+      alternative_names:
+        - "*.master.((network)).((deployment_name)).bosh"
+        - "*.tserver.((network)).((deployment_name)).bosh"
+      extended_key_usage:
+        - client_auth
+        - server_auth
+
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?
+  value:
+    allow_insecure_connections: ((master_allow_insecure_connections))
+    use_node_to_node_encryption: ((use_node_to_node_encryption))
+    node:
+      ca: ((yugabyte_server_tls.ca))
+      cert: ((yugabyte_server_tls.certificate))
+      key: ((yugabyte_server_tls.private_key))
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/tls?
+  value:
+    use_node_to_node_encryption: ((use_node_to_node_encryption))
+    node:
+      ca: ((yugabyte_server_tls.ca))
+      cert: ((yugabyte_server_tls.certificate))
+      key: ((yugabyte_server_tls.private_key))

@@ -6,6 +6,14 @@ This is a [BOSH](http://bosh.io/) release for [YugabyteDB](https://github.com/yu
 
 This currently only supports `YEDIS` and `YCQL` compatibilities. Enabling `YSQL` is something which will be worked on eventually, however other features like TLS, encryption, auth, and testing with `YCQL` and `YEDIS`, etc., are taking priorty.
 
+## server-to-server tls
+
+TLS is currently under development. It's not perfectly stable as liked, so currently it's opt-in. If TLS is activated on a universe which didn't already have TLS, sometimes the masters fall out of sync with each other. Redeploying with `--recreate`, or passing `use_node_to_node_encryption: false` seems to help gets itself unstuck, but that's not exactly ideal.
+
+It's also a bit unclear what `common_name` and `alternative_names` should be configured. Is it completely arbitrary? Is it the DNS `hostname` for the node? If so, does that mean we must use long-form BOSH-DNS in order to generate a predictable `alternative_name`? Etc.
+
+Until this is definitively stable, it will be opt-in.
+
 ## cutting releases
 
 Having a fully automated release process is a goal. But we want to make sure it's done well, and would like to have it done using github actions if possible. But until then, here's the general workflow. We're assuming any `bosh add-blobs` and `bosh upload-blobs` commands have been `git commit`'ed if blobs are changing, and now we're on the release process.

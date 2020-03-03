@@ -7,8 +7,12 @@ description: |
   https://docs.yugabyte.com/latest/deploy/checklist/
 
 templates:
+  bin/cert-linker.erb.sh: bin/cert-linker.sh
   bin/pre-start.sh: bin/pre-start
   config/bpm.erb.yml: config/bpm.yml
+  config/certs/ca.crt.erb: config/certs/ca.crt
+  config/certs/node.crt.erb: config/certs/node.crt
+  config/certs/node.key.erb: config/certs/node.key
   config/master.conf.erb: config/master.conf
 
 packages:
@@ -31,6 +35,25 @@ properties:
     description: |
       override of the replication_factor passed to the master servers;
       by default it's the number of yb-master instances
+
+  tls.use_node_to_node_encryption:
+    description: |
+      set to true to enable encryption between nodes
+      see also: https://docs.yugabyte.com/latest/secure/tls-encryption/server-certificates
+    default: false
+  tls.allow_insecure_connections:
+    description: |
+      set to false to disallow any service with unencrypted communication from joining this cluster.
+      note that the use of "allow_insecure_connections" on master nodes refers to services (e.g. tservers)
+      joining the cluster, whereas "allow_insecure_connections" on tserver nodes refers to clients
+      (e.g. actual applications) trying to talk to the cluster.
+    default: true
+  tls.node.ca:
+    description: "CA root required for key/cert verification"
+  tls.node.cert:
+    description: "TLS certificate for this node"
+  tls.node.key:
+    description: "TLS key for this node"
 
   gflags:
     description: extra "--key=value" properties to pass to the conf file
