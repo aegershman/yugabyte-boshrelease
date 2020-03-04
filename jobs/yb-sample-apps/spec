@@ -12,7 +12,7 @@ templates:
 
 consumes:
   - name: yb-tserver
-    type: conn
+    type: yb-tserver-address-link
 
 packages:
   - openjdk

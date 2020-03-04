@@ -12,7 +12,6 @@
     jobs:
       - name: yb-sample-apps
         release: yugabyte
-        consumes: { yb-tserver: { from: yb-tserver-provider } }
         properties:
           tserver_port_target: 6379
           workload:

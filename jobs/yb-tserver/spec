@@ -26,7 +26,7 @@ consumes:
 
 provides:
   - name: yb-tserver
-    type: conn
+    type: yb-tserver-address-link
 
 properties:
   bpm.limits.open_files:
