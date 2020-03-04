@@ -28,6 +28,9 @@ instance_groups:
     jobs:
       - name: yb-master
         release: yugabyte
+        custom_provider_definitions:
+          - name: yb-master-address-link
+            type: address
 
   - name: tserver
     azs: ((tserver_azs))

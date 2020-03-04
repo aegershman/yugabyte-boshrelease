@@ -19,11 +19,14 @@
       common_name: yugabyte-boshrelease
       # TODO this needs to be configured with bosh-links for best experience
       alternative_names:
-        - "*.master.((network)).((deployment_name)).bosh"
         - "*.tserver.((network)).((deployment_name)).bosh"
       extended_key_usage:
         - client_auth
         - server_auth
+    consumes:
+      alternative_name:
+        from: yb-master-address-link
+        properties: { wildcard: true }
 
 - type: replace
   path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?
