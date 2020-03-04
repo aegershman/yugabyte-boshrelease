@@ -8,9 +8,7 @@
     options:
       ca: /services/tls_ca
       common_name: ((yugabyte_server_tls_common_name))
-      alternative_names: []
       extended_key_usage:
-        - client_auth
         - server_auth
     consumes:
       alternative_name:
@@ -38,9 +36,7 @@
     options:
       ca: /services/tls_ca
       common_name: ((yugabyte_server_tls_common_name))
-      alternative_names: []
       extended_key_usage:
-        - client_auth
         - server_auth
     consumes:
       alternative_name:
