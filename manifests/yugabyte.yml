@@ -28,8 +28,6 @@ instance_groups:
     jobs:
       - name: yb-master
         release: yugabyte
-        consumes: { yb-master: { from: yb-master-provider } }
-        provides: { yb-master: { as: yb-master-provider } }
 
   - name: tserver
     azs: ((tserver_azs))
@@ -41,8 +39,6 @@ instance_groups:
     jobs:
       - name: yb-tserver
         release: yugabyte
-        consumes: { yb-master: { from: yb-master-provider } }
-        provides: { yb-tserver: { as: yb-tserver-provider } }
 
   - name: setup_redis_table
     azs: ((setup_redis_table_errand_azs))
@@ -55,7 +51,6 @@ instance_groups:
     jobs:
       - name: yb-admin
         release: yugabyte
-        consumes: { yb-master: { from: yb-master-provider } }
         properties:
           commands: [setup_redis_table]
 

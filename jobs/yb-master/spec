@@ -20,11 +20,11 @@ packages:
 
 consumes:
   - name: yb-master
-    type: conn
+    type: yb-master-address-link
 
 provides:
   - name: yb-master
-    type: conn
+    type: yb-master-address-link
 
 properties:
   bpm.limits.open_files:

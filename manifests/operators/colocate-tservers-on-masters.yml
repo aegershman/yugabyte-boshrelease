@@ -5,4 +5,3 @@
   value:
     name: yb-tserver
     release: yugabyte
-    consumes: { yb-master: { from: yb-master-provider } }
