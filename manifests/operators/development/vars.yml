@@ -2,6 +2,4 @@
 # loaded last in testing tooling to be used
 # for experimentation while developing this release
 ---
-master_instances: 3
-tserver_instances: 3
 yugabyte_server_tls_update_mode: overwrite
