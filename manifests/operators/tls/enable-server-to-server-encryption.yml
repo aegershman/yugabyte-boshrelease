@@ -2,12 +2,12 @@
 - type: replace
   path: /variables?/-
   value:
-    name: yugabyte-server-master-tls
+    name: yugabyte-server-tls-master
     type: certificate
     update_mode: ((yugabyte_server_tls_update_mode))
     options:
       ca: /services/tls_ca
-      common_name: yugabyte-boshrelease
+      common_name: ((yugabyte_server_tls_common_name))
       alternative_names: []
       extended_key_usage:
         - client_auth
@@ -23,21 +23,21 @@
     allow_insecure_connections: ((master_allow_insecure_connections))
     use_node_to_node_encryption: ((use_node_to_node_encryption))
     node:
-      ca: ((yugabyte-server-master-tls.ca))
-      cert: ((yugabyte-server-master-tls.certificate))
-      key: ((yugabyte-server-master-tls.private_key))
+      ca: ((yugabyte-server-tls-master.ca))
+      cert: ((yugabyte-server-tls-master.certificate))
+      key: ((yugabyte-server-tls-master.private_key))
 
 ######################################################
 
 - type: replace
   path: /variables?/-
   value:
-    name: yugabyte-server-tserver-tls
+    name: yugabyte-server-tls-tserver
     type: certificate
     update_mode: ((yugabyte_server_tls_update_mode))
     options:
       ca: /services/tls_ca
-      common_name: yugabyte-boshrelease
+      common_name: ((yugabyte_server_tls_common_name))
       alternative_names: []
       extended_key_usage:
         - client_auth
@@ -52,6 +52,6 @@
   value:
     use_node_to_node_encryption: ((use_node_to_node_encryption))
     node:
-      ca: ((yugabyte-server-tserver-tls.ca))
-      cert: ((yugabyte-server-tserver-tls.certificate))
-      key: ((yugabyte-server-tserver-tls.private_key))
+      ca: ((yugabyte-server-tls-tserver.ca))
+      cert: ((yugabyte-server-tls-tserver.certificate))
+      key: ((yugabyte-server-tls-tserver.private_key))
