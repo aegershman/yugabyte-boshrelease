@@ -3,11 +3,6 @@
 # WORK IN PROGRESS
 #
 ---
-# this allows for certificates to be generated against the long-form bosh DNS address
-- type: replace
-  path: /features?/use_short_dns_addresses?
-  value: false
-
 - type: replace
   path: /variables?/-
   value:

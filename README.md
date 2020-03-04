@@ -14,6 +14,12 @@ It's also a bit unclear what `common_name` and `alternative_names` should be con
 
 Until this is definitively stable, it will be opt-in.
 
+## client-to-server tls
+
+Also in progress.
+
+[Also also `YEDIS` does not support client-server TLS](https://docs.yugabyte.com/latest/secure/tls-encryption/)
+
 ## cutting releases
 
 Having a fully automated release process is a goal. But we want to make sure it's done well, and would like to have it done using github actions if possible. But until then, here's the general workflow. We're assuming any `bosh add-blobs` and `bosh upload-blobs` commands have been `git commit`'ed if blobs are changing, and now we're on the release process.
