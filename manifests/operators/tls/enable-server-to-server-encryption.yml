@@ -12,9 +12,7 @@
     options:
       ca: /services/tls_ca
       common_name: yugabyte-boshrelease
-      # TODO this needs to be configured with bosh-links for best experience
-      alternative_names:
-        - "*.tserver.((network)).((deployment_name)).bosh"
+      alternative_names: []
       extended_key_usage:
         - client_auth
         - server_auth
