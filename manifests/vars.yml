@@ -1,3 +1,8 @@
+# for the time being, you'll want to specify most of these
+# vars in your own vars.yml when you deploy this
+#
+# although these are reasonable defaults, they're currently subject
+# to change, and are based off of a local testing environment
 ---
 deployment_name: yugabyte
 network: services-network

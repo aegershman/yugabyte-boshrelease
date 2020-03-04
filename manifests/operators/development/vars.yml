@@ -1,0 +1,5 @@
+# very much subject to change, these vars are
+# loaded last in testing tooling to be used
+# for experimentation while developing this release
+---
+yugabyte_server_tls_update_mode: overwrite
