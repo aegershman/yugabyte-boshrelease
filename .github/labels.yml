@@ -4,6 +4,10 @@
   color: 0075ca
   description: improvements or additions to documentation
 
+- name: area/security
+  color: 0075ca
+  description: improvements or additions on TLS, auth, encryption, etc.
+
 - name: area/ycql
   color: 495fc1
   description: things involving YCQL API
