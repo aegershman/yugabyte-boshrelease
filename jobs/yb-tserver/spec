@@ -43,6 +43,7 @@ properties:
       set to false to disallow any client with unencrypted communication from joining this cluster. default value is true.
       note that this option requires --use_client_to_server_encryption to be enabled.
       see also: https://docs.yugabyte.com/latest/secure/tls-encryption/client-to-server
+    default: true
   tls.use_client_to_server_encryption:
     description: |
       set to true to enable encryption between clients and cluster

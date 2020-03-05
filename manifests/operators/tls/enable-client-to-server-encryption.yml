@@ -1,0 +1,6 @@
+---
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/tls?
+  value:
+    allow_insecure_connections: ((tserver_allow_insecure_connections))
+    use_client_to_server_encryption: ((use_client_to_server_encryption))
