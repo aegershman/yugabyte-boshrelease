@@ -10,6 +10,7 @@ templates:
   bin/run.sh: bin/run
   bin/yb-admin.sh.erb: bin/yb-admin.sh
   config/bpm.yml: config/bpm.yml
+  config/certs/ca.crt.erb: config/certs/ca.crt
 
 packages:
   - yugabyte
@@ -24,6 +25,16 @@ properties:
   timeout_ms:
     description: The RPC timeout, in milliseconds. A value of 0 means don’t wait; -1 means wait indefinitely.
     default: 60000
+
+  tls.enabled:
+    description: |
+      Whether to attempt connecting to the cluster with TLS enabled.
+      If the master nodes have `use_node_to_node_encryption` passed, this
+      will be required.
+    default: false
+  tls.node.ca:
+    description: "CA root required for key/cert verification"
+
   commands:
     description: |
       list of command sequences to loop over and pass individually to `yb-admin -master_addresses masteraddresses <your_command_string_here>`
