@@ -14,6 +14,14 @@ We use BOSH's credhub integration to generate individual certificates for both `
 
 [It's a bit unclear how `common_name` and `alternative_names` should be configured](https://docs.yugabyte.com/latest/secure/tls-encryption/server-certificates/). Is it completely arbitrary? Does the file name actually matter? Does it have to be related to the DNS hostname of each node instance? We'll all figure it out _together_ 💖
 
+For the moment we'll assume it's looking for the name to be the configured hostname of the individual host. We can assume this because of the following log line from `/var/vcap/sys/log/yb-master/yb-master.INFO`:
+
+```log
+tail yb-master.INFO
+...
+I0305 00:19:30.295537     6 secure.cc:102] Certs directory: /var/vcap/jobs/yb-master/config/certs, name: q-m90323n3s0.q-g88658.bosh
+```
+
 ## client-to-server tls
 
 Also in progress.
