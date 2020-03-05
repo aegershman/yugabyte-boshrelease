@@ -64,8 +64,8 @@ tasks:
           -o manifests/operators/enable-syslog-forwarder.yml \
           -o manifests/operators/gflags.yml \
           -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
-          -o manifests/operators/tls/enable-server-to-server-encryption.yml \
           -o manifests/operators/tls/enable-client-to-server-encryption.yml \
+          -o manifests/operators/tls/enable-server-to-server-encryption.yml \
           -o manifests/operators/tserver-rpc-bind-port.yml \
           -l manifests/operators/sample-apps/vars.yml \
           -l manifests/operators/tls/vars.yml \
