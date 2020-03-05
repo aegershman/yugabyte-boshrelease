@@ -36,9 +36,17 @@
   color: cfd3d7
   description: it's not done, it just... well, it's good enough I guess
 
+- name: job/yb-admin
+  color: 1c778c
+  description: code changes affecting yb-admin job
+
 - name: job/yb-master
   color: 1c778c
   description: code changes affecting yb-master job
+  
+- name: job/yb-sample-apps
+  color: 1c778c
+  description: code changes affecting yb-sample-apps job
 
 - name: job/yb-tserver
   color: 1c778c
