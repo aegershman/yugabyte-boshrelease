@@ -5,6 +5,13 @@
 --server_broadcast_addresses=<%= spec.address %>:<%= p("server_broadcast_addresses_port") %>
 --tserver_master_addrs=<%= link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",") %>
 
+<% if p("tls.use_client_to_server_encryption") -%>
+<%# TODO should we also validate that use node to node encryption is on? %>
+--allow_insecure_connections=<%= p("tls.allow_insecure_connections") %>
+--certs_for_client_dir=/var/vcap/jobs/yb-tserver/config/certs
+--use_client_to_server_encryption=<%= p("tls.use_client_to_server_encryption") %>
+<% end -%>
+
 <% if p("tls.use_node_to_node_encryption") -%>
 --certs_dir=/var/vcap/jobs/yb-tserver/config/certs
 --use_node_to_node_encryption=<%= p("tls.use_node_to_node_encryption") %>
