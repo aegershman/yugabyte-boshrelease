@@ -12,6 +12,12 @@ set -eu
 # we would expect the end result to be a linked file named something like...
 # /var/vcap/jobs/yb-master/config/certs/node.q-m90067n3s0.q-g88396.bosh.crt
 #
+# we assume this because of the following log line from /var/vcap/sys/log/yb-master/yb-master.INFO:
+# tail yb-master.INFO
+# ...
+# I0305 00:19:30.295537     6 secure.cc:102] Certs directory: /var/vcap/jobs/yb-master/config/certs, name: q-m90323n3s0.q-g88658.bosh
+# ...
+#
 # we assume that /var/vcap/jobs/yb-master/config/certs/ca.crt is already statically named
 #
 # example ls
