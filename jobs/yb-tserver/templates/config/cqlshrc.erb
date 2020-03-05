@@ -10,10 +10,4 @@ request_timeout = 10
 timeout = 10
 
 [ssl]
-;; we can get away with this because we're both keeping
-;; the "original" cert files (the ones linked here) and
-;; symlinking them to the file names which yugabyte expects
-;; over in /bin/cert-linker.sh
 certfile = /var/vcap/jobs/yb-tserver/config/certs/ca.crt
-usercert = /var/vcap/jobs/yb-tserver/config/certs/node.crt
-userkey = /var/vcap/jobs/yb-tserver/config/certs/node.key
