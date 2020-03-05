@@ -1,5 +1,5 @@
 ---
 bpm_version: 1.1.6
 syslog_release_version: 11.6.1
-yugabyte_boshrelease_sha1: fff1a7d6de7243b385eba4a0ba4fac308bb7165e
-yugabyte_boshrelease_version: 0.0.3
+yugabyte_boshrelease_sha1: 9a2d7ad47ad03e2e1f4f0105338653a00dc69f15
+yugabyte_boshrelease_version: 0.0.4
