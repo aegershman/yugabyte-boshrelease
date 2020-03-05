@@ -2,6 +2,8 @@
 # loaded last in testing tooling to be used
 # for experimentation while developing this release
 ---
+master_instances: 3
 tserver_allow_insecure_connections: true
+tserver_instances: 3
 use_client_to_server_encryption: true
 yugabyte_server_tls_update_mode: overwrite
