@@ -1,29 +1,17 @@
-# WARNING
-#
-# WORK IN PROGRESS
-#
 ---
-# this allows for certificates to be generated against the long-form bosh DNS address
-- type: replace
-  path: /features?/use_short_dns_addresses?
-  value: false
-
 - type: replace
   path: /variables?/-
   value:
-    name: yugabyte_server_tls
+    name: yugabyte-server-tls-master
     type: certificate
     update_mode: ((yugabyte_server_tls_update_mode))
     options:
       ca: /services/tls_ca
-      common_name: yugabyte-boshrelease
-      # TODO this needs to be configured with bosh-links for best experience
-      alternative_names:
-        - "*.master.((network)).((deployment_name)).bosh"
-        - "*.tserver.((network)).((deployment_name)).bosh"
-      extended_key_usage:
-        - client_auth
-        - server_auth
+      common_name: ((yugabyte_server_tls_common_name))
+    consumes:
+      alternative_name:
+        from: yb-master-address-link
+        properties: { wildcard: true }
 
 - type: replace
   path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?
@@ -31,15 +19,31 @@
     allow_insecure_connections: ((master_allow_insecure_connections))
     use_node_to_node_encryption: ((use_node_to_node_encryption))
     node:
-      ca: ((yugabyte_server_tls.ca))
-      cert: ((yugabyte_server_tls.certificate))
-      key: ((yugabyte_server_tls.private_key))
+      ca: ((yugabyte-server-tls-master.ca))
+      cert: ((yugabyte-server-tls-master.certificate))
+      key: ((yugabyte-server-tls-master.private_key))
+
+######################################################
+
+- type: replace
+  path: /variables?/-
+  value:
+    name: yugabyte-server-tls-tserver
+    type: certificate
+    update_mode: ((yugabyte_server_tls_update_mode))
+    options:
+      ca: /services/tls_ca
+      common_name: ((yugabyte_server_tls_common_name))
+    consumes:
+      alternative_name:
+        from: yb-tserver-address-link
+        properties: { wildcard: true }
 
 - type: replace
   path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/tls?
   value:
     use_node_to_node_encryption: ((use_node_to_node_encryption))
     node:
-      ca: ((yugabyte_server_tls.ca))
-      cert: ((yugabyte_server_tls.certificate))
-      key: ((yugabyte_server_tls.private_key))
+      ca: ((yugabyte-server-tls-tserver.ca))
+      cert: ((yugabyte-server-tls-tserver.certificate))
+      key: ((yugabyte-server-tls-tserver.private_key))

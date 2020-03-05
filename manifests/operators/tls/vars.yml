@@ -2,4 +2,5 @@
 ---
 master_allow_insecure_connections: false
 use_node_to_node_encryption: true
+yugabyte_server_tls_common_name: yugabyte-boshrelease
 yugabyte_server_tls_update_mode: converge
