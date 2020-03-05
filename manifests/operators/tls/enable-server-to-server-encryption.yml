@@ -14,14 +14,21 @@
         properties: { wildcard: true }
 
 - type: replace
-  path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?/allow_insecure_connections?
+  value: ((master_allow_insecure_connections))
+
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?/use_node_to_node_encryption?
+  value: ((use_node_to_node_encryption))
+
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?/node?
   value:
-    allow_insecure_connections: ((master_allow_insecure_connections))
-    use_node_to_node_encryption: ((use_node_to_node_encryption))
-    node:
-      ca: ((yugabyte-server-tls-master.ca))
-      cert: ((yugabyte-server-tls-master.certificate))
-      key: ((yugabyte-server-tls-master.private_key))
+    ca: ((yugabyte-server-tls-master.ca))
+    cert: ((yugabyte-server-tls-master.certificate))
+    key: ((yugabyte-server-tls-master.private_key))
+
+######################################################
 
 # update yb-admin to support connecting to the cluster using TLS;
 # one day this should be configured through consuming bosh links properties
@@ -50,10 +57,12 @@
         properties: { wildcard: true }
 
 - type: replace
-  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/tls?
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/tls?/use_node_to_node_encryption?
+  value: ((use_node_to_node_encryption))
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/tls?/node?
   value:
-    use_node_to_node_encryption: ((use_node_to_node_encryption))
-    node:
-      ca: ((yugabyte-server-tls-tserver.ca))
-      cert: ((yugabyte-server-tls-tserver.certificate))
-      key: ((yugabyte-server-tls-tserver.private_key))
+    ca: ((yugabyte-server-tls-tserver.ca))
+    cert: ((yugabyte-server-tls-tserver.certificate))
+    key: ((yugabyte-server-tls-tserver.private_key))
