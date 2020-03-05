@@ -1,10 +1,10 @@
 --fs_data_dirs=/var/vcap/store/yb-master
 --log_dir=/var/vcap/sys/log/yb-master
---master_addresses=<%= link("yb-master").instances.map { |instance| "#{instance.address}:7100" }.join(",") %>
+--master_addresses=<%= link("yb-master").instances.map { |i| "#{i.address}:#{p('server_broadcast_addresses_port')}" }.join(",") %>
 --placement_zone=<%= spec.az %>
 --replication_factor=<%= p("replication_factor", link("yb-master").instances.length) %>
 --rpc_bind_addresses=<%= spec.address %>
---server_broadcast_addresses=<%= spec.address %>:7100
+--server_broadcast_addresses=<%= spec.address %>:<%= p("server_broadcast_addresses_port") %>
 
 <% if p("tls.use_node_to_node_encryption") -%>
 --allow_insecure_connections=<%= p("tls.allow_insecure_connections") %>

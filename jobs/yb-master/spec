@@ -31,6 +31,9 @@ properties:
     default: 64000
   bpm.limits.processes:
     default: 64000
+  server_broadcast_addresses_port:
+    default: 7100
+
   replication_factor:
     description: |
       override of the replication_factor passed to the master servers;
