@@ -3,7 +3,7 @@
 --master_addresses=<%= link("yb-master").instances.map { |i| "#{i.address}:#{p('rpc_bind_addresses_port')}" }.join(",") %>
 --placement_zone=<%= spec.az %>
 --replication_factor=<%= p("replication_factor", link("yb-master").instances.length) %>
---rpc_bind_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
+--rpc_bind_addresses=<%= spec.address %>
 --server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
 
 <% if p("tls.use_node_to_node_encryption") -%>
