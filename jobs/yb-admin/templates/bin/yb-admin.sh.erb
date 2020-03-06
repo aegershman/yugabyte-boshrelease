@@ -4,7 +4,7 @@ set -eu
 
 <%
 m = link("yb-master")
-master_addresses = m.instances.map { |i| "#{i.address}:#{m.p('server_broadcast_addresses_port')}" }.join(",")
+master_addresses = m.instances.map { |i| "#{i.address}:#{m.p('rpc_bind_addresses_port')}" }.join(",")
 %>
 
 <% p("commands", []).each do |command| %>
