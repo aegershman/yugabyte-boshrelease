@@ -8,6 +8,7 @@ description: |
 
 templates:
   bin/cert-linker.erb.sh: bin/cert-linker.sh
+  bin/post-start.sh: bin/post-start
   bin/pre-start.sh: bin/pre-start
   config/bpm.erb.yml: config/bpm.yml
   config/certs/ca.crt.erb: config/certs/ca.crt
@@ -36,6 +37,15 @@ properties:
   rpc_bind_addresses_port:
     description: for the time being, this value is used for both "rpc_bind_addresses" and "server_broadcast_addresses"
     default: 7100
+  post_start_delay:
+    description: |
+      time delay in seconds to wait after startup before the lifecycle reports healthy,
+      i.e., after the yugabyte process reports healthy, then wait an additional
+      "post_start_delay"-seconds before BOSH marks the lifecycle as complete.
+      this is helpful for giving some slack to yugabyte processes to give some
+      extra time to join quorum and such.
+      see also: https://docs.yugabyte.com/latest/manage/upgrade-deployment
+    default: 30
 
   replication_factor:
     description: |
