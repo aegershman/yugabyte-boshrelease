@@ -25,6 +25,8 @@ consumes:
 provides:
   - name: yb-master
     type: yb-master-address-link
+    properties:
+      - server_broadcast_addresses_port
 
 properties:
   bpm.limits.open_files:
