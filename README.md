@@ -28,6 +28,17 @@ Also in progress.
 
 [Also also `YEDIS` does not support client-server TLS](https://docs.yugabyte.com/latest/secure/tls-encryption/)
 
+## regarding rpc_bind and broadcast_bind
+
+You might see lines like this in current configurations:
+
+```erb
+--rpc_bind_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
+--server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
+```
+
+Notice how `--server_broadcast_addresses` is using an address with `rpc_bind_addresses_port` as the port. This is because the differences between `rpc_bind_addresses_port` and something like `server_broadcast_addresses_port` are too small at the moment to really make a huge difference, so _for the time being_ they're going to be collapsed into one, and only `rpc_bind_addresses_port` will be referenced. Is it correct? Honestly, not 100% sure. But don't worry we'll get there.
+
 ## cutting releases
 
 Having a fully automated release process is a goal. But we want to make sure it's done well, and would like to have it done using github actions if possible. But until then, here's the general workflow. We're assuming any `bosh add-blobs` and `bosh upload-blobs` commands have been `git commit`'ed if blobs are changing, and now we're on the release process.
