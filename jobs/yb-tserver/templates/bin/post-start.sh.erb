@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -eu
+
+echo "$(date --rfc-3339=seconds) post-start sleeping for <%= p('post_start_delay') %> seconds..."
+
+sleep <%= p('post_start_delay') %>
+
+echo "$(date --rfc-3339=seconds) post-start delay complete"
