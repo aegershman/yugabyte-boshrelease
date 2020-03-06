@@ -2,7 +2,10 @@
 
 set -eu
 
-<% master_addresses = link("yb-master").instances.map { |i| "#{i.address}:#{p('master_addresses_port')}" }.join(",") %>
+<%
+m = link("yb-master")
+master_addresses = m.instances.map { |i| "#{i.address}:#{m.p('rpc_bind_addresses_port')}" }.join(",")
+%>
 
 <% p("commands", []).each do |command| %>
 echo "executing command: <%= command %>"

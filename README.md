@@ -24,9 +24,20 @@ I0305 00:19:30.295537     6 secure.cc:102] Certs directory: /var/vcap/jobs/yb-ma
 
 ## client-to-server tls
 
-Also in progress.
+Also in progress, but available for opt-in using an operator file.
 
 [Also also `YEDIS` does not support client-server TLS](https://docs.yugabyte.com/latest/secure/tls-encryption/)
+
+## regarding rpc_bind and broadcast_bind
+
+You might see lines like this in current configurations:
+
+```erb
+--rpc_bind_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
+--server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
+```
+
+Notice how `--server_broadcast_addresses` is using an address with `rpc_bind_addresses_port` as the port. This is because the differences between `rpc_bind_addresses_port` and something like `server_broadcast_addresses_port` are too small at the moment to really make a huge difference, so _for the time being_ they're going to be collapsed into one, and only `rpc_bind_addresses_port` will be referenced. Is it correct? Honestly, not 100% sure. Actually I'm 100% it isn't correct or ideal. But for the time being, it works, and you know what, we'll get there.
 
 ## cutting releases
 

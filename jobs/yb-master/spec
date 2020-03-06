@@ -25,12 +25,18 @@ consumes:
 provides:
   - name: yb-master
     type: yb-master-address-link
+    properties:
+      - rpc_bind_addresses_port
 
 properties:
   bpm.limits.open_files:
     default: 64000
   bpm.limits.processes:
     default: 64000
+  rpc_bind_addresses_port:
+    description: for the time being, this value is used for both "rpc_bind_addresses" and "server_broadcast_addresses"
+    default: 7100
+
   replication_factor:
     description: |
       override of the replication_factor passed to the master servers;

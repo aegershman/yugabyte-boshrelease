@@ -27,6 +27,8 @@ consumes:
 provides:
   - name: yb-tserver
     type: yb-tserver-address-link
+    properties:
+      - rpc_bind_addresses_port
 
 properties:
   bpm.limits.open_files:
@@ -34,8 +36,7 @@ properties:
   bpm.limits.processes:
     default: 64000
   rpc_bind_addresses_port:
-    default: 9100
-  server_broadcast_addresses_port:
+    description: for the time being, this value is used for both "rpc_bind_addresses" and "server_broadcast_addresses"
     default: 9100
 
   tls.allow_insecure_connections:

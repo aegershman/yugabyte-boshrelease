@@ -20,8 +20,6 @@ consumes:
     type: yb-master-address-link
 
 properties:
-  master_addresses_port:
-    default: 7100
   timeout_ms:
     description: The RPC timeout, in milliseconds. A value of 0 means don’t wait; -1 means wait indefinitely.
     default: 60000
