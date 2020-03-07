@@ -7,7 +7,6 @@ description: |
 
 templates:
   bin/pre-start.sh: bin/pre-start
-  bin/yb-sample-apps.sh: bin/yb-sample-apps.sh
   config/bpm.yml.erb: config/bpm.yml
 
 consumes:

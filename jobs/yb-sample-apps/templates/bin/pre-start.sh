@@ -2,4 +2,4 @@
 
 set -eu
 
-chmod +x /var/vcap/jobs/yb-sample-apps/bin/yb-sample-apps.sh
+echo "todo placeholder"
