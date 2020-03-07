@@ -1,0 +1,22 @@
+<%
+t = link("yb-tserver")
+tserver_endpoints = t.instances.map { |i| "#{i.address}:#{p('tserver_port_target')}" }.join(",")
+%>
+
+---
+processes:
+  - name: yb-sample-apps
+    executable: /var/vcap/packages/openjdk/jre/bin/java
+    args:
+      - -Xmx<%= p("max_heap_size") %>m
+      - -Djava.security.egd=file:/dev/urandom
+      - -jar
+      - /var/vcap/packages/yb-sample-apps/yb-sample-apps.jar
+      - --workload
+      - <%= p("workload.type") %>
+      - --nodes
+      - <%= tserver_endpoints %>
+      <% p('workload.args', {}).each do |k, v| %>
+      - --<%= k %>
+      - <%= v %>
+      <% end %>
