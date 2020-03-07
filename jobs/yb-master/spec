@@ -51,11 +51,6 @@ properties:
       see also: https://docs.yugabyte.com/latest/manage/upgrade-deployment
     default: 60
 
-  replication_factor:
-    description: |
-      override of the replication_factor passed to the master servers;
-      by default it's the number of yb-master instances
-
   tls.use_node_to_node_encryption:
     description: |
       set to true to enable encryption between nodes
