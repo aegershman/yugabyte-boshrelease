@@ -11,6 +11,6 @@ master_addresses = m.instances.map { |i| "#{i.address}:#{m.p('rpc_bind_addresses
   -master_addresses <%= master_addresses %> \
   -timeout_ms <%= p('timeout_ms') %> \
   <% if p("tls.enabled") %> \
-  -certs_dir_name /var/vcap/jobs/yb-admin/config/certs \
+  -certs_dir_name /var/vcap/jobs/setup_redis_table/config/certs \
   <% end %> \
   setup_redis_table

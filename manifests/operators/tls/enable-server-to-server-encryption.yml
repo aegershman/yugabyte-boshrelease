@@ -34,7 +34,7 @@
 # one day this should be configured through consuming bosh links properties
 # rather than statically configured
 - type: replace
-  path: /instance_groups/name=setup_redis_table/jobs/name=yb-admin/properties?/tls?
+  path: /instance_groups/name=setup_redis_table/jobs/name=setup_redis_table/properties?/tls?
   value:
     enabled: true
     node:

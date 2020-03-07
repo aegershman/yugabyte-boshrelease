@@ -2,4 +2,4 @@
 
 set -eu
 
-/var/vcap/jobs/bpm/bin/bpm run yb-admin -p yb-admin
+/var/vcap/jobs/bpm/bin/bpm run setup_redis_table -p setup_redis_table
