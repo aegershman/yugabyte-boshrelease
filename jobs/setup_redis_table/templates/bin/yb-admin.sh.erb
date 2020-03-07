@@ -7,13 +7,10 @@ m = link("yb-master")
 master_addresses = m.instances.map { |i| "#{i.address}:#{m.p('rpc_bind_addresses_port')}" }.join(",")
 %>
 
-<% p("commands", []).each do |command| %>
-echo "executing command: <%= command %>"
 /var/vcap/packages/yugabyte/bin/yb-admin \
   -master_addresses <%= master_addresses %> \
   -timeout_ms <%= p('timeout_ms') %> \
   <% if p("tls.enabled") %> \
   -certs_dir_name /var/vcap/jobs/yb-admin/config/certs \
   <% end %> \
-  <%= command %>
-<% end %>
+  setup_redis_table
