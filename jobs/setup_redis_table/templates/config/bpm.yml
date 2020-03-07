@@ -1,4 +1,0 @@
----
-processes:
-  - name: setup_redis_table
-    executable: /var/vcap/jobs/setup_redis_table/bin/yb-admin.sh

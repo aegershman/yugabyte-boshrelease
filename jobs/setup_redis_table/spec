@@ -8,8 +8,7 @@ description: |
 templates:
   bin/pre-start.sh: bin/pre-start
   bin/run.sh: bin/run
-  bin/yb-admin.sh.erb: bin/yb-admin.sh
-  config/bpm.yml: config/bpm.yml
+  config/bpm.yml.erb: config/bpm.yml
   config/certs/ca.crt.erb: config/certs/ca.crt
 
 packages:
