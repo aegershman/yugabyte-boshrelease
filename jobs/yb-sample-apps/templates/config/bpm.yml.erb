@@ -17,5 +17,6 @@ processes:
       - --nodes
       - <%= tserver_endpoints %>
       <% p('workload.args', {}).each do |k, v| %>
-      - --<%= k %>=<%= v %>
+      - --<%= k %>
+      - <%= v %>
       <% end %>
