@@ -8,9 +8,12 @@ processes:
   - name: setup_redis_table
     executable: /var/vcap/packages/yugabyte/bin/yb-admin
     args:
-      - -master_addresses <%= master_addresses %>
-      - -timeout_ms <%= p("timeout_ms") %>
+      - -master_addresses
+      - <%= master_addresses %>
+      - -timeout_ms
+      - <%= p("timeout_ms") %>
       <% if p("tls.enabled") %>
-      - -certs_dir_name /var/vcap/jobs/setup_redis_table/config/certs
+      - -certs_dir_name
+      - /var/vcap/jobs/setup_redis_table/config/certs
       <% end %>
       - setup_redis_table
