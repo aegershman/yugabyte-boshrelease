@@ -1,5 +1,5 @@
 ---
-name: yb-admin
+name: setup_redis_table
 
 description: |
   https://docs.yugabyte.com/latest/admin/yb-admin/
@@ -32,15 +32,3 @@ properties:
     default: false
   tls.node.ca:
     description: "CA root required for key/cert verification"
-
-  commands:
-    description: |
-      list of command sequences to loop over and pass individually to `yb-admin -master_addresses masteraddresses <your_command_string_here>`
-      e.g., each string in "commands" will be executed as it's own individual call to `yb-admin`
-    default: []
-    example: |
-      commands:
-        - get_universe_config
-        - setup_redis_table
-        - create_snapshot ydb test_tb
-        - all_masters_have_universe_key_in_memory somekeyid

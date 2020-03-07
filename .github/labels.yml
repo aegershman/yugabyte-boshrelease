@@ -36,14 +36,15 @@
   color: cfd3d7
   description: it's not done, it just... well, it's good enough I guess
 
-- name: job/yb-admin
+- name: job/setup_redis_table
   color: 1c778c
-  description: code changes affecting yb-admin job
+  description: code changes affecting setup_redis_table job
+  from_name: job/yb-admin
 
 - name: job/yb-master
   color: 1c778c
   description: code changes affecting yb-master job
-  
+
 - name: job/yb-sample-apps
   color: 1c778c
   description: code changes affecting yb-sample-apps job

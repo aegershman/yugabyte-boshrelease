@@ -9,6 +9,9 @@ deployment-mgmt:
   - ci/**/*
   - manifests/**/*
 
+job/setup_redis_table:
+  - jobs/setup_redis_table/**/*
+
 job/yb-master:
   - jobs/yb-master/**/*
 
