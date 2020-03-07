@@ -15,5 +15,8 @@ job/setup_redis_table:
 job/yb-master:
   - jobs/yb-master/**/*
 
+job/yb-sample-apps:
+  - jobs/yb-sample-apps/**/*
+
 job/yb-tserver:
   - jobs/yb-tserver/**/*
