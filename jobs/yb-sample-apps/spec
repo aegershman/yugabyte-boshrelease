@@ -8,7 +8,7 @@ description: |
 templates:
   bin/pre-start.sh: bin/pre-start
   bin/yb-sample-apps.sh: bin/yb-sample-apps.sh
-  config/bpm.erb.yml: config/bpm.yml
+  config/bpm.yml.erb: config/bpm.yml
 
 consumes:
   - name: yb-tserver
