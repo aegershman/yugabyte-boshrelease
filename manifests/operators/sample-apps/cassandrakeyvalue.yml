@@ -26,3 +26,4 @@
               num_threads_read: 2
               num_threads_write: 2
               table_ttl_seconds: -1
+              uuid: ""
