@@ -2,6 +2,7 @@
 # loaded last in testing tooling to be used
 # for experimentation while developing this release
 ---
+syslog_address: q-s0.docker.services-network.splunk.bosh
 tserver_allow_insecure_connections: true
 use_client_to_server_encryption: true
 yugabyte_server_tls_update_mode: overwrite
