@@ -1,0 +1,5 @@
+# default variables for use with logging options
+---
+syslog_address: ~
+syslog_port: 5514
+syslog_tls_enabled: false
