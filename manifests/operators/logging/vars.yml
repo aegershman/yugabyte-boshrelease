@@ -1,4 +1,6 @@
 # default variables for use with logging options
 ---
+master_v: 2
 syslog_port: 5514
 syslog_tls_enabled: false
+tserver_v: 2

@@ -4,6 +4,7 @@
 --minloglevel=<%= p("minloglevel") %>
 --stderrthreshold=<%= p("stderrthreshold") %>
 --stop_logging_if_full_disk=<%= p("stop_logging_if_full_disk") %>
+--v=<%= p("v") %>
 --master_addresses=<%= link("yb-master").instances.map { |i| "#{i.address}:#{p('rpc_bind_addresses_port')}" }.join(",") %>
 --placement_zone=<%= spec.az %>
 --replication_factor=<%= link("yb-master").instances.length %>
