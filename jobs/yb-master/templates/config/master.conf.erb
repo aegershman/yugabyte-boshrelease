@@ -6,6 +6,7 @@
 --stderrthreshold=<%= p("stderrthreshold") %>
 --stop_logging_if_full_disk=<%= p("stop_logging_if_full_disk") %>
 --v=<%= p("v") %>
+
 --master_addresses=<%= link("yb-master").instances.map { |i| "#{i.address}:#{p('rpc_bind_addresses_port')}" }.join(",") %>
 --replication_factor=<%= link("yb-master").instances.length %>
 --rpc_bind_addresses=<%= spec.address %>
@@ -18,6 +19,8 @@
 --placement_cloud=<%= p("placement_cloud") %>
 --placement_region=<%= p("placement_region") %>
 --placement_zone=<%= p("placement_zone", spec.az) %>
+
+--use_cassandra_authentication=true
 
 <% if p("tls.use_node_to_node_encryption") -%>
 --allow_insecure_connections=<%= p("tls.allow_insecure_connections") %>
