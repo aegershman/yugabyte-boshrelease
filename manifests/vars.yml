@@ -16,7 +16,6 @@ master_instances: 1
 master_persistent_disk_type: "51200"
 master_vm_type: t3.micro
 master_gflags:
-  default_memory_limit_to_ram_ratio: 0.85
   enable_ysql: false
   placement_cloud: aws
   placement_region: us-west-2
@@ -27,7 +26,6 @@ tserver_persistent_disk_type: "102400"
 tserver_rpc_bind_port: 9101
 tserver_vm_type: m5.large
 tserver_gflags:
-  default_memory_limit_to_ram_ratio: 0.85
   enable_ysql: false
   placement_cloud: aws
   placement_region: us-west-2
