@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/max_log_size?
+  value: ((master_max_log_size))
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/max_log_size?
+  value: ((tserver_max_log_size))

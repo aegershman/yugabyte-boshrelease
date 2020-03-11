@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/stderrthreshold?
+  value: ((master_stderrthreshold))
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/stderrthreshold?
+  value: ((tserver_stderrthreshold))

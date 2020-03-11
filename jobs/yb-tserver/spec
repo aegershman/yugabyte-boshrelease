@@ -107,12 +107,12 @@ properties:
   stderrthreshold:
     description: |
       Log messages at, or above, this level are copied to stderr in addition to log files.
+      Basically it tees error logs to both the log file directory and stderr.
       Values are: 0 (INFO), 1 (WARN), 2 (ERROR), 3 (FATAL).
-      By setting this to "0" by default, it tees error logs to both the log file directory and stderr.
-    default: 0
+    default: 2
   stop_logging_if_full_disk:
     description: Stop attempting to log to disk if the disk is full.
-    default: true
+    default: false
   v:
     description: "Yugabyte process log verbosity level. Values are: 0 (lowest), 1, 2, 3, 4 (highest)"
     default: 0
