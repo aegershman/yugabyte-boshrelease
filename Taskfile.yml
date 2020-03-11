@@ -9,7 +9,7 @@ env:
   PYTHON_SETUPTOOLS_VERSION: 2.2
   PYTHON_VERSION: 2.7.6
   YB_SAMPLE_APPS_VERSION: 1.2.1
-  YB_VERSION: 2.1.1.0
+  YB_VERSION: 2.1.2.0
 
 tasks:
   dl-openjdk:
@@ -40,6 +40,7 @@ tasks:
 
   add-blobs:
     cmds:
+      - echo "" >config/blobs.yml # resets the blobs file to purge any old blob definitions
       - mkdir -p /tmp/yugablob
       - task: dl-openjdk
       - bosh add-blob /tmp/yugablob/openjdk-${OPENJDK_VERSION}.tar.gz openjdk/openjdk-${OPENJDK_VERSION}.tar.gz
