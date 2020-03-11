@@ -93,6 +93,11 @@ properties:
             - name: hank_hill
               password: propane_bwaaah
 
+  logtostderr:
+    description: |
+      Write log messages to stderr INSTEAD OF logfiles.
+      When this is "true", there won't be logs visible through the node UI.
+    default: false
   max_log_size:
     description: "The maximum log size, in megabytes (MB). A value of 0 will be silently overridden to 1."
     default: 1800 # 1.8 GB
