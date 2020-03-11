@@ -61,7 +61,7 @@ tasks:
     cmds:
       - |
         bosh -d yugabyte deploy manifests/yugabyte.yml \
-          -o manifests/operators/create-release-from-local.yml \
+          -o manifests/operators/development/create-release-from-local.yml \
           -o manifests/operators/gflags.yml \
           -o manifests/operators/logging/enable-syslog-forwarder.yml \
           -o manifests/operators/logging/stderrthreshold.yml \
