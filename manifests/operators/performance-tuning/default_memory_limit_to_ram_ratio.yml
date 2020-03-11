@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/default_memory_limit_to_ram_ratio?
+  value: ((master_default_memory_limit_to_ram_ratio))
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/default_memory_limit_to_ram_ratio?
+  value: ((tserver_default_memory_limit_to_ram_ratio))
