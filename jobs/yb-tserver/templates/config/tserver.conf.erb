@@ -16,6 +16,8 @@
 --placement_region=<%= p("placement_region") %>
 --placement_zone=<%= p("placement_zone", spec.az) %>
 
+--use_cassandra_authentication=true
+
 <% if p("tls.use_client_to_server_encryption") -%>
 --allow_insecure_connections=<%= p("tls.allow_insecure_connections") %>
 --certs_for_client_dir=/var/vcap/jobs/yb-tserver/config/certs

@@ -74,7 +74,7 @@ properties:
     description: extra "--key=value" properties to pass to the conf file
     example:
       gflags:
-        enable_ysql: false
+        yb_num_shards_per_tserver: 7
 
   placement_cloud:
     description: Specifies the name of the cloud where this instance is deployed.

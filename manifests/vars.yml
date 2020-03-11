@@ -28,4 +28,3 @@ tserver_rpc_bind_port: 9101
 tserver_vm_type: m5.large
 tserver_gflags:
   enable_ysql: false
-  use_cassandra_authentication: true
