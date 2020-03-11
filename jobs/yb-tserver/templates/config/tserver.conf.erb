@@ -6,7 +6,6 @@
 --stderrthreshold=<%= p("stderrthreshold") %>
 --stop_logging_if_full_disk=<%= p("stop_logging_if_full_disk") %>
 --v=<%= p("v") %>
---placement_zone=<%= spec.az %>
 --rpc_bind_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
 --server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
 --tserver_master_addrs=<%= m = link("yb-master"); m.instances.map { |i| "#{i.address}:#{m.p('rpc_bind_addresses_port')}" }.join(",") %>
@@ -15,6 +14,7 @@
 
 --placement_cloud=<%= p("placement_cloud") %>
 --placement_region=<%= p("placement_region") %>
+--placement_zone=<%= p("placement_zone", spec.az) %>
 
 <% if p("tls.use_client_to_server_encryption") -%>
 --allow_insecure_connections=<%= p("tls.allow_insecure_connections") %>

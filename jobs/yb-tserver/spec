@@ -101,6 +101,13 @@ properties:
     default: datacenter1
     example:
       placement_region: centralus
+  placement_zone:
+    description: |
+      Override the name of the availability zone, or rack, where this instance is deployed.
+      Keep in mind, this is just the _name_ of the placement_zone of how Yugabyte sees it,
+      it won't affect the actual placement of the node. It's best if you DON'T TOUCH THIS
+      because BOSH can figure out the 'spec.az' of a given instance on it's own.
+      Default is handled by BOSH.
 
   default_memory_limit_to_ram_ratio:
     description: |
