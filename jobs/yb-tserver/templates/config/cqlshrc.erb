@@ -4,7 +4,7 @@ password = cassandra
 
 [connection]
 hostname = <%= spec.address %>
-port = 9042
+port = <%= p("cql_proxy_bind_port") %>
 ssl = <%= p("tls.use_client_to_server_encryption") %>
 request_timeout = 10
 timeout = 10

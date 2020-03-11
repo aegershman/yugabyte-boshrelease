@@ -15,6 +15,8 @@
 
 --enable_ysql=<%= p("enable_ysql") %>
 
+--cql_proxy_bind_address=<%= spec.address %>:<%= p("cql_proxy_bind_port") %>
+
 --default_memory_limit_to_ram_ratio=<%= p("default_memory_limit_to_ram_ratio") %>
 
 --placement_cloud=<%= p("placement_cloud") %>
