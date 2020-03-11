@@ -11,20 +11,18 @@ setup_redis_table_errand_azs: [us-west-2a, us-west-2b, us-west-2c]
 setup_redis_table_errand_persistent_disk_type: "1024"
 setup_redis_table_errand_vm_type: t3.micro
 
+placement_cloud: aws
+placement_region: us-west-2
+
 master_azs: [us-west-2a, us-west-2b, us-west-2c]
 master_instances: 1
 master_persistent_disk_type: "51200"
 master_vm_type: t3.micro
-master_gflags:
-  enable_ysql: false
-
-placement_cloud: aws
-placement_region: us-west-2
+master_gflags: {}
 
 tserver_azs: [us-west-2a, us-west-2b, us-west-2c]
 tserver_instances: 1
 tserver_persistent_disk_type: "102400"
 tserver_rpc_bind_port: 9101
 tserver_vm_type: m5.large
-tserver_gflags:
-  enable_ysql: false
+tserver_gflags: {}
