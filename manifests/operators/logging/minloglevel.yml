@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/minloglevel?
+  value: ((master_minloglevel))
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/minloglevel?
+  value: ((tserver_minloglevel))

@@ -1,5 +1,11 @@
 --fs_data_dirs=/var/vcap/store/yb-master
 --log_dir=/var/vcap/sys/log/yb-master
+--logtostderr=<%= p("logtostderr") %>
+--max_log_size=<%= p("max_log_size") %>
+--minloglevel=<%= p("minloglevel") %>
+--stderrthreshold=<%= p("stderrthreshold") %>
+--stop_logging_if_full_disk=<%= p("stop_logging_if_full_disk") %>
+--v=<%= p("v") %>
 --master_addresses=<%= link("yb-master").instances.map { |i| "#{i.address}:#{p('rpc_bind_addresses_port')}" }.join(",") %>
 --placement_zone=<%= spec.az %>
 --replication_factor=<%= link("yb-master").instances.length %>

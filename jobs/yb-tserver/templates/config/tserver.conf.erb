@@ -1,5 +1,11 @@
 --fs_data_dirs=/var/vcap/store/yb-tserver
 --log_dir=/var/vcap/sys/log/yb-tserver
+--logtostderr=<%= p("logtostderr") %>
+--max_log_size=<%= p("max_log_size") %>
+--minloglevel=<%= p("minloglevel") %>
+--stderrthreshold=<%= p("stderrthreshold") %>
+--stop_logging_if_full_disk=<%= p("stop_logging_if_full_disk") %>
+--v=<%= p("v") %>
 --placement_zone=<%= spec.az %>
 --rpc_bind_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
 --server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
