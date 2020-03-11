@@ -39,6 +39,12 @@ You might see lines like this in current configurations:
 
 Notice how `--server_broadcast_addresses` is using an address with `rpc_bind_addresses_port` as the port. This is because the differences between `rpc_bind_addresses_port` and something like `server_broadcast_addresses_port` are too small at the moment to really make a huge difference, so _for the time being_ they're going to be collapsed into one, and only `rpc_bind_addresses_port` will be referenced. Is it correct? Honestly, not 100% sure. Actually I'm 100% it isn't correct or ideal. But for the time being, it works, and you know what, we'll get there.
 
+## why some gflags are BOSH properties and others are just... gflags
+
+Certain flags (but not all) are defined as their own property with their own defaults, descriptions, opsfiles, etc. These properties are (somewhat arbitrarily) important enough to stand out. It's of my opinion that flags important enough to make a difference to a consumer of this release should receive their own `property`, with reasonable defaults and a description, whereas `gflags` acts as a backup and a catch-all.
+
+There are many flags which should have reasonable defaults, which either are specific to this BOSH release (and thus aren't defined in upstream Yugabyte), or we feel should be different from the defaults selected from upstream Yugabyte. But if we don't put those configuration flags as their own property in the BOSH job `spec`, and instead rely on `gflags: {x: y}` to pass in everything, then there's no way (that I'm aware of?) for the maintainers of this BOSH release to set default `gflags` in such a way that consumers could selectively override individual flags. For example: if someone wanted to override _one_ flag, like `placement_cloud`, then _all_ the defaults we set in `gflags` in the job `spec` file would back off and deactivate. A consumer would have to define all the defaults _we_ set (if they so chose) in their `gflags` override in addition to the _one_ flag they wanted to change.
+
 ## cutting releases
 
 Having a fully automated release process is a goal. But we want to make sure it's done well, and would like to have it done using github actions if possible. But until then, here's the general workflow. We're assuming any `bosh add-blobs` and `bosh upload-blobs` commands have been `git commit`'ed if blobs are changing, and now we're on the release process.
