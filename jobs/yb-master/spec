@@ -85,8 +85,11 @@ properties:
     description: "The minimum level to log messages. Values are: 0 (INFO), 1 (WARN), 2 (ERROR), 3 (FATAL)."
     default: 0
   stderrthreshold:
-    description: "Log messages at, or above, this level are copied to stderr in addition to log files."
-    default: 2
+    description: |
+      Log messages at, or above, this level are copied to stderr in addition to log files.
+      Values are: 0 (INFO), 1 (WARN), 2 (ERROR), 3 (FATAL).
+      By setting this to "0" by default, it tees error logs to both the log file directory and stderr.
+    default: 0
   stop_logging_if_full_disk:
     description: Stop attempting to log to disk if the disk is full.
     default: true
