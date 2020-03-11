@@ -11,6 +11,8 @@
 --server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
 --tserver_master_addrs=<%= m = link("yb-master"); m.instances.map { |i| "#{i.address}:#{m.p('rpc_bind_addresses_port')}" }.join(",") %>
 
+--default_memory_limit_to_ram_ratio=<%= p("default_memory_limit_to_ram_ratio") %>
+
 <% if p("tls.use_client_to_server_encryption") -%>
 --allow_insecure_connections=<%= p("tls.allow_insecure_connections") %>
 --certs_for_client_dir=/var/vcap/jobs/yb-tserver/config/certs

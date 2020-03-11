@@ -78,7 +78,6 @@ properties:
     description: extra "--key=value" properties to pass to the conf file
     example: |
       gflags:
-        default_memory_limit_to_ram_ratio: 0.42
         placement_cloud: aws
         placement_region: us-west-2
   ycql.databases.superusers:
@@ -92,6 +91,12 @@ properties:
           superusers:
             - name: hank_hill
               password: propane_bwaaah
+
+  default_memory_limit_to_ram_ratio:
+    description: |
+      If memory_limit_hard_bytes is left unspecified, then it is
+      set to default_memory_limit_to_ram_ratio * Available RAM.
+    default: 0.85
 
   logtostderr:
     description: |

@@ -12,6 +12,8 @@
 --rpc_bind_addresses=<%= spec.address %>
 --server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
 
+--default_memory_limit_to_ram_ratio=<%= p("default_memory_limit_to_ram_ratio") %>
+
 <% if p("tls.use_node_to_node_encryption") -%>
 --allow_insecure_connections=<%= p("tls.allow_insecure_connections") %>
 --certs_dir=/var/vcap/jobs/yb-master/config/certs
