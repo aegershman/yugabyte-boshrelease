@@ -76,10 +76,9 @@ properties:
 
   gflags:
     description: extra "--key=value" properties to pass to the conf file
-    example: |
+    example:
       gflags:
-        placement_cloud: aws
-        placement_region: us-west-2
+        enable_ysql: false
   ycql.databases.superusers:
     description: |
       until we get to putting a more fine-grained RBAC model in place
@@ -91,6 +90,17 @@ properties:
           superusers:
             - name: hank_hill
               password: propane_bwaaah
+
+  placement_cloud:
+    description: Specifies the name of the cloud where this instance is deployed.
+    default: cloud1
+    example:
+      placement_cloud: azure
+  placement_region:
+    description: Specifies the name of the region, or data center, where this instance is deployed.
+    default: datacenter1
+    example:
+      placement_region: centralus
 
   default_memory_limit_to_ram_ratio:
     description: |
