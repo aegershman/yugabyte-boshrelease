@@ -11,6 +11,8 @@
 --replication_factor=<%= link("yb-master").instances.length %>
 --rpc_bind_addresses=<%= spec.address %>
 --server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
+--webserver_interface=<%= spec.address %>
+--webserver_port=<%= p("webserver_port") %>
 
 --enable_ysql=<%= p("enable_ysql") %>
 

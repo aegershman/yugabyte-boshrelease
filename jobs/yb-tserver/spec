@@ -145,3 +145,7 @@ properties:
   v:
     description: "Yugabyte process log verbosity level. Values are: 0 (lowest), 1, 2, 3, 4 (highest)"
     default: 0
+
+  webserver_port:
+    description: "Port to bind to for the web server"
+    default: 9000
