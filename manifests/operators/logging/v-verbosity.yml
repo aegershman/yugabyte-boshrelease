@@ -1,8 +1,8 @@
 ---
 - type: replace
-  path: /instance_groups/name=master/jobs/name=yb-master/properties?/v?/
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/v?
   value: ((master_v))
 
 - type: replace
-  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/v?/
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/v?
   value: ((tserver_v))
