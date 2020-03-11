@@ -96,3 +96,13 @@ properties:
           superusers:
             - name: hank_hill
               password: propane_bwaaah
+
+  max_log_size:
+    description: "The maximum log size, in megabytes (MB). A value of 0 will be silently overridden to 1."
+    default: 1800 # 1.8 GB
+  minloglevel:
+    description: "The minimum level to log messages. Values are: 0 (INFO), 1 (WARN), 2 (ERROR), 3 (FATAL)."
+    default: 0
+  stderrthreshold:
+    description: "Log messages at, or above, this level are copied to stderr in addition to log files."
+    default: 2

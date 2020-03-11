@@ -75,9 +75,16 @@ properties:
     example: |
       gflags:
         default_memory_limit_to_ram_ratio: 0.85
-        max_log_size: 256
-        minloglevel: 0
         placement_cloud: aws
         placement_region: us-west-2
-        stderrthreshold: 2
         stop_logging_if_full_disk: true
+
+  max_log_size:
+    description: "The maximum log size, in megabytes (MB). A value of 0 will be silently overridden to 1."
+    default: 1800 # 1.8 GB
+  minloglevel:
+    description: "The minimum level to log messages. Values are: 0 (INFO), 1 (WARN), 2 (ERROR), 3 (FATAL)."
+    default: 0
+  stderrthreshold:
+    description: "Log messages at, or above, this level are copied to stderr in addition to log files."
+    default: 2
