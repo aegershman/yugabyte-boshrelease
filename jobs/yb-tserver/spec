@@ -98,6 +98,16 @@ properties:
             - name: hank_hill
               password: propane_bwaaah
 
+  cql_proxy_bind_port:
+    description: "Specifies the bind port for the YCQL API."
+    default: 9042
+  pgsql_proxy_bind_port:
+    description: "Specifies the bind port for the YSQL API."
+    default: 5433
+  redis_proxy_bind_port:
+    description: "Specifies the bind port for the YEDIS API."
+    default: 6379
+
   placement_cloud:
     description: Specifies the name of the cloud where this instance is deployed.
     default: cloud1
