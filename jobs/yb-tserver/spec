@@ -101,6 +101,9 @@ properties:
   cql_proxy_bind_port:
     description: "Specifies the bind port for the YCQL API."
     default: 9042
+  pgsql_proxy_bind_port:
+    description: "Specifies the bind port for the YSQL API."
+    default: 5433
   redis_proxy_bind_port:
     description: "Specifies the bind port for the YEDIS API."
     default: 6379
