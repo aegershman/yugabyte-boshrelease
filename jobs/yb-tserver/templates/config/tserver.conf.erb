@@ -27,6 +27,8 @@
 
 --use_cassandra_authentication=true
 
+--cql_table_is_transactional_by_default=<%= p("cql_table_is_transactional_by_default") %>
+
 <% if p("tls.use_client_to_server_encryption") -%>
 --allow_insecure_connections=<%= p("tls.allow_insecure_connections") %>
 --certs_for_client_dir=/var/vcap/jobs/yb-tserver/config/certs

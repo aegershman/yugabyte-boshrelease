@@ -98,6 +98,10 @@ properties:
             - name: hank_hill
               password: propane_bwaaah
 
+  cql_table_is_transactional_by_default:
+    description: Specifies if YCQL tables are created with transactions enabled by default.
+    default: false
+
   cql_proxy_bind_port:
     description: "Specifies the bind port for the YCQL API."
     default: 9042
