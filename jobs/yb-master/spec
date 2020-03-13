@@ -9,7 +9,8 @@ description: |
 templates:
   bin/cert-linker.erb.sh: bin/cert-linker.sh
   bin/post-start.sh.erb: bin/post-start
-  bin/pre-start.sh: bin/pre-start
+  bin/pre_start.sh: bin/pre_start
+  bin/yb-init-pg.sh: bin/yb-init-pg.sh
   config/bpm.erb.yml: config/bpm.yml
   config/certs/ca.crt.erb: config/certs/ca.crt
   config/certs/node.crt.erb: config/certs/node.crt
