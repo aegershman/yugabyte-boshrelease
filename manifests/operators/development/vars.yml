@@ -2,6 +2,7 @@
 # loaded last in testing tooling to be used
 # for experimentation while developing this release
 ---
+callhome_enabled: false
 master_instances: 1
 master_stderrthreshold: 0
 syslog_address: q-s0.docker.services-network.splunk.bosh
