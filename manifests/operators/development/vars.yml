@@ -3,6 +3,7 @@
 # for experimentation while developing this release
 ---
 callhome_enabled: false
+enable_ysql: true
 master_instances: 1
 master_stderrthreshold: 0
 syslog_address: q-s0.docker.services-network.splunk.bosh
