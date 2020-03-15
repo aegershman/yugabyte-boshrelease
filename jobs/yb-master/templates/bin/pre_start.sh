@@ -6,4 +6,6 @@ set -eu
 /var/vcap/jobs/yb-master/bin/cert-linker.sh
 if [ "${ENABLE_MANUAL_YSQL_INIT}" = "true" ]; then
   /var/vcap/jobs/yb-master/bin/yb-init-pg.sh
+else
+  echo "pre_start will not be performing a manual ysql init"
 fi
