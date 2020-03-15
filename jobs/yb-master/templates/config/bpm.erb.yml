@@ -9,4 +9,4 @@ processes:
       open_files: <%= p("bpm.limits.open_files") %>
       processes: <%= p("bpm.limits.processes") %>
     hooks:
-      pre_start: /var/vcap/jobs/yb-master/bin/cert-linker.sh
+      pre_start: /var/vcap/jobs/yb-master/bin/pre_start
