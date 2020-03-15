@@ -8,7 +8,6 @@ templates:
   bin/cert-linker.erb.sh: bin/cert-linker.sh
   bin/post-deploy.sh: bin/post-deploy
   bin/post-start.sh.erb: bin/post-start
-  bin/post-stop.sh: bin/post-stop # TODO
   bin/pre_start.sh: bin/pre_start
   bin/yb-init-pg.sh: bin/yb-init-pg.sh
   config/bpm.erb.yml: config/bpm.yml

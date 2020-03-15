@@ -14,10 +14,9 @@
 --webserver_port=<%= p("webserver_port") %>
 
 --enable_ysql=<%= p("enable_ysql") %>
---start_pgsql_proxy
 
 --cql_proxy_bind_address=<%= spec.address %>:<%= p("cql_proxy_bind_port") %>
---pgsql_proxy_bind_address=<%= spec.ip %>:<%= p("pgsql_proxy_bind_port") %>
+--pgsql_proxy_bind_address=<%= spec.address %>:<%= p("pgsql_proxy_bind_port") %>
 --redis_proxy_bind_address=<%= spec.address %>:<%= p("redis_proxy_bind_port") %>
 
 --default_memory_limit_to_ram_ratio=<%= p("default_memory_limit_to_ram_ratio") %>

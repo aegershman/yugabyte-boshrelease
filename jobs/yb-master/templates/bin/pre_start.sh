@@ -4,4 +4,4 @@ set -eu
 
 /var/vcap/packages/yugabyte/bin/post_install.sh
 /var/vcap/jobs/yb-master/bin/cert-linker.sh
-/var/vcap/jobs/yb-master/bin/yb-init-pg.sh
+# /var/vcap/jobs/yb-master/bin/yb-init-pg.sh TODO
