@@ -164,3 +164,16 @@ properties:
   webserver_port:
     description: "Port to bind to for the web server"
     default: 9000
+
+  callhome_collection_level:
+    description: "Collection level with possible values of low, medium, or high"
+    default: medium
+  callhome_interval_secs:
+    description: "Collection interval in seconds"
+    default: 3600
+  callhome_url:
+    description: "Endpoint where diagnostics information is reported"
+    default: http://diagnostics.yugabyte.com
+  callhome_enabled:
+    description: "Controls whether diagnostics information is collected and reported. Set to false to disable collection."
+    default: true
