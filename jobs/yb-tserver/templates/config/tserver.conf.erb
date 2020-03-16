@@ -17,7 +17,7 @@
 --enable_ysql=<%= p("enable_ysql") %>
 --ysql_hba_conf=<%= p("ysql_hba_conf") %>
 --ysql_max_connections=<%= p("ysql_max_connections") %>
---ysql_default_transaction_isolation=<%= p("ysql_default_transaction_isolation") %>
+--ysql_default_transaction_isolation='<%= p("ysql_default_transaction_isolation") %>'
 --ysql_log_statement=<%= p("ysql_log_statement") %>
 --ysql_log_min_messages=<%= p("ysql_log_min_messages") %>
 
