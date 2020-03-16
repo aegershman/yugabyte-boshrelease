@@ -85,7 +85,7 @@ properties:
     description: extra "--key=value" properties to pass to the conf file
     example:
       gflags:
-        yb_num_shards_per_tserver: 7
+        log_change_config_every_n: 1
 
   yb_num_shards_per_tserver:
     description: |
