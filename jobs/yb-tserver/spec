@@ -100,9 +100,7 @@ properties:
   ysql_log_statement:
     description: |
       Specifies the types of YSQL statements that should be logged.
-      Valid values: none (off), ddl (only data definition queries, such as create/alter/drop),
-      mod (all modifying/write statements, includes DDLs plus insert/update/delete/trunctate, etc),
-      and all (all statements).
+      Valid values: none (off), ddl (only data definition queries, such as create/alter/drop), mod (all modifying/write statements, includes DDLs plus insert/update/delete/trunctate, etc), and all (all statements).
     default: none
   ysql_log_min_messages:
     description: |
