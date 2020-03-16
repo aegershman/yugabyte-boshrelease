@@ -99,6 +99,10 @@ properties:
       IMPORTANT: This value must match on all yb-master and yb-tserver configurations of a YugabyteDB cluster.
     default: 8
 
+  stop_on_parent_termination:
+    description: When specified, this process will terminate when parent process terminates. Linux-only.
+    default: false
+
   placement_cloud:
     description: Specifies the name of the cloud where this instance is deployed.
     default: cloud1
