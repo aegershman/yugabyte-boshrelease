@@ -104,6 +104,11 @@ properties:
       mod (all modifying/write statements, includes DDLs plus insert/update/delete/trunctate, etc),
       and all (all statements).
     default: none
+  ysql_log_min_messages:
+    description: |
+      Specifies the lowest YSQL message level to log.
+      Valid values: info, warning, error, fatal
+    default: ""
 
   gflags:
     description: extra "--key=value" properties to pass to the conf file
