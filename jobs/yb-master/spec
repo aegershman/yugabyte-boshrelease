@@ -107,6 +107,12 @@ properties:
       or regions are independent failure domains and there is not a risk of correlated power loss.
       For single AZ deployments, this option should be set to true.
     default: false
+  interval_durable_wal_write_ms:
+    description: When --durable_wal_write is false, writes to the WAL are synced to disk every --interval_durable_wal_write_ms or --bytes_durable_wal_write_mb, whichever comes first.
+    default: 1000
+  bytes_durable_wal_write_mb:
+    description: When --durable_wal_write is false, writes to the WAL are synced to disk every --bytes_durable_wal_write_mb or --interval_durable_wal_write_ms, whichever comes first.
+    default: 1
 
   stop_on_parent_termination:
     description: When specified, this process will terminate when parent process terminates. Linux-only.
