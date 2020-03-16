@@ -1,0 +1,4 @@
+---
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/ysql_log_statement?
+  value: ((ysql_log_statement))

@@ -80,6 +80,33 @@ properties:
       Enables the YSQL API when value is true. Replaces the deprecated --start_pgsql_proxy option.
       For the time being, DO NOT CHANGE THIS to "true", because ysql is an ongoing story.
     default: false
+  ysql_hba_conf:
+    description: |
+      Specifies a comma-separated list of PostgreSQL client authentication settings that is written to the ysql_hba.conf file.
+      For details on using --ysql_hba_conf to specify client authentication, see fine-grained authentication.
+      See: https://docs.yugabyte.com/latest/secure/authentication/client-authentication
+    default: "host all all 0.0.0.0/0 trust,host all all ::0/0 trust"
+  ysql_max_connections:
+    description: Specifies the maximum number of concurrent YSQL connections.
+    default: 300
+  ysql_default_transaction_isolation:
+    description: |
+      Specifies the default transaction isolation level.
+      Valid values: READ UNCOMMITTED, READ COMMITTED, REPEATABLE READ, and SERIALIZABLE.
+      NOTE: YugabyteDB supports two transaction isolation levels: REPEATABLE READ (aka snapshot) and SERIALIZABLE.
+      The transaction isolation levels of READ UNCOMMITTED and READ COMMITTED are implemented in YugabyteDB as REPEATABLE READ.
+      Default: READ COMMITTED (implemented in YugabyteDB as REPEATABLE READ)
+    default: READ COMMITTED
+  ysql_log_statement:
+    description: |
+      Specifies the types of YSQL statements that should be logged.
+      Valid values: none (off), ddl (only data definition queries, such as create/alter/drop), mod (all modifying/write statements, includes DDLs plus insert/update/delete/trunctate, etc), and all (all statements).
+    default: none
+  ysql_log_min_messages:
+    description: |
+      Specifies the lowest YSQL message level to log.
+      Valid values: info, warning, error, fatal (and others if you go look up postgres "log_min_messages")
+    default: ""
 
   gflags:
     description: extra "--key=value" properties to pass to the conf file

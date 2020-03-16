@@ -67,6 +67,7 @@ tasks:
           -o manifests/operators/logging/callhome_enabled.yml \
           -o manifests/operators/logging/enable-syslog-forwarder.yml \
           -o manifests/operators/logging/stderrthreshold.yml \
+          -o manifests/operators/logging/ysql_log_statement.yml \
           -o manifests/operators/performance-tuning/durable_wal_write.yml \
           -o manifests/operators/placement-options.yml \
           -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
