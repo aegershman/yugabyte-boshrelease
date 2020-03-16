@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/durable_wal_write?
+  value: ((durable_wal_write))
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/durable_wal_write?
+  value: ((durable_wal_write))

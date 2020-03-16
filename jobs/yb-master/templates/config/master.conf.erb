@@ -22,6 +22,10 @@
 --yb_num_shards_per_tserver=<%= p("yb_num_shards_per_tserver") %>
 --ysql_num_shards_per_tserver=<%= p("ysql_num_shards_per_tserver") %>
 
+--durable_wal_write=<%= p("durable_wal_write") %>
+--interval_durable_wal_write_ms=<%= p("interval_durable_wal_write_ms") %>
+--bytes_durable_wal_write_mb=<%= p("bytes_durable_wal_write_mb") %>
+
 --stop_on_parent_termination=<%= p("stop_on_parent_termination") %>
 
 --placement_cloud=<%= p("placement_cloud") %>
