@@ -105,7 +105,7 @@ properties:
   ysql_log_min_messages:
     description: |
       Specifies the lowest YSQL message level to log.
-      Valid values: info, warning, error, fatal
+      Valid values: info, warning, error, fatal (and others if you go look up postgres "log_min_messages")
     default: ""
 
   gflags:
