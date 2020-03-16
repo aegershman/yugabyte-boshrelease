@@ -99,6 +99,15 @@ properties:
       IMPORTANT: This value must match on all yb-master and yb-tserver configurations of a YugabyteDB cluster.
     default: 8
 
+  durable_wal_write:
+    description: |
+      If set to false, the writes to the WAL are synced to disk every interval_durable_wal_write_ms milliseconds (ms)
+      or every bytes_durable_wal_write_mb megabyte (MB), whichever comes first.
+      This default setting is recommended only for multi-AZ or multi-region deployments where the availability zones (AZs)
+      or regions are independent failure domains and there is not a risk of correlated power loss.
+      For single AZ deployments, this option should be set to true.
+    default: false
+
   stop_on_parent_termination:
     description: When specified, this process will terminate when parent process terminates. Linux-only.
     default: false
