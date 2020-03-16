@@ -15,6 +15,9 @@
 --webserver_port=<%= p("webserver_port") %>
 
 --enable_ysql=<%= p("enable_ysql") %>
+--ysql_hba_conf=<%= p("ysql_hba_conf") %>
+--ysql_max_connections=<%= p("ysql_max_connections") %>
+--ysql_default_transaction_isolation=<%= p("ysql_default_transaction_isolation") %>
 --ysql_log_statement=<%= p("ysql_log_statement") %>
 
 --cql_proxy_bind_address=<%= spec.address %>:<%= p("cql_proxy_bind_port") %>
