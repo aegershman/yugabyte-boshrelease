@@ -19,6 +19,9 @@
 
 --default_memory_limit_to_ram_ratio=<%= p("default_memory_limit_to_ram_ratio") %>
 
+--yb_num_shards_per_tserver=<%= p("yb_num_shards_per_tserver") %>
+--ysql_num_shards_per_tserver=<%= p("ysql_num_shards_per_tserver") %>
+
 --placement_cloud=<%= p("placement_cloud") %>
 --placement_region=<%= p("placement_region") %>
 --placement_zone=<%= p("placement_zone", spec.az) %>
