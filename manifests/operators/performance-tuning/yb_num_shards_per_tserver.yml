@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/yb_num_shards_per_tserver?
+  value: ((yb_num_shards_per_tserver))
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/yb_num_shards_per_tserver?
+  value: ((yb_num_shards_per_tserver))

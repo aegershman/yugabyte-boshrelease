@@ -81,7 +81,23 @@ properties:
     description: extra "--key=value" properties to pass to the conf file
     example:
       gflags:
-        yb_num_shards_per_tserver: 7
+        log_change_config_every_n: 1
+
+  yb_num_shards_per_tserver:
+    description: |
+      The number of shards per YB-TServer for each YCQL table when a user table is created.
+      Default: -1 (server internally sets default value).
+      For servers with two or less CPU cores, then the default value is 4.
+      For four or more CPU cores, the default value is 8.
+      Local cluster installations, created using yb-ctl and yb-docker-ctl, use a value of 2 for this option.
+      IMPORTANT: This value must match on all yb-master and yb-tserver configurations of a YugabyteDB cluster.
+    default: -1
+  ysql_num_shards_per_tserver:
+    description: |
+      The number of shards per YB-TServer for each YSQL table when a user table is created.
+      NOTE: On a per-table basis, the CREATE TABLE ...SPLIT INTO clause can be used to override the ysql_num_shards_per_tserver value.
+      IMPORTANT: This value must match on all yb-master and yb-tserver configurations of a YugabyteDB cluster.
+    default: 8
 
   placement_cloud:
     description: Specifies the name of the cloud where this instance is deployed.
