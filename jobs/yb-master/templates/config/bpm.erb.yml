@@ -10,6 +10,5 @@ processes:
       processes: <%= p("bpm.limits.processes") %>
     env:
       ENABLE_MANUAL_YSQL_INIT: <%= p("enable_ysql") %>
-      LC_ALL: C
     hooks:
       pre_start: /var/vcap/jobs/yb-master/bin/pre_start
