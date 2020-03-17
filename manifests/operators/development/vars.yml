@@ -4,7 +4,7 @@
 ---
 callhome_enabled: false
 durable_wal_write: true
-enable_ysql: false
+enable_ysql: true
 master_instances: 1
 master_stderrthreshold: 0
 stop_on_parent_termination: true
