@@ -15,8 +15,8 @@
 --webserver_interface=<%= spec.address %>
 --webserver_port=<%= p("webserver_port") %>
 
-<% if p("enable_ysql") -%>
 --enable_ysql=<%= p("enable_ysql") %>
+<% if p("enable_ysql") -%>
 --initial_sys_catalog_snapshot_path=/var/vcap/packages/yugabyte/share/initial_sys_catalog_snapshot
 --master_auto_run_initdb=<%= p("enable_ysql") %>
 <% end -%>
