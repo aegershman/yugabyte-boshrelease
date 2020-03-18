@@ -153,12 +153,11 @@ properties:
   ycql.cassandra_password:
     description: Password for the default "cassandra" admin user
     default: cassandra
-  ycql.old_cassandra_passwords:
+  ycql.cassandra_password_old:
     description: |
-      List of old passwords to attempt for the default admin user "cassandra" while changing the
-      password of the "cassandra" user to have the current password of "ycql.cassandra_password";
-      once the new password has been successfully set, this list should be emptied.
-    default: ["cassandra"]
+      Old password to attempt while rotating the default "cassandra" admin user password to the new "cassandra_password".
+      Once the new password has been successfully set, this can be unset.
+    default: cassandra
   ycql.databases.superusers:
     description: |
       until we get to putting a more fine-grained RBAC model in place
