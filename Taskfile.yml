@@ -73,7 +73,6 @@ tasks:
           -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
           -o manifests/operators/stop_on_parent_termination.yml \
           -o manifests/operators/tserver-rpc-bind-port.yml \
-          -o manifests/operators/ycql_cassandra_password.yml \
           -l manifests/operators/sample-apps/vars.yml \
           -l manifests/vars.yml \
           -l manifests/versions.yml \
