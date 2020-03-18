@@ -10,6 +10,7 @@ templates:
   bin/post-start.sh.erb: bin/post-start
   bin/pre_start.sh: bin/pre_start
   bin/yb-init-pg.sh: bin/yb-init-pg.sh
+  bin/ycql-admin-pw-cycle.sh.erb: bin/ycql-admin-pw-cycle.sh
   config/bpm.erb.yml: config/bpm.yml
   config/certs/ca.crt.erb: config/certs/ca.crt
   config/certs/node.crt.erb: config/certs/node.crt
@@ -149,6 +150,15 @@ properties:
     description: When specified, this process will terminate when parent process terminates. Linux-only.
     default: false
 
+  ycql.cassandra_password:
+    description: Password for the default "cassandra" admin user
+    default: cassandra
+  ycql.old_cassandra_passwords:
+    description: |
+      List of old passwords to attempt for the default admin user "cassandra" while changing the
+      password of the "cassandra" user to have the current password of "ycql.cassandra_password";
+      once the new password has been successfully set, this list should be emptied.
+    default: []
   ycql.databases.superusers:
     description: |
       until we get to putting a more fine-grained RBAC model in place

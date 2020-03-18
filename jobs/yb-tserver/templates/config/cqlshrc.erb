@@ -1,6 +1,6 @@
 [authentication]
 username = cassandra
-password = cassandra
+password = <%= p("ycql.cassandra_password") %>
 
 [connection]
 hostname = <%= spec.address %>
