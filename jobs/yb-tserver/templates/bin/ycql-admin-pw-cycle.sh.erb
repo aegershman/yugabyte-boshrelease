@@ -24,6 +24,7 @@ echo "attempting current cassandra_password to see if it is already set..."
 if [[ $? == 0 ]]; then
   echo "cassandra_password is already in use. aborting early to save time."
   exit 0
+fi
 
 echo "attempting to update cassandra_password using cassandra_password_old..."
 /var/vcap/packages/yugabyte/bin/cqlsh \

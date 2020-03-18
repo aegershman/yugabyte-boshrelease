@@ -70,9 +70,9 @@ tasks:
           -o manifests/operators/logging/ysql_log_statement.yml \
           -o manifests/operators/performance-tuning/durable_wal_write.yml \
           -o manifests/operators/placement-options.yml \
-          -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
           -o manifests/operators/stop_on_parent_termination.yml \
           -o manifests/operators/tserver-rpc-bind-port.yml \
+          -o manifests/operators/ycql_cassandra_password_old.yml \
           -o manifests/operators/ycql_cassandra_password.yml \
           -l manifests/operators/sample-apps/vars.yml \
           -l manifests/vars.yml \
@@ -81,6 +81,7 @@ tasks:
           --no-redact \
           --non-interactive
 
+  # -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
   test:
     cmds:
       # - task: add-blobs

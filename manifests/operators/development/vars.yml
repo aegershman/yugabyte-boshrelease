@@ -14,5 +14,5 @@ syslog_tls_enabled: false
 tserver_instances: 1
 tserver_stderrthreshold: 0
 ycql_cassandra_password_old: cassandra
-ycql_cassandra_password: cassandra
+ycql_cassandra_password: cassandraTHREE
 ysql_log_statement: all
