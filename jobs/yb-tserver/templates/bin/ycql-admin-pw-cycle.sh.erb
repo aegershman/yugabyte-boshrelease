@@ -1,20 +1,38 @@
 #!/usr/bin/env bash
 
-set -eu
+set -u
 
 source /var/vcap/packages/python-*/bosh/runtime.env
 
 echo "attempting cassandra admin user password cycle..."
 
-<% p("ycql.old_cassandra_passwords", []).each do |old_password_attempt| %>
+<% p("ycql.old_cassandra_passwords", []).each_with_index do |old_password_attempt, index| %>
 
-OLD_PASSWORD_ATTEMPT="<%= old_password_attempt %>"
-NEW_PASSWORD="<%= p('ycql.cassandra_password') %>"
+echo "attempting to update current password using old_cassandra_password at list index <%= index %>..."
 
 /var/vcap/packages/yugabyte/bin/cqlsh \
   --cqlshrc /var/vcap/jobs/yb-tserver/config/cqlshrc \
-  --password "${OLD_PASSWORD_ATTEMPT}" \
-  --execute "ALTER ROLE cassandra WITH password = '${NEW_PASSWORD}'" \
-  --debug
+  --password "<%= old_password_attempt %>" \
+  --execute "ALTER ROLE cassandra WITH password = <%= p('ycql.cassandra_password') %>'"
+
+failure_on_attempt=$?
+if [[ "${failure_on_attempt}" == 0 ]]; then
+
+  echo "password appears to have been set, confirming..."
+
+  /var/vcap/packages/yugabyte/bin/cqlsh \
+    --cqlshrc /var/vcap/jobs/yb-tserver/config/cqlshrc \
+    --execute "ALTER ROLE cassandra WITH password = <%= p('ycql.cassandra_password') %>'"
+
+  failure_on_confirmation=$?
+  if [[ "${failure_on_confirmation}" == 0 ]]; then
+    echo "set password appears CONSISTENT with intended password set in cqlshrc."
+    exit 0
+  fi
+
+  echo "set password appears INCONSISTENT with intended password set in cqlshrc. aborting."
+  exit 1
+
+fi
 
 <% end %>
