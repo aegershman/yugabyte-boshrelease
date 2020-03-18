@@ -10,7 +10,7 @@ templates:
   bin/post-start.sh.erb: bin/post-start
   bin/pre_start.sh: bin/pre_start
   bin/yb-init-pg.sh: bin/yb-init-pg.sh
-  bin/ycql-admin-pw-cycle.sh.erb: bin/ycql-admin-pw-cycle.sh
+  bin/ycql-rotate-default-admin-password.sh.erb: bin/ycql-rotate-default-admin-password.sh
   config/bpm.erb.yml: config/bpm.yml
   config/certs/ca.crt.erb: config/certs/ca.crt
   config/certs/node.crt.erb: config/certs/node.crt

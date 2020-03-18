@@ -6,7 +6,7 @@ source /var/vcap/packages/python-*/bosh/runtime.env
 
 echo "running post-deploy..."
 
-/var/vcap/jobs/yb-tserver/bin/ycql-admin-pw-cycle.sh
+/var/vcap/jobs/yb-tserver/bin/ycql-rotate-default-admin-password.sh
 
 /var/vcap/packages/yugabyte/bin/cqlsh \
   --cqlshrc /var/vcap/jobs/yb-tserver/config/cqlshrc \
