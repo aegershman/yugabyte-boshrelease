@@ -45,6 +45,10 @@ Certain flags (but not all) are defined as their own property with their own def
 
 There are many flags which should have reasonable defaults, which either are specific to this BOSH release (and thus aren't defined in upstream Yugabyte), or we feel should be different from the defaults selected from upstream Yugabyte. But if we don't put those configuration flags as their own property in the BOSH job `spec`, and instead rely on `gflags: {x: y}` to pass in everything, then there's no way (that I'm aware of?) for the maintainers of this BOSH release to set default `gflags` in such a way that consumers could selectively override individual flags. For example: if someone wanted to override _one_ flag, like `placement_cloud`, then _all_ the defaults we set in `gflags` in the job `spec` file would back off and deactivate. A consumer would have to define all the defaults _we_ set (if they so chose) in their `gflags` override in addition to the _one_ flag they wanted to change.
 
+## rotating the YCQL admin "cassandra" user password
+
+There is a default YCQL superadmin with the credentials `cassandra`/`cassandra`. The password for the `cassandra` user can be rotated in a two-step process. You'll need to configure the `cassandra_password_old` property, which will be used while attempting to set the new password to `cassandra_password`. Once the new password of `cassandra_password` is set and in-use, you can remove the opsfile for `cassandra_password_old` at your discretion.
+
 ## cutting releases
 
 Having a fully automated release process is a goal. But we want to make sure it's done well, and would like to have it done using github actions if possible. But until then, here's the general workflow. We're assuming any `bosh add-blobs` and `bosh upload-blobs` commands have been `git commit`'ed if blobs are changing, and now we're on the release process.
