@@ -6,6 +6,11 @@ source /var/vcap/packages/python-*/bosh/runtime.env
 
 echo "attempting cassandra admin user password cycle..."
 
+<% if p("ycql.old_cassandra_passwords").length == 1 && p("ycql.old_cassandra_passwords")[0] == p('ycql.cassandra_password') %>
+echo "appears old_cassandra_passwords only has one element, and it's the same value as the intended password. aborting early to save time."
+exit 0
+<% end %>
+
 <% p("ycql.old_cassandra_passwords", []).each_with_index do |old_password_attempt, index| %>
 
 echo "attempting to update current password using old_cassandra_password at list index <%= index %>..."
@@ -26,7 +31,7 @@ if [[ "${failure_on_attempt}" == 0 ]]; then
 
   failure_on_confirmation=$?
   if [[ "${failure_on_confirmation}" == 0 ]]; then
-    echo "set password appears CONSISTENT with intended password set in cqlshrc."
+    echo "set password appears CONSISTENT with intended password set in cqlshrc. success."
     exit 0
   fi
 
@@ -35,6 +40,6 @@ if [[ "${failure_on_attempt}" == 0 ]]; then
 
 fi
 
-echo "appears old_cassandra_password at list index <%= index %> was invalid..."
+echo "appears old_cassandra_password at list index <%= index %> was invalid, continuing..."
 
 <% end %>
