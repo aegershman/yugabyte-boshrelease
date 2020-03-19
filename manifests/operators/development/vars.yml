@@ -2,15 +2,10 @@
 # loaded last in testing tooling to be used
 # for experimentation while developing this release
 ---
-callhome_enabled: false
-durable_wal_write: true
-enable_ysql: false
 master_instances: 1
 master_stderrthreshold: 0
-stop_on_parent_termination: true
 syslog_address: q-s0.docker.services-network.splunk.bosh
 syslog_port: 5514
 syslog_tls_enabled: false
 tserver_instances: 1
 tserver_stderrthreshold: 0
-ysql_log_statement: all
