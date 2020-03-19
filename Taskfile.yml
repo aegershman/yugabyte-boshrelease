@@ -62,16 +62,11 @@ tasks:
       - |
         bosh -d yugabyte deploy manifests/yugabyte.yml \
           -o manifests/operators/development/create-release-from-local.yml \
-          -o manifests/operators/development/enable-ysql.yml \
           -o manifests/operators/gflags.yml \
-          -o manifests/operators/logging/callhome_enabled.yml \
           -o manifests/operators/logging/enable-syslog-forwarder.yml \
           -o manifests/operators/logging/stderrthreshold.yml \
-          -o manifests/operators/logging/ysql_log_statement.yml \
-          -o manifests/operators/performance-tuning/durable_wal_write.yml \
           -o manifests/operators/placement-options.yml \
           -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
-          -o manifests/operators/stop_on_parent_termination.yml \
           -o manifests/operators/tserver-rpc-bind-port.yml \
           -l manifests/operators/sample-apps/vars.yml \
           -l manifests/vars.yml \
