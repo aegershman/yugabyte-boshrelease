@@ -4,7 +4,38 @@ processes:
     executable: /var/vcap/packages/yugabyte/bin/yb-master
     persistent_disk: true
     args:
+      - --bytes_durable_wal_write_mb=<%= p("bytes_durable_wal_write_mb") %>
+      - --callhome_collection_level=<%= p("callhome_collection_level") %>
+      - --callhome_enabled=<%= p("callhome_enabled") %>
+      - --callhome_interval_secs=<%= p("callhome_interval_secs") %>
+      - --callhome_url=<%= p("callhome_url") %>
+      - --default_memory_limit_to_ram_ratio=<%= p("default_memory_limit_to_ram_ratio") %>
+      - --durable_wal_write=<%= p("durable_wal_write") %>
       - --flagfile=/var/vcap/jobs/yb-master/config/master.conf
+      - --fs_data_dirs=/var/vcap/store/yb-master
+      - --interval_durable_wal_write_ms=<%= p("interval_durable_wal_write_ms") %>
+      - --log_dir=/var/vcap/sys/log/yb-master
+      - --logtostderr=<%= p("logtostderr") %>
+      - --master_addresses=<%= link("yb-master").instances.map { |i| "#{i.address}:#{p('rpc_bind_addresses_port')}" }.join(",") %>
+      - --max_log_size=<%= p("max_log_size") %>
+      - --minloglevel=<%= p("minloglevel") %>
+      - --placement_cloud=<%= p("placement_cloud") %>
+      - --placement_region=<%= p("placement_region") %>
+      - --placement_zone=<%= p("placement_zone", spec.az) %>
+      - --replication_factor=<%= link("yb-master").instances.length %>
+      - --rpc_bind_addresses=<%= spec.address %>
+      - --server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
+      - --server_dump_info_path=/var/vcap/sys/log/yb-master/master-info
+      - --stderrthreshold=<%= p("stderrthreshold") %>
+      - --stop_logging_if_full_disk=<%= p("stop_logging_if_full_disk") %>
+      - --stop_on_parent_termination=<%= p("stop_on_parent_termination") %>
+      - --use_cassandra_authentication=true
+      - --v=<%= p("v") %>
+      - --webserver_interface=<%= spec.address %>
+      - --webserver_port=<%= p("webserver_port") %>
+      - --yb_num_shards_per_tserver=<%= p("yb_num_shards_per_tserver") %>
+      - --ysql_num_shards_per_tserver=<%= p("ysql_num_shards_per_tserver") %>
+
     limits:
       open_files: <%= p("bpm.limits.open_files") %>
       processes: <%= p("bpm.limits.processes") %>

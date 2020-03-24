@@ -1,47 +1,8 @@
---fs_data_dirs=/var/vcap/store/yb-master
---log_dir=/var/vcap/sys/log/yb-master
---server_dump_info_path=/var/vcap/sys/log/yb-master/master-info
---logtostderr=<%= p("logtostderr") %>
---max_log_size=<%= p("max_log_size") %>
---minloglevel=<%= p("minloglevel") %>
---stderrthreshold=<%= p("stderrthreshold") %>
---stop_logging_if_full_disk=<%= p("stop_logging_if_full_disk") %>
---v=<%= p("v") %>
-
---master_addresses=<%= link("yb-master").instances.map { |i| "#{i.address}:#{p('rpc_bind_addresses_port')}" }.join(",") %>
---replication_factor=<%= link("yb-master").instances.length %>
---rpc_bind_addresses=<%= spec.address %>
---server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
---webserver_interface=<%= spec.address %>
---webserver_port=<%= p("webserver_port") %>
-
 --enable_ysql=<%= p("enable_ysql") %>
 <% if p("enable_ysql") -%>
 --initial_sys_catalog_snapshot_path=/var/vcap/packages/yugabyte/share/initial_sys_catalog_snapshot
 --master_auto_run_initdb=<%= p("enable_ysql") %>
 <% end -%>
-
---default_memory_limit_to_ram_ratio=<%= p("default_memory_limit_to_ram_ratio") %>
-
---yb_num_shards_per_tserver=<%= p("yb_num_shards_per_tserver") %>
---ysql_num_shards_per_tserver=<%= p("ysql_num_shards_per_tserver") %>
-
---durable_wal_write=<%= p("durable_wal_write") %>
---interval_durable_wal_write_ms=<%= p("interval_durable_wal_write_ms") %>
---bytes_durable_wal_write_mb=<%= p("bytes_durable_wal_write_mb") %>
-
---stop_on_parent_termination=<%= p("stop_on_parent_termination") %>
-
---placement_cloud=<%= p("placement_cloud") %>
---placement_region=<%= p("placement_region") %>
---placement_zone=<%= p("placement_zone", spec.az) %>
-
---use_cassandra_authentication=true
-
---callhome_collection_level=<%= p("callhome_collection_level") %>
---callhome_interval_secs=<%= p("callhome_interval_secs") %>
---callhome_url=<%= p("callhome_url") %>
---callhome_enabled=<%= p("callhome_enabled") %>
 
 <% if p("tls.use_node_to_node_encryption") -%>
 --allow_insecure_connections=<%= p("tls.allow_insecure_connections") %>
