@@ -28,6 +28,10 @@ instance_groups:
     jobs:
       - name: yb-master
         release: yugabyte
+        properties:
+          tls:
+            allow_insecure_connections: ((master_allow_insecure_connections))
+            use_node_to_node_encryption: ((use_node_to_node_encryption))
         custom_provider_definitions:
           - name: yb-master-address-link
             type: address
@@ -42,6 +46,14 @@ instance_groups:
     jobs:
       - name: yb-tserver
         release: yugabyte
+        properties:
+          tls:
+            allow_insecure_connections: ((tserver_allow_insecure_connections))
+            use_client_to_server_encryption: ((use_client_to_server_encryption))
+            node:
+              ca: ((yugabyte-server-tls-tserver.ca))
+              cert: ((yugabyte-server-tls-tserver.certificate))
+              key: ((yugabyte-server-tls-tserver.private_key))
         custom_provider_definitions:
           - name: yb-tserver-address-link
             type: address
@@ -57,8 +69,34 @@ instance_groups:
     jobs:
       - name: setup_redis_table
         release: yugabyte
+        properties:
+          tls:
+            enabled: ((use_node_to_node_encryption))
+            node:
+              ca: ((yugabyte-server-tls-master.ca))
 
-variables: []
+variables:
+  - name: yugabyte-server-tls-master
+    type: certificate
+    update_mode: ((yugabyte_server_tls_update_mode))
+    options:
+      ca: /services/tls_ca
+      common_name: ((yugabyte_server_tls_common_name))
+    consumes:
+      alternative_name:
+        from: yb-master-address-link
+        properties: { wildcard: true }
+
+  - name: yugabyte-server-tls-tserver
+    type: certificate
+    update_mode: ((yugabyte_server_tls_update_mode))
+    options:
+      ca: /services/tls_ca
+      common_name: ((yugabyte_server_tls_common_name))
+    consumes:
+      alternative_name:
+        from: yb-tserver-address-link
+        properties: { wildcard: true }
 
 stemcells:
   - alias: default
