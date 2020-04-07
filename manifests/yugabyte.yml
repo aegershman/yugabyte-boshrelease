@@ -78,7 +78,7 @@ instance_groups:
 variables:
   - name: yugabyte-server-tls-master
     type: certificate
-    update_mode: ((yugabyte_server_tls_update_mode))
+    update_mode: converge
     options:
       ca: /services/tls_ca
       common_name: yugabyte-boshrelease-certificate
@@ -89,7 +89,7 @@ variables:
 
   - name: yugabyte-server-tls-tserver
     type: certificate
-    update_mode: ((yugabyte_server_tls_update_mode))
+    update_mode: converge
     options:
       ca: /services/tls_ca
       common_name: yugabyte-boshrelease-certificate

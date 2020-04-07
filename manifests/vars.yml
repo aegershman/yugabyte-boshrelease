@@ -31,4 +31,3 @@ master_allow_insecure_connections: true
 tserver_allow_insecure_connections: true
 use_client_to_server_encryption: true
 use_node_to_node_encryption: true
-yugabyte_server_tls_update_mode: converge
