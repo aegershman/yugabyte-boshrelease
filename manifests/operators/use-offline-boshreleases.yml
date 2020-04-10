@@ -1,0 +1,15 @@
+---
+- type: remove
+  path: /releases/name=yugabyte/url?
+- type: remove
+  path: /releases/name=yugabyte/sha1?
+
+- type: remove
+  path: /releases/name=bpm/url?
+- type: remove
+  path: /releases/name=bpm/sha1?
+
+- type: remove
+  path: /releases/name=syslog?/url?
+- type: remove
+  path: /releases/name=syslog?/sha1?
