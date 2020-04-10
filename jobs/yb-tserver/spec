@@ -63,12 +63,12 @@ properties:
     description: |
       set to true to enable encryption between clients and cluster
       see also: https://docs.yugabyte.com/latest/secure/tls-encryption/client-to-server
-    default: false
+    default: true
   tls.use_node_to_node_encryption:
     description: |
       set to true to enable encryption between nodes
       see also: https://docs.yugabyte.com/latest/secure/tls-encryption/server-certificates
-    default: false
+    default: true
   tls.node.ca:
     description: "CA root required for key/cert verification"
   tls.node.cert:
