@@ -1,0 +1,8 @@
+---
+- type: replace
+  path: /variables/name=yugabyte-server-tls-master/update_mode
+  value: ((generated_certificates_update_mode))
+
+- type: replace
+  path: /variables/name=yugabyte-server-tls-tserver/update_mode
+  value: ((generated_certificates_update_mode))
