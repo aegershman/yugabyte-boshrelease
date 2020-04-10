@@ -1,0 +1,6 @@
+---
+- type: remove
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/ycql?/cassandra_password?
+
+- type: remove
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/ycql?/databases?/superusers?
