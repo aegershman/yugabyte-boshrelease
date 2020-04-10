@@ -1,7 +1,4 @@
 ---
-- type: remove
-  path: /variables?/yugabyte-server-tls-master?
-
 - type: replace
   path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?/allow_insecure_connections?
   value: ((master_allow_insecure_connections))
@@ -9,9 +6,6 @@
 - type: replace
   path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?/use_node_to_node_encryption?
   value: ((use_node_to_node_encryption))
-
-- type: remove
-  path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?/node?
 
 ######################################################
 
@@ -22,17 +16,8 @@
   path: /instance_groups/name=setup_redis_table/jobs/name=setup_redis_table/properties?/tls?/enabled?
   value: ((use_node_to_node_encryption))
 
-- type: remove
-  path: /instance_groups/name=setup_redis_table/jobs/name=setup_redis_table/properties?/tls?/node?
-
 ######################################################
-
-- type: remove
-  path: /variables?/yugabyte-server-tls-tserver?
 
 - type: replace
   path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/tls?/use_node_to_node_encryption?
   value: ((use_node_to_node_encryption))
-
-- type: remove
-  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/tls?/node?
