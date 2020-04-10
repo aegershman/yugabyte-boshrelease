@@ -10,6 +10,8 @@ releases:
     sha1: ((yugabyte_boshrelease_sha1))
   - name: bpm
     version: ((bpm_version))
+    sha1: ((bpm_sha1))
+    url: https://bosh.io/d/github.com/cloudfoundry/bpm-release?v=((bpm_version))
 
 addons:
   - name: bpm
