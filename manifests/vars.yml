@@ -26,8 +26,3 @@ tserver_persistent_disk_type: "102400"
 tserver_rpc_bind_port: 9101
 tserver_vm_type: m5.large
 tserver_gflags: {}
-
-master_allow_insecure_connections: true
-tserver_allow_insecure_connections: true
-use_client_to_server_encryption: true
-use_node_to_node_encryption: true

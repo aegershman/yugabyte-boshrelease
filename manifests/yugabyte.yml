@@ -30,8 +30,10 @@ instance_groups:
         release: yugabyte
         properties:
           tls:
-            allow_insecure_connections: ((master_allow_insecure_connections))
-            use_node_to_node_encryption: ((use_node_to_node_encryption))
+            node:
+              ca: ((yugabyte-server-tls-master.ca))
+              cert: ((yugabyte-server-tls-master.certificate))
+              key: ((yugabyte-server-tls-master.private_key))
         custom_provider_definitions:
           - name: yb-master-address-link
             type: address
@@ -48,8 +50,6 @@ instance_groups:
         release: yugabyte
         properties:
           tls:
-            allow_insecure_connections: ((tserver_allow_insecure_connections))
-            use_client_to_server_encryption: ((use_client_to_server_encryption))
             node:
               ca: ((yugabyte-server-tls-tserver.ca))
               cert: ((yugabyte-server-tls-tserver.certificate))
