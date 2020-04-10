@@ -71,7 +71,6 @@ instance_groups:
         release: yugabyte
         properties:
           tls:
-            enabled: ((use_node_to_node_encryption))
             node:
               ca: ((yugabyte-server-tls-master.ca))
 
