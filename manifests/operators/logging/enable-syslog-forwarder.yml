@@ -4,6 +4,8 @@
   value:
     name: syslog
     version: ((syslog_release_version))
+    url: https://bosh.io/d/github.com/cloudfoundry/syslog-release?v=((syslog_release_version))
+    sha1: ((syslog_release_sha1))
 
 - type: replace
   path: /addons?/-
