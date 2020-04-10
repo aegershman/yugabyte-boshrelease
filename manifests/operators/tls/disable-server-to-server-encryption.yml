@@ -19,16 +19,11 @@
 # one day this should be configured through consuming bosh links properties
 # rather than statically configured
 - type: replace
-  path: /instance_groups/name=setup_redis_table/jobs/name=setup_redis_table/properties?/tls?
-  value:
-    enabled: ((use_node_to_node_encryption))
+  path: /instance_groups/name=setup_redis_table/jobs/name=setup_redis_table/properties?/tls?/enabled?
+  value: ((use_node_to_node_encryption))
 
 - type: remove
   path: /instance_groups/name=setup_redis_table/jobs/name=setup_redis_table/properties?/tls?/node?
-  value:
-    enabled: ((use_node_to_node_encryption))
-    node:
-      ca: ((yugabyte-server-tls-master.ca))
 
 ######################################################
 
