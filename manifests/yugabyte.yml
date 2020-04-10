@@ -49,6 +49,12 @@ instance_groups:
       - name: yb-tserver
         release: yugabyte
         properties:
+          ycql:
+            cassandra_password: ((ycql_cassandra_password))
+            databases:
+              superusers:
+                - name: admin
+                  password: ((ycql_superuser_admin_password))
           tls:
             node:
               ca: ((yugabyte-server-tls-tserver.ca))
@@ -75,6 +81,18 @@ instance_groups:
               ca: ((yugabyte-server-tls-master.ca))
 
 variables:
+  - name: ycql_cassandra_password
+    type: password
+    update_mode: converge
+    options:
+      length: 25
+
+  - name: ycql_superuser_admin_password
+    type: password
+    update_mode: converge
+    options:
+      length: 25
+
   - name: yugabyte-server-tls-master
     type: certificate
     update_mode: converge
