@@ -8,7 +8,7 @@ This currently only supports `YEDIS` and `YCQL` compatibilities. Enabling `YSQL`
 
 ## server-to-server tls
 
-TLS is currently under development. For the time being it's opt-in using an operator file.
+TLS is currently under development. For the time being it's on by default, and `allow_insecure_connections: false` between nodes by default. You can opt-out using an operator file.
 
 We use BOSH's credhub integration to generate individual certificates for both `master` and `tserver` instance groups leveraging [wildcard BOSH DNS values for the certificate SANs, meaning the actual hostname DNS values are handled automatically](https://bosh.io/docs/dns/). Since they're both signed by the same CA (by default located in credhub under `/services/tls_ca`, which is the CA for service instances which nearly all other service offerings in Cloud Foundry leverage for TLS), and each have the same `common_name`, they should be compatible with one another.
 
@@ -24,7 +24,7 @@ I0305 00:19:30.295537     6 secure.cc:102] Certs directory: /var/vcap/jobs/yb-ma
 
 ## client-to-server tls
 
-Also in progress, but available for opt-in using an operator file.
+On by default, but `allow_insecure_connections: true` by default for optional use of TLS from clients. All settings can be configured using operator files.
 
 [Also also `YEDIS` does not support client-server TLS](https://docs.yugabyte.com/latest/secure/tls-encryption/)
 
