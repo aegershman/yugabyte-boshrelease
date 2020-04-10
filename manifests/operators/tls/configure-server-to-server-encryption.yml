@@ -1,0 +1,23 @@
+---
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?/allow_insecure_connections?
+  value: ((master_allow_insecure_connections))
+
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?/use_node_to_node_encryption?
+  value: ((use_node_to_node_encryption))
+
+######################################################
+
+# update yb-admin to support connecting to the cluster using TLS;
+# one day this should be configured through consuming bosh links properties
+# rather than statically configured
+- type: replace
+  path: /instance_groups/name=setup_redis_table/jobs/name=setup_redis_table/properties?/tls?/enabled?
+  value: ((use_node_to_node_encryption))
+
+######################################################
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/tls?/use_node_to_node_encryption?
+  value: ((use_node_to_node_encryption))

@@ -28,6 +28,6 @@ properties:
       Whether to attempt connecting to the cluster with TLS enabled.
       If the master nodes have `use_node_to_node_encryption` passed, this
       will be required.
-    default: false
+    default: true
   tls.node.ca:
     description: "CA root required for key/cert verification"

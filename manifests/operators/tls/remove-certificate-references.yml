@@ -1,0 +1,15 @@
+---
+- type: remove
+  path: /variables?/yugabyte-server-tls-master?
+
+- type: remove
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/tls?/node?
+
+- type: remove
+  path: /instance_groups/name=setup_redis_table/jobs/name=setup_redis_table/properties?/tls?/node?
+
+- type: remove
+  path: /variables?/yugabyte-server-tls-tserver?
+
+- type: remove
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/tls?/node?
