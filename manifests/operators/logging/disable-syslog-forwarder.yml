@@ -1,0 +1,6 @@
+---
+- type: remove
+  path: /releases/syslog?
+
+- type: remove
+  path: /addons?/syslog_forwarder?
