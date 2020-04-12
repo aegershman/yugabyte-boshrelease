@@ -20,6 +20,9 @@ master_persistent_disk_type: "51200"
 master_vm_type: t3.micro
 master_gflags: {}
 
+syslog_tls_enabled: false
+syslog_port: 5514
+
 tserver_azs: [us-west-2a]
 tserver_instances: 3
 tserver_persistent_disk_type: "102400"
