@@ -1,0 +1,4 @@
+---
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/rpc_bind_addresses_port?
+  value: ((tserver_rpc_bind_port))

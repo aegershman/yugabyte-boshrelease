@@ -26,6 +26,5 @@ syslog_port: 5514
 tserver_azs: [us-west-2a]
 tserver_instances: 3
 tserver_persistent_disk_type: "102400"
-tserver_rpc_bind_port: 9101
 tserver_vm_type: m5.large
 tserver_gflags: {}
