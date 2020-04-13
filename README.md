@@ -55,14 +55,6 @@ The default _manifest_ in `manifests/yugabyte.yml` will automatically change the
 
 In order to change the password of a user through `ycql.databases.superusers[*].password: some_password`, just change the value of `some_password` in-place. The root `cassandra` user is used internally to `ALTER` those superusers, so you don't need to worry about doing fancy swapouts of those passwords. Just change it in the deployment manifest, and it'll rotate on the next deploy.
 
-## default tserver rpc bind port changed from 9100 to 9101
-
-If you're co-locating `yugabyte` deployments under a bosh director with other deployments performing periodic rpc calls on port `:9100`, such as metrics scrapers, the `tserver` nodes will interpret those rpc calls as malformed requests from another `tserver` && the `tserver` explodes and dies.
-
-Given the likelihood that anyone deploying this is deploying it under a bosh director which is leveraging a metrics scraper, the default `tserver_rpc_bind_port` will be set to `:9101`.
-
-You really shouldn't notice a difference about any of this at all, but it's worth pointing out since it's a delta between what's shipped stock with upstream OSS YB.
-
 ## cutting releases
 
 Having a fully automated release process is a goal. But we want to make sure it's done well, and would like to have it done using github actions if possible. But until then, here's the general workflow. We're assuming any `bosh add-blobs` and `bosh upload-blobs` commands have been `git commit`'ed if blobs are changing, and now we're on the release process.

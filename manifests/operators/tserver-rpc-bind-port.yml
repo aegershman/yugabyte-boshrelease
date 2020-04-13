@@ -1,11 +1,3 @@
-# this is especially useful if you're co-locating
-# the deployment under a bosh director with other deployments performing
-# periodic rpc calls on port :9100, such as metrics scrapers
-#
-# currently, if another deployment makes an rpc call to a tserver node
-# on the rpc bind port, the tserver interprets that as a malformed
-# request from another tserver, and it explodes and dies; so it's helpful
-# to be able to change this binding port
 ---
 - type: replace
   path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/rpc_bind_addresses_port?
