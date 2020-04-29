@@ -125,7 +125,6 @@ variables:
       ca: /services/tls_ca
       common_name: yugabyte
       alternative_names:
-        - "*.master.((network)).((deployment_name)).bosh"
         - 127.0.0.1
         - localhost
     extended_key_usage:
@@ -143,7 +142,6 @@ variables:
       ca: /services/tls_ca
       common_name: yugabyte
       alternative_names:
-        - "*.tserver.((network)).((deployment_name)).bosh"
         - 127.0.0.1
         - localhost
     extended_key_usage:
