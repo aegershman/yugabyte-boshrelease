@@ -1,0 +1,42 @@
+# this doesn't actually do anything special, but I wanted to keep it here
+# as a mental reminder about what can be done with atlernative_names and extended_key_usage
+---
+- type: replace
+  path: /variables/name=yugabyte-server-tls-master
+  value:
+    name: yugabyte-server-tls-master
+    type: certificate
+    update_mode: converge
+    options:
+      ca: /services/tls_ca
+      common_name: yugabyte
+      alternative_names:
+        - 127.0.0.1
+        - localhost
+    extended_key_usage:
+      - client_auth
+      - server_auth
+    consumes:
+      alternative_name:
+        from: yb-master-address-link
+        properties: { wildcard: true }
+
+- type: replace
+  path: /variables/name=yugabyte-server-tls-tserver
+  value:
+    name: yugabyte-server-tls-tserver
+    type: certificate
+    update_mode: converge
+    options:
+      ca: /services/tls_ca
+      common_name: yugabyte
+      alternative_names:
+        - 127.0.0.1
+        - localhost
+    extended_key_usage:
+      - client_auth
+      - server_auth
+    consumes:
+      alternative_name:
+        from: yb-tserver-address-link
+        properties: { wildcard: true }
