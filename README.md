@@ -82,7 +82,7 @@ yugabyte_boshrelease_sha1: 582c112d4621361a031e530885f5653868f1bbd0
 yugabyte_boshrelease_version: x.y.z
 
 # git commit all of this to the branch
-git commit -A
+git add -A
 git commit -m "release-x.y.z"
 git push origin release-x.y.z
 
