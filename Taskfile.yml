@@ -3,8 +3,8 @@ version: "2"
 
 env:
   OPENJDK_VERSION: 1.8.0_242
-  PYTHON_PIP_URL: "https://files.pythonhosted.org/packages/ed/94/391a003107f6ec997c314199d03bff1c105af758ee490e3255353574487b/pip-1.5.2.tar.gz"
-  PYTHON_PIP_VERSION: 1.5.2
+  PYTHON_PIP_URL: "https://files.pythonhosted.org/packages/d1/05/059c78cd5d740d2299266ffa15514dad6692d4694df571bf168e2cdd98fb/pip-20.1.tar.gz"
+  PYTHON_PIP_VERSION: 20.1
   PYTHON_SETUPTOOLS_URL: "https://files.pythonhosted.org/packages/72/16/738ef65b2659b3a84573c51094afbfb0c263f7cd51911c3caf5e4f7b8c0b/setuptools-2.2.zip"
   PYTHON_SETUPTOOLS_VERSION: 2.2
   PYTHON_VERSION: 3.8.2
