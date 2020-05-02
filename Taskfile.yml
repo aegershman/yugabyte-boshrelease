@@ -5,8 +5,8 @@ env:
   OPENJDK_VERSION: 1.8.0_242
   PYTHON_PIP_URL: "https://files.pythonhosted.org/packages/d1/05/059c78cd5d740d2299266ffa15514dad6692d4694df571bf168e2cdd98fb/pip-20.1.tar.gz"
   PYTHON_PIP_VERSION: 20.1
-  PYTHON_SETUPTOOLS_URL: "https://files.pythonhosted.org/packages/72/16/738ef65b2659b3a84573c51094afbfb0c263f7cd51911c3caf5e4f7b8c0b/setuptools-2.2.zip"
-  PYTHON_SETUPTOOLS_VERSION: 2.2
+  PYTHON_SETUPTOOLS_URL: "https://files.pythonhosted.org/packages/b5/96/af1686ea8c1e503f4a81223d4a3410e7587fd52df03083de24161d0df7d4/setuptools-46.1.3.zip"
+  PYTHON_SETUPTOOLS_VERSION: 46.1.3
   PYTHON_VERSION: 3.8.2
   YB_SAMPLE_APPS_VERSION: 1.2.1
   YB_VERSION: 2.1.5.0
