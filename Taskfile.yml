@@ -3,6 +3,7 @@ version: "2"
 
 env:
   OPENJDK_VERSION: 1.8.0_252
+  OPENJDK_URL: "https://java-buildpack.cloudfoundry.org/openjdk/bionic/x86_64/bellsoft-jre8u252%2B9-linux-amd64.tar.gz"
   PYTHON_PIP_URL: "https://files.pythonhosted.org/packages/ed/94/391a003107f6ec997c314199d03bff1c105af758ee490e3255353574487b/pip-1.5.2.tar.gz"
   PYTHON_PIP_VERSION: 1.5.2
   PYTHON_SETUPTOOLS_URL: "https://files.pythonhosted.org/packages/72/16/738ef65b2659b3a84573c51094afbfb0c263f7cd51911c3caf5e4f7b8c0b/setuptools-2.2.zip"
@@ -15,7 +16,7 @@ tasks:
   dl-openjdk:
     status: ["test -f /tmp/yugablob/openjdk-${OPENJDK_VERSION}.tar.gz"]
     cmds:
-      - curl -o /tmp/yugablob/openjdk-${OPENJDK_VERSION}.tar.gz -L "https://java-buildpack.cloudfoundry.org/openjdk/bionic/x86_64/openjdk-jre-${OPENJDK_VERSION}-bionic.tar.gz"
+      - curl -o /tmp/yugablob/openjdk-${OPENJDK_VERSION}.tar.gz -L "${OPENJDK_URL}"
 
   dl-python:
     status:

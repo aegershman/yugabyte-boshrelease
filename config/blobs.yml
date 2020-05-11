@@ -1,6 +1,6 @@
 openjdk/openjdk-1.8.0_252.tar.gz:
-  size: 328
-  sha: sha256:9e4db92850d4926a082fc74d4cc5b5db60dbf9815d9118a1e4db3aa2fab68461
+  size: 40884683
+  sha: sha256:9ed792bf2dd7938968432e2876846a1dcfa95ae56f18396e64121d7450fea471
 python/Python-2.7.6.tgz:
   size: 14725931
   sha: sha256:99c6860b70977befa1590029fae092ddb18db1d69ae67e8b9385b66ed104ba58
