@@ -1,5 +1,5 @@
 ---
-name: python-2.7
+name: python-3
 
 description: |
   https://github.com/bosh-packages/python-release/pull/8/files
