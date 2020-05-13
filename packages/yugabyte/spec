@@ -2,7 +2,7 @@
 name: yugabyte
 
 dependencies:
-  - python-3
+  - python-x
 
 files:
   - yugabyte/yugabyte-*-linux.tar.gz
