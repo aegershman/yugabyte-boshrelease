@@ -3,11 +3,11 @@ version: "2"
 
 env:
   OPENJDK_VERSION: 1.8.0_252
-  PYTHON_PIP_URL: "https://files.pythonhosted.org/packages/ae/e8/2340d46ecadb1692a1e455f13f75e596d4eab3d11a57446f08259dee8f02/pip-10.0.1.tar.gz"
-  PYTHON_PIP_VERSION: 10.0.1
-  PYTHON_SETUPTOOLS_URL: "https://files.pythonhosted.org/packages/a6/5b/f399fcffb9128d642387133dc3aa9bb81f127b949cd4d9f63e5602ad1d71/setuptools-39.1.0.zip"
-  PYTHON_SETUPTOOLS_VERSION: 39.1.0
-  PYTHON_VERSION: 3.6.5
+  PYTHON_PIP_URL: "https://files.pythonhosted.org/packages/ed/94/391a003107f6ec997c314199d03bff1c105af758ee490e3255353574487b/pip-1.5.2.tar.gz"
+  PYTHON_PIP_VERSION: 1.5.2
+  PYTHON_SETUPTOOLS_URL: "https://files.pythonhosted.org/packages/72/16/738ef65b2659b3a84573c51094afbfb0c263f7cd51911c3caf5e4f7b8c0b/setuptools-2.2.zip"
+  PYTHON_SETUPTOOLS_VERSION: 2.2
+  PYTHON_VERSION: 2.7.6
   YB_SAMPLE_APPS_VERSION: 1.2.1
   YB_VERSION: 2.1.6.0
 
@@ -68,13 +68,13 @@ tasks:
           -o manifests/operators/gflags.yml \
           -o manifests/operators/logging/stderrthreshold.yml \
           -o manifests/operators/placement-options.yml \
+          -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
           -l manifests/operators/sample-apps/vars.yml \
           -l manifests/vars.yml \
           -l manifests/versions.yml \
           -l manifests/operators/development/vars.yml \
           --no-redact \
           --non-interactive
-  # -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
 
   test:
     cmds:
