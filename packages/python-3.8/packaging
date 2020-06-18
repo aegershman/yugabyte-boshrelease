@@ -28,7 +28,7 @@ export PYTHONPATH=$(ls -d $BOSH_INSTALL_TARGET/lib/python*/site-packages)
 
 echo "Installing setuptools..."
 pushd setuptools-*
-$BOSH_INSTALL_TARGET/bin/python setup.py install --prefix=$BOSH_INSTALL_TARGET
+$BOSH_INSTALL_TARGET/bin/python3 setup.py install --prefix=$BOSH_INSTALL_TARGET
 popd
 
 echo "Extracting pip..."
@@ -42,5 +42,5 @@ export PYTHONPATH=$(ls -d $BOSH_INSTALL_TARGET/lib/python*/site-packages):$PYTHO
 
 echo "Installing pip..."
 pushd pip-*
-$BOSH_INSTALL_TARGET/bin/python setup.py install --prefix=$BOSH_INSTALL_TARGET
+$BOSH_INSTALL_TARGET/bin/python3 setup.py install --prefix=$BOSH_INSTALL_TARGET
 popd
