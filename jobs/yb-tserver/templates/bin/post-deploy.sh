@@ -2,7 +2,7 @@
 
 set -eu
 
-source /var/vcap/packages/python-*/bosh/runtime.env
+source /var/vcap/packages/python*/bosh/runtime.env
 
 echo "running post-deploy..."
 
