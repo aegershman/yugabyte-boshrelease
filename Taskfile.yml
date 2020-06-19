@@ -49,7 +49,7 @@ tasks:
   run-errand:
     cmds:
       - bosh -d yugabyte run-errand setup_redis_table
-        # -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
+
   deploy:
     cmds:
       - |
@@ -58,6 +58,7 @@ tasks:
           -o manifests/operators/gflags.yml \
           -o manifests/operators/logging/stderrthreshold.yml \
           -o manifests/operators/placement-options.yml \
+          -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
           -l manifests/operators/sample-apps/vars.yml \
           -l manifests/vars.yml \
           -l manifests/versions.yml \
