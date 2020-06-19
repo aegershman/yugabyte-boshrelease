@@ -3,10 +3,6 @@ version: "2"
 
 env:
   OPENJDK_VERSION: 1.8.0_252
-  PYTHON_PIP_URL: "https://files.pythonhosted.org/packages/d1/05/059c78cd5d740d2299266ffa15514dad6692d4694df571bf168e2cdd98fb/pip-20.1.tar.gz"
-  PYTHON_PIP_VERSION: 20.1
-  PYTHON_SETUPTOOLS_URL: "https://files.pythonhosted.org/packages/25/bf/a37e89d3148221fedd4def62bb68749041d79f3840d58a7943f81a6f6c6e/setuptools-47.1.1.zip"
-  PYTHON_SETUPTOOLS_VERSION: 47.1.1
   PYTHON_VERSION: 3.8.3
   YB_SAMPLE_APPS_VERSION: 1.2.1
   YB_VERSION: 2.1.8.1
@@ -23,12 +19,8 @@ tasks:
   dl-python:
     status:
       - "test -f /tmp/yugablob/Python-${PYTHON_VERSION}.tgz"
-      - "test -f /tmp/yugablob/pip-${PYTHON_PIP_VERSION}.tar.gz"
-      - "test -f /tmp/yugablob/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip"
     cmds:
-      - curl -o /tmp/yugablob/pip-${PYTHON_PIP_VERSION}.tar.gz -L "${PYTHON_PIP_URL}"
       - curl -o /tmp/yugablob/Python-${PYTHON_VERSION}.tgz -L "https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz"
-      - curl -o /tmp/yugablob/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip -L "${PYTHON_SETUPTOOLS_URL}"
 
   dl-yb-sample-apps:
     status:
@@ -49,8 +41,6 @@ tasks:
       - bosh add-blob /tmp/yugablob/openjdk-${OPENJDK_VERSION}.tar.gz openjdk/openjdk-${OPENJDK_VERSION}.tar.gz
       - task: dl-python
       - bosh add-blob /tmp/yugablob/Python-${PYTHON_VERSION}.tgz python/Python-${PYTHON_VERSION}.tgz
-      - bosh add-blob /tmp/yugablob/pip-${PYTHON_PIP_VERSION}.tar.gz python/pip-${PYTHON_PIP_VERSION}.tar.gz
-      - bosh add-blob /tmp/yugablob/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip python/setuptools-${PYTHON_SETUPTOOLS_VERSION}.zip
       - task: dl-yb-sample-apps
       - bosh add-blob /tmp/yugablob/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar yugabyte/yb-sample-apps-${YB_SAMPLE_APPS_VERSION}.jar
       - task: dl-yb
@@ -59,8 +49,7 @@ tasks:
   run-errand:
     cmds:
       - bosh -d yugabyte run-errand setup_redis_table
-
-          # -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
+        # -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
   deploy:
     cmds:
       - |

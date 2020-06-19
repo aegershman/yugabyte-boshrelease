@@ -1,5 +1,5 @@
 ---
-name: python-3.8
+name: python
 
 description: |
   https://github.com/bosh-packages/python-release/pull/8/files
@@ -14,6 +14,4 @@ dependencies: []
 files:
   - python-pkg/compile.env
   - python-pkg/runtime.env
-  - python/pip*.tar.gz
   - python/Python-*.tgz
-  - python/setuptools*.zip

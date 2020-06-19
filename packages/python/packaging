@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -eux
+
+echo "Copying compile.env and runtime.env..."
+mkdir ${BOSH_INSTALL_TARGET}/bosh
+cp python-pkg/compile.env ${BOSH_INSTALL_TARGET}/bosh/compile.env
+cp python-pkg/runtime.env ${BOSH_INSTALL_TARGET}/bosh/runtime.env
+
+echo "Extracting python..."
+tar xzvf python/Python-*.tgz
+
+echo "Building python..."
+pushd Python-*
+./configure --prefix=$BOSH_INSTALL_TARGET
+make
+make install
+popd
