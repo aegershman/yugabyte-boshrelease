@@ -1,0 +1,57 @@
+name: yugabyte
+version: 0.0.15
+commit_hash: 413cdc4
+uncommitted_changes: false
+jobs:
+- name: setup_redis_table
+  version: bb12c041aacc21fdf1516966c6ed7f90812c6e929b55668b6bd14d7caa7040d9
+  fingerprint: bb12c041aacc21fdf1516966c6ed7f90812c6e929b55668b6bd14d7caa7040d9
+  sha1: sha256:c3366a62870b8fe32414a885993c941a11579ef43f99037f20cd52d1b2c7f546
+  packages:
+  - yugabyte
+- name: yb-master
+  version: 146c3e9eddc1de6a577a75d000d04784921a8323422c0354273ebd56c62f45fc
+  fingerprint: 146c3e9eddc1de6a577a75d000d04784921a8323422c0354273ebd56c62f45fc
+  sha1: sha256:97c2485a06a9897a073899dae80e61b5d520b8bac0cd995edc8b225d1d3a129b
+  packages:
+  - yugabyte
+- name: yb-sample-apps
+  version: d9fe858ecdf17c7c64694ea7422568ab21209df30fc2bf5d45e2c9c4230eba77
+  fingerprint: d9fe858ecdf17c7c64694ea7422568ab21209df30fc2bf5d45e2c9c4230eba77
+  sha1: sha256:9a8cd7332cc671bcea65004af2298c887f0effc096bc6579fc288ea4c99a5f03
+  packages:
+  - openjdk
+  - yb-sample-apps
+- name: yb-tserver
+  version: 8234b775fe62542e9c2ea0b779f00175d01fbc29c1f79a5553912e2d1392911c
+  fingerprint: 8234b775fe62542e9c2ea0b779f00175d01fbc29c1f79a5553912e2d1392911c
+  sha1: sha256:b42564849ffc46020ffd60fa077c272b645c9f1f445b690006252a56b4fcbd9e
+  packages:
+  - python
+  - yugabyte
+packages:
+- name: openjdk
+  version: c47bbd4baa848b78acadf3fd39bf78e4b3ea0c994f3b30f8dc37e4598fbf8dfd
+  fingerprint: c47bbd4baa848b78acadf3fd39bf78e4b3ea0c994f3b30f8dc37e4598fbf8dfd
+  sha1: sha256:fe889119510a624071bb16b19e11b503663675546c5c8ef3bfc1532f2fa92b23
+  dependencies: []
+- name: python
+  version: 4ecd64c8a248f712aa51f67bc4304aa3d023a4f49e20540c1e75de2ab11ae627
+  fingerprint: 4ecd64c8a248f712aa51f67bc4304aa3d023a4f49e20540c1e75de2ab11ae627
+  sha1: sha256:f6f78f67a8bd894dbd5620f96d567d75e0f0445e9412506e9f4c7381c6437801
+  dependencies: []
+- name: yb-sample-apps
+  version: 1af77922f0ffc9ff0e9b238db7130e45f2d8e475331778f1143fad23a5b64243
+  fingerprint: 1af77922f0ffc9ff0e9b238db7130e45f2d8e475331778f1143fad23a5b64243
+  sha1: sha256:5164232922d970ab16d6ed51c5aef5f15e14813b25fbe5da6a7be3e2ca2ef0e3
+  dependencies: []
+- name: yugabyte
+  version: e915a79d2b05cdd63a8d217fa58e579a47616674dbd155b1b828df619837d6ad
+  fingerprint: e915a79d2b05cdd63a8d217fa58e579a47616674dbd155b1b828df619837d6ad
+  sha1: sha256:eb904ba95ea74e0919d7eac4aac79c8bf751721e6109f6784ebcb8e6411861d3
+  dependencies:
+  - python
+license:
+  version: eefa533b44473426f0d39cb7de4a5de1342863955201ca83ddaefe4a0c96d174
+  fingerprint: eefa533b44473426f0d39cb7de4a5de1342863955201ca83ddaefe4a0c96d174
+  sha1: sha256:0e7ea4df86ce9bac22b88dd6a266d6b44c6bcfcb0b22570296d51f52ac75d5e1
