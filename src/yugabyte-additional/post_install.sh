@@ -64,12 +64,12 @@ fi
 
 cd "$bin_dir"
 # ${...} macro variables will be substituted during packaging.
-for f in ${main_elf_names_to_patch}; do
+for f in "ldb" "log-dump" "sst_dump" "yb-admin" "yb-bulk_load" "yb-generate_partitions_main" "yb-master" "yb-pbc-dump" "yb-ts-cli" "yb-tserver" "yb-ysck" "yb_load_test_tool" "redis-cli"; do
   patch_binary "$f"
 done
 
 cd "$bin_dir/../postgres/bin"
-for f in ${postgres_elf_names_to_patch}; do
+for f in "postgres" "postmaster" "ecpg" "initdb" "pg_archivecleanup" "pg_basebackup" "pg_receivewal" "pg_recvlogical" "pg_config" "pg_controldata" "pg_ctl" "ysql_dump" "pg_restore" "ysql_dumpall" "pg_resetwal" "pg_rewind" "pg_test_fsync" "pg_test_timing" "pg_upgrade" "pg_verify_checksums" "pg_waldump" "ysql_bench" "ysqlsh" "createdb" "dropdb" "createuser" "dropuser" "clusterdb" "vacuumdb" "reindexdb" "pg_isready" "oid2name" "pg_standby" "vacuumlo"; do
   patch_binary "$f"
 done
 
@@ -80,8 +80,8 @@ find "$lib_dir" "$linuxbrew_dir" -name "*.so*" ! -name "ld.so*" -exec "$patchelf
   --set-rpath "$rpath" {} \
   \; 2> >(grep -v 'warning: working around a Linux kernel bug by creating a hole' >&2)
 
-ORIG_BREW_HOME=${original_linuxbrew_path_to_patch}
-ORIG_LEN=${original_linuxbrew_path_length}
+ORIG_BREW_HOME=/opt/yb-build/brew/linuxbrew-20181203T161736v6-3ba4c2ed9b0587040949a4a9a95b576f520bae
+ORIG_LEN=85
 
 # Take $ORIG_LEN number of '\0' from /dev/zero, replace '\0' with 'x', then prepend to
 # "$distribution_dir/linuxbrew-" and keep first $ORIG_LEN symbols, so we have a path of $ORIG_LEN
