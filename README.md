@@ -2,10 +2,6 @@
 
 This is a [BOSH](http://bosh.io/) release for [YugabyteDB](https://github.com/yugabyte/yugabyte-db).
 
-## ysql caveats
-
-This currently only supports `YEDIS` and `YCQL` compatibilities. Enabling `YSQL` is something which will be worked on eventually, however other features like TLS, encryption, auth, and testing with `YCQL` and `YEDIS`, etc., are taking priorty.
-
 ## server-to-server tls
 
 TLS is currently under development. For the time being it's on by default, and `allow_insecure_connections: false` between nodes by default. You can opt-out using an operator file.
@@ -58,6 +54,17 @@ In order to change the password of a user through `ycql.databases.superusers[*].
 ## cutting releases
 
 Having a fully automated release process is a goal. But we want to make sure it's done well, and would like to have it done using github actions if possible. But until then, here's the general workflow. We're assuming any `bosh add-blobs` and `bosh upload-blobs` commands have been `git commit`'ed if blobs are changing, and now we're on the release process.
+
+NOTE: before cutting a new release, make sure that the contents of `src/yugabyte-additional/post_install.sh` have proper values of `ORIG_BREW_HOME` and `ORIG_LEN` and such depending on the upstream version of `yugabyte` being cut. Those values are created at packaging time as part of their release, and for the time being, we need to make sure the following is included in the `post_install.sh`:
+
+```sh
+distribution_dir=$(cd "$bin_dir/.." && pwd)
+if [[ -L $distribution_dir ]]; then
+  distribution_dir=$(realpath "$distribution_dir")
+fi
+```
+
+Anyway, here's the rest of the release process:
 
 ```sh
 cd yugabyte-boshrelease

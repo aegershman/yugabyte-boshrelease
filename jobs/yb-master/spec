@@ -10,7 +10,6 @@ templates:
   bin/cert-linker.erb.sh: bin/cert-linker.sh
   bin/post-start.sh.erb: bin/post-start
   bin/pre_start.sh: bin/pre_start
-  bin/yb-init-pg.sh: bin/yb-init-pg.sh
   config/bpm.erb.yml: config/bpm.yml
   config/certs/ca.crt.erb: config/certs/ca.crt
   config/certs/node.crt.erb: config/certs/node.crt
@@ -74,8 +73,7 @@ properties:
   enable_ysql:
     description: |
       Enables the YSQL API when value is true. Replaces the deprecated --start_pgsql_proxy option.
-      For the time being, DO NOT CHANGE THIS to "true", because ysql is an ongoing story.
-    default: false
+    default: true
 
   gflags:
     description: extra "--key=value" properties to pass to the conf file
