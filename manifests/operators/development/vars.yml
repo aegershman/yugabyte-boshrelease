@@ -7,3 +7,4 @@ master_stderrthreshold: 0
 syslog_address: q-s0.docker.services-network.splunk.bosh
 tserver_instances: 1
 tserver_stderrthreshold: 0
+enable_ysql: true

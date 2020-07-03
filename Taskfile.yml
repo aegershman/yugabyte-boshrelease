@@ -59,10 +59,10 @@ tasks:
       - |
         bosh -d yugabyte deploy manifests/yugabyte.yml \
           -o manifests/operators/development/create-release-from-local.yml \
+          -o manifests/operators/development/enable-ysql.yml \
           -o manifests/operators/gflags.yml \
           -o manifests/operators/logging/stderrthreshold.yml \
           -o manifests/operators/placement-options.yml \
-          -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
           -l manifests/operators/sample-apps/vars.yml \
           -l manifests/vars.yml \
           -l manifests/versions.yml \
@@ -70,6 +70,8 @@ tasks:
           --no-redact \
           --non-interactive
 
+          # -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
+          # -o manifests/operators/sample-apps/sqlinserts.yml \
   test:
     cmds:
       # - task: add-blobs
