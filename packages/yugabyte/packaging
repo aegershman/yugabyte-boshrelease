@@ -4,6 +4,8 @@ set -eux
 
 tar zxf yugabyte/yugabyte-*-linux.tar.gz
 cp -a yugabyte-*/* ${BOSH_INSTALL_TARGET}
+
+# TODO remove after post_install scripts to account for symlinks
 mv yugabyte-additional/post_install.sh ${BOSH_INSTALL_TARGET}/bin/post_install.sh
 
 source /var/vcap/packages/python*/bosh/compile.env

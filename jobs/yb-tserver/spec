@@ -9,7 +9,6 @@ templates:
   bin/post-deploy.sh: bin/post-deploy
   bin/post-start.sh.erb: bin/post-start
   bin/pre_start.sh: bin/pre_start
-  bin/yb-init-pg.sh: bin/yb-init-pg.sh
   bin/ycql-rotate-default-admin-password.sh.erb: bin/ycql-rotate-default-admin-password.sh
   config/bpm.erb.yml: config/bpm.yml
   config/certs/ca.crt.erb: config/certs/ca.crt
@@ -86,8 +85,7 @@ properties:
   enable_ysql:
     description: |
       Enables the YSQL API when value is true. Replaces the deprecated --start_pgsql_proxy option.
-      For the time being, DO NOT CHANGE THIS to "true", because ysql is an ongoing story.
-    default: false
+    default: true
   ysql_hba_conf:
     description: |
       Specifies a comma-separated list of PostgreSQL client authentication settings that is written to the ysql_hba.conf file.
