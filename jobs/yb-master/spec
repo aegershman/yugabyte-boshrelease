@@ -38,7 +38,7 @@ properties:
     description: |
       Remove the ".post_install.sh.completed" file marker on app startup before the "post_install.sh" script runs again
       in order to re-initialize any packaging
-    default: true
+    default: false
   rpc_bind_addresses_port:
     description: for the time being, this value is used for both "rpc_bind_addresses" and "server_broadcast_addresses"
     default: 7100
