@@ -1,8 +1,8 @@
 ---
 - type: replace
   path: /instance_groups/name=master/jobs/name=yb-master/properties?/enable_ysql?
-  value: ((enable_ysql))
+  value: ((master_enable_ysql))
 
 - type: replace
   path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/enable_ysql?
-  value: ((enable_ysql))
+  value: ((tserver_enable_ysql))
