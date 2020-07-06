@@ -8,7 +8,7 @@
 --stop_logging_if_full_disk=<%= p("stop_logging_if_full_disk") %>
 --v=<%= p("v") %>
 
---instance_uuid_override=<%= spec.id %>
+--instance_uuid_override=<%= "#{spec.name}-#{spec.id}" %>
 
 --rpc_bind_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
 --server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
