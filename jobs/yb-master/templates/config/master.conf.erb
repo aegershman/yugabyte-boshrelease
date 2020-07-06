@@ -9,7 +9,7 @@
 --v=<%= p("v") %>
 
 --cluster_uuid=<%= spec.deployment %>
---instance_uuid_override=<%= "#{spec.name}-#{spec.id}" %>
+--instance_uuid_override=<%= spec.id %>
 
 --master_addresses=<%= link("yb-master").instances.map { |i| "#{i.address}:#{p('rpc_bind_addresses_port')}" }.join(",") %>
 --replication_factor=<%= link("yb-master").instances.length %>
