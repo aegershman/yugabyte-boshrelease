@@ -8,6 +8,8 @@
 --stop_logging_if_full_disk=<%= p("stop_logging_if_full_disk") %>
 --v=<%= p("v") %>
 
+--instance_uuid_override=<%= spec.id %>
+
 --rpc_bind_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
 --server_broadcast_addresses=<%= spec.address %>:<%= p("rpc_bind_addresses_port") %>
 --tserver_master_addrs=<%= m = link("yb-master"); m.instances.map { |i| "#{i.address}:#{m.p('rpc_bind_addresses_port')}" }.join(",") %>
