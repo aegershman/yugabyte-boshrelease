@@ -35,6 +35,11 @@ properties:
     default: 64000
   bpm.limits.processes:
     default: 64000
+  rm_post_install_completed_on_startup:
+    description: |
+      Remove the ".post_install.sh.completed" file marker on app startup before the "post_install.sh" script runs again
+      in order to re-initialize any packaging
+    default: false
   rpc_bind_addresses_port:
     description: |
       For the time being, this value is used for both "rpc_bind_addresses" and "server_broadcast_addresses"
