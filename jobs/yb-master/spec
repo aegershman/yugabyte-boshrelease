@@ -121,7 +121,7 @@ properties:
 
   stop_on_parent_termination:
     description: When specified, this process will terminate when parent process terminates. Linux-only.
-    default: false
+    default: true
 
   placement_cloud:
     description: Specifies the name of the cloud where this instance is deployed.

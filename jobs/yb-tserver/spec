@@ -161,7 +161,7 @@ properties:
 
   stop_on_parent_termination:
     description: When specified, this process will terminate when parent process terminates. Linux-only.
-    default: false
+    default: true
 
   ycql.cassandra_password:
     description: Password for the default "cassandra" admin user
