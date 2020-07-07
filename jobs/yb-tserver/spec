@@ -107,9 +107,7 @@ properties:
       Specifies a comma-separated list of PostgreSQL client authentication settings that is written to the ysql_hba.conf file.
       For details on using --ysql_hba_conf to specify client authentication, see fine-grained authentication.
       See: https://docs.yugabyte.com/latest/secure/authentication/client-authentication
-    default: ""
-    example:
-      ysql_hba_conf: "host all all 0.0.0.0/0 trust,host all all ::0/0 trust"
+    default: "host all all 0.0.0.0/0 trust,host all all ::0/0 trust"
   ysql_max_connections:
     description: Specifies the maximum number of concurrent YSQL connections.
     default: 300
