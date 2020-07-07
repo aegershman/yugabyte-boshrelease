@@ -13,7 +13,6 @@ fi
 /var/vcap/packages/yugabyte/bin/post_install.sh
 /var/vcap/jobs/yb-master/bin/cert-linker.sh
 
-ENABLE_MANUAL_YSQL_INIT=true
 if [ "${ENABLE_MANUAL_YSQL_INIT}" = "true" ]; then
   echo "pre_start is now performing a manual initdb for ysql"
   YB_ENABLED_IN_POSTGRES=1

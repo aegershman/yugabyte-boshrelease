@@ -9,6 +9,7 @@ processes:
       open_files: <%= p("bpm.limits.open_files") %>
       processes: <%= p("bpm.limits.processes") %>
     env:
+      ENABLE_MANUAL_YSQL_INIT: <%= p("enable_manual_ysql_init") %>
       RM_POST_INSTALL_COMPLETED_ON_STARTUP: <%= p("rm_post_install_completed_on_startup") %>
     hooks:
       pre_start: /var/vcap/jobs/yb-master/bin/pre_start
