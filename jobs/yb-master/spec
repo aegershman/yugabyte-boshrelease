@@ -82,11 +82,6 @@ properties:
   tls.node.key:
     description: "TLS key for this node"
 
-  enable_ysql:
-    description: |
-      Enables the YSQL API when value is true. Replaces the deprecated --start_pgsql_proxy option.
-    default: true
-
   gflags:
     description: extra "--key=value" properties to pass to the conf file
     example:
