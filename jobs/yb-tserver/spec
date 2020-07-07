@@ -94,12 +94,22 @@ properties:
   tls.node.key:
     description: "TLS key for this node"
 
+  ysql_enable_auth:
+    description: |
+      The default YSQL user "yugabyte" now has password "yugabyte" by default.
+      However, the password is only required if auth is explicitly enabled (e.g. using the "ysql_enable_auth" flag), since otherwise we use trust all.
+      see: https://docs.yugabyte.com/latest/reference/configuration/yb-tserver/#ysql-enable-auth
+      see: https://github.com/yugabyte/yugabyte-db/blob/f3ed9f1876cf02c063f5f8d053a7f02b284652cc/src/yb/yql/pgwrapper/pg_wrapper.cc#L51
+      see: https://github.com/yugabyte/yugabyte-db/commit/6f37b9e02336a197b259ffe4e867850de8763778
+    default: true
   ysql_hba_conf:
     description: |
       Specifies a comma-separated list of PostgreSQL client authentication settings that is written to the ysql_hba.conf file.
       For details on using --ysql_hba_conf to specify client authentication, see fine-grained authentication.
       See: https://docs.yugabyte.com/latest/secure/authentication/client-authentication
-    default: "host all all 0.0.0.0/0 trust,host all all ::0/0 trust"
+    default: ""
+    example:
+      ysql_hba_conf: "host all all 0.0.0.0/0 trust,host all all ::0/0 trust"
   ysql_max_connections:
     description: Specifies the maximum number of concurrent YSQL connections.
     default: 300
