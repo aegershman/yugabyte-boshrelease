@@ -9,3 +9,10 @@ fi
 
 /var/vcap/packages/yugabyte/bin/post_install.sh
 /var/vcap/jobs/yb-tserver/bin/cert-linker.sh
+
+if [ "${ENABLE_MANUAL_YSQL_INIT}" = "true" ]; then
+  echo "pre_start is now performing a manual initdb for ysql"
+  YB_ENABLED_IN_POSTGRES=1
+  FLAGS_pggate_master_addresses=<%= link("yb-master").instances.map { |i| "#{i.address}:#{p('rpc_bind_addresses_port')}" }.join(",") %>
+  su - vcap -c '/var/vcap/packages/yugabyte/postgres/bin/initdb -D /var/vcap/data/yb-tserver/tmp/pg_data_tmp -U postgres'
+fi

@@ -1,0 +1,18 @@
+# Use this opsfile when upgrading an existing universe to 0.0.x to 0.1.x which has ysql enabled
+# by default. Remove this opsfile as soon as you have the upgrade finished.
+---
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/rm_post_install_completed_on_startup?
+  value: true
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/rm_post_install_completed_on_startup?
+  value: true
+
+- type: replace
+  path: /instance_groups/name=master/jobs/name=yb-master/properties?/enable_manual_ysql_init?
+  value: true
+
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/enable_manual_ysql_init?
+  value: true
