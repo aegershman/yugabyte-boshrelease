@@ -20,9 +20,9 @@
 --ysql_log_statement='<%= p("ysql_log_statement") %>'
 --ysql_log_min_messages=<%= p("ysql_log_min_messages") %>
 --ysql_enable_auth=<%= p("ysql_enable_auth") %>
-<% if p("ysql_hba_conf") -%>
+<% if p("ysql_hba_conf") != "" %>
 --ysql_hba_conf=<%= p("ysql_hba_conf") %>
-<% end -%>
+<% end %>
 
 --cql_proxy_bind_address=<%= spec.address %>:<%= p("cql_proxy_bind_port") %>
 --pgsql_proxy_bind_address=<%= spec.address %>:<%= p("pgsql_proxy_bind_port") %>
