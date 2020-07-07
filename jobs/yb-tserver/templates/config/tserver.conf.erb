@@ -20,6 +20,7 @@
 --ysql_default_transaction_isolation='<%= p("ysql_default_transaction_isolation") %>'
 --ysql_log_statement='<%= p("ysql_log_statement") %>'
 --ysql_log_min_messages=<%= p("ysql_log_min_messages") %>
+--ysql_enable_auth=true
 
 --cql_proxy_bind_address=<%= spec.address %>:<%= p("cql_proxy_bind_port") %>
 --pgsql_proxy_bind_address=<%= spec.address %>:<%= p("pgsql_proxy_bind_port") %>

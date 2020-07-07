@@ -17,6 +17,8 @@
           workload:
             type: SqlInserts
             args:
+              username: yugabyte
+              password: yugabyte
               num_unique_keys: 1000000000
               num_reads: -1
               num_writes: -1
