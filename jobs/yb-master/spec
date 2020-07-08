@@ -40,11 +40,6 @@ properties:
       Remove the ".post_install.sh.completed" file marker on app startup before the "post_install.sh" script runs again
       in order to re-initialize any packaging
     default: false
-  enable_manual_ysql_init:
-    description: |
-      Manually perform a postgres initdb to initialize system tables. This is valuable when enabling ysql on a universe
-      which didn't previously have ysql enabled when the universe was created.
-    default: false
 
   rpc_bind_addresses_port:
     description: for the time being, this value is used for both "rpc_bind_addresses" and "server_broadcast_addresses"
