@@ -15,11 +15,14 @@
 --webserver_port=<%= p("webserver_port") %>
 
 --enable_ysql=true
---ysql_hba_conf=<%= p("ysql_hba_conf") %>
 --ysql_max_connections=<%= p("ysql_max_connections") %>
 --ysql_default_transaction_isolation='<%= p("ysql_default_transaction_isolation") %>'
 --ysql_log_statement='<%= p("ysql_log_statement") %>'
 --ysql_log_min_messages=<%= p("ysql_log_min_messages") %>
+--ysql_enable_auth=<%= p("ysql_enable_auth") %>
+<% if p("ysql_hba_conf") != "" %>
+--ysql_hba_conf=<%= p("ysql_hba_conf") %>
+<% end %>
 
 --cql_proxy_bind_address=<%= spec.address %>:<%= p("cql_proxy_bind_port") %>
 --pgsql_proxy_bind_address=<%= spec.address %>:<%= p("pgsql_proxy_bind_port") %>

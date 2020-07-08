@@ -80,6 +80,13 @@ instance_groups:
               superusers:
                 - name: admin
                   password: ((ycql_superuser_admin_password))
+          ysql:
+            databases:
+              superusers:
+                - name: admin
+                  # TODO note: at least for the moment,
+                  # we're reusing the same password here for convenience
+                  password: ((ycql_superuser_admin_password))
           tls:
             node:
               ca: ((yugabyte-server-tls-tserver.ca))

@@ -1,0 +1,16 @@
+<% p("ycql.databases.superusers", []).each do |role| %>
+
+DO
+$body$
+BEGIN
+  IF NOT EXISTS (SELECT FROM system_auth.roles WHERE rolname = '<%= role["name"] %>') THEN
+    CREATE ROLE "<%= role["name"] %>" WITH LOGIN;
+  END IF;
+END
+$body$;
+
+ALTER ROLE "<%= role["name"] %>"
+  WITH LOGIN SUPERUSER PASSWORD '<%= role["password"] %>'
+  ;
+
+<% end %>

@@ -17,6 +17,8 @@
           workload:
             type: SqlInserts
             args:
+              username: admin
+              password: ((ycql_superuser_admin_password))
               num_unique_keys: 1000000000
               num_reads: -1
               num_writes: -1

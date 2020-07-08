@@ -16,6 +16,7 @@ templates:
   config/certs/node.key.erb: config/certs/node.key
   config/cqlshrc.erb: config/cqlshrc
   config/roles.cql.erb: config/roles.cql
+  config/roles.sql.erb: config/roles.sql
   config/tserver.conf.erb: config/tserver.conf
 
 packages:
@@ -94,6 +95,14 @@ properties:
   tls.node.key:
     description: "TLS key for this node"
 
+  ysql_enable_auth:
+    description: |
+      The default YSQL user "yugabyte" now has password "yugabyte" by default.
+      However, the password is only required if auth is explicitly enabled (e.g. using the "ysql_enable_auth" flag), since otherwise we use trust all.
+      see: https://docs.yugabyte.com/latest/reference/configuration/yb-tserver/#ysql-enable-auth
+      see: https://github.com/yugabyte/yugabyte-db/blob/f3ed9f1876cf02c063f5f8d053a7f02b284652cc/src/yb/yql/pgwrapper/pg_wrapper.cc#L51
+      see: https://github.com/yugabyte/yugabyte-db/commit/6f37b9e02336a197b259ffe4e867850de8763778
+    default: true
   ysql_hba_conf:
     description: |
       Specifies a comma-separated list of PostgreSQL client authentication settings that is written to the ysql_hba.conf file.
@@ -143,6 +152,16 @@ properties:
       NOTE: On a per-table basis, the CREATE TABLE ...SPLIT INTO clause can be used to override the ysql_num_shards_per_tserver value.
       IMPORTANT: This value must match on all yb-master and yb-tserver configurations of a YugabyteDB cluster.
     default: 8
+  ysql.databases.superusers:
+    description: |
+      Until we get to putting a more fine-grained RBAC model in place
+      we'll just assume every created user is a superuser
+    example: |
+      ysql:
+        databases:
+          superusers:
+            - name: beepbeep
+              password: honkhonk
 
   durable_wal_write:
     description: |
