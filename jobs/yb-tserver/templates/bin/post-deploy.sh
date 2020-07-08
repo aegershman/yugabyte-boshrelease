@@ -16,15 +16,15 @@ echo "running post-deploy ycqlsh setup..."
   --debug
 
 echo "running post-deploy for ysqlsh setup..."
-PGDATABASE=yugabyte
-PGHOST=<%= spec.address %>
-PGPASSWORD=yugabyte
-PGPORT=<%= p("pgsql_proxy_bind_port") %>
-PGSSLCERT='/var/vcap/jobs/yb-tserver/config/certs/node.crt'
-PGSSLKEY='/var/vcap/jobs/yb-tserver/config/certs/node.key'
-PGSSLMODE='prefer'
-PGSSLROOTCERT='/var/vcap/jobs/yb-tserver/config/certs/ca.crt'
-PGUSER=yugabyte
+export PGDATABASE=yugabyte
+export PGHOST=<%= spec.address %>
+export PGPASSWORD=yugabyte
+export PGPORT=<%= p("pgsql_proxy_bind_port") %>
+export PGSSLCERT='/var/vcap/jobs/yb-tserver/config/certs/node.crt'
+export PGSSLKEY='/var/vcap/jobs/yb-tserver/config/certs/node.key'
+export PGSSLMODE='prefer'
+export PGSSLROOTCERT='/var/vcap/jobs/yb-tserver/config/certs/ca.crt'
+export PGUSER=yugabyte
 /var/vcap/packages/yugabyte/bin/ysqlsh \
   --echo-all \
   --no-psqlrc \
