@@ -26,8 +26,9 @@ export PGSSLMODE='prefer'
 export PGSSLROOTCERT='/var/vcap/jobs/yb-tserver/config/certs/ca.crt'
 export PGUSER=yugabyte
 /var/vcap/packages/yugabyte/bin/ysqlsh \
-  --echo-all \
   --no-psqlrc \
+  --set=ON_ERROR_STOP=1 \
+  --single-transaction \
   --file=/var/vcap/jobs/yb-tserver/config/roles.sql
 
 echo "post-deploy run complete..."
