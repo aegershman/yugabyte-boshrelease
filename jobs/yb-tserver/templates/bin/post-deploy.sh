@@ -25,9 +25,13 @@ export PGSSLKEY='/var/vcap/jobs/yb-tserver/config/certs/node.key'
 export PGSSLMODE='prefer'
 export PGSSLROOTCERT='/var/vcap/jobs/yb-tserver/config/certs/ca.crt'
 export PGUSER=yugabyte
+# TODO I won't lie, I'm not 100% confident in --single-transaction
+# or whether ON_ERROR_STOP should actually go in psqlrc
 /var/vcap/packages/yugabyte/bin/ysqlsh \
   --echo-all \
   --no-psqlrc \
+  --set=ON_ERROR_STOP=1 \
+  --single-transaction \
   --file=/var/vcap/jobs/yb-tserver/config/roles.sql
 
 echo "post-deploy run complete..."

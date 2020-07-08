@@ -3,7 +3,7 @@
 DO
 $body$
 BEGIN
-  IF NOT EXISTS (SELECT FROM system_auth.roles WHERE rolname = '<%= role["name"] %>') THEN
+  IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = '<%= role["name"] %>') THEN
     CREATE ROLE "<%= role["name"] %>" WITH LOGIN;
   END IF;
 END
