@@ -15,12 +15,6 @@ echo "running post-deploy ycqlsh setup..."
   --file /var/vcap/jobs/yb-tserver/config/roles.cql \
   --debug
 
-<% if !p("enable_ysql") %>
-echo "skipping any of the ysql work for the moment since enable_ysql is false..."
-exit 0
-echo "post-deploy run complete..."
-<% end %>
-
 echo "running post-deploy for ysqlsh setup..."
 export PGDATABASE=yugabyte
 export PGHOST=<%= spec.address %>

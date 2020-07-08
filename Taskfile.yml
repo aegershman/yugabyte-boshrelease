@@ -62,7 +62,6 @@ tasks:
           -o manifests/operators/gflags.yml \
           -o manifests/operators/logging/stderrthreshold.yml \
           -o manifests/operators/placement-options.yml \
-          -o manifests/operators/upgrade-0.0.x-to-0.1.x.yml \
           -o manifests/operators/sample-apps/cassandrakeyvalue.yml \
           -o manifests/operators/sample-apps/sqlinserts.yml \
           -l manifests/operators/sample-apps/vars.yml \
