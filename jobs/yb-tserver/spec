@@ -15,7 +15,10 @@ templates:
   config/certs/node.crt.erb: config/certs/node.crt
   config/certs/node.key.erb: config/certs/node.key
   config/cqlshrc.erb: config/cqlshrc
+  config/pgpass.erb: config/pgpass
+  config/psqlrc.erb: config/psqlrc
   config/roles.cql.erb: config/roles.cql
+  config/roles.sql.erb: config/roles.sql
   config/tserver.conf.erb: config/tserver.conf
 
 packages:
