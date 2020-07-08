@@ -15,6 +15,12 @@ echo "running post-deploy ycqlsh setup..."
   --file /var/vcap/jobs/yb-tserver/config/roles.cql \
   --debug
 
+<% if !p("enable_ysql") %>
+echo "skipping any of the ysql work for the moment since enable_ysql is false..."
+exit 0
+echo "post-deploy run complete..."
+<% end %>
+
 echo "running post-deploy for ysqlsh setup..."
 export PGDATABASE=yugabyte
 export PGHOST=<%= spec.address %>
@@ -26,9 +32,7 @@ export PGSSLMODE='prefer'
 export PGSSLROOTCERT='/var/vcap/jobs/yb-tserver/config/certs/ca.crt'
 export PGUSER=yugabyte
 /var/vcap/packages/yugabyte/bin/ysqlsh \
-  --no-psqlrc \
   --set=ON_ERROR_STOP=1 \
-  --single-transaction \
   --file=/var/vcap/jobs/yb-tserver/config/roles.sql
 
 echo "post-deploy run complete..."

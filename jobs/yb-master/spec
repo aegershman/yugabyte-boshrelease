@@ -104,6 +104,9 @@ properties:
       IMPORTANT: This value must match on all yb-master and yb-tserver configurations of a YugabyteDB cluster.
     default: 8
 
+  enable_ysql:
+    default: false
+
   durable_wal_write:
     description: |
       If set to false, the writes to the WAL are synced to disk every interval_durable_wal_write_ms milliseconds (ms)

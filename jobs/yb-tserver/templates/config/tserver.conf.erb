@@ -14,7 +14,11 @@
 --webserver_interface=<%= spec.address %>
 --webserver_port=<%= p("webserver_port") %>
 
---enable_ysql=true
+--enable_ysql=<%= p("enable_ysql") %>
+<% if p("enable_ysql") %>
+--initial_sys_catalog_snapshot_path=/var/vcap/packages/yugabyte/share/initial_sys_catalog_snapshot
+<% end %>
+
 --ysql_max_connections=<%= p("ysql_max_connections") %>
 --ysql_default_transaction_isolation='<%= p("ysql_default_transaction_isolation") %>'
 --ysql_log_statement='<%= p("ysql_log_statement") %>'

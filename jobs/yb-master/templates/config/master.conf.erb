@@ -15,9 +15,10 @@
 --webserver_interface=<%= spec.address %>
 --webserver_port=<%= p("webserver_port") %>
 
---enable_ysql=true
+--enable_ysql=<%= p("enable_ysql") %>
+<% if p("enable_ysql") %>
 --initial_sys_catalog_snapshot_path=/var/vcap/packages/yugabyte/share/initial_sys_catalog_snapshot
---master_auto_run_initdb=true
+<% end %>
 
 --default_memory_limit_to_ram_ratio=<%= p("default_memory_limit_to_ram_ratio") %>
 

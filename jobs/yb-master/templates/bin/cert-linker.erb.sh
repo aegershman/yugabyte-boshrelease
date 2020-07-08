@@ -31,5 +31,6 @@ set -eu
 # lrwxrwxrwx 1 root root   46 Mar  3 20:23 node.q-m90067n3s0.q-g88396.bosh.crt -> /var/vcap/jobs/yb-master/config/certs/node.crt
 # lrwxrwxrwx 1 root root   46 Mar  3 20:23 node.q-m90067n3s0.q-g88396.bosh.key -> /var/vcap/jobs/yb-master/config/certs/node.key
 #
+chmod 0600 /var/vcap/jobs/yb-master/config/certs/node.key
 ln -sf /var/vcap/jobs/yb-master/config/certs/node.crt /var/vcap/jobs/yb-master/config/certs/node.<%= spec.address %>.crt
 ln -sf /var/vcap/jobs/yb-master/config/certs/node.key /var/vcap/jobs/yb-master/config/certs/node.<%= spec.address %>.key
