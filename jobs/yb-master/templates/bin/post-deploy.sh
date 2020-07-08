@@ -4,6 +4,7 @@ set -eu
 
 echo "running post-deploy..."
 
+ENABLE_MANUAL_YSQL_INIT=<%= p("enable_manual_ysql_init") %>
 if [ "${ENABLE_MANUAL_YSQL_INIT}" = "true" ]; then
   echo "now evaluating a manual initdb for ysql..."
   YB_ENABLED_IN_POSTGRES=1
