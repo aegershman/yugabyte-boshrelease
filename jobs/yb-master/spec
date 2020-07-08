@@ -106,6 +106,8 @@ properties:
 
   enable_ysql:
     default: false
+  master_auto_run_initdb:
+    default: true
 
   durable_wal_write:
     description: |
