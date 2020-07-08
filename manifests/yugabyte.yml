@@ -83,9 +83,10 @@ instance_groups:
           ysql:
             databases:
               superusers:
+                # TODO note: at least for the moment we're reusing the
+                # same username/password in ysql as we are for ycql for convenience.
+                # The reason we use ycql in the variable name is because... well, it came first.
                 - name: admin
-                  # TODO note: at least for the moment,
-                  # we're reusing the same password here for convenience
                   password: ((ycql_superuser_admin_password))
           tls:
             node:
