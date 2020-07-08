@@ -152,6 +152,16 @@ properties:
       NOTE: On a per-table basis, the CREATE TABLE ...SPLIT INTO clause can be used to override the ysql_num_shards_per_tserver value.
       IMPORTANT: This value must match on all yb-master and yb-tserver configurations of a YugabyteDB cluster.
     default: 8
+  ysql.databases.superusers:
+    description: |
+      Until we get to putting a more fine-grained RBAC model in place
+      we'll just assume every created user is a superuser
+    example: |
+      ysql:
+        databases:
+          superusers:
+            - name: beepbeep
+              password: honkhonk
 
   durable_wal_write:
     description: |
