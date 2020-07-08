@@ -73,7 +73,7 @@ properties:
     default: 60
 
   enable_ysql:
-    default: false
+    default: true
 
   tls.allow_insecure_connections:
     description: |

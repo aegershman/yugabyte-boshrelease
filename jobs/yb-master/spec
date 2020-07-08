@@ -105,7 +105,7 @@ properties:
     default: 8
 
   enable_ysql:
-    default: false
+    default: true
   master_auto_run_initdb:
     default: true
 
