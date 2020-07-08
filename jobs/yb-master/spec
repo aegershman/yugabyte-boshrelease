@@ -8,6 +8,7 @@ description: |
 
 templates:
   bin/cert-linker.erb.sh: bin/cert-linker.sh
+  bin/post-deploy.sh.erb: bin/post-deploy
   bin/post-start.sh.erb: bin/post-start
   bin/pre_start.sh: bin/pre_start
   config/bpm.erb.yml: config/bpm.yml
