@@ -19,8 +19,14 @@ if [ "${ENABLE_MANUAL_YSQL_INIT}" = "true" ]; then
     echo "/var/vcap/data/yb-tserver/tmp/pg_data_tmp does not appear to exist, now manually initializing with initdb..."
     su - vcap -c '/var/vcap/packages/yugabyte/postgres/bin/initdb -D /var/vcap/data/yb-tserver/tmp/pg_data_tmp -U postgres'
   else
-    echo "/var/vcap/data/yb-tserver/tmp/pg_data_tmp appears to already exist, not removing anything..."
-    echo "WARNING: THIS MEANS YOU SHOULD PROBABLY REMOVE ANY UPGRADE OPSFILES"
+    if [ "${ENABLE_AGGRESSIVE_MANUAL_YSQL_INIT}" = "true" ]; then
+      echo "aggressively removing any pg_data_tmp data and re-initializing, regardless of whether the folder set exists..."
+      rm -rf /var/vcap/data/yb-tserver/tmp/pg_data_tmp
+      su - vcap -c '/var/vcap/packages/yugabyte/postgres/bin/initdb -D /var/vcap/data/yb-tserver/tmp/pg_data_tmp -U postgres'
+    else
+      echo "/var/vcap/data/yb-tserver/tmp/pg_data_tmp appears to already exist, not removing anything..."
+      echo "WARNING: THIS MEANS YOU SHOULD PROBABLY REMOVE ANY UPGRADE OPSFILES"
+    fi
   fi
 
 fi

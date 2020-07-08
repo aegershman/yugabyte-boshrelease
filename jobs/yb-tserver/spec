@@ -47,6 +47,9 @@ properties:
       Manually perform a postgres initdb to initialize system tables. This is valuable when enabling ysql on a universe
       which didn't previously have ysql enabled when the universe was created.
     default: false
+  enable_aggressive_manual_ysql_init:
+    description: Like enable_manual_ysql_init, except meaner
+    default: false
 
   rpc_bind_addresses_port:
     description: |

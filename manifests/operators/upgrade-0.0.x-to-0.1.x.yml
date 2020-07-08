@@ -21,6 +21,6 @@
   path: /instance_groups/name=master/jobs/name=yb-master/properties?/enable_aggressive_manual_ysql_init?
   value: true
 
-# - type: replace
-#   path: /instance_groups/name=master/jobs/name=yb-tserver/properties?/enable_aggressive_manual_ysql_init?
-#   value: true
+- type: replace
+  path: /instance_groups/name=tserver/jobs/name=yb-tserver/properties?/enable_aggressive_manual_ysql_init?
+  value: true
