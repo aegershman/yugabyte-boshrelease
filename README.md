@@ -2,10 +2,6 @@
 
 This is a [BOSH](http://bosh.io/) release for [YugabyteDB](https://github.com/yugabyte/yugabyte-db).
 
-## ysql and you
-
-You should be aware that as of `0.1.x`, `ysql` (`postgres` API compatibility) is on by default. It currently cannot be turned off. This is because it simplifies operationalization and testing to be able to make these assumptions. If being able to turn off `ysql` is an issue for you, please let us know in a comment so that we can take it into consideration. It's not that it's impossible, we're just taking certain opinionated defaults.
-
 ## server-to-server tls
 
 TLS is currently under development. For the time being it's on by default, and `allow_insecure_connections: false` between nodes by default. You can opt-out using an operator file.

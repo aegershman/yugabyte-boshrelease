@@ -72,6 +72,9 @@ properties:
       see also: https://docs.yugabyte.com/latest/manage/upgrade-deployment
     default: 60
 
+  enable_ysql:
+    default: false
+
   tls.allow_insecure_connections:
     description: |
       set to false to disallow any client with unencrypted communication from joining this cluster. default value is true.
