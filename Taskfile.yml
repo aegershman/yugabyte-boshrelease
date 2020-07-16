@@ -5,7 +5,7 @@ env:
   OPENJDK_VERSION: 1.8.0_252
   PYTHON_VERSION: 2.7.6
   YB_SAMPLE_APPS_VERSION: 1.2.1
-  YB_VERSION: 2.1.8.2
+  YB_VERSION: 2.2.0.0
 
 tasks:
   dl-openjdk:
