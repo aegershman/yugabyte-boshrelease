@@ -6,9 +6,9 @@ description: |
 
 templates:
   bin/cert-linker.erb.sh: bin/cert-linker.sh
-  bin/post-deploy.sh: bin/post-deploy
+  bin/post-deploy.erb.sh: bin/post-deploy
   bin/post-start.sh.erb: bin/post-start
-  bin/pre_start.sh: bin/pre_start
+  bin/pre_start.erb.sh: bin/pre_start
   bin/ycql-rotate-default-admin-password.sh.erb: bin/ycql-rotate-default-admin-password.sh
   config/bpm.erb.yml: config/bpm.yml
   config/certs/ca.crt.erb: config/certs/ca.crt
