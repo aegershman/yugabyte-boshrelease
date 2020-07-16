@@ -23,6 +23,7 @@
 <% if p("ysql_hba_conf") != "" %>
 --ysql_hba_conf=<%= p("ysql_hba_conf") %>
 <% end %>
+--ysql_disable_index_backfill=<%= p("ysql_disable_index_backfill") %>
 
 --cql_proxy_bind_address=<%= spec.address %>:<%= p("cql_proxy_bind_port") %>
 --pgsql_proxy_bind_address=<%= spec.address %>:<%= p("pgsql_proxy_bind_port") %>
