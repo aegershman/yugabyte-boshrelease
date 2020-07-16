@@ -98,6 +98,12 @@ properties:
       NOTE: On a per-table basis, the CREATE TABLE ...SPLIT INTO clause can be used to override the ysql_num_shards_per_tserver value.
       IMPORTANT: This value must match on all yb-master and yb-tserver configurations of a YugabyteDB cluster.
     default: 8
+  tablet_split_size_threshold_bytes:
+    description: |
+      Enables dynamic tablet splitting and sets the threshold on tablet size, in bytes, before each tablet splits.
+      Value is the threshold size, in bytes, before each tablet should be split.
+      Default value of 0 disables dynamic tablet splitting.
+    default: 0
 
   durable_wal_write:
     description: |
