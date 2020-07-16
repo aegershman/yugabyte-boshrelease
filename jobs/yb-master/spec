@@ -9,7 +9,7 @@ description: |
 templates:
   bin/cert-linker.erb.sh: bin/cert-linker.sh
   bin/post-start.sh.erb: bin/post-start
-  bin/pre_start.sh: bin/pre_start
+  bin/pre_start.erb.sh: bin/pre_start
   config/bpm.erb.yml: config/bpm.yml
   config/certs/ca.crt.erb: config/certs/ca.crt
   config/certs/node.crt.erb: config/certs/node.crt
