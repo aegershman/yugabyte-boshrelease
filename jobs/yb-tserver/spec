@@ -104,6 +104,13 @@ properties:
       For details on using --ysql_hba_conf to specify client authentication, see fine-grained authentication.
       See: https://docs.yugabyte.com/latest/secure/authentication/client-authentication
     default: "host all all 0.0.0.0/0 trust,host all all ::0/0 trust"
+  ysql_disable_index_backfill:
+    description: |
+      Set this flag to false to enabled online index backfill.
+      When set to false, online index builds run while online, without failing other concurrent writes and traffic.
+      For details on how online index backfill works, see the Online Index Backfill design document.
+      see: https://github.com/yugabyte/yugabyte-db/blob/master/architecture/design/online-index-backfill.md
+    default: true
   ysql_max_connections:
     description: Specifies the maximum number of concurrent YSQL connections.
     default: 300
@@ -120,6 +127,15 @@ properties:
       Specifies the types of YSQL statements that should be logged.
       Valid values: none (off), ddl (only data definition queries, such as create/alter/drop), mod (all modifying/write statements, includes DDLs plus insert/update/delete/trunctate, etc), and all (all statements).
     default: none
+  ysql_log_min_duration_statement:
+    description: |
+      Logs the duration of each completed SQL statement that runs the specified duration (in milliseconds) or longer.
+      Setting the value to 0 prints all statement durations. You can use this flag to help track down unoptimized (or "slow") queries.
+      For example, ysql_log_min_duration_statement: 100 will log all queries that took longer than 100 ms.
+      Default: -1 (disables logging statement durations)
+      see: https://github.com/yugabyte/yugabyte-db/issues/4817
+      see: https://github.com/yugabyte/yugabyte-db/commit/ceb6ce6a6571cd501c45fa9988d160187720649f
+    default: -1
   ysql_log_min_messages:
     description: |
       Specifies the lowest YSQL message level to log.

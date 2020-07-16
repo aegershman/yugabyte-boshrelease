@@ -83,7 +83,7 @@ find "$lib_dir" "$linuxbrew_dir" -name "*.so*" ! -name "ld.so*" -exec "$patchelf
   --set-rpath "$rpath" {} \
   \; 2> >(grep -v 'warning: working around a Linux kernel bug by creating a hole' >&2)
 
-ORIG_BREW_HOME=/opt/yb-build/brew/linuxbrew-20181203T161736v6-3ba4c2ed9b0587040949a4a9a95b576f520bae
+ORIG_BREW_HOME=/opt/yb-build/brew/linuxbrew-20181203T161736v9-3ba4c2ed9b0587040949a4a9a95b576f520bae
 ORIG_LEN=85
 
 # Take $ORIG_LEN number of '\0' from /dev/zero, replace '\0' with 'x', then prepend to

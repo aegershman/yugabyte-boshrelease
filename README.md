@@ -55,16 +55,7 @@ In order to change the password of a user through `ycql.databases.superusers[*].
 
 Having a fully automated release process is a goal. But we want to make sure it's done well, and would like to have it done using github actions if possible. But until then, here's the general workflow. We're assuming any `bosh add-blobs` and `bosh upload-blobs` commands have been `git commit`'ed if blobs are changing, and now we're on the release process.
 
-NOTE: before cutting a new release, make sure that the contents of `src/yugabyte-additional/post_install.sh` have proper values of `ORIG_BREW_HOME` and `ORIG_LEN` and such depending on the upstream version of `yugabyte` being cut. Those values are created at packaging time as part of their release, and for the time being, we need to make sure the following is included in the `post_install.sh`:
-
-```sh
-distribution_dir=$(cd "$bin_dir/.." && pwd)
-if [[ -L $distribution_dir ]]; then
-  distribution_dir=$(realpath "$distribution_dir")
-fi
-```
-
-Anyway, here's the rest of the release process:
+NOTE: before cutting a new release, make sure that the contents of `src/yugabyte-additional/post_install.sh` have proper values of `ORIG_BREW_HOME` and `ORIG_LEN` and such depending on the upstream version of `yugabyte` being cut.
 
 ```sh
 cd yugabyte-boshrelease
