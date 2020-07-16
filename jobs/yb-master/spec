@@ -103,6 +103,8 @@ properties:
       Enables dynamic tablet splitting and sets the threshold on tablet size, in bytes, before each tablet splits.
       Value is the threshold size, in bytes, before each tablet should be split.
       Default value of 0 disables dynamic tablet splitting.
+      see: https://docs.yugabyte.com/latest/reference/configuration/yb-master/#tablet-split-size-threshold-bytes
+      see: https://github.com/yugabyte/yugabyte-db/blob/master/architecture/design/docdb-automatic-tablet-splitting.md
     default: 0
 
   durable_wal_write:
