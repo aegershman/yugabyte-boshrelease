@@ -8,7 +8,6 @@ processes:
     limits:
       open_files: <%= p("bpm.limits.open_files") %>
       processes: <%= p("bpm.limits.processes") %>
-    env:
-      RM_POST_INSTALL_COMPLETED_ON_STARTUP: <%= p("rm_post_install_completed_on_startup") %>
+    env: {}
     hooks:
       pre_start: /var/vcap/jobs/yb-tserver/bin/pre_start
