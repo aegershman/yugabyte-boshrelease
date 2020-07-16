@@ -35,7 +35,7 @@ patch_binary() {
 
 # Use pwd -P to resolve any symlinks on the path. Otherwise the find command at the bottom of this
 # script will not actually find any files.
-bin_dir=$(cd "${BASH_SOURCE%/*}" && pwd -P)
+bin_dir=$(cd "${BASH_SOURCE%/*}" && pwd)
 distribution_dir=$(cd "$bin_dir/.." && pwd -P)
 
 lib_dir="$distribution_dir/lib"
