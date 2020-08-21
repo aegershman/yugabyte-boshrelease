@@ -1,12 +1,16 @@
 openjdk/openjdk-1.8.0_265.tar.gz:
   size: 40822176
+  object_id: 5da3dd6b-1ac5-43ad-714e-d5f92c49ef5d
   sha: sha256:a754ed4e922630d18ec382e810460009a176e1cb9d2955b200e2dca972f6702e
 python/Python-2.7.6.tgz:
   size: 14725931
+  object_id: 7cea1a63-76ab-4418-6f9e-168094383342
   sha: sha256:99c6860b70977befa1590029fae092ddb18db1d69ae67e8b9385b66ed104ba58
 yugabyte/yb-sample-apps-1.2.1.jar:
   size: 12026031
+  object_id: a6cda8f6-e1df-48c4-65a4-592f9934d14a
   sha: sha256:414d29070b82db7dd31584e5b29715c618d44905e2840e4a98cc7f6b3f37e42d
-yugabyte/yugabyte-2.2.0.0-linux.tar.gz:
-  size: 486658790
-  sha: sha256:b81cd03beaf276567212507183c845e801000d42eb625c2fb945370e58c1ba27
+yugabyte/yugabyte-2.2.2.0-linux.tar.gz:
+  size: 481003789
+  object_id: 607d57d5-d621-493a-6fd6-fbc6f6bcd29f
+  sha: sha256:8f4b5509057646137197f2219a68e99eb9d72e5ac291194c07f6c8b2b098ce84
