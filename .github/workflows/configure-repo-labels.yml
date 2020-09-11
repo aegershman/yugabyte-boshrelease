@@ -6,10 +6,9 @@ on:
     paths:
       - .github/**/*
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: "0 */12 * * *"
   repository_dispatch:
     types: [configure-labels-event]
-
 
 jobs:
   configure-repo-labels:
