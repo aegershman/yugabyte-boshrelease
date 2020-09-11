@@ -1,5 +1,5 @@
 ---
-version: "2"
+version: "3"
 
 env:
   OPENJDK_VERSION: 1.8.0_265
