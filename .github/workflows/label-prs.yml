@@ -1,3 +1,4 @@
+# https://github.com/actions/labeler
 ---
 name: "label-prs"
 on: pull_request
@@ -6,6 +7,8 @@ jobs:
   label-prs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/labeler@v2
+      - uses: actions/labeler@2.2.0
         with:
+          configuration-path: .github/labeler.yml
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          sync-labels: false
