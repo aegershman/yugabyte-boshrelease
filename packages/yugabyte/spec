@@ -5,5 +5,4 @@ dependencies:
   - python
 
 files:
-  - yugabyte-additional/post_install.sh
   - yugabyte/yugabyte-*-linux.tar.gz
