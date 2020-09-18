@@ -4,11 +4,11 @@ This is a [BOSH](http://bosh.io/) release for [YugabyteDB](https://github.com/yu
 
 ## server-to-server tls
 
-TLS is currently under development. For the time being it's on by default, and `allow_insecure_connections: false` between nodes by default. You can opt-out using an operator file.
+TLS for server-to-server ("node-to-node", as in, traffic between `tserver` and/or `master` nodes) is on _and required_ by default, i.e. `allow_insecure_connections: false` by default. You can modify these properties using operator files.
 
 We use BOSH's credhub integration to generate individual certificates for both `master` and `tserver` instance groups leveraging [wildcard BOSH DNS values for the certificate SANs, meaning the actual hostname DNS values are handled automatically](https://bosh.io/docs/dns/). Since they're both signed by the same CA (by default located in credhub under `/services/tls_ca`, which is the CA for service instances which nearly all other service offerings in Cloud Foundry leverage for TLS), and each have the same `common_name`, they should be compatible with one another.
 
-[It's a bit unclear how `common_name` and `alternative_names` should be configured](https://docs.yugabyte.com/latest/secure/tls-encryption/server-certificates/). Is it completely arbitrary? Does the file name actually matter? Does it have to be related to the DNS hostname of each node instance? We'll all figure it out _together_ 💖
+[It's a bit unclear to me how `common_name` and `alternative_names` should be configured](https://docs.yugabyte.com/latest/secure/tls-encryption/server-certificates/). Is it completely arbitrary? Does the file name actually matter? Does it have to be related to the DNS hostname of each node instance? We'll all figure it out _together_ 💖
 
 For the moment we'll assume it's looking for the name to be the configured hostname of the individual host. We can assume this because of the following log line from `/var/vcap/sys/log/yb-master/yb-master.INFO`:
 
@@ -20,9 +20,9 @@ I0305 00:19:30.295537     6 secure.cc:102] Certs directory: /var/vcap/jobs/yb-ma
 
 ## client-to-server tls
 
-On by default, but `allow_insecure_connections: true` by default for optional use of TLS from clients. All settings can be configured using operator files.
+TLS for client-to-server (as in, from a client application using the universe) is on, but _not required_ by default, i.e. `allow_insecure_connections: true` by default for optional use of TLS from clients. You can modify these properties using operator files.
 
-[Also also `YEDIS` does not support client-server TLS](https://docs.yugabyte.com/latest/secure/tls-encryption/)
+[Note, `YEDIS` does not support client-to-server TLS](https://docs.yugabyte.com/latest/secure/tls-encryption/)
 
 ## regarding rpc_bind and broadcast_bind
 
