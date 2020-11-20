@@ -62,7 +62,7 @@ cd yugabyte-boshrelease
 
 # first of all, your workspace needs to be up-to-date and clean of dirty commits,
 # or else you'll commit something inadvertently to this release
-git pull origin master
+git pull origin main
 
 # to pull all blobs from s3 to local directory, if necessary
 bosh sync-blobs
@@ -84,15 +84,15 @@ git add -A
 git commit -m "release-x.y.z"
 git push origin release-x.y.z
 
-# squash 'n merge it into master
+# squash 'n merge it into main
 ```
 
 now for making the release available as an actual github release:
 
 ```sh
-# after squashing and merging into master...
-git checkout master
-git pull origin master
+# after squashing and merging into main...
+git checkout main
+git pull origin main
 
 # notice the lack of 'v' prefix. not a fan of it.
 git tag x.y.z
