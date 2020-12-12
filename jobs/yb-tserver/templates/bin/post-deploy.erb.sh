@@ -2,9 +2,19 @@
 
 set -eu
 
-echo "running post-deploy..."
+echo "$(date --rfc-3339=seconds) entering post-deploy..."
 
 source /var/vcap/packages/python*/bosh/runtime.env
+
+INDEX=<%= spec.index %>
+POST_DEPLOY_DELAY_FACTOR=<%= p('post_deploy_delay_factor') %>
+POST_DEPLOY_DELAY_SECONDS=$(expr ${POST_DEPLOY_DELAY_FACTOR} \* ${INDEX})
+
+echo "$(date --rfc-3339=seconds) post-deploy on node index ${INDEX} sleeping for ${POST_DEPLOY_DELAY_SECONDS} seconds before beginning post-deploy..."
+sleep "${POST_DEPLOY_DELAY_SECONDS}"
+echo "$(date --rfc-3339=seconds) post-deploy delay complete, running..."
+
+####################################
 
 echo "running post-deploy ycql rotate admin password check..."
 /var/vcap/jobs/yb-tserver/bin/ycql-rotate-default-admin-password.sh
