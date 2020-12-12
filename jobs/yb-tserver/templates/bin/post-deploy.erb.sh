@@ -8,7 +8,7 @@ source /var/vcap/packages/python*/bosh/runtime.env
 
 INDEX=<%= spec.index %>
 POST_DEPLOY_DELAY_FACTOR=<%= p('post_deploy_delay_factor') %>
-POST_DEPLOY_DELAY_SECONDS=$(expr ${POST_DEPLOY_DELAY_FACTOR} \* ${INDEX})
+POST_DEPLOY_DELAY_SECONDS="$((${POST_DEPLOY_DELAY_FACTOR} * ${INDEX}))"
 
 echo "$(date --rfc-3339=seconds) post-deploy on node index ${INDEX} sleeping for ${POST_DEPLOY_DELAY_SECONDS} seconds before beginning post-deploy..."
 sleep "${POST_DEPLOY_DELAY_SECONDS}"
