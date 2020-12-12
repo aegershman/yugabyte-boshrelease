@@ -66,6 +66,24 @@ properties:
       until then, the default will be the recommended 60 seconds.
       see also: https://docs.yugabyte.com/latest/manage/upgrade-deployment
     default: 60
+  post_deploy_delay_factor:
+    description: |
+      must be a whole number.
+      consider removing this property altogether a TODO.
+      multiplication factor used in the post-deploy hook to calculate how long each node should
+      sleep before attempting to run itself. this number is multipled by the node index to
+      calculate how long, in seconds, to sleep.
+      for example, given a delay factor of 5, on node index 0,
+      the node will sleep 0 seconds before running its post-deploy. meanwhile on node index 1,
+      the node will sleep for 5 seconds before running its post-deploy. and on node index 2, the
+      node will sleep for 10 seconds before running its post-deploy.
+      and for example, given a delay factor of 8, node index 0 sleeps for 0 seconds, index 1
+      sleeps for 8 seconds, index 2 sleeps for 16 seconds, and so on.
+      this is not the most incredible solution in the world, but it is a relatively okay
+      way to prevent nodes from stumbling over each other.
+      in the future it may be preferrable to have only a subset of nodes try to perform
+      post-deploy at all, but this should be an acceptable solution for the time being.
+    default: 10
 
   tls.allow_insecure_connections:
     description: |
