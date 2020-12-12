@@ -83,7 +83,7 @@ properties:
       way to prevent nodes from stumbling over each other.
       in the future it may be preferrable to have only a subset of nodes try to perform
       post-deploy at all, but this should be an acceptable solution for the time being.
-    default: 5
+    default: 10
 
   tls.allow_insecure_connections:
     description: |
