@@ -3,5 +3,5 @@ bpm_sha1: dcf0582d838a73de29da273552ae79ac3098ee8b
 bpm_version: 1.1.9
 syslog_release_sha1: c956394fce7e74f741e4ae8c256b480904ad5942
 syslog_release_version: 11.6.1
-yugabyte_boshrelease_sha1: a0b5166eb760db00771a16d70bd7c8e10c843420
-yugabyte_boshrelease_version: 0.4.5
+yugabyte_boshrelease_sha1: 3112db9b1cbb65bb6203d55f712485c7cf4cca07
+yugabyte_boshrelease_version: 0.4.6
