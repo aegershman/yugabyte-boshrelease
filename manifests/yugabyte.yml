@@ -150,8 +150,8 @@ variables:
 
 stemcells:
   - alias: default
-    os: ubuntu-xenial
-    version: 621.latest
+    os: ubuntu-bionic
+    version: latest
 
 update:
   canaries: 1
